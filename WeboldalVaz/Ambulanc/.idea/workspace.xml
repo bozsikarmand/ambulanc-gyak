@@ -20,10 +20,13 @@
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1QgsDYhsMdqwMtsBSPaGS4d1j0j" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,6 +59,7 @@
       <updated>1568203455269</updated>
       <workItem from="1568203458274" duration="10839000" />
       <workItem from="1568217875745" duration="4634000" />
+      <workItem from="1568279329713" duration="1667000" />
     </task>
     <servers />
   </component>
