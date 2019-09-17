@@ -25,3 +25,79 @@
  | N     | ErkDatumIdo | DATETIME  | nem korlatozom | A rendszeres ut erkezesi idopontja |
  | N     | ErkVaros    | VARCHAR   | 32 karakter    | A rendszeres ut erkezesi varosa    |
  | N     | Hely        | TINYINT   | 255            | A ferohelyek szama                 |
+
+ ## 3. Ut
+
+ | Kulcs | Nev           | Adattipus  | Limit          | Megjegyzes             |
+ | :---- | :------------ | :--------- | :------------- | ---------------------- |
+ | I     | ID            | INT        | 4294967295     | Az ut azonositoja      |
+ | N     | Indulas       | DATETIME   | nem korlatozom | Az ut indulo varosa    |
+ | N     | Erkezes       | DATETIME   | nem korlatozom | Az ut erkezo varosa    |
+ | N     | Surgos        | TINYINT(1) | 0/1            | Surgosseg jelzese      |
+ | N     | Allapot       | VARCHAR    | 100 karakter   | Allapot                |
+ | N     | AtadoSzemely  | VARCHAR    | 6100 karakter  | Az atado szemely neve  |
+ | N     | AtvevoSzemely | VARCHAR    | 6100 karakter  | Az atvevo szemely neve |
+
+ ## 4. Szallitas
+
+ | Kulcs | Nev     | Adattipus  | Limit        | Megjegyzes              |
+ | :---- | :------ | :--------- | :----------- | ----------------------- |
+ | I     | ID      | INT        | 4294967295   | Az ut azonositoja       |
+ | N     | Szakasz | TINYINT(2) | 32           | Az ut aktualis szakasza |
+ | N     | Allapot | VARCHAR    | 100 karakter | Allapot                 |
+
+ ## 5. Allomas
+
+ | Kulcs | Nev               | Adattipus | Limit          | Megjegyzes                                                         |
+ | :---- | :---------------- | :-------- | :------------- | ------------------------------------------------------------------ |
+ | I     | ID                | INT       | 4294967295     | Az allomas azonositoja                                             |
+ | N     | IRSZ              | SMALLINT  | 9000           | Az allomas iranyitoszama                                           |
+ | N     | Varos             | VARCHAR   | 32 karakter    | Az allomas varosa                                                  |
+ | N     | KozteruletNeve    | VARCHAR   | 48 karakter    | Az allomashoz megadott kozterulet neve                             |
+ | N     | KozteruletJellege | VARCHAR   | 48 karakter    | Az allomashoz megadott kozterulet tipusa (pl. utca, ter, ut, stb.) |
+ | N     | Hazszam           | INT       | 4294967295     | Az allomashoz megadott hazszam                                     |
+ | N     | Epulet            | VARCHAR   | 2000 karakter  | Az allomashoz megadott epulet                                      |
+ | N     | KoordSz           | DOUBLE    | nem korlatozom | Az allomas szelessegi koordinataja                                 |
+ | N     | KoordH            | DOUBLE    | nem korlatozom | Az allomas hosszusagi koordinataja                                 |
+
+## 6. Allat
+
+ | Kulcs | Nev       | Adattipus  | Limit          | Megjegyzes                     |
+ | :---- | :-------- | :--------- | :------------- | ------------------------------ |
+ | I     | ID        | INT        | 4294967295     | Az allat azonositoja           |
+ | N     | Faj       | VARCHAR    | 9000 karakter  | Az allatfaj megnevezese        |
+ | N     | HordozoSz | SMALLINT   | nem korlatozom | A hordozo szelessege           |
+ | N     | HordozoM  | SMALLINT   | nem korlatozom | A hordozo magassaga            |
+ | N     | HordozoH  | SMALLINT   | nem korlatozom | A hordozo hosszusaga           |
+ | N     | Veszelyes | TINYINT(1) | 0/1            | Az allat(ok) veszelyes(ek)-e   |
+ | N     | Sulyos    | TINYINT(1) | 0/1            | Az allat(ok) allapota sulyos-e |
+ | N     | EgyedSzam | TINYINT    | nem korlatozom | A szallitando egyedek szama    |
+
+ ## 7. Jog
+
+ | Kulcs | Nev  | Adattipus | Limit         | Megjegyzes        |
+ | :---- | :--- | :-------- | :------------ | ----------------- |
+ | I     | ID   | INT       | 4294967295    | A jog azonositoja |
+ | N     | Faj  | VARCHAR   | 9000 karakter | A jog megnevezese |
+
+ ## 8. Jelszo
+
+ | Kulcs | Nev  | Adattipus | Limit          | Megjegyzes           |
+ | :---- | :--- | :-------- | :------------- | -------------------- |
+ | I     | ID   | INT       | 4294967295     | A jelszo azonositoja |
+ | N     | Faj  | VARCHAR   | nem korlatozom | A jelszo hash        |
+
+ ## 9. Kapcsoldik 
+
+ | Kulcs | Nev       | Adattipus | Limit      | Megjegyzes            |
+ | :---- | :-------- | :-------- | :--------- | --------------------- |
+ | I     | UtID      | INT       | 4294967295 | Az ut azonositoja     |
+ | I     | SzemelyID | INT       | 4294967295 | A szemely azonositoja |
+
+ ## 9. Visz 
+
+ | Kulcs | Nev     | Adattipus | Limit      | Megjegyzes           |
+ | :---- | :------ | :-------- | :--------- | -------------------- |
+ | I     | UtID    | INT       | 4294967295 | Az ut azonositoja    |
+ | I     | AllatID | INT       | 4294967295 | Az allat azonositoja |
+

@@ -14,7 +14,7 @@ Ut(__ID__, Indulas, Erkezes, Surgos, Allapot, AtadoSzemely, AtvevoSzemely)
 
 Szallitas(__ID__, Szakasz, Allapot)
 
-Allomas(__ID__, Varos, KozteruletNeve, KozteruletJellege, Hazszam, Epulet, KoordSz, KoordH)
+Allomas(__ID__, Varos, IRSZ, KozteruletNeve, KozteruletJellege, Hazszam, Epulet, KoordSz, KoordH)
 
 Allat(__ID__, Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
 
