@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,7 @@
       <workItem from="1568283356692" duration="2710000" />
       <workItem from="1568291533168" duration="658000" />
       <workItem from="1568301337995" duration="874000" />
+      <workItem from="1568708227378" duration="497000" />
     </task>
     <task id="LOCAL-00001" summary="Teszt PHPStormbol">
       <created>1568285625045</created>
