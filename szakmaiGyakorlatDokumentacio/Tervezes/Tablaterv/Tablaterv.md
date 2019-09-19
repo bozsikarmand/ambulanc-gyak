@@ -1,5 +1,9 @@
 # Tablaterv
-## 1. Szemely
+
+> Az atlathatosag miatt az N:M kapcsolatok letrejovo kapcsolotablajat nem az EK-ban megadott neven jeloltem, hanem egy beszedesebben. Elotte jeleztem viszont hogy mikent neveztem az EK-ban a kapcsolatot
+
+## Egyedek
+### 1. Szemely
 
 | Kulcs | Nev               | Adattipus | Limit         | Megjegyzes                                                          |
 | :---- | :---------------- | :-------- | :------------ | ------------------------------------------------------------------- |
@@ -15,7 +19,7 @@
 | N     | KozteruletJellege | VARCHAR   | 48 karakter   | A szemely altal megadott kozterulet tipus (pl. utca, ter, ut, stb.) |
 | N     | Hazszam           | INT       | 4294967295    | A szemely altal megadott hazszam                                    |
 
-## 2. RendszeresUt
+### 2. RendszeresUt
 
  | Kulcs | Nev         | Adattipus | Limit          | Megjegyzes                         |
  | :---- | :---------- | :-------- | :------------- | ---------------------------------- |
@@ -26,7 +30,7 @@
  | N     | ErkVaros    | VARCHAR   | 32 karakter    | A rendszeres ut erkezesi varosa    |
  | N     | Hely        | TINYINT   | 255            | A ferohelyek szama                 |
 
- ## 3. Ut
+ ### 3. Ut
 
  | Kulcs | Nev           | Adattipus  | Limit          | Megjegyzes             |
  | :---- | :------------ | :--------- | :------------- | ---------------------- |
@@ -38,7 +42,7 @@
  | N     | AtadoSzemely  | VARCHAR    | 6100 karakter  | Az atado szemely neve  |
  | N     | AtvevoSzemely | VARCHAR    | 6100 karakter  | Az atvevo szemely neve |
 
- ## 4. Szallitas
+ ### 4. Szallitas
 
  | Kulcs | Nev     | Adattipus  | Limit        | Megjegyzes              |
  | :---- | :------ | :--------- | :----------- | ----------------------- |
@@ -46,7 +50,7 @@
  | N     | Szakasz | TINYINT(2) | 32           | Az ut aktualis szakasza |
  | N     | Allapot | VARCHAR    | 100 karakter | Allapot                 |
 
- ## 5. Allomas
+ ### 5. Allomas
 
  | Kulcs | Nev               | Adattipus | Limit          | Megjegyzes                                                         |
  | :---- | :---------------- | :-------- | :------------- | ------------------------------------------------------------------ |
@@ -60,7 +64,7 @@
  | N     | KoordSz           | DOUBLE    | nem korlatozom | Az allomas szelessegi koordinataja                                 |
  | N     | KoordH            | DOUBLE    | nem korlatozom | Az allomas hosszusagi koordinataja                                 |
 
-## 6. Allat
+### 6. Allat
 
  | Kulcs | Nev       | Adattipus  | Limit          | Megjegyzes                     |
  | :---- | :-------- | :--------- | :------------- | ------------------------------ |
@@ -73,31 +77,59 @@
  | N     | Sulyos    | TINYINT(1) | 0/1            | Az allat(ok) allapota sulyos-e |
  | N     | EgyedSzam | TINYINT    | nem korlatozom | A szallitando egyedek szama    |
 
- ## 7. Jog
+ ### 7. Jog
 
  | Kulcs | Nev  | Adattipus | Limit         | Megjegyzes        |
  | :---- | :--- | :-------- | :------------ | ----------------- |
  | I     | ID   | INT       | 4294967295    | A jog azonositoja |
- | N     | Faj  | VARCHAR   | 9000 karakter | A jog megnevezese |
+ | N     | Nev  | VARCHAR   | 9000 karakter | A jog megnevezese |
 
- ## 8. Jelszo
+ ### 8. Jelszo
 
  | Kulcs | Nev  | Adattipus | Limit          | Megjegyzes           |
  | :---- | :--- | :-------- | :------------- | -------------------- |
  | I     | ID   | INT       | 4294967295     | A jelszo azonositoja |
- | N     | Faj  | VARCHAR   | nem korlatozom | A jelszo hash        |
+ | N     | Hash | VARCHAR   | nem korlatozom | A jelszo hash        |
 
- ## 9. Kapcsoldik 
+### 9. Napok
 
- | Kulcs | Nev       | Adattipus | Limit      | Megjegyzes            |
- | :---- | :-------- | :-------- | :--------- | --------------------- |
- | I     | UtID      | INT       | 4294967295 | Az ut azonositoja     |
- | I     | SzemelyID | INT       | 4294967295 | A szemely azonositoja |
+| Kulcs | Nev  | Adattipus | Limit      | Megjegyzes        |
+| :---- | :--- | :-------- | :--------- | ----------------- |
+| I     | ID   | INT       | 4294967295 | A nap azonositoja |
+| N     | Nap  | VARCHAR   | 9          | A nap neve        |
 
- ## 9. Visz 
+## N:M kapcsolatok
+### 1. RendszeresUtNapok 
+
+ | Kulcs | Nev            | Adattipus | Limit      | Megjegyzes                  |
+ | :---- | :------------- | :-------- | :--------- | --------------------------- |
+ | I     | RendszeresUtID | INT       | 4294967295 | A rendszeres ut azonositoja |
+ | I     | NapokID        | INT       | 4294967295 | A nap azonositoja           |
+
+### 2. SzemelyekUtjai
+
+| Kulcs | Nev            | Adattipus | Limit      | Megjegyzes                  |
+| :---- | :------------- | :-------- | :--------- | --------------------------- |
+| I     | SzemelyID      | INT       | 4294967295 | A szemely azonositoja       |
+| I     | RendszeresUtID | INT       | 4294967295 | A rendszeres ut azonositoja |
+
+### 3. AllatUton 
 
  | Kulcs | Nev     | Adattipus | Limit      | Megjegyzes           |
  | :---- | :------ | :-------- | :--------- | -------------------- |
  | I     | UtID    | INT       | 4294967295 | Az ut azonositoja    |
  | I     | AllatID | INT       | 4294967295 | Az allat azonositoja |
 
+ ### 4. SzemelyJog
+
+| Kulcs | Nev       | Adattipus | Limit      | Megjegyzes            |
+| :---- | :-------- | :-------- | :--------- | --------------------- |
+| I     | SzemelyID | INT       | 4294967295 | A szemely azonositoja |
+| I     | JogID     | INT       | 4294967295 | A jog azonositoja     |
+
+### 5. AllatSzallitas
+
+| Kulcs | Nev     | Adattipus | Limit      | Megjegyzes           |
+| :---- | :------ | :-------- | :--------- | -------------------- |
+| I     | UtID    | INT       | 4294967295 | Az ut azonositoja    |
+| I     | AllatID | INT       | 4294967295 | Az allat azonositoja |
