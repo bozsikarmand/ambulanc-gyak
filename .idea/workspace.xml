@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="" />
+    <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +28,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1QgsDYhsMdqwMtsBSPaGS4d1j0j" />
@@ -34,6 +41,9 @@
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\InfGit\ambulanc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bozsi\PhpstormProjects\Ambulanc\uploads" />
       <recent name="C:\Users\bozsi\PhpstormProjects\Ambulanc" />
@@ -69,6 +79,12 @@
       <workItem from="1568291533168" duration="658000" />
       <workItem from="1568301337995" duration="874000" />
       <workItem from="1568708227378" duration="497000" />
+      <workItem from="1568986638212" duration="964000" />
+      <workItem from="1568988555393" duration="504000" />
+      <workItem from="1568989296546" duration="500000" />
+      <workItem from="1568989812234" duration="380000" />
+      <workItem from="1568991444445" duration="10000" />
+      <workItem from="1568991477641" duration="446000" />
     </task>
     <task id="LOCAL-00001" summary="Teszt PHPStormbol">
       <created>1568285625045</created>
@@ -97,6 +113,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="G:" />
+      <path value="G:/" />
+    </ignored-roots>
     <MESSAGE value="Teszt PHPStormbol" />
     <option name="LAST_COMMIT_MESSAGE" value="Teszt PHPStormbol" />
   </component>

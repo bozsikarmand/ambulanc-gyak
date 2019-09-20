@@ -15,7 +15,7 @@
 <body>
 <form class="form-signin">
     <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataid megadásával!</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataiddd megadásával!</h1>
     </div>
 
     <div class="row">
@@ -64,28 +64,6 @@
             </div>
         </div>
         <div class="col">
-            <label for="selectEndCity">Kérlek válaszd ki rendszeres utad céltelepülését:</label>
-
-            <!-- TODO: Ebbe a selectbe majd bekerul dinamikusan egy varoslista, innen: http://webdraft.eu/orszagok_varosok/ -->
-            <select class="form-control select2" id="selectEndCity">
-                <option>Budapest</option>
-                <option>Szeged</option>
-                <option>Győr</option>
-                <option>Kecskemét</option>
-                <option>Pécs</option>
-            </select>
-
-            <label for="selectStartCity">Kérlek válaszd ki rendszeres utad kezdőtelepülését:</label>
-
-            <!-- TODO: Ebbe a selectbe majd bekerul dinamikusan egy varoslista, innen: http://webdraft.eu/orszagok_varosok/ -->
-            <select class="form-control select2" id="selectStartCity">
-                <option>Budapest</option>
-                <option>Szeged</option>
-                <option>Győr</option>
-                <option>Kecskemét</option>
-                <option>Pécs</option>
-            </select>
-
             <div class="form-label-group">
                 <input type="text" id="inputPublicPlaceName" class="form-control"
                        placeholder="A közterület neve ahol laksz:" required>
@@ -128,8 +106,5 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/select2.min.js"></script>
-<script>
-    $('.select2').select2();
-</script>
 </body>
 </html>
