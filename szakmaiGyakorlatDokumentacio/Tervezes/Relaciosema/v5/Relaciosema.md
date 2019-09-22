@@ -3,6 +3,8 @@
 * A szabvanytol elteroen az elsodleges kulcsokat csak vastagitottam
 * [szoveg] -> Kulso kulcs 
 
+> Az atlathatosag miatt az N:M kapcsolatok letrejovo kapcsolotablajat nem az EK-ban megadott neven jeloltem, hanem egy beszedesebben. Elotte jeleztem viszont hogy mikent neveztem az EK-ban a kapcsolatot
+
 Egyedek:
 ---
 
