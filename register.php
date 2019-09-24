@@ -36,6 +36,16 @@
             </div>
 
             <div class="form-label-group">
+                <input type="text" id="inputMobileTel" class="form-control" placeholder="Vezetékes telefon" required autofocus>
+                <label for="inputMobileTel">Vezetékes telefon</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputMobileTel" class="form-control" placeholder="Mobil telefon" required autofocus>
+                <label for="inputMiddlename">Mobil telefon</label>
+            </div>
+
+            <div class="form-label-group">
                 <input type="text" id="inputUsername" class="form-control" placeholder="Felhasználónév" required
                        autofocus>
                 <label for="inputUsername">Felhasználónév</label>
