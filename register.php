@@ -15,7 +15,7 @@
 <body>
 <form class="form-signin">
     <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataiddd megadásával!</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataid megadásával!</h1>
     </div>
 
     <div class="row">
