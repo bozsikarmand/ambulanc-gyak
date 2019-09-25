@@ -12,18 +12,18 @@
     </style>
 </head>
 <body>
-    <form class="form-signin" action="core/authentication/authentication.php">
+    <form class="form-signin" action="core/authentication/authentication.php" method="post">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Kérlek jelentkezz be!</h1>
         </div>
 
         <div class="form-label-group">
-            <input type="text" id="inputUsername" class="form-control" placeholder="Felhasználónév" required autofocus>
+            <input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="Felhasználónév" required autofocus>
             <label for="inputUsername">Felhasználónév</label>
         </div>
 
         <div class="form-label-group">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Jelszó" required>
+            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Jelszó" required>
             <label for="inputPassword">Jelszó</label>
         </div>
 

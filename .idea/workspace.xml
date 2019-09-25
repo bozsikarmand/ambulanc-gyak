@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/core/database/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/authentication/authentication.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/authentication/authentication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,6 +90,7 @@
       <workItem from="1569342734864" duration="755000" />
       <workItem from="1569343814741" duration="4100000" />
       <workItem from="1569398428903" duration="2073000" />
+      <workItem from="1569402115312" duration="1921000" />
     </task>
     <task id="LOCAL-00001" summary="Teszt PHPStormbol">
       <created>1568285625045</created>

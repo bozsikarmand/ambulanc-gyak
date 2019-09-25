@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="01f83f3e-59b2-4771-a07a-bf5c189ce19f" name="Apache (project level)" url="http://localhost/ambulanc">
+      <webServer id="01f83f3e-59b2-4771-a07a-bf5c189ce19f" name="Apache (project level)" url="http://localhost/">
         <fileTransfer port="0" mountedRoot="G:\InfGit\ambulanc" accessType="MOUNT" />
       </webServer>
     </option>
