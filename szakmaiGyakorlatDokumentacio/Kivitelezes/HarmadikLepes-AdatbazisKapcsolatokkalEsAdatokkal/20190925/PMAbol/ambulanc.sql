@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2019 at 06:23 PM
+-- Generation Time: Sep 25, 2019 at 06:27 PM
 -- Server version: 5.6.45
 -- PHP Version: 7.2.7
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ambulanc`
 --
+CREATE DATABASE IF NOT EXISTS `ambulanc` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `ambulanc`;
 
 -- --------------------------------------------------------
 
