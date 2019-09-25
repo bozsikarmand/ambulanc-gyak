@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <form class="form-signin">
+    <form class="form-signin" action="core/authentication/authentication.php">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Kérlek jelentkezz be!</h1>
         </div>

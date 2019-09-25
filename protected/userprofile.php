@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Főoldal</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.min.css">
+</head>
+<body>
+<div class="container-fullwidth">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="navbar-nav">
+                <a class="nav-item">
+                    <a class="nav-link" href="#">Felhasználók</a>
+                </a>
+                <a class="nav-item">
+                    <a class="nav-link" href="#">Állatok</a>
+                </a>
+                <a class="nav-item">
+                    <a class="nav-link" href="#">Utak</a>
+                </a>
+                <a class="nav-item">
+                    <a class="nav-link" href="#">Állomások</a>
+                </a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <div class="btn-group">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Kijelentkezés
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase"></h5>
+                    <p></p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">© 2019 Ambulánc
+            <a href="#"></a>
+        </div>
+    </footer>
+</div>
+<script src="../assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+</body>
+</html>
