@@ -95,7 +95,7 @@
             </div>
             <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheckBoxPP" name="aggree-pp">
-                <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="#">adatvédelmi nyiltakozatot</a></label>
+                <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="#">adatvédelmi nyilatkozatot</a></label>
             </div>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
