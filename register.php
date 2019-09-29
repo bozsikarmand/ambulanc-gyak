@@ -26,28 +26,27 @@
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputLastname" class="form-control" placeholder="Keresztnév" required autofocus>
+                <input type="text" id="inputLastname" class="form-control" placeholder="Keresztnév" required>
                 <label for="inputLastname">Keresztnév</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputMiddlename" class="form-control" placeholder="Utónév" required autofocus>
+                <input type="text" id="inputMiddlename" class="form-control" placeholder="Utónév" required>
                 <label for="inputMiddlename">Utónév</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputMobileTel" class="form-control" placeholder="Vezetékes telefon" required autofocus>
-                <label for="inputMobileTel">Vezetékes telefon</label>
+                <input type="text" id="inputLandlineTel" class="form-control" placeholder="Vezetékes telefon" required>
+                <label for="inputLandlineTel">Vezetékes telefon</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputMobileTel" class="form-control" placeholder="Mobil telefon" required autofocus>
+                <input type="text" id="inputMobileTel" class="form-control" placeholder="Mobil telefon" required>
                 <label for="inputMiddlename">Mobil telefon</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputUsername" class="form-control" placeholder="Felhasználónév" required
-                       autofocus>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Felhasználónév" required>
                 <label for="inputUsername">Felhasználónév</label>
             </div>
 
