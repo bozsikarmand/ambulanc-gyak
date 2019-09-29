@@ -56,9 +56,7 @@
             </div>
 
             <div class="form-label-group">
-                <input type="password" id="inputPasswordConfirmation" class="form-control"
-                       placeholder="Jelszó ellenörzése"
-                       required>
+                <input type="password" id="inputPasswordConfirmation" class="form-control" placeholder="Jelszó ellenörzése" required>
                 <label for="inputPasswordConfirmation">Jelszó ellenörzése</label>
             </div>
 
@@ -71,29 +69,33 @@
             <div class="form-label-group">
                 <input type="text" id="inputPublicPlaceName" class="form-control"
                        placeholder="A közterület neve ahol laksz:" required>
-                <label for="inputPublicPlaceName">A közterület neve ahol laksz:</label>
+                <label for="inputPublicPlaceName">A közterület neve ahol laksz</label>
             </div>
 
             <div class="form-label-group">
                 <input type="text" id="inputPublicPlaceTrait" class="form-control" placeholder="A közterület jellege:"
                        required>
-                <label for="inputPublicPlaceTrait">A közterület jellege:</label>
+                <label for="inputPublicPlaceTrait">A közterület jellege</label>
             </div>
 
             <div class="form-label-group">
-                <input type="text" id="inputHouseNumber" class="form-control" placeholder="Házszám:" required>
+                <input type="text" id="inputHouseNumber" class="form-control" placeholder="Házszám" required>
                 <label for="inputHouseNumber">Házszám:</label>
             </div>
 
             <div class="form-label-group">
                 <input type="text" id="inputBuildingMarker" class="form-control" placeholder="Épület:">
-                <label for="inputBuildingMarker">Épület:</label>
+                <label for="inputBuildingMarker">Épület</label>
             </div>
 
             <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheckBoxTOS" name="aggree-tos">
                 <label class="custom-control-label" for="customCheckBoxTOS"> Elfogadom a <a href="#">felhasználási
                     feltételeket</a></label>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheckBoxPP" name="aggree-pp">
+                <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="#">adatvédelmi nyiltakozatot</a></label>
             </div>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">
