@@ -12,6 +12,11 @@
     </style>
 </head>
 <body>
+    <?php
+        if ($loginErrorMessage != "") {
+            echo '<div class="alert alert-danger"><strong>Hiba: </strong> '. $loginErrorMessage . '</div>';
+        }
+    ?>
     <form class="form-signin" action="core/authentication/authentication.php" method="post">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Kérlek jelentkezz be!</h1>

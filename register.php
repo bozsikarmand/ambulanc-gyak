@@ -13,6 +13,11 @@
     </style>
 </head>
 <body>
+<?php
+    if ($registerErrorMessage != "") {
+        echo '<div class="alert alert-danger"><strong>Hiba: </strong> '. $registerErrorMessage . '</div>';
+    }
+?>
 <form class="form-signin">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataid megadásával!</h1>

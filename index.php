@@ -47,7 +47,6 @@
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
-            <li data-target="#carousel" data-slide-to="3"></li>
         </ul>
 
         <div class="carousel-inner">
@@ -59,9 +58,6 @@
             </div>
             <div class="carousel-item">
                 <img src="uploads/images/carousel/3.jpg" alt="Bird3" width="1100" height="732">
-            </div>
-            <div class="carousel-item">
-                <img src="uploads/images/carousel/4.jpg" alt="Bird4" width="1100" height="733">
             </div>
         </div>
 
