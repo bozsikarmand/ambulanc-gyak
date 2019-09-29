@@ -21,14 +21,14 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <div class="navbar-nav">
-                <a class="nav-item">
+            <ul class="navbar-nav">
+                <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
-                </a>
-                <a class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
-                </a>
-            </div>
+                </li>
+            </ul>
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <a href="login.php" class="btn btn-secondary">
