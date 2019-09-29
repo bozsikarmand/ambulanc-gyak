@@ -66,11 +66,6 @@
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email cím" required>
                 <label for="inputEmail">Email cím</label>
             </div>
-
-            <div class="form-label-group">
-                <input type="tel" id="inputTelephone" class="form-control" placeholder="Telefonszám" required>
-                <label for="inputTelephone">Telefonszám</label>
-            </div>
         </div>
         <div class="col">
             <div class="form-label-group">
