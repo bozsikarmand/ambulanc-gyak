@@ -80,7 +80,7 @@
 
             <div class="form-label-group">
                 <input type="text" id="inputHouseNumber" class="form-control" placeholder="Házszám" required>
-                <label for="inputHouseNumber">Házszám:</label>
+                <label for="inputHouseNumber">Házszám</label>
             </div>
 
             <div class="form-label-group">
