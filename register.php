@@ -52,6 +52,7 @@
     <button class="btn btn-lg btn-secondary btn-block" name="button-sign-in" type="submit">
         <i class="fas fa-sign-in-alt"></i> Már rendelkezem felhasználói fiókkal
     </button>
+    <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
