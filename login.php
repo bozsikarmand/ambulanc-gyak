@@ -12,29 +12,19 @@
     </style>
 </head>
 <body>
-    <?php
-        if ($loginErrorMessage != "") {
-            echo '<div class="alert alert-danger"><strong>Hiba: </strong> '. $loginErrorMessage . '</div>';
-        }
-    ?>
     <form class="form-signin" action="core/authentication/authentication.php" method="post">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Kérlek jelentkezz be!</h1>
         </div>
 
         <div class="form-label-group">
-            <input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="Felhasználónév" required autofocus>
-            <label for="inputUsername">Felhasználónév</label>
+            <input type="text" name="inputLoginEmail" id="inputLoginEmail" class="form-control" placeholder="Belépési email cim" required autofocus>
+            <label for="inputLoginEmail">Belépési email cim</label>
         </div>
 
         <div class="form-label-group">
             <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Jelszó" required>
             <label for="inputPassword">Jelszó</label>
-        </div>
-
-        <div class="custom-control custom-checkbox mb-3">
-            <input type="checkbox" class="custom-control-input" id="customCheckBoxRememberMe" name="remember-me">
-            <label class="custom-control-label" for="customCheckBoxRememberMe"> Emlékezz rám</label>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">
