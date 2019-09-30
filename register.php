@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-<form class="form-signin">
+<form class="form-signin" action="core/authentication/register.php" method="post">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataid megadásával!</h1>
     </div>
