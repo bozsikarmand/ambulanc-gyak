@@ -13,8 +13,8 @@
 
 
 -- Dumping database structure for ambulanc
-CREATE DATABASE IF NOT EXISTS `bozsika_ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `bozsika_ambulanc`;
+CREATE DATABASE IF NOT EXISTS `ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+USE `ambulanc`;
 
 -- Dumping structure for table ambulanc.allat
 CREATE TABLE IF NOT EXISTS `allat` (
@@ -30,7 +30,6 @@ CREATE TABLE IF NOT EXISTS `allat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Allatok tarolasa';
 
 -- Dumping data for table ambulanc.allat: ~0 rows (approximately)
-DELETE FROM `allat`;
 /*!40000 ALTER TABLE `allat` DISABLE KEYS */;
 /*!40000 ALTER TABLE `allat` ENABLE KEYS */;
 
@@ -41,7 +40,6 @@ CREATE TABLE IF NOT EXISTS `allatszallitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Allatok szallitasa';
 
 -- Dumping data for table ambulanc.allatszallitas: ~0 rows (approximately)
-DELETE FROM `allatszallitas`;
 /*!40000 ALTER TABLE `allatszallitas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `allatszallitas` ENABLE KEYS */;
 
@@ -52,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `allatuton` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Uton levo allat vagy allatok';
 
 -- Dumping data for table ambulanc.allatuton: ~0 rows (approximately)
-DELETE FROM `allatuton`;
 /*!40000 ALTER TABLE `allatuton` DISABLE KEYS */;
 /*!40000 ALTER TABLE `allatuton` ENABLE KEYS */;
 
@@ -71,19 +68,29 @@ CREATE TABLE IF NOT EXISTS `allomas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Allomasok tablaja';
 
 -- Dumping data for table ambulanc.allomas: ~0 rows (approximately)
-DELETE FROM `allomas`;
 /*!40000 ALTER TABLE `allomas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `allomas` ENABLE KEYS */;
+
+-- Dumping structure for table ambulanc.email
+CREATE TABLE IF NOT EXISTS `email` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BelepesiEmail` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PublikusEmail` varchar(254) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek email cimei';
+
+-- Dumping data for table ambulanc.email: ~0 rows (approximately)
+/*!40000 ALTER TABLE `email` DISABLE KEYS */;
+/*!40000 ALTER TABLE `email` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.jelszo
 CREATE TABLE IF NOT EXISTS `jelszo` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `JelszoHash` varchar(10240) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Jelszavak hash-einek tarolasa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Jelszavak hash-einek tarolasa';
 
 -- Dumping data for table ambulanc.jelszo: ~0 rows (approximately)
-DELETE FROM `jelszo`;
 /*!40000 ALTER TABLE `jelszo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `jelszo` ENABLE KEYS */;
 
@@ -95,7 +102,6 @@ CREATE TABLE IF NOT EXISTS `jog` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='A lehetseges jogosultsagok tablaja';
 
 -- Dumping data for table ambulanc.jog: ~2 rows (approximately)
-DELETE FROM `jog`;
 /*!40000 ALTER TABLE `jog` DISABLE KEYS */;
 INSERT INTO `jog` (`ID`, `Nev`) VALUES
 	(1, 'Állatok adminisztrációja'),
@@ -110,7 +116,6 @@ CREATE TABLE IF NOT EXISTS `napok` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Napok tarolasa';
 
 -- Dumping data for table ambulanc.napok: ~0 rows (approximately)
-DELETE FROM `napok`;
 /*!40000 ALTER TABLE `napok` DISABLE KEYS */;
 /*!40000 ALTER TABLE `napok` ENABLE KEYS */;
 
@@ -129,7 +134,6 @@ CREATE TABLE IF NOT EXISTS `rendszeresut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Rendszeres utak jegyzeke';
 
 -- Dumping data for table ambulanc.rendszeresut: ~0 rows (approximately)
-DELETE FROM `rendszeresut`;
 /*!40000 ALTER TABLE `rendszeresut` DISABLE KEYS */;
 /*!40000 ALTER TABLE `rendszeresut` ENABLE KEYS */;
 
@@ -140,7 +144,6 @@ CREATE TABLE IF NOT EXISTS `rendszeresutnapok` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Rendszeres utak napjai';
 
 -- Dumping data for table ambulanc.rendszeresutnapok: ~0 rows (approximately)
-DELETE FROM `rendszeresutnapok`;
 /*!40000 ALTER TABLE `rendszeresutnapok` DISABLE KEYS */;
 /*!40000 ALTER TABLE `rendszeresutnapok` ENABLE KEYS */;
 
@@ -153,35 +156,33 @@ CREATE TABLE IF NOT EXISTS `szallitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szallitasok jegyzeke';
 
 -- Dumping data for table ambulanc.szallitas: ~0 rows (approximately)
-DELETE FROM `szallitas`;
 /*!40000 ALTER TABLE `szallitas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `szallitas` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.szemely
 CREATE TABLE IF NOT EXISTS `szemely` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Vezeteknev` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Keresztnev` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Utonev` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Felhasznalonev` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `VezetekesTel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `MobilTel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `IRSZ` smallint(4) NOT NULL,
-  `Varos` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `KozteruletNeve` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `KozteruletJellege` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Hazszam` int(11) NOT NULL,
-  `Epulet` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Vezeteknev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Keresztnev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Utonev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `VezetekesTel` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `MobilTel` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `IRSZ` smallint(4) DEFAULT NULL,
+  `Varos` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `KozteruletNeve` varchar(48) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `KozteruletJellege` varchar(48) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Hazszam` int(11) DEFAULT NULL,
+  `Epulet` varchar(48) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Statusz` tinyint(4) NOT NULL DEFAULT '0',
   `HitelesitoKod` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`),
+  CONSTRAINT `FK_szemely_email` FOREIGN KEY (`ID`) REFERENCES `email` (`ID`),
   CONSTRAINT `FK_szemely_jelszo` FOREIGN KEY (`ID`) REFERENCES `jelszo` (`ID`),
   CONSTRAINT `FK_szemely_szemelyjog` FOREIGN KEY (`ID`) REFERENCES `szemelyjog` (`SzemelyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek tarolasa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek tarolasa';
 
 -- Dumping data for table ambulanc.szemely: ~0 rows (approximately)
-DELETE FROM `szemely`;
 /*!40000 ALTER TABLE `szemely` DISABLE KEYS */;
 /*!40000 ALTER TABLE `szemely` ENABLE KEYS */;
 
@@ -193,7 +194,6 @@ CREATE TABLE IF NOT EXISTS `szemelyekutjai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek utjai';
 
 -- Dumping data for table ambulanc.szemelyekutjai: ~0 rows (approximately)
-DELETE FROM `szemelyekutjai`;
 /*!40000 ALTER TABLE `szemelyekutjai` DISABLE KEYS */;
 /*!40000 ALTER TABLE `szemelyekutjai` ENABLE KEYS */;
 
@@ -205,7 +205,6 @@ CREATE TABLE IF NOT EXISTS `szemelyjog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek jogai';
 
 -- Dumping data for table ambulanc.szemelyjog: ~0 rows (approximately)
-DELETE FROM `szemelyjog`;
 /*!40000 ALTER TABLE `szemelyjog` DISABLE KEYS */;
 /*!40000 ALTER TABLE `szemelyjog` ENABLE KEYS */;
 
@@ -217,7 +216,6 @@ CREATE TABLE IF NOT EXISTS `szemelyut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemel-ut osszerendeles';
 
 -- Dumping data for table ambulanc.szemelyut: ~0 rows (approximately)
-DELETE FROM `szemelyut`;
 /*!40000 ALTER TABLE `szemelyut` DISABLE KEYS */;
 /*!40000 ALTER TABLE `szemelyut` ENABLE KEYS */;
 
@@ -234,7 +232,6 @@ CREATE TABLE IF NOT EXISTS `ut` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Utak tarolasa';
 
 -- Dumping data for table ambulanc.ut: ~0 rows (approximately)
-DELETE FROM `ut`;
 /*!40000 ALTER TABLE `ut` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ut` ENABLE KEYS */;
 
