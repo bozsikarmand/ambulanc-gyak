@@ -13,8 +13,8 @@
 
 
 -- Dumping database structure for ambulanc
-CREATE DATABASE IF NOT EXISTS `ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `ambulanc`;
+CREATE DATABASE IF NOT EXISTS `bozsika_ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+USE `bozsika_ambulanc`;
 
 -- Dumping structure for table ambulanc.allat
 CREATE TABLE IF NOT EXISTS `allat` (
