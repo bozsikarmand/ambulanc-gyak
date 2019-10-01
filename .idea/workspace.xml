@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0dfb96d3-d7aa-4bbc-ac98-5b41f7b101f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/authentication/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/authentication/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/database/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/database/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/szakmaiGyakorlatDokumentacio/Kivitelezes/OtodikLepes-UresAdatbazisCsakJogAdatokkalTavoliSzerverhez/ambulanc-jogAdatokkal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/szakmaiGyakorlatDokumentacio/Kivitelezes/OtodikLepes-UresAdatbazisCsakJogAdatokkalTavoliSzerverhez/ambulanc-jogAdatokkal.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +92,10 @@
       <workItem from="1569398428903" duration="2073000" />
       <workItem from="1569402115312" duration="1921000" />
       <workItem from="1569424237153" duration="611000" />
+      <workItem from="1569824467050" duration="2789000" />
+      <workItem from="1569828429944" duration="1365000" />
+      <workItem from="1569856729821" duration="8592000" />
+      <workItem from="1569923967075" duration="6099000" />
     </task>
     <task id="LOCAL-00001" summary="Teszt PHPStormbol">
       <created>1568285625045</created>

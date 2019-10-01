@@ -13,8 +13,8 @@
 
 
 -- Dumping database structure for ambulanc
-CREATE DATABASE IF NOT EXISTS `ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `ambulanc`;
+CREATE DATABASE IF NOT EXISTS `bozsika_ambulanc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+USE `bozsika_ambulanc`;
 
 -- Dumping structure for table ambulanc.allat
 CREATE TABLE IF NOT EXISTS `allat` (
@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `allat` (
 -- Dumping structure for table ambulanc.allatszallitas
 CREATE TABLE IF NOT EXISTS `allatszallitas` (
   `UtID` int(11) NOT NULL,
-  `AllatID` int(11) NOT NULL
+  `AllatID` int(11) NOT NULL,
+  PRIMARY KEY (`UtID`,`AllatID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Allatok szallitasa';
 
 -- Dumping data for table ambulanc.allatszallitas: ~0 rows (approximately)
@@ -46,7 +47,8 @@ CREATE TABLE IF NOT EXISTS `allatszallitas` (
 -- Dumping structure for table ambulanc.allatuton
 CREATE TABLE IF NOT EXISTS `allatuton` (
   `UtID` int(11) NOT NULL,
-  `AllatID` int(11) NOT NULL
+  `AllatID` int(11) NOT NULL,
+  PRIMARY KEY (`UtID`,`AllatID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Uton levo allat vagy allatok';
 
 -- Dumping data for table ambulanc.allatuton: ~0 rows (approximately)
@@ -74,30 +76,26 @@ CREATE TABLE IF NOT EXISTS `allomas` (
 -- Dumping structure for table ambulanc.email
 CREATE TABLE IF NOT EXISTS `email` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `BelepesiEmail` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `PublikusEmail` varchar(254) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek email cimei';
+  `BelepesiEmail` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `PublikusEmail` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `BelepesiEmail` (`BelepesiEmail`),
+  UNIQUE KEY `PublikusEmail` (`PublikusEmail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek email cimei';
 
--- Dumping data for table ambulanc.email: ~2 rows (approximately)
+-- Dumping data for table ambulanc.email: ~0 rows (approximately)
 /*!40000 ALTER TABLE `email` DISABLE KEYS */;
-INSERT INTO `email` (`ID`, `BelepesiEmail`, `PublikusEmail`) VALUES
-	(1, 'asd@asd.asd', 'asd@asd.asd'),
-	(2, 'qwe@qwe.qwe', 'qwe@qwe.qwe');
 /*!40000 ALTER TABLE `email` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.jelszo
 CREATE TABLE IF NOT EXISTS `jelszo` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `JelszoHash` varchar(10240) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `JelszoHash` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Jelszavak hash-einek tarolasa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Jelszavak hash-einek tarolasa';
 
--- Dumping data for table ambulanc.jelszo: ~2 rows (approximately)
+-- Dumping data for table ambulanc.jelszo: ~0 rows (approximately)
 /*!40000 ALTER TABLE `jelszo` DISABLE KEYS */;
-INSERT INTO `jelszo` (`ID`, `JelszoHash`) VALUES
-	(1, 'asd'),
-	(2, 'qwe');
 /*!40000 ALTER TABLE `jelszo` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.jog
@@ -146,7 +144,8 @@ CREATE TABLE IF NOT EXISTS `rendszeresut` (
 -- Dumping structure for table ambulanc.rendszeresutnapok
 CREATE TABLE IF NOT EXISTS `rendszeresutnapok` (
   `RendszeresUtID` int(11) NOT NULL,
-  `NapokID` int(11) NOT NULL
+  `NapokID` int(11) NOT NULL,
+  PRIMARY KEY (`RendszeresUtID`,`NapokID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Rendszeres utak napjai';
 
 -- Dumping data for table ambulanc.rendszeresutnapok: ~0 rows (approximately)
@@ -168,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `szallitas` (
 -- Dumping structure for table ambulanc.szemely
 CREATE TABLE IF NOT EXISTS `szemely` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Felhasznalonev` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Felhasznalonev` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Vezeteknev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Keresztnev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Utonev` varchar(2000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -183,16 +182,14 @@ CREATE TABLE IF NOT EXISTS `szemely` (
   `Statusz` tinyint(4) NOT NULL,
   `HitelesitoKod` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
+  UNIQUE KEY `Felhasznalonev` (`Felhasznalonev`),
   CONSTRAINT `FK_szemely_email` FOREIGN KEY (`ID`) REFERENCES `email` (`ID`),
   CONSTRAINT `FK_szemely_jelszo` FOREIGN KEY (`ID`) REFERENCES `jelszo` (`ID`),
   CONSTRAINT `FK_szemely_szemelyjog` FOREIGN KEY (`ID`) REFERENCES `szemelyjog` (`SzemelyID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek tarolasa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek tarolasa';
 
--- Dumping data for table ambulanc.szemely: ~2 rows (approximately)
+-- Dumping data for table ambulanc.szemely: ~0 rows (approximately)
 /*!40000 ALTER TABLE `szemely` DISABLE KEYS */;
-INSERT INTO `szemely` (`ID`, `Felhasznalonev`, `Vezeteknev`, `Keresztnev`, `Utonev`, `VezetekesTel`, `MobilTel`, `IRSZ`, `Varos`, `KozteruletNeve`, `KozteruletJellege`, `Hazszam`, `Epulet`, `Statusz`, `HitelesitoKod`) VALUES
-	(1, 'asd', 'asd', 'asd', 'asd', '123456789', '123456789', '1234', 'B', 'A', 'Z', 12, 'A', 0, '1234'),
-	(2, 'qwe', 'qwe', 'qwe', 'qwe', '987456124', '545448877', '3447', 'D', 'V', 'H', 12, 'V', 1, '');
 /*!40000 ALTER TABLE `szemely` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.szemelyekutjai
@@ -213,11 +210,8 @@ CREATE TABLE IF NOT EXISTS `szemelyjog` (
   PRIMARY KEY (`SzemelyID`,`JogID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Szemelyek jogai';
 
--- Dumping data for table ambulanc.szemelyjog: ~2 rows (approximately)
+-- Dumping data for table ambulanc.szemelyjog: ~0 rows (approximately)
 /*!40000 ALTER TABLE `szemelyjog` DISABLE KEYS */;
-INSERT INTO `szemelyjog` (`SzemelyID`, `JogID`) VALUES
-	(1, 2),
-	(2, 1);
 /*!40000 ALTER TABLE `szemelyjog` ENABLE KEYS */;
 
 -- Dumping structure for table ambulanc.szemelyut
