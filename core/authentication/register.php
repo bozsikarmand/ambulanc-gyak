@@ -97,28 +97,34 @@ if (isset($_POST['button-sign-up'])) {
     $run->bindValue(':permissionID', $permissionID);
     $resultSet = $run->execute();
 
-    // Felhnev
-    $insertUsername = "INSERT INTO szemely (Felhasznalonev) VALUES (:username)";
-    $run = $databaseConnection->prepare($insertUsername);
+    // Felhnev, Statusz, Hitelesitokod egyben mivel a tablaban is egy helyen szerepelnek
+    $insertUsernameStatusToken = "INSERT INTO szemely (Felhasznalonev, Statusz, HitelesitoKod) VALUES (:username, :stat, :token)";
+    $run = $databaseConnection->prepare($insertUsernameStatusToken);
 
     $run->bindValue(':username', $username);
-    $resultSet = $run->execute();
-
-    // Statusz
-    $insertStatus = "INSERT INTO szemely (Statusz) VALUES (:stat)";
-    $run = $databaseConnection->prepare($insertStatus);
 
     $stat = 1;
 
     $run->bindValue(':stat', $stat);
+    $run->bindValue(':token', $token);
+
     $resultSet = $run->execute();
+
+    // Statusz
+    //$insertStatus = "INSERT INTO szemely () VALUES ()";
+    //$run = $databaseConnection->prepare($insertStatus);
+
+    
+
+    //$run->bindValue(':stat', $stat);
+    //$resultSet = $run->execute();
 
     // HitelesitoKod
-    $insertToken = "INSERT INTO szemely (HitelesitoKod) VALUES (:token)";
-    $run = $databaseConnection->prepare($insertToken);
+    //$insertToken = "INSERT INTO szemely () VALUES (:token)";
+    //$run = $databaseConnection->prepare($insertToken);
 
-    $run->bindValue(':token', $token);
-    $resultSet = $run->execute();
+    //$run->bindValue(':token', $token);
+    //$resultSet = $run->execute();
 
     if ($resultSet) {
         header("Location: thanks.php");
