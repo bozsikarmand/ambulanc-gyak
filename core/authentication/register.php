@@ -57,16 +57,37 @@ if (isset($_POST['button-sign-up'])) {
 
     $token = bin2hex(openssl_random_pseudo_bytes(50));
     $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
-
-    /* Uj felhasznalo beillesztese a tablaba */
+ 
     /**
+     * 
+     * Uj felhasznalo beillesztese a tablaba
+     * Elszor a kapcslodo tablak ertekeit allitom be, majd vegul adom hozza a felhasznalot, hogy ne sertsem meg a kulcsfelteteleket
+     * 
      * Kell:
      *
-     * Szemely tablaba: felhnev, statusz, hitelesitokod
-     * Email tablaba: belepo email
      * Szemelyjog tablaba ID-hoz jogid
+     * Email tablaba: belepo email
+     * Szemely tablaba: felhnev, statusz, hitelesitokod
      *
      */
+
+    // Jog (2)
+    $insertPermission = "INSERT INTO szemelyjog (SzemelyID, JogID) VALUES (:lastUserID, :permissionID)";
+    $run = $databaseConnection->prepare($insertPermission);
+
+    $lastUserID = $databaseConnection->lastInsertId();
+    $permissionID = 2;
+
+    $run->bindValue(':lastUserID', $lastUserID);
+    $run->bindValue(':permissionID',$permissionID);
+    $resultSet = $run->execute();
+
+    // Belepo email
+    $insertLoginEmail = "INSERT INTO email (BelepesiEmail) VALUES (:loginemail)";
+    $run = $databaseConnection->prepare($insertLoginEmail);
+
+    $run->bindValue(':loginemail', $loginEmail);
+    $resultSet = $run->execute();
 
     // Felhnev
     $insertUsername = "INSERT INTO szemely (Felhasznalonev) VALUES (:username)";
@@ -89,24 +110,6 @@ if (isset($_POST['button-sign-up'])) {
     $run = $databaseConnection->prepare($insertToken);
 
     $run->bindValue(':token', $token);
-    $resultSet = $run->execute();
-
-    // Belepo email
-    $insertLoginEmail = "INSERT INTO email (BelepesiEmail) VALUES (:loginemail)";
-    $run = $databaseConnection->prepare($insertLoginEmail);
-
-    $run->bindValue(':loginemail', $loginEmail);
-    $resultSet = $run->execute();
-
-    // Jog (2)
-    $insertPermission = "INSERT INTO szemelyjog (SzemelyID, JogID) VALUES (:lastUserID, :permissionID)";
-    $run = $databaseConnection->prepare($insertPermission);
-
-    $lastUserID = $databaseConnection->lastInsertId();
-    $permissionID = 2;
-
-    $run->bindValue(':lastUserID', $lastUserID);
-    $run->bindValue(':permissionID',$permissionID);
     $resultSet = $run->execute();
 
     if ($resultSet) {
