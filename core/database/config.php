@@ -9,7 +9,7 @@
 define('DATABASE_HOST', 'localhost');
 define('DATABASE_USER',  'bozsika_ambulanc');
 define('DATABASE_PASS', 'bozsikaambulanc');
-define('DATABASE_NAME', 'ambulanc');
+define('DATABASE_NAME', 'bozsika_ambulanc');
 
 $PDOOptions = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
