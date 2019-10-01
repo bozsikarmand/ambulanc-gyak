@@ -1,5 +1,10 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set("display_errors", "1"); 
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
+
 session_start();
 
 require_once ("../database/config.php");
@@ -71,12 +76,12 @@ if (isset($_POST['button-sign-up'])) {
     $resultSet = $run->execute();
 
     // Statusz
-    $insertStatus = "INSERT INTO szemely (Statusz) VALUES (:status)";
+    $insertStatus = "INSERT INTO szemely (Statusz) VALUES (:stat)";
     $run = $databaseConnection->prepare($insertStatus);
 
-    $status = 1;
+    $stat = 1;
 
-    $run->bindValue(':status', $status);
+    $run->bindValue(':status', $stat);
     $resultSet = $run->execute();
 
     // HitelesitoKod
