@@ -65,11 +65,26 @@ if (isset($_POST['button-sign-up'])) {
      * 
      * Kell:
      *
-     * Szemelyjog tablaba ID-hoz jogid
      * Email tablaba: belepo email
+     * Jelszo tablaba: hash
+     * Szemelyjog tablaba ID-hoz jogid
      * Szemely tablaba: felhnev, statusz, hitelesitokod
      *
      */
+
+    // Belepo email
+    $insertLoginEmail = "INSERT INTO email (BelepesiEmail) VALUES (:loginemail)";
+    $run = $databaseConnection->prepare($insertLoginEmail);
+
+    $run->bindValue(':loginemail', $loginEmail);
+    $resultSet = $run->execute();
+
+    // Jelszo hash
+    $insertPasswordHash = "INSERT INTO jelszo (JelszoHash) VALUES (:passwordhash)";
+    $run = $databaseConnection->prepare($insertPasswordHash);
+
+    $run->bindValue(':passwordhash', $password);
+    $resultSet = $run->execute();
 
     // Jog (2)
     $insertPermission = "INSERT INTO szemelyjog (SzemelyID, JogID) VALUES (:lastUserID, :permissionID)";
@@ -79,14 +94,7 @@ if (isset($_POST['button-sign-up'])) {
     $permissionID = 2;
 
     $run->bindValue(':lastUserID', $lastUserID);
-    $run->bindValue(':permissionID',$permissionID);
-    $resultSet = $run->execute();
-
-    // Belepo email
-    $insertLoginEmail = "INSERT INTO email (BelepesiEmail) VALUES (:loginemail)";
-    $run = $databaseConnection->prepare($insertLoginEmail);
-
-    $run->bindValue(':loginemail', $loginEmail);
+    $run->bindValue(':permissionID', $permissionID);
     $resultSet = $run->execute();
 
     // Felhnev
@@ -102,7 +110,7 @@ if (isset($_POST['button-sign-up'])) {
 
     $stat = 1;
 
-    $run->bindValue(':status', $stat);
+    $run->bindValue(':stat', $stat);
     $resultSet = $run->execute();
 
     // HitelesitoKod
@@ -118,4 +126,3 @@ if (isset($_POST['button-sign-up'])) {
         header("Location: fail.php");
     }
 }
-
