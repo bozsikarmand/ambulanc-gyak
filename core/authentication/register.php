@@ -8,6 +8,7 @@ ini_set("error_log", "/tmp/php-error.log");
 session_start();
 
 require_once ("../database/config.php");
+require_once ("../mail/verificationmailsender.php");
 
 if (isset($_POST['button-sign-up'])) {
     if (empty($_POST['inputUsername'])) {
@@ -103,6 +104,14 @@ if (isset($_POST['button-sign-up'])) {
 
     $run->bindValue(':username', $username);
 
+    /** 
+     * 
+     * Statusz: 
+     * 0: Torolt felhasznalo, 
+     * 1: Meg nincs megerositve az email cime, 
+     * 2: OK 
+     * 
+     */
     $stat = 1;
 
     $run->bindValue(':stat', $stat);
@@ -126,9 +135,21 @@ if (isset($_POST['button-sign-up'])) {
     //$run->bindValue(':token', $token);
     //$resultSet = $run->execute();
 
-    if ($resultSet) {
+    // Email megerositese
+    $queryToken = "SELECT HitelesitoKod as vt 
+                   FROM szemely
+                   WHERE HitelesitoKod=:token";
+                   
+    $run = $databaseConnection -> prepare($queryToken);
+    $run->bindValue(':token', $token);
+
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    if ($resultSet['vt'] > 0) {
+        sendVerificationMail($email, $token);
         header("Location: thanks.php");
-    } else {
+    } 
+    else {
         header("Location: fail.php");
     }
 }
