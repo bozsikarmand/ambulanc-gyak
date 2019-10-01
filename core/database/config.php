@@ -7,8 +7,8 @@
  */
 
 define('DATABASE_HOST', 'localhost');
-define('DATABASE_USER',  'root');
-define('DATABASE_PASS', '');
+define('DATABASE_USER',  'bozsika_ambulanc');
+define('DATABASE_PASS', 'bozsikaambulanc');
 define('DATABASE_NAME', 'ambulanc');
 
 $PDOOptions = array(
