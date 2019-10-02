@@ -5,10 +5,10 @@ ini_set("display_errors", "1");
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
+session_start();
+
 require_once ("../database/config.php");
 require_once ("../mail/verificationmailsender.php");
-
-session_start();
 
 if (isset($_POST['button-sign-up'])) {
     if (empty($_POST['inputUsername'])) {
