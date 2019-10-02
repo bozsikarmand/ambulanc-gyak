@@ -17,7 +17,7 @@ function sendVerificationEmail($email, $token)
 
     <head>
       <meta charset="UTF-8">
-      <title>Test mail</title>
+      <title>Regisztráció megerősitése</title>
       <style>
         .wrapper {
           padding: 10px;

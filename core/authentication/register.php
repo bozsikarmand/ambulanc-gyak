@@ -5,10 +5,10 @@ ini_set("display_errors", "1");
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-session_start();
-
 require_once ("../database/config.php");
 require_once ("../mail/verificationmailsender.php");
+
+session_start();
 
 if (isset($_POST['button-sign-up'])) {
     if (empty($_POST['inputUsername'])) {
@@ -119,22 +119,6 @@ if (isset($_POST['button-sign-up'])) {
 
     $resultSet = $run->execute();
 
-    // Statusz
-    //$insertStatus = "INSERT INTO szemely () VALUES ()";
-    //$run = $databaseConnection->prepare($insertStatus);
-
-    
-
-    //$run->bindValue(':stat', $stat);
-    //$resultSet = $run->execute();
-
-    // HitelesitoKod
-    //$insertToken = "INSERT INTO szemely () VALUES (:token)";
-    //$run = $databaseConnection->prepare($insertToken);
-
-    //$run->bindValue(':token', $token);
-    //$resultSet = $run->execute();
-
     // Email megerositese
     $queryToken = "SELECT HitelesitoKod as vt 
                    FROM szemely
@@ -147,7 +131,7 @@ if (isset($_POST['button-sign-up'])) {
 
     if ($resultSet['vt'] > 0) {
         sendVerificationMail($email, $token);
-        header("Location: thanks.php");
+        echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
     } 
     else {
         header("Location: fail.php");
