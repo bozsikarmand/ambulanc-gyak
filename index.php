@@ -89,9 +89,6 @@
                         <li>
                             <a href="#">Link 3</a>
                         </li>
-                        <li>
-                            <a href="#">Link 4</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-md-3 mb-md-0 mb-3">
@@ -105,9 +102,6 @@
                         </li>
                         <li>
                             <a href="#">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#">Link 4</a>
                         </li>
                     </ul>
                 </div>
