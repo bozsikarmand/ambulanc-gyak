@@ -51,21 +51,35 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="uploads/images/carousel/1.jpg" alt="Bird1" width="1100" height="733">
+                <img class="d-block w-100" src="uploads/images/carousel/1.jpg" alt="Madar1">
+                <div class="carousel-caption d-md-block">
+                    <h5>Teszt</h5>
+                    <p>Madar1</p>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="uploads/images/carousel/2.jpg" alt="Bird2" width="1100" height="733">
+                <img class="d-block w-100" src="uploads/images/carousel/2.jpg" alt="Madar2">
+                <div class="carousel-caption d-md-block">
+                    <h5>Teszt2</h5>
+                    <p>Madar2</p>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="uploads/images/carousel/3.jpg" alt="Bird3" width="1100" height="732">
+                <img class="d-block w-100" src="uploads/images/carousel/3.jpg" alt="Madar3">
+                <div class="carousel-caption d-md-block">
+                    <h5>Teszt3</h5>
+                    <p>Madar3</p>
+                </div>
             </div>
         </div>
 
         <a class="carousel-control-prev" href="#carousel" data-slide="prev">
             <span class="carousel-control-prev-icon"></span>
+            <span class="sr-only">Előző</span>
         </a>
         <a class="carousel-control-next" href="#carousel" data-slide="next">
             <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Következő</span>
         </a>
     </div>
 
