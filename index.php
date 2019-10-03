@@ -69,7 +69,7 @@
         </a>
     </div>
 
-    <footer class="page-footer font-small blue pt-4">
+    <footer class="page-footer font-small blue pt-4 bg-dark text-light">
         <div class="container-fluid text-center text-md-left">
             <div class="row">
                 <div class="col-md-6 mt-md-0 mt-3">
