@@ -8,7 +8,7 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ("../../vendor/autoload.php");
 require_once ("config.php");
 
-$swift = (new Swift_SmtpTransport($EMAIL_HOST, $EMAIL_PORT, 'ssl'))
+$swift = (new Swift_SmtpTransport($EMAIL_HOST, 465, 'ssl'))
     ->setUsername($EMAIL_USER)
     ->setPassword($EMAIL_PASS);
 

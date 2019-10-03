@@ -124,10 +124,10 @@ if (isset($_POST['button-sign-up'])) {
     // Email megerositese
     $queryToken = "SELECT HitelesitoKod as vt 
                    FROM szemely
-                   WHERE HitelesitoKod=:token";
+                   WHERE HitelesitoKod=:querytoken";
                    
     $run = $databaseConnection -> prepare($queryToken);
-    $run->bindValue(':token', $token);
+    $run->bindValue(':querytoken', $token);
 
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
