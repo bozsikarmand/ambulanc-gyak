@@ -13,6 +13,33 @@
             height: 20px;
             border-radius: 50%;
         }
+        #sidebar-wrapper {
+            min-height: 100vh;
+            margin-left: -15rem;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+            width: 15rem;
+        }
+        @media (min-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: 0;
+            }
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -71,6 +98,30 @@
             </div>
         </div>
     </nav>
+
+    <div class="mx-0 my-auto d-inline" id="wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">        
+            <div class="sidebar-heading">Teszt</div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-chart-pie"></i> Statisztikák
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-users"></i> Felhasználók</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-dove"></i> Állatok
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-building"></i> Állomások
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <i class="fas fa-shuttle-van"></i> Szállitások</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
         <div class="container-fluid text-center text-md-left">
