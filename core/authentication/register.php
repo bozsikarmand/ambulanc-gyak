@@ -1,11 +1,11 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
-
-session_start();
 
 require_once ("../database/config.php");
 require_once ("../mail/verificationmailsender.php");
@@ -45,10 +45,10 @@ if (isset($_POST['button-sign-up'])) {
     }
     $queryLoginEmail = "SELECT BelepesiEmail as le
                         FROM email
-                        WHERE BelepesiEmail=:belepesiemail";
+                        WHERE BelepesiEmail=:loginemail";
 
     $run = $databaseConnection -> prepare($queryLoginEmail);
-    $run->bindValue(':belepesiemail', $loginEmail, PDO::PARAM_STR);
+    $run->bindValue(':loginemail', $loginEmail, PDO::PARAM_STR);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
@@ -87,7 +87,7 @@ if (isset($_POST['button-sign-up'])) {
     $run->bindValue(':passwordhash', $password);
     $resultSet = $run->execute();
 
-    // Jog (2)
+    // Jog (Alapbol: 2)
     $insertPermission = "INSERT INTO szemelyjog (SzemelyID, JogID) VALUES (:lastUserID, :permissionID)";
     $run = $databaseConnection->prepare($insertPermission);
 
@@ -109,7 +109,9 @@ if (isset($_POST['button-sign-up'])) {
      * Statusz: 
      * 0: Torolt felhasznalo, 
      * 1: Meg nincs megerositve az email cime, 
-     * 2: OK 
+     * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
+     * 3: Megadta az adatait, am meg adminisztratori jovahagyasra var
+     * 4: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
      * 
      */
     $stat = 1;
@@ -130,8 +132,12 @@ if (isset($_POST['button-sign-up'])) {
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     if ($resultSet['vt'] > 0) {
-        sendVerificationMail($email, $token);
-        echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
+        $sentMail = sendVerificationMail($email, $token);
+        if ($sentMail) {
+            echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
+        } else {
+            echo "Az email kuldese soran hiba lepett fel!";
+        }
     } 
     else {
         header("Location: fail.php");

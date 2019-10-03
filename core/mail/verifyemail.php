@@ -1,16 +1,16 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-session_start();
-
 require_once ("../database/config.php");
 
 if (isset($_GET['token'])) {
-    $token = isset($_GET['token']);
+    $token = $_GET['token'];
     $queryGetToken = "SELECT HitelesitoKod as token 
                       FROM szemely
                       WHERE HitelesitoKod=:token
@@ -49,7 +49,7 @@ if (isset($_GET['token'])) {
             $_SESSION['id'] = $resultSet['id'];
             $_SESSION['user'] = $_SESSION['user'];
             $_SESSION['stat'] = $_SESSION['stat'];
-            $_SESSION['message'] = "Sikeresen megerositetted email cimed! A rendszerbe valo bejelentkezeshez atiranyitunk a bejelentkezesi feluletre!";
+            $_SESSION['message'] = "Sikeresen megerositetted email cimed! A rendszerbe valo elso bejelentkezeshez atiranyitottunk a bejelentkezesi feluletre!";
             header('Location: ../../login.php');
             exit(0);
         } 
