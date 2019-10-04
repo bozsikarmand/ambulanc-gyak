@@ -132,7 +132,7 @@ if (isset($_POST['button-sign-up'])) {
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     if (!empty($resultSet['vt'])) {
-        $sentMail = sendVerificationEmail($email, $token);
+        $sentMail = sendVerificationEmail($loginEmail, $token);
         if ($sentMail) {
             echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
         } else {

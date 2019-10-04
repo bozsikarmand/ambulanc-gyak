@@ -6,15 +6,22 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../vendor/autoload.php");
-require_once ("config.php");
 
-$swift = (new Swift_SmtpTransport($EMAIL_HOST, 465, 'ssl'))
-    ->setUsername($EMAIL_USER)
-    ->setPassword($EMAIL_PASS);
+define('EMAIL_HOST', 'ambulanc.bozsikarmand.hu');
+define('EMAIL_USER', 'ambulanc@ambulanc.bozsikarmand.hu');
+define('EMAIL_PASS', 'bozsikaambulanc');
+define('EMAIL_PORT', '465');
+define('EMAIL_TO', 'ambulanc@ambulanc.bozsikarmand.hu');
+define('EMAIL_FROM', 'ambulanc@ambulanc.bozsikarmand.hu');
+define('EMAIL_ADDRESS', 'ambulanc@ambulanc.bozsikarmand.hu');
+
+$swift = (new Swift_SmtpTransport(EMAIL_HOST, 465, 'ssl'))
+    ->setUsername(EMAIL_USER)
+    ->setPassword(EMAIL_PASS);
 
 $mail = new Swift_Mailer($swift);
 
-function sendVerificationEmail($email, $token)
+function sendVerificationEmail($loginEmail, $token)
 {
     global $mailer;
     $body = '<!DOCTYPE html>
@@ -48,11 +55,11 @@ function sendVerificationEmail($email, $token)
     </html>';
 
     $message = (new Swift_Message('Email cim megerositese!'))
-        ->setFrom($EMAIL_FROM)
-        ->setTo($EMAIL_TO)
-        ->setBody($body, 'text/html');
+        ->setFrom(EMAIL_FROM)
+        ->setTo(EMAIL_TO)
+        ->setBody(body, 'text/html');
 
-    $result = $mailer->send($message);
+    $result = $mailer->send(message);
 
     if ($result > 0) {
         return true;
