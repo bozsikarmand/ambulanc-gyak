@@ -7,24 +7,37 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../vendor/autoload.php");
 
-$EMAIL_HOST = 'ambulanc.bozsikarmand.hu';
-$EMAIL_USER = 'ambulanc@ambulanc.bozsikarmand.hu';
-$EMAIL_PASS = 'bozsikaambulanc';
-$EMAIL_PORT = '465';
-$EMAILTO = 'ambulanc@ambulanc.bozsikarmand.hu';
-$EMAILFROM = 'ambulanc@ambulanc.bozsikarmand.hu';
-$EMAIL_ADDRESS = 'ambulanc@ambulanc.bozsikarmand.hu';
-
-$swift = (new Swift_SmtpTransport($EMAIL_HOST, 465, 'ssl'))
-    ->setUsername($EMAIL_USER)
-    ->setPassword($EMAIL_PASS);
-
-$mail = new Swift_Mailer($swift);
+$EMAIL_HOST = "ambulanc.bozsikarmand.hu";
+$EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
+$EMAIL_PASS = "bozsikaambulanc";
+$EMAIL_PORT = "465";
+$EMAIL_TO = "ambulanc@ambulanc.bozsikarmand.hu";
+$EMAIL_FROM = "ambulanc@ambulanc.bozsikarmand.hu";
+$EMAIL_FROM_NAME = "Ambulánc";
+$EMAIL_REPLY_TO = "ambulanc@ambulanc.bozsikarmand.hu";
 
 function sendVerificationEmail($loginEmail, $token)
 {
-    global $mailer;
-    $body = '<!DOCTYPE html>
+  $mail = new PHPMailer;
+
+  $mail->SMTPDebug = 3;        
+  $mail->isSMTP();
+  $mail->Host($EMAIL_HOST);
+  $mail->SMTPAuth(true);
+  $mail->Username($EMAIL_USER);
+  $mail->Password($EMAIL_PASS);
+  $mail->SMTPSecure = "ssl";                           
+  $mail->Port = "465";
+
+  $mail->From = $EMAIL_FROM;
+  $mail->FromName = $EMAIL_FROM_NAME;
+
+  $mail->addAddress($EMAIL_TO);
+  $mail->addReplyTo($EMAIL_REPLY_TO, "Kerdes regisztracioval kapcsolatban");
+  $mail->isHTML(true);
+
+
+  $body = '<!DOCTYPE html>
     <html lang="hu">
 
     <head>
@@ -51,17 +64,15 @@ function sendVerificationEmail($loginEmail, $token)
         <a href="https://ambulanc.bozsikarmand.hu/core/mail/verifyemail.php?token=' . $token . '">Email cim megerositese!</a>
       </div>
     </body>
-
     </html>';
 
-    $message = (new Swift_Message('Email cim megerositese!'))
-        ->setFrom('ambulanc@ambulanc.bozsikarmand.hu')
-        ->setTo($loginEmail)
-        ->setBody($body, 'text/html');
+    
 
-    $result = $mailer->send($message);
+    $mail->Body = $body;
 
-    if ($result > 0) {
+    $result = ($mail->Send());
+
+    if ($result) {
         return true;
     } else {
         return false;
