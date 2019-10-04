@@ -17,10 +17,11 @@ function sendVerificationEmail($loginEmail, $token)
   $EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
   $EMAIL_PASS = "bozsikaambulanc";
   $EMAIL_PORT = "465";
-  $EMAIL_TO = "ambulanc@ambulanc.bozsikarmand.hu";
+  $EMAIL_TO = $loginEmail;
   $EMAIL_FROM = "ambulanc@ambulanc.bozsikarmand.hu";
   $EMAIL_FROM_NAME = "Ambulánc";
   $EMAIL_REPLY_TO = "ambulanc@ambulanc.bozsikarmand.hu";
+  $EMAIL_REPLY_TO_NAME = "Ambulánc";
 
   $mail = new PHPMailer(true);
 
@@ -36,9 +37,11 @@ function sendVerificationEmail($loginEmail, $token)
 
     $mail->setFrom($EMAIL_FROM, $EMAIL_FROM_NAME);
     $mail->addAddress($EMAIL_TO);
-    $mail->addReplyTo($EMAIL_REPLY_TO, 'Kerdes regisztracioval kapcsolatban');
+    $mail->addReplyTo($EMAIL_REPLY_TO, $EMAIL_REPLY_TO_NAME);
     
     $mail->isHTML(true);
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
     $mail->Subject = 'Regisztráció megerősitése';
 
     $body = '<!DOCTYPE html>
