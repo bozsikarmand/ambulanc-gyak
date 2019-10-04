@@ -128,7 +128,7 @@ if (isset($_POST['button-sign-up'])) {
                    
     $run = $databaseConnection -> prepare($queryToken);
     $run->bindValue(':querytoken', $token);
-
+    $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     if ($resultSet['vt'] > 0) {
