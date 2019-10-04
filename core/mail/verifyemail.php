@@ -42,9 +42,7 @@ if (isset($_GET['token'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        if (($resultSet['id'] && 
-             $resultSet['user'] && 
-             $resultSet['stat']) > 0) {
+        if (($resultSet['id'] >= 1 && !empty($resultSet['user'])) {
             // Munkamenet adatok beallitasa
             $_SESSION['id'] = $resultSet['id'];
             $_SESSION['user'] = $_SESSION['user'];
