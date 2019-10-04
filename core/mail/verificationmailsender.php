@@ -11,17 +11,17 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
 
-$EMAIL_HOST = "ambulanc.bozsikarmand.hu";
-$EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
-$EMAIL_PASS = "bozsikaambulanc";
-$EMAIL_PORT = "465";
-$EMAIL_TO = "ambulanc@ambulanc.bozsikarmand.hu";
-$EMAIL_FROM = "ambulanc@ambulanc.bozsikarmand.hu";
-$EMAIL_FROM_NAME = "Ambulánc";
-$EMAIL_REPLY_TO = "ambulanc@ambulanc.bozsikarmand.hu";
-
 function sendVerificationEmail($loginEmail, $token)
 {
+  $EMAIL_HOST = "ambulanc.bozsikarmand.hu";
+  $EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
+  $EMAIL_PASS = "bozsikaambulanc";
+  $EMAIL_PORT = "465";
+  $EMAIL_TO = "ambulanc@ambulanc.bozsikarmand.hu";
+  $EMAIL_FROM = "ambulanc@ambulanc.bozsikarmand.hu";
+  $EMAIL_FROM_NAME = "Ambulánc";
+  $EMAIL_REPLY_TO = "ambulanc@ambulanc.bozsikarmand.hu";
+
   $mail = new PHPMailer(true);
 
   try {
