@@ -11,8 +11,8 @@ $EMAIL_HOST = 'ambulanc.bozsikarmand.hu';
 $EMAIL_USER = 'ambulanc@ambulanc.bozsikarmand.hu';
 $EMAIL_PASS = 'bozsikaambulanc';
 $EMAIL_PORT = '465';
-$EMAIL_TO = 'ambulanc@ambulanc.bozsikarmand.hu';
-$EMAIL_FROM = 'ambulanc@ambulanc.bozsikarmand.hu';
+$EMAILTO = 'ambulanc@ambulanc.bozsikarmand.hu';
+$EMAILFROM = 'ambulanc@ambulanc.bozsikarmand.hu';
 $EMAIL_ADDRESS = 'ambulanc@ambulanc.bozsikarmand.hu';
 
 $swift = (new Swift_SmtpTransport($EMAIL_HOST, 465, 'ssl'))
@@ -55,8 +55,8 @@ function sendVerificationEmail($loginEmail, $token)
     </html>';
 
     $message = (new Swift_Message('Email cim megerositese!'))
-        ->setFrom($EMAIL_FROM)
-        ->setTo($EMAIL_TO)
+        ->setFrom($EMAILFROM)
+        ->setTo($EMAILTO)
         ->setBody($body, 'text/html');
 
     $result = $mailer->send($message);
