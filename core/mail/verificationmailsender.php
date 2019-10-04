@@ -59,7 +59,7 @@ function sendVerificationEmail($loginEmail, $token)
         ->setTo(EMAIL_TO)
         ->setBody($body, 'text/html');
 
-    $result = $mailer->send(message);
+    $result = $mailer->send($message);
 
     if ($result > 0) {
         return true;
