@@ -39,7 +39,7 @@ function sendVerificationEmail($loginEmail, $token)
     $mail->addReplyTo($EMAIL_REPLY_TO, 'Kerdes regisztracioval kapcsolatban');
     
     $mail->isHTML(true);
-    $mail->Subject('Regisztráció megerősitése');
+    $mail->Subject = 'Regisztráció megerősitése';
 
     $body = '<!DOCTYPE html>
       <html lang="hu">
