@@ -53,8 +53,8 @@ function sendVerificationEmail($loginEmail, $token)
         <style>
           .wrapper {
             padding: 10px;
-            color: #ddd;
-            font-size: 1.1em;
+            color: #000;
+            font-size: 1.4em;
           }
           a {
             background: #dd3333;
