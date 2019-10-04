@@ -131,7 +131,9 @@ if (isset($_POST['button-sign-up'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    if ($resultSet['vt'] > 0) {
+    print_r($resultSet);
+
+    /*if ($resultSet['vt'] > 0) {
         $sentMail = sendVerificationMail($email, $token);
         if ($sentMail) {
             echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
@@ -141,5 +143,5 @@ if (isset($_POST['button-sign-up'])) {
     } 
     else {
         header("Location: fail.php");
-    }
+    }*/
 }
