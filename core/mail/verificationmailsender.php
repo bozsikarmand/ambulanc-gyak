@@ -55,8 +55,8 @@ function sendVerificationEmail($loginEmail, $token)
     </html>';
 
     $message = (new Swift_Message('Email cim megerositese!'))
-        ->setFrom($EMAILFROM)
-        ->setTo($EMAILTO)
+        ->setFrom('ambulanc@ambulanc.bozsikarmand.hu')
+        ->setTo($loginEmail)
         ->setBody($body, 'text/html');
 
     $result = $mailer->send($message);
