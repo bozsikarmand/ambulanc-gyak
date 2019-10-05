@@ -42,6 +42,9 @@ if (isset($_GET['token'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
+        // Eroforrasok felszabaditasa
+        $run->close();
+
         if ($resultSet['id'] >= 1 && !empty($resultSet['user'])) {
             // Munkamenet adatok beallitasa
             $_SESSION['id'] = $resultSet['id'];

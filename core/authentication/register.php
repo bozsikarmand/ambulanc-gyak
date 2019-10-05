@@ -1,6 +1,7 @@
 <?php
 
 require_once ("../mail/verificationmailsender.php");
+require_once ("../default/timezone.php");
 
 session_start();
 
@@ -70,7 +71,7 @@ if (isset($_POST['button-sign-up'])) {
      * Email tablaba: belepo email
      * Jelszo tablaba: hash
      * Szemelyjog tablaba ID-hoz jogid
-     * Szemely tablaba: felhnev, statusz, hitelesitokod
+     * Szemely tablaba: felhnev, statusz, hitelesitokod, regisztracio idopontja, utolso belepes idopontja 
      *
      */
 
@@ -100,7 +101,8 @@ if (isset($_POST['button-sign-up'])) {
     $resultSet = $run->execute();
 
     // Felhnev, Statusz, Hitelesitokod egyben mivel a tablaban is egy helyen szerepelnek
-    $insertUsernameStatusToken = "INSERT INTO szemely (Felhasznalonev, Statusz, HitelesitoKod) VALUES (:username, :stat, :token)";
+    // Illetve meg regisztracio idopontja, utolso belepes idopontja
+    $insertUsernameStatusToken = "INSERT INTO szemely (Felhasznalonev, Statusz, HitelesitoKod, RegisztracioIdopontja, UtolsoBelepesIdopontja) VALUES (:username, :stat, :token, :regtime, :lastlogintime)";
     $run = $databaseConnection->prepare($insertUsernameStatusToken);
 
     $run->bindValue(':username', $username);
@@ -111,14 +113,21 @@ if (isset($_POST['button-sign-up'])) {
      * 0: Torolt felhasznalo, 
      * 1: Meg nincs megerositve az email cime, 
      * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
-     * 3: Megadta az adatait, am meg adminisztratori jovahagyasra var
-     * 4: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
+     * 3: Elso alkalommal lepett be
+     * 4: Megadta az adatait, am meg adminisztratori jovahagyasra var
+     * 5: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
      * 
      */
     $stat = 1;
 
     $run->bindValue(':stat', $stat);
     $run->bindValue(':token', $token);
+
+    $regtime = date('Y-m-d H:i:s');
+    $lastlogintime = date('Y-m-d H:i:s');
+
+    $run->bindValue(':regtime', $regtime);
+    $run->bindValue(':lastlogintime', $lastlogintime);
 
     $resultSet = $run->execute();
 
@@ -131,6 +140,9 @@ if (isset($_POST['button-sign-up'])) {
     $run->bindValue(':querytoken', $token);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    // Eroforras felszabaditasa
+    $run->close();
 
     if (!empty($resultSet['vt'])) {
         $sentMail = sendVerificationEmail($loginEmail, $token);
