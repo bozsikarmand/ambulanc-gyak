@@ -21,7 +21,7 @@ if (isset($_GET['token'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    if ($resultSet['token'] > 0) {
+    if (!empty($resultSet['token'])) {
         $stat = 2;
         $updateUserStatusStatement = "UPDATE szemely 
                                       SET Statusz=:stat 
@@ -42,18 +42,19 @@ if (isset($_GET['token'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        if (($resultSet['id'] >= 1 && !empty($resultSet['user'])) {
+        if ($resultSet['id'] >= 1 && !empty($resultSet['user'])) {
             // Munkamenet adatok beallitasa
             $_SESSION['id'] = $resultSet['id'];
             $_SESSION['user'] = $_SESSION['user'];
             $_SESSION['stat'] = $_SESSION['stat'];
             $_SESSION['message'] = "Sikeresen megerositetted email cimed! A rendszerbe valo elso bejelentkezeshez atiranyitottunk a bejelentkezesi feluletre!";
             header('Location: ../../login.php');
-            exit(0);
-        } 
-    } else {
-        echo "A felhasznalo nem talalhato!";
+        }
+        else {
+            echo "A felhasznalo nem talalhato!";
+        }
     }
-} else {
-    echo "A keresben nem talaltam tokent parameterkent!";
+    else {
+        echo "A token nem egyezik vagy nem talalhato!";
+    }
 }
