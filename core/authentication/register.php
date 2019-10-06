@@ -142,7 +142,7 @@ if (isset($_POST['button-sign-up'])) {
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     // Eroforras felszabaditasa
-    $run->close();
+    unset($run);
 
     if (!empty($resultSet['vt'])) {
         $sentMail = sendVerificationEmail($loginEmail, $token);
