@@ -102,7 +102,7 @@ if (isset($_POST['button-sign-up'])) {
 
     // Felhnev, Statusz, Hitelesitokod egyben mivel a tablaban is egy helyen szerepelnek
     // Illetve meg regisztracio idopontja, utolso belepes idopontja
-    $insertUsernameStatusToken = "INSERT INTO szemely (Felhasznalonev, Statusz, HitelesitoKod, RegisztracioIdopontja, UtolsoBelepesIdopontja) VALUES (:username, :stat, :token, :regtime)";
+    $insertUsernameStatusToken = "INSERT INTO szemely (Felhasznalonev, Statusz, HitelesitoKod, RegisztracioIdopontja) VALUES (:username, :stat, :token, :regtime)";
     $run = $databaseConnection->prepare($insertUsernameStatusToken);
 
     $run->bindValue(':username', $username);
