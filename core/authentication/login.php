@@ -21,6 +21,7 @@ require_once ("../database/config.php");
  * 
  */
   
+ // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
 if (isset($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
         $error['inputLoginEmail'] = 'A belépési email cim megadása kötelező!';
@@ -44,25 +45,39 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    if (password_verify($password, $resultSet['ph'])) {
-        $queryStatus = "SELECT Statusz as statusz
-                        FROM szemely
-                        WHERE Statusz=:querystatus
-                        AND BelepesiEmail=:loginemail";
-
-        $status = 2;
-
-        $run = $databaseConnection -> prepare($queryStatus);
-        $run->bindValue(':querystatus', $status);
-        $run->bindValue(':loginemail', $queryLoginEmail);
-        $run->execute();
-        $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-        
-        if ($resultSet['statusz']) {
-            header('Location: /userprofile/add/userdata.php');
+    if (!empty($resultSet['le'])) {
+        if (password_verify($password, $resultSet['ph'])) {
+            $queryStatus = "SELECT Statusz as statusz
+                            FROM szemely
+                            WHERE Statusz=:querystatus
+                            AND BelepesiEmail=:loginemail";
+    
+            $status = 2;
+    
+            $run = $databaseConnection -> prepare($queryStatus);
+            $run->bindValue(':querystatus', $status);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+            
+            if ($resultSet['statusz']) {
+                $status = 3;
+                
+                $updateUserStatusStatement = "UPDATE szemely 
+                                              SET Statusz=:stat 
+                                              WHERE BelepesiEmail=:loginemail";
+                                              
+                $run = $databaseConnection -> prepare($updateUserStatusStatement);
+                $run->bindValue(':stat', $status);
+                $run->bindValue(':loginemail', $loginEmail);
+                $run->execute();
+                $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    
+                header('Location: ../protected/userprofile/add/userdata.php');
+            }
+        } else {
+            $error['emailDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
         }
-    } else {
-        $error['emailDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben!";
     }
 }
      
