@@ -60,24 +60,23 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
             
-            if ($resultSet['statusz']) {
-                $status = 3;
+            $status = 3;
                 
-                $updateUserStatusStatement = "UPDATE szemely 
-                                              SET Statusz=:stat 
-                                              WHERE BelepesiEmail=:loginemail";
-                                              
-                $run = $databaseConnection -> prepare($updateUserStatusStatement);
-                $run->bindValue(':stat', $status);
-                $run->bindValue(':loginemail', $loginEmail);
-                $run->execute();
-                $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+            $updateUserStatusStatement = "UPDATE szemely 
+                                          SET Statusz=:stat 
+                                          WHERE BelepesiEmail=:loginemail";
+                                          
+            $run = $databaseConnection -> prepare($updateUserStatusStatement);
+            $run->bindValue(':stat', $status);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
     
-                header('Location: ../protected/userprofile/add/userdata.php');
-            }
+            header('Location: ../protected/userprofile/add/userdata.php');
         } else {
             $error['emailDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
         }
+        echo "Nem talalom!"
     }
 }
      
