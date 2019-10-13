@@ -44,11 +44,6 @@
     </div>
 
     <div class="form-label-group">
-        <input type="tel" id="inputMobileTel" name="inputMobileTel" class="form-control" placeholder="Mobil telefonszám" required>
-        <label for="inputMobileTel">Mobil telefonszám</label>
-    </div>
-
-    <div class="form-label-group">
         <input type="number" id="inputZIPCode" name="inputZIPCode" class="form-control" placeholder="Irányitószám" required>
         <label for="inputZIPCode">Irányitószám</label>
     </div>
