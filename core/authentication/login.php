@@ -57,8 +57,8 @@ if (isset($_POST['button-login'])) {
         print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
-            $queryStatus = "SELECT Statusz as statusz
-                            FROM szemely
+            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+                            FROM szemely, email
                             WHERE Statusz=:querystatus
                             AND BelepesiEmail=:loginemail";
     
