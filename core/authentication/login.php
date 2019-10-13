@@ -84,6 +84,7 @@ if (isset($_POST['button-login'])) {
                                           
             $run = $databaseConnection -> prepare($updateUserStatusStatement);
             $run->bindValue(':stat', $status);
+            $run->bindValue(':stat', $status);
             $run->execute();
     
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
