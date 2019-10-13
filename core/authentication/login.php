@@ -39,10 +39,6 @@ if (isset($_POST['button-login'])) {
                         FROM email
                         WHERE BelepesiEmail=:loginemail";
 
-    $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
-                          FROM szemely, jelszo
-                          WHERE szemely.ID = jelszo.ID";
-
     $run = $databaseConnection -> prepare($queryLoginEmail);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
@@ -50,6 +46,16 @@ if (isset($_POST['button-login'])) {
     print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
+        $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
+                              FROM szemely, jelszo
+                              WHERE szemely.ID = jelszo.ID";
+        
+        $run = $databaseConnection -> prepare($queryLoginEmail);
+        $run->execute();
+        $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+        print_r($resultSet);
+
         if (password_verify($password, $resultSet['ph'])) {
             $queryStatus = "SELECT Statusz as statusz
                             FROM szemely
@@ -76,8 +82,8 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
     
-            echo "OK";
-            //header('Location: ../../protected/userprofile/add/userdata.php');
+            //echo "OK";
+            header('Location: ../../protected/userprofile/add/userdata.php');
 
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
