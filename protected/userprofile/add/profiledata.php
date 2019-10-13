@@ -3,19 +3,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Regisztráció</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/floating-labels.css">
-    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <title>Adataid megadása</title>
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
+    <link rel="stylesheet" href="../../../assets/css/select2.min.css">
     <style>
 
     </style>
 </head>
 <body>
-<form class="form-signin" action="core/authentication/register.php" method="post">
+<form class="form-signin" action="#" method="post">
     <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Kérlek regisztrálj adataid megadásával!</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a továbblépéshez!</h1>
     </div>
     
     <div class="form-label-group">
@@ -85,10 +85,9 @@
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
-
-<script src="assets/js/jquery-3.3.1.slim.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/select2.min.js"></script>
+<script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+<script src="../../../assets/js/popper.min.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/select2.min.js"></script>
 </body>
 </html>

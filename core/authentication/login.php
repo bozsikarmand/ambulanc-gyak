@@ -84,7 +84,18 @@ if (isset($_POST['button-login'])) {
             $run->execute();
     
             //echo "OK";
-            header('Location: ../../protected/userprofile/add/profiledata.php');
+
+            $status = 2;
+
+            $run = $databaseConnection -> prepare($queryStatus);
+            $run->bindValue(':querystatus', $status);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            print_r($resultSet);
+
+            //header('Location: ../../protected/userprofile/add/profiledata.php');
 
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
