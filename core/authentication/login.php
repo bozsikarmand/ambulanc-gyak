@@ -40,6 +40,7 @@ if (isset($_POST['button-login'])) {
                         WHERE BelepesiEmail=:loginemail";
 
     $run = $databaseConnection -> prepare($queryLoginEmail);
+    $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
@@ -72,9 +73,10 @@ if (isset($_POST['button-login'])) {
             
             $status = 3;
                 
-            $updateUserStatusStatement = "UPDATE szemely 
-                                          SET Statusz=:stat 
-                                          WHERE BelepesiEmail=:loginemail";
+            $updateUserStatusStatement = "UPDATE szemely p, email e
+                                          SET p.Statusz=:stat  
+                                          WHERE p.ID = e.ID 
+                                          AND e.BelepesiEmail=:loginemail";
                                           
             $run = $databaseConnection -> prepare($updateUserStatusStatement);
             $run->bindValue(':stat', $status);
