@@ -58,6 +58,7 @@ if (isset($_POST['button-login'])) {
         print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
+            // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely, email
                             WHERE Statusz=:querystatus
@@ -72,7 +73,8 @@ if (isset($_POST['button-login'])) {
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
             
             $status = 3;
-                
+            
+            // Frissitem a statuszt
             $updateUserStatusStatement = "UPDATE szemely p, email e
                                           SET p.Statusz=:stat  
                                           WHERE p.ID = e.ID 
@@ -83,19 +85,30 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
     
-            //echo "OK";
-
+            // Az elobb a statuszt 2-rol 3-ra frissitettem.
+            // Tehat eloszor leptem be. Ekkor kotelezo az adatmegadas, oda iranyitok
+            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+                            FROM szemely, email
+                            WHERE Statusz=:querystatus
+                            AND BelepesiEmail=:loginemail";
+    
             $status = 3;
-
+    
             $run = $databaseConnection -> prepare($queryStatus);
             $run->bindValue(':querystatus', $status);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            if ($resultSet['statusz']) {
+            if (!empty($resultSet)) {
                 header('Location: ../../protected/userprofile/add/profiledata.php');
             }
+
+            // Ha a statusz 4, akkor megadta az adatait, am adminisztratori jovahagyasra var
+            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+                            FROM szemely, email
+                            WHERE Statusz=:querystatus
+                            AND BelepesiEmail=:loginemail";
 
             $status = 4;
 
@@ -105,9 +118,15 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            if ($resultSet['statusz']) {
+            if (!empty($resultSet)) {
                 header('Location: ../../core/default/adminapproval.php');
             }
+
+            // Ha 5 akkor jobahagytak, es belephet
+            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+                            FROM szemely, email
+                            WHERE Statusz=:querystatus
+                            AND BelepesiEmail=:loginemail";
 
             $status = 5;
 
@@ -117,8 +136,8 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            if ($resultSet['statusz']) {
-                header('Location: ../../protected/dashboard/index.php');
+            if (!empty($resultSet)) {
+                header('Location: ../../protected/dashboard/adminapproval.php');
             }
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
