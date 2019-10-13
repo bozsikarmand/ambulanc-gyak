@@ -25,9 +25,11 @@ require_once ("../database/config.php");
 if (isset($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
         $error['inputLoginEmail'] = 'A belépési email cim megadása kötelező!';
+        echo 'A belépési email cim megadása kötelező!';
     }
     if (empty($_POST['inputPassword'])) {
         $error['inputPassword'] = 'Jelszó megadása kötelező';
+        echo 'Jelszó megadása kötelező';
     }
 
     $loginEmail = $_POST['inputLoginEmail'];
@@ -72,13 +74,18 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
     
-            header('Location: ../../protected/userprofile/add/userdata.php');
+            echo "OK";
+            //header('Location: ../../protected/userprofile/add/userdata.php');
+
         } else {
-            $error['emailDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
+            $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
+            echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
         }
     } else {
         echo "Nem talalom a megadott email cimu felhasznalot!";
     }
+} else {
+    echo "Nem nyomtad meg!";
 }
      
      
