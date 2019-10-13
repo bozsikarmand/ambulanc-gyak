@@ -82,7 +82,6 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':stat', $status);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
     
             //echo "OK";
             header('Location: ../../protected/userprofile/add/userdata.php');
