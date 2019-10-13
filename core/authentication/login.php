@@ -58,6 +58,8 @@ if (isset($_POST['button-login'])) {
         print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
+            // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
+            $_SESSION["email"] = $queryLoginEmail;
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely, email
@@ -75,14 +77,13 @@ if (isset($_POST['button-login'])) {
             $status = 3;
             
             // Frissitem a statuszt
-            $updateUserStatusStatement = "UPDATE szemely p, email e
+            $updateUserStatusStatement = "UPDATE szemely p
+                                          JOIN email e ON e.ID = p.ID
                                           SET p.Statusz=:stat  
-                                          WHERE p.ID = e.ID 
-                                          AND e.BelepesiEmail=:loginemail";
+                                          WHERE p.Statusz < :stat";
                                           
             $run = $databaseConnection -> prepare($updateUserStatusStatement);
             $run->bindValue(':stat', $status);
-            $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
     
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
