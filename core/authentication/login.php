@@ -84,7 +84,7 @@ if (isset($_POST['button-login'])) {
             $run->execute();
     
             //echo "OK";
-            header('Location: ../../protected/userprofile/add/userdata.php');
+            header('Location: ../../protected/userprofile/add/profiledata.php');
 
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
