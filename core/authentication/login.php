@@ -50,7 +50,7 @@ if (isset($_POST['button-login'])) {
                               FROM szemely, jelszo
                               WHERE szemely.ID = jelszo.ID";
         
-        $run = $databaseConnection -> prepare($queryLoginEmail);
+        $run = $databaseConnection -> prepare($queryUserPassword);
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
