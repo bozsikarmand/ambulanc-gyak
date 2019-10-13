@@ -80,7 +80,7 @@ if (isset($_POST['button-login'])) {
             $updateUserStatusStatement = "UPDATE szemely p
                                           JOIN email e ON e.ID = p.ID
                                           SET p.Statusz=:stat  
-                                          WHERE p.Statusz < :stat";
+                                          WHERE (p.Statusz < :stat)";
                                           
             $run = $databaseConnection -> prepare($updateUserStatusStatement);
             $run->bindValue(':stat', $status);
