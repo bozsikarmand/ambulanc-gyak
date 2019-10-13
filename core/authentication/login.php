@@ -47,6 +47,8 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
+    print_r($resultSet);
+
     if (!empty($resultSet['le'])) {
         if (password_verify($password, $resultSet['ph'])) {
             $queryStatus = "SELECT Statusz as statusz
