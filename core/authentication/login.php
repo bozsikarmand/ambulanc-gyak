@@ -85,7 +85,7 @@ if (isset($_POST['button-login'])) {
     
             //echo "OK";
 
-            $status = 2;
+            $status = 3;
 
             $run = $databaseConnection -> prepare($queryStatus);
             $run->bindValue(':querystatus', $status);
@@ -93,10 +93,33 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            print_r($resultSet);
+            if ($resultSet['statusz']) {
+                header('Location: ../../protected/userprofile/add/profiledata.php');
+            }
 
-            //header('Location: ../../protected/userprofile/add/profiledata.php');
+            $status = 4;
 
+            $run = $databaseConnection -> prepare($queryStatus);
+            $run->bindValue(':querystatus', $status);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            if ($resultSet['statusz']) {
+                header('Location: ../../core/default/adminapproval.php');
+            }
+
+            $status = 5;
+
+            $run = $databaseConnection -> prepare($queryStatus);
+            $run->bindValue(':querystatus', $status);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            if ($resultSet['statusz']) {
+                header('Location: ../../protected/dashboard/index.php');
+            }
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
