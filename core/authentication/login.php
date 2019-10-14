@@ -109,11 +109,11 @@ if (isset($_POST['button-login'])) {
 
             //print_r($resultSetRouting);
 
-            if ($resultSetRouting['statusz'] === 3) {
+            if ($resultSetRouting['statusz'] == 3) {
                 header("Location: https://ambulanc.bozsikarmand.hu/protected/userprofile/add/profiledata.php");
-            } else if ($resultSetRouting['statusz'] === 4) {
+            } else if ($resultSetRouting['statusz'] == 4) {
                 header("Location: https://ambulanc.bozsikarmand.hu/core/default/adminapproval.php");
-            } else if ($resultSetRouting['statusz'] === 5) {
+            } else if ($resultSetRouting['statusz'] == 5) {
                 header("sLocation: https://ambulanc.bozsikarmand.hu/protected/dashboard/index.php");
             }
 
