@@ -44,7 +44,7 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    print_r($resultSet);
+    //print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
@@ -55,7 +55,7 @@ if (isset($_POST['button-login'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        print_r($resultSet);
+        //print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
@@ -97,21 +97,23 @@ if (isset($_POST['button-login'])) {
             //
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
             // Tehat eloszor leptem be. Ekkor kotelezo az adatmegadas, oda iranyitok
-            
-            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
-                            FROM szemely, email
-                            WHERE BelepesiEmail=:loginemail";
+
+            $queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+                                           FROM szemely, email
+                                           WHERE BelepesiEmail=:loginemail";
     
-            $run = $databaseConnection -> prepare($queryStatus);
+            $run = $databaseConnection -> prepare($queryStatusCheckForRouting);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+            $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
 
-            if ($resultSet['statusz'] === 3) {
+            print_r($resultSetRouting);
+
+            if ($resultSetRouting['statusz'] === 3) {
                 header('Location: ../../protected/userprofile/add/profiledata.php');
-            } else if ($resultSet['statusz'] === 4) {
+            } else if ($resultSetRouting['statusz'] === 4) {
                 header('Location: ../../core/default/adminapproval.php');
-            } else if ($resultSet['statusz'] === 5) {
+            } else if ($resultSetRouting['statusz'] === 5) {
                 header('Location: ../../protected/dashboard/index.php');
             }
 
