@@ -110,11 +110,11 @@ if (isset($_POST['button-login'])) {
             print_r($resultSetRouting);
 
             if ($resultSetRouting['statusz'] === 3) {
-                header('Location: ../../protected/userprofile/add/profiledata.php');
+                header("Location: ../../protected/userprofile/add/profiledata.php");
             } else if ($resultSetRouting['statusz'] === 4) {
-                header('Location: ../../core/default/adminapproval.php');
+                header("Location: ../../core/default/adminapproval.php");
             } else if ($resultSetRouting['statusz'] === 5) {
-                header('Location: ../../protected/dashboard/index.php');
+                header("Location: ../../protected/dashboard/index.php");
             }
 
             // Routing vege
