@@ -39,11 +39,11 @@
    </div>
 
     <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="customCheckBoxTOS" name="agree-tos">
+        <input type="checkbox" class="custom-control-input" id="customCheckBoxTOS" name="agree-tos" value="Yes">
         <label class="custom-control-label" for="customCheckBoxTOS"> Elfogadom a <a href="#">felhasználási feltételeket</a></label>
     </div>
     <div class="custom-control custom-checkbox mb-3">
-        <input type="checkbox" class="custom-control-input" id="customCheckBoxPP" name="agree-pp">
+        <input type="checkbox" class="custom-control-input" id="customCheckBoxPP" name="agree-pp" value="Yes">
         <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="#">adatvédelmi nyilatkozatot</a></label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" name="button-sign-up" type="submit">
