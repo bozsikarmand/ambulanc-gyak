@@ -44,7 +44,7 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    print_r($resultSet);
+    //print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
@@ -55,9 +55,11 @@ if (isset($_POST['button-login'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        print_r($resultSet);
+       // print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
+            echo "OK";
+            /*
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $queryLoginEmail;
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
@@ -144,7 +146,7 @@ if (isset($_POST['button-login'])) {
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
-        }
+        }*/
     } else {
         echo "Nem talalom a megadott email cimu felhasznalot!";
     }
