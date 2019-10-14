@@ -44,7 +44,7 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    //print_r($resultSet);
+    print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
@@ -55,16 +55,18 @@ if (isset($_POST['button-login'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-       // print_r($resultSet);
+        print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $queryLoginEmail;
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
-                            FROM szemely, email
-                            WHERE Statusz=:querystatus
-                            AND BelepesiEmail=:loginemail";
+                            FROM szemely 
+                            JOIN email
+                            ON szemely.ID = email.ID
+                            WHERE szemely.Statusz=:querystatus
+                            AND email.BelepesiEmail=:loginemail";
     
             $status = 2;
     
@@ -74,73 +76,46 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
             
-            $status = 3;
+            $newStatus = 3;
             
             // Frissitem a statuszt
+            // Csak ott allitom be az uj statuszt ahol a regi statusz van
+            // Illetve csak ott ahol a bejelentkezeshez hasznalt email cim van megadva
             $updateUserStatusStatement = "UPDATE szemely p
                                           JOIN email e ON e.ID = p.ID
-                                          SET p.Statusz=:stat  
-                                          WHERE (p.Statusz < :stat)";
+                                          SET p.Statusz = :newstat  
+                                          WHERE (p.Statusz = :stat) 
+                                          AND e.BelepesiEmail = :loginemail";
                                           
             $run = $databaseConnection -> prepare($updateUserStatusStatement);
+            $run->bindValue(':newstat', $newStatus);
             $run->bindValue(':stat', $status);
-            $run->bindValue(':stat', $status);
+            $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
     
+            // Routing kezdete
+            //
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
             // Tehat eloszor leptem be. Ekkor kotelezo az adatmegadas, oda iranyitok
+            
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely, email
-                            WHERE Statusz=:querystatus
-                            AND BelepesiEmail=:loginemail";
-    
-            $status = 3;
+                            WHERE BelepesiEmail=:loginemail";
     
             $run = $databaseConnection -> prepare($queryStatus);
-            $run->bindValue(':querystatus', $status);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            if (!empty($resultSet)) {
+            if ($resultSet['statusz'] === 3) {
                 header('Location: ../../protected/userprofile/add/profiledata.php');
-            }
-
-            // Ha a statusz 4, akkor megadta az adatait, am adminisztratori jovahagyasra var
-            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
-                            FROM szemely, email
-                            WHERE Statusz=:querystatus
-                            AND BelepesiEmail=:loginemail";
-
-            $status = 4;
-
-            $run = $databaseConnection -> prepare($queryStatus);
-            $run->bindValue(':querystatus', $status);
-            $run->bindValue(':loginemail', $loginEmail);
-            $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-
-            if (!empty($resultSet)) {
+            } else if ($resultSet['statusz'] === 4) {
                 header('Location: ../../core/default/adminapproval.php');
+            } else if ($resultSet['statusz'] === 5) {
+                header('Location: ../../protected/dashboard/index.php');
             }
 
-            // Ha 5 akkor jobahagytak, es belephet
-            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
-                            FROM szemely, email
-                            WHERE Statusz=:querystatus
-                            AND BelepesiEmail=:loginemail";
-
-            $status = 5;
-
-            $run = $databaseConnection -> prepare($queryStatus);
-            $run->bindValue(':querystatus', $status);
-            $run->bindValue(':loginemail', $loginEmail);
-            $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-
-            if (!empty($resultSet)) {
-                header('Location: ../../protected/dashboard/adminapproval.php');
-            }
+            // Routing vege
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
