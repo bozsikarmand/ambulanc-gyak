@@ -154,5 +154,7 @@ if (isset($_POST['button-sign-up'])) {
         else {
             header("Location: fail.php");
         }
+    } else {
+        echo "A nyilatkozatok elfogadasa kotelezo!"; 
     }
 }
