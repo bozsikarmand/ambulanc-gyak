@@ -114,7 +114,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 4) {
                 header("Location: https://ambulanc.bozsikarmand.hu/core/default/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 5) {
-                header("sLocation: https://ambulanc.bozsikarmand.hu/protected/dashboard/index.php");
+                header("Location: https://ambulanc.bozsikarmand.hu/protected/dashboard/index.php");
             }
 
             // Routing vege
