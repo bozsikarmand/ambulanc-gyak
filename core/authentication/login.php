@@ -58,8 +58,6 @@ if (isset($_POST['button-login'])) {
        // print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
-            echo "OK";
-            /*
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $queryLoginEmail;
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
@@ -142,7 +140,7 @@ if (isset($_POST['button-login'])) {
 
             if (!empty($resultSet)) {
                 header('Location: ../../protected/dashboard/adminapproval.php');
-            }*/
+            }
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";

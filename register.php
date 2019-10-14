@@ -49,6 +49,7 @@
     <button class="btn btn-lg btn-primary btn-block" name="button-sign-up" type="submit">
         <i class="fas fa-users"></i> Regisztráció
     </button>
+    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
     <button class="btn btn-lg btn-secondary btn-block" name="button-sign-in" type="submit">
         <i class="fas fa-sign-in-alt"></i> Már rendelkezem felhasználói fiókkal
     </button>
@@ -61,5 +62,14 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/select2.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LedcL0UAAAAALEf_JiZAN5yy1XjPDEiIWAXmZRH"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LedcL0UAAAAALEf_JiZAN5yy1XjPDEiIWAXmZRH', { action: 'register' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+    </script>
 </body>
 </html>
