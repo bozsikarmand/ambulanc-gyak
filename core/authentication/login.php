@@ -142,11 +142,11 @@ if (isset($_POST['button-login'])) {
 
             if (!empty($resultSet)) {
                 header('Location: ../../protected/dashboard/adminapproval.php');
-            }
+            }*/
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
-        }*/
+        }
     } else {
         echo "Nem talalom a megadott email cimu felhasznalot!";
     }
