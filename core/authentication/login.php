@@ -59,7 +59,7 @@ if (isset($_POST['button-login'])) {
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
-            $_SESSION["email"] = $queryLoginEmail;
+            $_SESSION["email"] = $loginEmail;
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 

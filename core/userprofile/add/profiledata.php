@@ -34,7 +34,6 @@ require_once ("../../database/config.php");
      $housenumber = $_POST['inputPublicPlaceTrait'];
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 4;
-     $sessionLoginEmail = $_SESSION['email'];
      
      $addUserData = "UPDATE szemely
                      JOIN email 
@@ -54,7 +53,7 @@ require_once ("../../database/config.php");
                      WHERE email.BelepesiEmail = :sessionloginemail";
 
      // A session-ben atadott email cim
-     print_r($sessionLoginEmail);
+     $sessionLoginEmail = $_SESSION['email'];
      
      /*$run = $databaseConnection -> prepare($addUserData);
      $run->bindValue(':firstname', $firstname);
