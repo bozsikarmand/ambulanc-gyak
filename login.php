@@ -31,7 +31,9 @@
             <i class="fas fa-sign-in-alt"></i> Bejelentkezés
         </button>
         <button class="btn btn-lg btn-secondary btn-block" type="submit">
-            <i class="fas fa-users"></i> Segítő leszek!</button>
+            <i class="fas fa-users"></i> Segítő leszek!
+            <a href="register.php"></a>
+        </button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </form>
 
