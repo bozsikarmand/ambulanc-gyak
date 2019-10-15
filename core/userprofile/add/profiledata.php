@@ -30,7 +30,7 @@ require_once ("../../database/config.php");
      $zipcode = $_POST['inputZIPCode'];
      $city = $_POST['inputCity'];
      $publicplacename = $_POST['inputPublicPlaceName'];
-     $publicplacetrait = $_POST['listPublicPlaceTrait'];
+     $publicplacetrait = $_POST['inputPublicPlaceTrait'];
      $housenumber = $_POST['inputPublicPlaceTrait'];
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 4;
