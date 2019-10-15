@@ -34,6 +34,7 @@ require_once ("../../database/config.php");
      $housenumber = $_POST['inputPublicPlaceTrait'];
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 4;
+     $sessionLoginEmail = $_SESSION['email'];
      
      $addUserData = "UPDATE szemely
                      JOIN email 
@@ -53,10 +54,9 @@ require_once ("../../database/config.php");
                      WHERE email.BelepesiEmail = :sessionloginemail";
 
      // A session-ben atadott email cim
-     $sessionLoginEmail = $_SESSION['email'];
-     print_r($_SESSION);
+     print_r($sessionLoginEmail);
      
-     $run = $databaseConnection -> prepare($addUserData);
+     /*$run = $databaseConnection -> prepare($addUserData);
      $run->bindValue(':firstname', $firstname);
      $run->bindValue(':lastname', $lastname);
      $run->bindValue(':middlename', $middlename);
@@ -75,5 +75,5 @@ require_once ("../../database/config.php");
      
      if ($resultSet) {
          header('Location: ../../default/frontend/adminapproval.php');
-     }
+     }*/
 }
