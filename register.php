@@ -49,9 +49,13 @@
         <i class="fas fa-users"></i> Regisztráció
     </button>
     <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-    <button class="btn btn-lg btn-secondary btn-block" name="button-sign-in" type="submit">
-        <i class="fas fa-sign-in-alt"></i> Már rendelkezem felhasználói fiókkal
-    </button>
+    <div>
+        <button class="btn btn-lg btn-secondary btn-block" name="button-sign-in" type="submit" form="inner">
+            <i class="fas fa-sign-in-alt"></i> Már rendelkezem felhasználói fiókkal
+        </button>
+    </div>
+    <form id="inner" action="login.php" method="post"></form>
+    
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
