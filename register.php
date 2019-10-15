@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/floating-labels.css">
-    <link rel="stylesheet" href="assets/css/select2.min.css">
     <style>
 
     </style>
@@ -61,7 +60,6 @@
 <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/select2.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LedcL0UAAAAALEf_JiZAN5yy1XjPDEiIWAXmZRH"></script>
     <script>
         grecaptcha.ready(function () {

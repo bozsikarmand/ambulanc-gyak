@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
-    <link rel="stylesheet" href="../../../assets/css/select2.min.css">
     <style>
 
     </style>
@@ -59,8 +58,10 @@
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputPublicPlaceName" name="inputPublicPlaceTrait" class="form-control" placeholder="Közterület jellege" required>
+        <input type="text" id="inputPublicPlaceTrait" list="listPublicPlaceTrait" name="inputPublicPlaceTrait" class="form-control" placeholder="Közterület jellege" placeholder="Válassz" required>
         <label for="inputPublicPlaceTrait">Közterület jellege</label>
+        <datalist id="listPublicPlaceTrait">
+        </datalist>
     </div>
 
     <div class="form-label-group">
@@ -73,8 +74,8 @@
         <label for="inputBuildingLetter">Épület betűjele</label>
     </div>
 
-    <button class="btn btn-lg btn-secondary btn-block" name="button-sign-in" type="submit">
-        <i class="fas fa-sign-in-alt"></i> Bejelentkezés
+    <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
+        <i class="fas fa-user-check"></i> Adminisztratori jovahagyas kerese
     </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
@@ -83,6 +84,6 @@
 <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/select2.min.js"></script>
+<script src="../../../assets/js/populate-datalist.js">
 </body>
 </html>
