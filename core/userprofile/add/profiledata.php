@@ -43,7 +43,7 @@ require_once ("../../database/config.php");
                      JOIN email 
                      ON email.ID = szemely.ID
                      SET szemely.Vezeteknev = :firstname,
-                         szemely.Keresztnev = :lastname.
+                         szemely.Keresztnev = :lastname,
                          szemely.Utonev = :middlename,
                          szemely.VezetekesTel = :landlinetel,
                          szemely.MobilTel = :mobiletel,
@@ -55,7 +55,7 @@ require_once ("../../database/config.php");
                          szemely.Epulet = :buildingletter,
                          szemely.Statusz = :newStat,
                      WHERE szemely.Vezeteknev IS NULL,
-                     AND szemely.Keresztnev IS NULL.
+                     AND szemely.Keresztnev IS NULL,
                      AND szemely.Utonev IS NULL,
                      AND szemely.VezetekesTel IS NULL,
                      AND szemely.MobilTel IS NULL,
@@ -65,7 +65,7 @@ require_once ("../../database/config.php");
                      AND szemely.KozteruletJellege IS NULL,
                      AND szemely.Hazszam IS NULL,
                      AND szemely.Epulet = IS NULL,
-                     AND szemely.Statusz = :stat
+                     AND szemely.Statusz = :stat,
                      AND email.BelepesiEmail = :sessionloginemail";
      
      $run = $databaseConnection -> prepare($addUserData);
