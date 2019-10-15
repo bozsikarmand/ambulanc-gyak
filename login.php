@@ -30,14 +30,15 @@
         <button class="btn btn-lg btn-primary btn-block" name="button-login" type="submit">
             <i class="fas fa-sign-in-alt"></i> Bejelentkezés
         </button>
-        <a href="register.php">
-            <button class="btn btn-lg btn-secondary btn-block" type="submit">
+        <div>
+            <button class="btn btn-lg btn-secondary btn-block" type="submit" form="inner">
                 <i class="fas fa-users"></i> Segítő leszek!
             </button>
-        </a>
-        
+        </div>
+
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </form>
+    <form id="inner" action="register.php" method="post"></form>
 
     <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
