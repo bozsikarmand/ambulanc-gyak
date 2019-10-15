@@ -23,5 +23,5 @@ request.onreadystatechange = function(response) {
 
 input.placeholder = "Betöltés...";
 
-request.open('GET', '../../data/json/publicplacetrait.json', true);
+request.open('GET', '../../../data/json/publicplacetrait.json', true);
 request.send();
