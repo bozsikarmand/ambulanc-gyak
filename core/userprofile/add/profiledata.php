@@ -84,9 +84,6 @@ require_once ("../../database/config.php");
      $run->bindValue(':stat', $stat);
      $run->bindValue(':sessionloginemail', $sessionLoginEmail);
      $run->execute();
-     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
      
-     if ($resultSet) {
-         header('Location: ../../default/frontend/adminapproval.php');
-     }
+     header('Location: ../../default/frontend/adminapproval.php');
 }
