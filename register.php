@@ -54,12 +54,12 @@
             <i class="fas fa-sign-in-alt"></i> Már rendelkezem felhasználói fiókkal
         </button>
     </div>
-    <form id="inner" action="login.php" method="post"></form>
     
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
+<form id="inner" action="login.php" method="post"></form>
 
 <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
