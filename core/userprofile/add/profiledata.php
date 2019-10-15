@@ -25,9 +25,10 @@ require_once ("../database/config.php");
      $zipcode = $_POST['inputZIPCode'];
      $city = $_POST['inputCity'];
      $publicplacename = $_POST['inputPublicPlaceName'];
-     $publicplacetrait = $_POST['inputPublicPlaceTrait'];
+     $publicplacetrait = $_POST['listPublicPlaceTrait'];
      $housenumber = $_POST['inputPublicPlaceTrait'];
      $buildingletter = $_POST['inputBuildingLetter'];
+     $stat = 4;
      
      $addUserData = "UPDATE szemely p
                      JOIN email e ON e.ID = p.ID
@@ -42,6 +43,7 @@ require_once ("../database/config.php");
                          p.KozteruletJellege = :publicplacetrait,
                          p.Hazszam = :housenumber,
                          p.Epulet = :buildingletter
+                         p.Statusz = :stat
                      WHERE e.BelepesiEmail = :sessionloginemail";
 
      // A session-ben atadott email cim
@@ -60,6 +62,11 @@ require_once ("../database/config.php");
      $run->bindValue(':housenumber', $housenumber);
      $run->bindValue(':buildingletter', $buildingletter);
      $run->bindValue(':sessionloginemail', $sessionLoginEmail);
+     $run->bindValue(':stat', $stat);
      $run->execute();
-     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);     
+     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+     
+     if ($resultSet) {
+         header('Location: ../../default/frontend/adminapproval.php');
+     }
 }
