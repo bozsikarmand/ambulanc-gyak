@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputPublicPlaceTrait" list="listPublicPlaceTrait" name="inputPublicPlaceTrait" class="form-control" placeholder="Közterület jellege" placeholder="Válassz" required>
+        <input type="text" id="inputPublicPlaceTrait" list="listPublicPlaceTrait" name="inputPublicPlaceTrait" class="form-control" placeholder="Válassz" required>
         <label for="inputPublicPlaceTrait">Közterület jellege</label>
         <datalist id="listPublicPlaceTrait">
         </datalist>
@@ -84,6 +84,6 @@
 <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/populate-datalist.js">
+<script src="../../../assets/js/populate-datalist.js"></script>
 </body>
 </html>
