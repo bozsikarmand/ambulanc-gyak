@@ -35,22 +35,22 @@ require_once ("../../database/config.php");
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 4;
      
-     $addUserData = "UPDATE szemely p
-                     JOIN email e 
-                     ON e.ID = p.ID
-                     SET p.Vezeteknev = :firstname,
-                         p.Keresztnev = :lastname.
-                         p.Utonev = :middlename,
-                         p.VezetekesTel = :landlinetel,
-                         p.MobilTel = :mobiletel,
-                         p.IRSZ = :zipcode,
-                         p.Varos = :city,
-                         p.KozteruletNeve = :publicplacename,
-                         p.KozteruletJellege = :publicplacetrait,
-                         p.Hazszam = :housenumber,
-                         p.Epulet = :buildingletter
-                         p.Statusz = :stat
-                     WHERE e.BelepesiEmail = :sessionloginemail";
+     $addUserData = "UPDATE szemely
+                     JOIN email 
+                     ON email.ID = szemely.ID
+                     SET szemely.Vezeteknev = :firstname,
+                         szemely.Keresztnev = :lastname.
+                         szemely.Utonev = :middlename,
+                         szemely.VezetekesTel = :landlinetel,
+                         szemely.MobilTel = :mobiletel,
+                         szemely.IRSZ = :zipcode,
+                         szemely.Varos = :city,
+                         szemely.KozteruletNeve = :publicplacename,
+                         szemely.KozteruletJellege = :publicplacetrait,
+                         szemely.Hazszam = :housenumber,
+                         szemely.Epulet = :buildingletter
+                         szemely.Statusz = :stat
+                     WHERE email.BelepesiEmail = :sessionloginemail";
 
      // A session-ben atadott email cim
      $sessionLoginEmail = $_SESSION['email'];
