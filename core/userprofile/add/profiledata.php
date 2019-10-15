@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once ("../database/config.php");
+require_once ("../../database/config.php");
 
 /**
  *  
@@ -31,7 +31,8 @@ require_once ("../database/config.php");
      $stat = 4;
      
      $addUserData = "UPDATE szemely p
-                     JOIN email e ON e.ID = p.ID
+                     JOIN email e 
+                     ON e.ID = p.ID
                      SET p.Vezeteknev = :firstname,
                          p.Keresztnev = :lastname.
                          p.Utonev = :middlename,
@@ -61,8 +62,8 @@ require_once ("../database/config.php");
      $run->bindValue(':publicplacetrait', $publicplacetrait);
      $run->bindValue(':housenumber', $housenumber);
      $run->bindValue(':buildingletter', $buildingletter);
-     $run->bindValue(':sessionloginemail', $sessionLoginEmail);
      $run->bindValue(':stat', $stat);
+     $run->bindValue(':sessionloginemail', $sessionLoginEmail);
      $run->execute();
      $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
      
