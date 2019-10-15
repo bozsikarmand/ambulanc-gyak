@@ -54,6 +54,7 @@ require_once ("../../database/config.php");
 
      // A session-ben atadott email cim
      $sessionLoginEmail = $_SESSION['email'];
+     print_r($_SESSION);
      
      $run = $databaseConnection -> prepare($addUserData);
      $run->bindValue(':firstname', $firstname);
