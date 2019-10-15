@@ -33,7 +33,11 @@ require_once ("../../database/config.php");
      $publicplacetrait = $_POST['inputPublicPlaceTrait'];
      $housenumber = $_POST['inputPublicPlaceTrait'];
      $buildingletter = $_POST['inputBuildingLetter'];
-     $stat = 4;
+     $stat = 3;
+     $newStat = 4; 
+
+     // A session-ben atadott email cim
+     $sessionLoginEmail = $_SESSION['email'];
      
      $addUserData = "UPDATE szemely
                      JOIN email 
@@ -48,14 +52,23 @@ require_once ("../../database/config.php");
                          szemely.KozteruletNeve = :publicplacename,
                          szemely.KozteruletJellege = :publicplacetrait,
                          szemely.Hazszam = :housenumber,
-                         szemely.Epulet = :buildingletter
-                         szemely.Statusz = :stat
-                     WHERE email.BelepesiEmail = :sessionloginemail";
-
-     // A session-ben atadott email cim
-     $sessionLoginEmail = $_SESSION['email'];
+                         szemely.Epulet = :buildingletter,
+                         szemely.Statusz = :newStat,
+                     WHERE szemely.Vezeteknev IS NULL,
+                     AND szemely.Keresztnev IS NULL.
+                     AND szemely.Utonev IS NULL,
+                     AND szemely.VezetekesTel IS NULL,
+                     AND szemely.MobilTel IS NULL,
+                     AND szemely.IRSZ IS NULL,
+                     AND szemely.Varos IS NULL,
+                     AND szemely.KozteruletNeve IS NULL,
+                     AND szemely.KozteruletJellege IS NULL,
+                     AND szemely.Hazszam IS NULL,
+                     AND szemely.Epulet = IS NULL,
+                     AND szemely.Statusz = :stat
+                     AND email.BelepesiEmail = :sessionloginemail";
      
-     /*$run = $databaseConnection -> prepare($addUserData);
+     $run = $databaseConnection -> prepare($addUserData);
      $run->bindValue(':firstname', $firstname);
      $run->bindValue(':lastname', $lastname);
      $run->bindValue(':middlename', $middlename);
@@ -67,6 +80,7 @@ require_once ("../../database/config.php");
      $run->bindValue(':publicplacetrait', $publicplacetrait);
      $run->bindValue(':housenumber', $housenumber);
      $run->bindValue(':buildingletter', $buildingletter);
+     $run->bindValue(':newStat', $newStat);
      $run->bindValue(':stat', $stat);
      $run->bindValue(':sessionloginemail', $sessionLoginEmail);
      $run->execute();
@@ -74,5 +88,5 @@ require_once ("../../database/config.php");
      
      if ($resultSet) {
          header('Location: ../../default/frontend/adminapproval.php');
-     }*/
+     }
 }
