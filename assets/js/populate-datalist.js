@@ -12,15 +12,11 @@ request.onreadystatechange = function(response) {
         option.value = item;
         input.appendChild(option);
       });
-      
-      input.placeholder = "Valassz";
     } else {
       input.placeholder = "Nem sikerult betolteni az opciokat";
     }
   }
 };
-
-input.placeholder = "Betöltés...";
 
 request.open('GET', '../../../assets/data/json/publicplacetrait.json', true);
 request.send();
