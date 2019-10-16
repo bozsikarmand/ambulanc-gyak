@@ -61,7 +61,6 @@
     <div class="form-label-group">
         <select class="selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" required>
         </select>
-        <label for="inputPublicPlaceTrait">Közterület jellege</label>
     </div>
 
     <div class="form-label-group">
