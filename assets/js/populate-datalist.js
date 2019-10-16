@@ -1,4 +1,3 @@
-var dataList = document.getElementById('listPublicPlaceTrait');
 var input = document.getElementById('inputPublicPlaceTrait');
 
 var request = new XMLHttpRequest();
@@ -9,9 +8,9 @@ request.onreadystatechange = function(response) {
       var jsonOptions = JSON.parse(request.responseText);
   
       jsonOptions.forEach(function(item) {
-        var option = document.createElement('option');
+        var option = document.createElement('option data-tokens=' + item);
         option.value = item;
-        dataList.appendChild(option);
+        input.appendChild(option);
       });
       
       input.placeholder = "Valassz";

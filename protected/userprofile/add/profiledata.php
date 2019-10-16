@@ -58,10 +58,9 @@
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputPublicPlaceTrait" list="listPublicPlaceTrait" name="inputPublicPlaceTrait" class="form-control" placeholder="Válassz" required>
+        <select class="selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" required>
+        </select>
         <label for="inputPublicPlaceTrait">Közterület jellege</label>
-        <datalist id="listPublicPlaceTrait">
-        </datalist>
     </div>
 
     <div class="form-label-group">
