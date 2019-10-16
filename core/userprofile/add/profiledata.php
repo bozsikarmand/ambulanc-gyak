@@ -83,7 +83,9 @@ require_once ("../../database/config.php");
      $run->bindValue(':newStat', $newStat);
      $run->bindValue(':stat', $stat);
      $run->bindValue(':sessionloginemail', $sessionLoginEmail);
-     $run->execute();
+     $exitcode = $run->execute();
      
-     header('Location: ../../default/frontend/adminapproval.php');
+     if ($exitcode) {
+        header('Location: ../../default/frontend/adminapproval.php');
+     }
 }
