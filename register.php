@@ -39,11 +39,11 @@
 
     <div class="custom-control custom-checkbox mb-3">
         <input type="checkbox" class="custom-control-input" id="customCheckBoxTOS" name="agree-tos" value="Yes" required="required">
-        <label class="custom-control-label" for="customCheckBoxTOS"> Elfogadom a <a href="#">felhasználási feltételeket</a></label>
+        <label class="custom-control-label" for="customCheckBoxTOS"> Elfogadom a <a href="core/docs/terms-of-service.html">felhasználási feltételeket</a></label>
     </div>
     <div class="custom-control custom-checkbox mb-3">
         <input type="checkbox" class="custom-control-input" id="customCheckBoxPP" name="agree-pp" value="Yes" required="required">
-        <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="#">adatvédelmi nyilatkozatot</a></label>
+        <label class="custom-control-label" for="customCheckBoxPP"> Elfogadom az <a href="core/docs/privacy-policy.html">adatvédelmi nyilatkozatot</a></label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" name="button-sign-up" type="submit">
         <i class="fas fa-users"></i> Regisztráció
