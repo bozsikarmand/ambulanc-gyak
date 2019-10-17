@@ -8,8 +8,7 @@ request.onreadystatechange = function(response) {
       var jsonOptions = JSON.parse(request.responseText);
   
       jsonOptions.forEach(function(item) {
-        var option = document.createElement('option data-tokens="' + item + '"');
-        option.value = item;
+        var option = document.createElement('option');
         input.appendChild(option);
       });
     } else {
