@@ -1,6 +1,6 @@
-function print() {
+function windowPrint() {
     window.print();
 }
-function close() {
+function windowClose() {
     window.close();
 }
