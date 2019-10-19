@@ -9,7 +9,6 @@ request.onreadystatechange = function(response) {
   
       jsonOptions.forEach(function(item) {
         var option = document.createElement('option');
-        option.text = item;
       });
     } else {
       input.placeholder = "Nem sikerult betolteni az opciokat";
