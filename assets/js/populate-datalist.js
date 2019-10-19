@@ -9,9 +9,7 @@ request.onreadystatechange = function(response) {
   
       jsonOptions.forEach(function(item) {
         var option = document.createElement('option');
-        var attribute = document.createAttribute('data-tokens');
-        attribute.value = item;
-        option.setAttributeNode(attribute);
+        option.text = item;
       });
     } else {
       input.placeholder = "Nem sikerult betolteni az opciokat";
