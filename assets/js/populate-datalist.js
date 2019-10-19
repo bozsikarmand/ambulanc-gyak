@@ -9,8 +9,9 @@ request.onreadystatechange = function(response) {
   
       jsonOptions.forEach(function(item) {
         var option = document.createElement('option');
-        //setAttribute('data-tokens', item);
-        input.appendChild(option);
+        var attribute = document.createAttribute('data-tokens');
+        attribute.value = item;
+        option.setAttributeNode(attribute);
       });
     } else {
       input.placeholder = "Nem sikerult betolteni az opciokat";
