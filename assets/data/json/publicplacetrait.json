@@ -1,108 +1,108 @@
 [{
-    "value": "árok"
+    value: "árok"
 },
 {
-    "value": "átjáró"
+    value: "átjáró"
 },
 {
-    "value": "dűlő"
+    value: "dűlő"
 },
 {
-    "value": "dűlőút"
+    value: "dűlőút"
 },
 {
-    "value": "erdősor"
+    value: "erdősor"
 },
 {
-    "value": "fasor"
+    value: "fasor"
 },
 {
-    "value": "forduló"
+    value: "forduló"
 },
 {
-    "value": "gát"
+    value: "gát"
 },
 {
-    "value": "határsor"
+    value: "határsor"
 },
 {
-    "value": "határút"
+    value: "határút"
 },
 {
-    "value": "kapu"
+    value: "kapu"
 },
 {
-    "value": "körönd"
+    value: "körönd"
 },
 {
-    "value": "körtér"
+    value: "körtér"
 },
 {
-    "value": "körút"
+    value: "körút"
 },
 {
-    "value": "köz"
+    value: "köz"
 },
 {
-    "value": "lakótelep"
+    value: "lakótelep"
 },
 {
-    "value": "lejáró"
+    value: "lejáró"
 },
 {
-    "value": "lejtő"   
+    value: "lejtő"   
 },
 {
-    "value": "lépcső"
+    value: "lépcső"
 },
 {
-    "value": "liget"
+    value: "liget"
 },
 {
-    "value": "mélyút"
+    value: "mélyút"
 },
 {
-    "value": "orom"
+    value: "orom"
 },
 {
-    "value": "ösvény"
+    value: "ösvény"
 },
 {
-    "value": "park"
+    value: "park"
 },
 {
-    "value": "part"
+    value: "part"
 },
 {
-    "value": "pincesor"
+    value: "pincesor"
 },
 {
-    "value": "rakpart"
+    value: "rakpart"
 },
 {
-    "value": "sétány"
+    value: "sétány"
 },
 {
-    "value": "sikátor"
+    value: "sikátor"
 },
 {
-    "value": "sor"
+    value: "sor"
 },
 {
-    "value": "sugárút"
+    value: "sugárút"
 },
 {
-    "value": "tér" 
+    value: "tér" 
 },
 {
-    "value": "udvar"
+    value: "udvar"
 },
 {
-    "value": "utca"
+    value: "utca"
 },
 {
-    "value": "út"
+    value: "út"
 },
 {
-    "value": "üdülőpart"
+    value: "üdülőpart"
 }]

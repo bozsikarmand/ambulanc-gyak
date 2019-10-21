@@ -8,7 +8,7 @@ $(document).ready(function()
 
         $.getJSON(url, function(data)
         {
-            $.each(data, function(val)
+            $.each(data, function(key, val)
             {
                 list.push('<option data-tokens="' + val.value + '">' + val.value + '</option>');
             });
