@@ -59,7 +59,7 @@
     </div>
 
     <div class="form-label-group">
-        <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="auto" required>
+        <select class="form-control selectpicker" data-live-search="true" data-url="../../../assets/data/json/publicplacetrait.json" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="auto" required>
         </select>
     </div>
 
@@ -83,7 +83,7 @@
 <script src="../../../assets/js/jquery-3.3.1.slim.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/populate-datalist.js"></script>
+<script src="../../../assets/js/populate-select.js"></script>
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
 </body>
