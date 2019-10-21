@@ -63,7 +63,7 @@
         <?php
         require_once("../../../core/database/populateselect/populateselect.php");
         foreach ($data as $row): ?>
-            <option data-tokens="<?php $row['nev'] ?>"><?php $row['nev'] ?></option>
+            <option data-tokens="<?php $row['Jelleg'] ?>"><?php $row['Jelleg'] ?></option>
         <?php endforeach ?>
         </select>
     </div>

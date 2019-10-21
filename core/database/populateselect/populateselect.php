@@ -9,7 +9,7 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../../database/config.php");
 
-$populateSelect = "SELECT nev FROM kozterulet";
+$populateSelect = "SELECT Jelleg FROM kozterulet";
 $run = $databaseConnection -> prepare($populateSelect);
 $run->execute();
 $data = $run->fetchAll();
