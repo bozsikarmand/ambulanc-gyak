@@ -59,7 +59,12 @@
     </div>
 
     <div class="form-label-group">
-        <select class="form-control selectpicker" data-live-search="true" data-url="../../../assets/data/json/publicplacetrait.json" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="auto" required>
+        <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="auto" required>
+        <?php
+        require_once("../../../core/database/populateselect/populateselect.php");
+        foreach ($data as $row): ?>
+            <option data-tokens="<?php $row['nev'] ?>"><?php $row['nev'] ?></option>
+        <?php endforeach ?>
         </select>
     </div>
 

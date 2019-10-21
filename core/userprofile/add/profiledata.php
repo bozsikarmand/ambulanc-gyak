@@ -21,7 +21,7 @@ require_once ("../../database/config.php");
  *  
  */
 
- if (isset($_POST['button-request-admin-approval'])) {
+if (isset($_POST['button-request-admin-approval'])) {
      $lastname = $_POST['inputLastName'];
      $firstname = $_POST['inputFirstName'];
      $middlename = $_POST['inputMiddleName'];
