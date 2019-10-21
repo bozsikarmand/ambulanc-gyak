@@ -4,18 +4,16 @@ $(document).ready(function()
     {
         var select = $(this);
         var url    = $(this).attr('data-url');
-        var id     = $(this).attr('data-id');
-        var label  = $(this).attr('data-label');
+        var list   = [];
 
         $.getJSON(url, function(data)
         {
-            select.html('');
-
-            $.each(data, function(key, val)
+            $.each(data, function(val)
             {
-                select.append('<option data-tokens="' + val[id] + '">' + val[label] + '</option>');
+                list.push('<option data-tokens="' + val.value + '">' + val.value + '</option>');
             });
 
+            select.html(list.join(''));
             select.selectpicker('refresh');
         });
     });

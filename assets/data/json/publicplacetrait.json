@@ -1,38 +1,108 @@
-[
-    "árok",
-    "átjáró",
-    "dűlő",
-    "dűlőút",
-    "erdősor",
-    "fasor",
-    "forduló",
-    "gát",
-    "határsor",
-    "határút",
-    "kapu",
-    "körönd",
-    "körtér",
-    "körút",
-    "köz",
-    "lakótelep",
-    "lejáró",
-    "lejtő",
-    "lépcső",
-    "liget",
-    "mélyút",
-    "orom",
-    "ösvény",
-    "park",
-    "part",
-    "pincesor",
-    "rakpart",
-    "sétány",
-    "sikátor",
-    "sor",
-    "sugárút",
-    "tér",
-    "udvar",
-    "utca",
-    "út",
-    "üdülőpart"
-]
+[{
+    "value": "árok"
+},
+{
+    "value": "átjáró"
+},
+{
+    "value": "dűlő"
+},
+{
+    "value": "dűlőút"
+},
+{
+    "value": "erdősor"
+},
+{
+    "value": "fasor"
+},
+{
+    "value": "forduló"
+},
+{
+    "value": "gát"
+},
+{
+    "value": "határsor"
+},
+{
+    "value": "határút"
+},
+{
+    "value": "kapu"
+},
+{
+    "value": "körönd"
+},
+{
+    "value": "körtér"
+},
+{
+    "value": "körút"
+},
+{
+    "value": "köz"
+},
+{
+    "value": "lakótelep"
+},
+{
+    "value": "lejáró"
+},
+{
+    "value": "lejtő"   
+},
+{
+    "value": "lépcső"
+},
+{
+    "value": "liget"
+},
+{
+    "value": "mélyút"
+},
+{
+    "value": "orom"
+},
+{
+    "value": "ösvény"
+},
+{
+    "value": "park"
+},
+{
+    "value": "part"
+},
+{
+    "value": "pincesor"
+},
+{
+    "value": "rakpart"
+},
+{
+    "value": "sétány"
+},
+{
+    "value": "sikátor"
+},
+{
+    "value": "sor"
+},
+{
+    "value": "sugárút"
+},
+{
+    "value": "tér" 
+},
+{
+    "value": "udvar"
+},
+{
+    "value": "utca"
+},
+{
+    "value": "út"
+},
+{
+    "value": "üdülőpart"
+}]
