@@ -123,44 +123,38 @@
         </div>
     </div>
 
-    <div class="col-md-2"></div>
-
-    <div class="col-md-10">
-        <div class="table-responsive">
-            <table class="table table-striped table-dark">
-                <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Teszt</th>
-                            <th scope="col">Teszt</th>
-                            <th scope="col">Teszt</th>
-                        </tr>
-                </thead>
-                <tbody>
+    <div class="table-responsive mx-0 my-auto d-inline">
+        <table class="table table-striped table-dark">
+            <thead>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Aladár</td>
-                        <td>Bálint</td>
-                        <td>Cecilia</td>
+                        <th scope="col">#</th>
+                        <th scope="col">Teszt</th>
+                        <th scope="col">Teszt</th>
+                        <th scope="col">Teszt</th>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Dália</td>
-                        <td>Elemér</td>
-                        <td>Ferenc</td>
-                        </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Gábor</td>
-                        <td>Hugó</td>
-                        <td>Irén</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Aladár</td>
+                    <td>Bálint</td>
+                    <td>Cecilia</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Dália</td>
+                    <td>Elemér</td>
+                    <td>Ferenc</td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Gábor</td>
+                    <td>Hugó</td>
+                    <td>Irén</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-    <div class="col-md-2"></div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
         <div class="container-fluid text-center text-md-left">
