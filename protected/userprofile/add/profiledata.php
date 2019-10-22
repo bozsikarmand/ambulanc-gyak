@@ -60,11 +60,6 @@
 
     <div class="form-label-group">
         <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="auto" required>
-        <?php
-        require_once("../../../core/database/populateselect/populateselect.php");
-        foreach ($data as $row): ?>
-            <option data-tokens="<?php $row['Jelleg'] ?>"><?php $row['Jelleg'] ?></option>
-        <?php endforeach ?>
         </select>
     </div>
 
@@ -91,5 +86,6 @@
 <script src="../../../assets/js/populate-select.js"></script>
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
+<script src="../../../assets/js/populate-select.js"></script>
 </body>
 </html>
