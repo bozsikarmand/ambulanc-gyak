@@ -1,13 +1,13 @@
-let dropdown = document.getElementById('inputPublicPlaceTrait');
+var dropdown = document.getElementById('inputPublicPlaceTrait');
 dropdown.length = 0;
 
-let defaultOption = document.createElement('option');
+var defaultOption = document.createElement('option');
 defaultOption.text = 'Valassz';
 
 dropdown.add(defaultOption);
 dropdown.selectedIndex = 0;
 
-const url = '../data/publicplacetrait.json';
+const url = '../../../assets/data/publicplacetrait.json';
 
 const request = new XMLHttpRequest();
 request.open('GET', url, true);
