@@ -126,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-6 bg-light">
             <div class="table-responsive mx-0 my-auto d-inline">
                 <table class="table table-striped table-dark">
                     <thead>
