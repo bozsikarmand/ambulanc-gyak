@@ -19,7 +19,7 @@ request.onload = function() {
     for (var i = 0; i < data.length; i++) {
       option = document.createElement('option');
       option.text = data[i].Jelleg;
-      option.value = data[i].ID;
+      option.value = data[i].Jelleg;
       option.setAttribute('data-tokens', data[i].Jelleg)
       dropdown.add(option);
     }
