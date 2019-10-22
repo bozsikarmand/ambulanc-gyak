@@ -100,7 +100,7 @@
     </nav>
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col">
 
         <div class="mx-0 my-auto d-inline" id="wrapper">
             <div class="bg-dark border-right" id="sidebar-wrapper">        
