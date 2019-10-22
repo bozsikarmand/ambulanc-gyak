@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
     <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
+    <script src="../../../assets/js/populate-select.js" defer></script>
     <style>
 
     </style>
@@ -86,6 +87,5 @@
 <script src="../../../assets/js/populate-select.js"></script>
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
-<script src="../../../assets/js/populate-select.js"></script>
 </body>
 </html>
