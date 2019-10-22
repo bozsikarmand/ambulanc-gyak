@@ -80,7 +80,7 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username">Chuck Norris</span>
+                        <span class="header-username"><?php echo $_SESSION['fullname'] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
