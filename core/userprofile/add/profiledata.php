@@ -31,7 +31,7 @@ if (isset($_POST['button-request-admin-approval'])) {
      $city = $_POST['inputCity'];
      $publicplacename = $_POST['inputPublicPlaceName'];
      $publicplacetrait = $_POST['inputPublicPlaceTrait'];
-     $housenumber = $_POST['inputPublicPlaceTrait'];
+     $housenumber = $_POST['inputHouseNumber'];
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 3;
      $newStat = 4; 
