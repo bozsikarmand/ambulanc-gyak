@@ -123,7 +123,7 @@
         </div>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive mx-0 my-auto d-inline">
         <table class="table table-striped table-dark">
             <thead>
                     <tr>
