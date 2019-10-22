@@ -87,5 +87,8 @@
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
 <script src="../../../assets/js/populate-select.js"></script>
+<script>
+    $('.selectpicker').selectpicker('refresh');
+</script>
 </body>
 </html>

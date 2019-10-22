@@ -33,5 +33,3 @@ request.onerror = function() {
 };
 
 request.send();
-
-$('.selectpicker').selectpicker('refresh');
