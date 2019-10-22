@@ -61,9 +61,9 @@ if (isset($_POST['button-login'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
             // Lekerdezem a felhasznalo vezetek es keresztnevet
-            $queryFullName = "SELECT CONCAT(szemely.Keresztnev, 
+            $queryFullName = "SELECT (CONCAT(szemely.Keresztnev, 
                               REPEAT(' ', 1), szemely.Vezeteknev, 
-                              REPEAT(' ', 1), szemely.Utonev) as fn
+                              REPEAT(' ', 1), szemely.Utonev)) as fn
                               FROM szemely, email 
                               WHERE szemely.ID = email.ID 
                               AND email.BelepesiEmail=:loginemail";
@@ -73,7 +73,8 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
             // Beallitok egy munkamenet valtozot amiben eltarolom a felhasznalo teljes nevet
-            $_SESSION["fullname"] = $resultSet['fn'];
+            print_r($resultSet['fn']);
+            //$_SESSION["fullname"] = $resultSet['fn'];
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
@@ -128,7 +129,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 4) {
                 header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 5) {
-                header("Location: ../../protected/dashboard/index.php");
+                //header("Location: ../../protected/dashboard/index.php");
             }
 
             // Routing vege
