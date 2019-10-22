@@ -1,4 +1,5 @@
-var dropdown = document.getElementById('inputPublicPlaceTrait');
+document.addEventListener('DOMContentLoaded', function() {
+  var dropdown = document.getElementById('inputPublicPlaceTrait');
 dropdown.length = 0;
 
 var defaultOption = document.createElement('option');
@@ -33,3 +34,4 @@ request.onerror = function() {
 };
 
 request.send();
+}, false);
