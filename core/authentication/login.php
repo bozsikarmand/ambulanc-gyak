@@ -112,7 +112,7 @@ if (isset($_POST['button-login'])) {
             if ($resultSetRouting['statusz'] == 3) {
                 header("Location: ../../protected/userprofile/add/profiledata.php");
             } else if ($resultSetRouting['statusz'] == 4) {
-                header("Location: ../../core/default/adminapproval.php");
+                header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 5) {
                 header("Location: ../../protected/dashboard/index.php");
             }
