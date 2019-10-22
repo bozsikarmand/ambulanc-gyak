@@ -15,6 +15,7 @@
         }
         #sidebar-wrapper {
             min-height: 100vh;
+            margin-left: -15rem;
             -webkit-transition: margin .25s ease-out;
             -moz-transition: margin .25s ease-out;
             -o-transition: margin .25s ease-out;
@@ -57,7 +58,7 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
-            <form class="mx-5 my-auto d-inline w-75">
+            <form class="mx-5 my-0 d-inline w-75">
                 <div class="input-group">
                     <input type="text" class="form-control border border-right-0" placeholder="Keresés">
                     <span class="input-group-append">
@@ -102,7 +103,7 @@
         <div class="col-2">
 
         <div class="mx-0 my-auto d-inline" id="wrapper">
-            <div class="bg-dark" id="sidebar-wrapper">        
+            <div class="bg-dark border-right" id="sidebar-wrapper">        
                 <div class="sidebar-heading">Teszt</div>
                 <div class="list-group list-group-flush">
                     <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
