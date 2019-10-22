@@ -71,14 +71,6 @@ session_start();
                   </span>
                 </div>
             </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
             <div class="navbar-nav ml-auto">   
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
