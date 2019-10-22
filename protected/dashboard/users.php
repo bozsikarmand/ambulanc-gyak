@@ -99,61 +99,67 @@
         </div>
     </nav>
 
-    <div class="mx-0 my-auto d-inline" id="wrapper">
-        <div class="bg-dark border-right" id="sidebar-wrapper">        
-            <div class="sidebar-heading">Teszt</div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-chart-pie"></i> Statisztikák
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-users"></i> Felhasználók</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-dove"></i> Állatok
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-building"></i> Állomások
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-shuttle-van"></i> Szállitások</a>
+    <div class="row">
+        <div class="col">
+
+        <div class="mx-0 my-auto d-inline" id="wrapper">
+            <div class="bg-dark border-right" id="sidebar-wrapper">        
+                <div class="sidebar-heading">Teszt</div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-users"></i> Felhasználók</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="table-responsive mx-0 my-auto d-inline">
-        <table class="table table-striped table-dark">
-            <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Teszt</th>
-                        <th scope="col">Teszt</th>
-                        <th scope="col">Teszt</th>
-                    </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Aladár</td>
-                    <td>Bálint</td>
-                    <td>Cecilia</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Dália</td>
-                    <td>Elemér</td>
-                    <td>Ferenc</td>
-                    </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Gábor</td>
-                    <td>Hugó</td>
-                    <td>Irén</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="col">
+            <div class="table-responsive mx-0 my-auto d-inline">
+                <table class="table table-striped table-dark">
+                    <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Teszt</th>
+                                <th scope="col">Teszt</th>
+                                <th scope="col">Teszt</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Aladár</td>
+                            <td>Bálint</td>
+                            <td>Cecilia</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Dália</td>
+                            <td>Elemér</td>
+                            <td>Ferenc</td>
+                            </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Gábor</td>
+                            <td>Hugó</td>
+                            <td>Irén</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
