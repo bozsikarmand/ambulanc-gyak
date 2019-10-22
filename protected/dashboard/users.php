@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-<div class="container-fullwidth">
+<div class="container-fluid">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -123,38 +123,44 @@
         </div>
     </div>
 
-    <div class="table-responsive mx-0 my-auto d-inline">
-        <table class="table table-striped table-dark">
-            <thead>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-10">
+        <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Teszt</th>
+                            <th scope="col">Teszt</th>
+                            <th scope="col">Teszt</th>
+                        </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Teszt</th>
-                        <th scope="col">Teszt</th>
-                        <th scope="col">Teszt</th>
+                        <th scope="row">1</th>
+                        <td>Aladár</td>
+                        <td>Bálint</td>
+                        <td>Cecilia</td>
                     </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Aladár</td>
-                    <td>Bálint</td>
-                    <td>Cecilia</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Dália</td>
-                    <td>Elemér</td>
-                    <td>Ferenc</td>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Dália</td>
+                        <td>Elemér</td>
+                        <td>Ferenc</td>
+                        </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Gábor</td>
+                        <td>Hugó</td>
+                        <td>Irén</td>
                     </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Gábor</td>
-                    <td>Hugó</td>
-                    <td>Irén</td>
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <div class="col-md-2"></div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
         <div class="container-fluid text-center text-md-left">
