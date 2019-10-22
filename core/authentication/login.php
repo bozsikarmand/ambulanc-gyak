@@ -73,8 +73,7 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
             // Beallitok egy munkamenet valtozot amiben eltarolom a felhasznalo teljes nevet
-            print_r($resultSet['fn']);
-            //$_SESSION["fullname"] = $resultSet['fn'];
+            $_SESSION["fullname"] = $resultSet['fn'];
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
@@ -129,7 +128,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 4) {
                 header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 5) {
-                //header("Location: ../../protected/dashboard/index.php");
+                header("Location: ../../protected/dashboard/index.php");
             }
 
             // Routing vege
