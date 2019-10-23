@@ -6,42 +6,8 @@
     <title>Vezérlőpult</title>
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/css/admin.css">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
-    <style>
-        .avatar {
-            vertical-align: middle;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-        }
-        #sidebar-wrapper {
-            min-height: 100vh;
-            margin-left: -15rem;
-            -webkit-transition: margin .25s ease-out;
-            -moz-transition: margin .25s ease-out;
-            -o-transition: margin .25s ease-out;
-            transition: margin .25s ease-out;
-        }
-
-        #sidebar-wrapper .sidebar-heading {
-            padding: 0.875rem 1.25rem;
-            font-size: 1.2rem;
-        }
-
-        #sidebar-wrapper .list-group {
-            width: 15rem;
-        }
-        @media (min-width: 768px) {
-            #sidebar-wrapper {
-                margin-left: 0;
-            }
-
-            #page-content-wrapper {
-                min-width: 0;
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
 <div class="container-fullwidth">

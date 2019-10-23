@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
     <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
     <script src="../../../assets/js/populate-select.js" defer></script>
-    <style>
-
-    </style>
 </head>
 <body>
 <form class="form-signin" action="../../../core/userprofile/add/profiledata.php" method="post">
