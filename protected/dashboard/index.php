@@ -104,7 +104,7 @@ session_start();
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="fas fa-chart-pie"></i> Statisztikák
                 </a>
-                <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
+                <a href="/list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="fas fa-users"></i> Felhasználók</a>
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="fas fa-dove"></i> Állatok
