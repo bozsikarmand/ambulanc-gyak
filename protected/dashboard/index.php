@@ -74,7 +74,7 @@ session_start();
         </div>
     </nav>
 
-    <div id="container-fullwidth">
+    <div class="container-fullwidth" style="margin-top:100px">
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc enim neque, dictum eget leo ut, luctus tincidunt lectus. Nam vel euismod ante. Fusce vitae euismod velit, eu pellentesque ipsum. In eget diam iaculis, maximus ligula sit amet, euismod augue. Aliquam erat volutpat. Vivamus et erat rutrum, feugiat dolor eu, aliquam dui. Suspendisse eu magna at nisl congue feugiat. Nunc sed tempus dui, nec ornare ante. Suspendisse condimentum fermentum nisi quis tempor. Morbi posuere consequat varius. Nunc ornare laoreet egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
