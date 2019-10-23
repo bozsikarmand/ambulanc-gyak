@@ -60,27 +60,35 @@ session_start();
         </div>
     </nav>
 
-    <div class="mx-0 my-auto d-inline" id="wrapper">
-        <div class="bg-dark border-right" id="sidebar-wrapper">        
-            <div class="sidebar-heading">Teszt</div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-chart-pie"></i> Statisztikák
-                </a>
-                <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-users"></i> Felhasználók</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-dove"></i> Állatok
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-building"></i> Állomások
-                </a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                    <i class="fas fa-shuttle-van"></i> Szállitások</a>
+    <div class="row mr-0">
+        <div class="col-2">
+
+            <div class="mx-0 my-auto d-inline" id="wrapper">
+                <div class="bg-dark border-right" id="sidebar-wrapper">        
+                    <div class="sidebar-heading">Teszt</div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    </a>
+                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-users"></i> Felhasználók</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások</a>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="col bg-light">
+            
         </div>
     </div>
 
