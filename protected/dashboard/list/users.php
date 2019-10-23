@@ -8,9 +8,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -34,7 +34,7 @@ session_start();
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók</a>
                     <div class="dropdown-menu">
-                        <a href="list/user/adminapproval.php" class="btn btn-link nav-link">
+                        <a href="list/user/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
@@ -182,9 +182,9 @@ session_start();
         </div>
     </footer>
 </div>
-<script src="../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../assets/js/popper.min.js"></script>
-<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../../../assets/js/popper.min.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
 

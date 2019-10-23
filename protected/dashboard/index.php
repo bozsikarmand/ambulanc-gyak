@@ -34,7 +34,7 @@ session_start();
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók</a>
                     <div class="dropdown-menu">
-                        <a href="list/user/adminapproval.php" class="btn btn-link nav-link">
+                        <a href="list/user/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
