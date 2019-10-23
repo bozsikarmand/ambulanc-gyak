@@ -60,20 +60,6 @@ if (isset($_POST['button-login'])) {
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
-            // Lekerdezem a felhasznalo vezetek es keresztnevet
-            $queryFullName = "SELECT (CONCAT(szemely.Keresztnev, 
-                              REPEAT(' ', 1), szemely.Vezeteknev, 
-                              REPEAT(' ', 1), szemely.Utonev)) as fn
-                              FROM szemely, email 
-                              WHERE szemely.ID = email.ID 
-                              AND email.BelepesiEmail=:loginemail";
-            
-            $run = $databaseConnection -> prepare($queryFullName);
-            $run->bindValue(':loginemail', $loginEmail);
-            $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-            // Beallitok egy munkamenet valtozot amiben eltarolom a felhasznalo teljes nevet
-            $_SESSION["fullname"] = $resultSet['fn'];
             // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
