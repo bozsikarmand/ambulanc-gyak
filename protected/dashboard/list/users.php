@@ -32,18 +32,15 @@ session_start();
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <div class="btn-group">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók</a>
+                    <div class="dropdown-menu">
                         <a href="list/user/adminapproval.php" class="btn btn-link nav-link">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
-                        <a href="#" class="btn btn-link nav-link dropdown-toggle dropdown-toggle-split">
-                            <span class="sr-only">Toggle dropdown</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="list/users.php" class="dropdown-item">
+                            <i class="fas fa-users"></i> Felhasználók
                         </a>
-                        <div class="dropdown-menu">
-                            <a href="list/users.php" class="dropdown-item">
-                                <i class="fas fa-users"></i> Felhasználók
-                            </a>
-                        </div>
                     </div>
                 </li>
                 <li class="nav-item">
