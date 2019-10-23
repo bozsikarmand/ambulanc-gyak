@@ -31,10 +31,17 @@ session_start();
                         <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-users"></i> Felhasználók
-                    </a>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók</a>
+                    <div class="dropdown-menu">
+                        <a href="list/user/adminapproval.php" class="btn btn-link nav-link">
+                            <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="list/users.php" class="dropdown-item">
+                            <i class="fas fa-users"></i> Felhasználók
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
