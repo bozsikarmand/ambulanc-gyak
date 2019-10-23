@@ -8,9 +8,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -22,7 +22,7 @@ session_start();
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../index.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>
@@ -31,10 +31,20 @@ session_start();
                         <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-users"></i> Felhasználók
-                    </a>
+                <li class="nav-item dropdown">
+                    <div class="btn-group">
+                        <a href="list/user/adminapproval.php" class="btn btn-link nav-link">
+                            <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
+                        </a>
+                        <a href="#" class="btn btn-link nav-link dropdown-toggle dropdown-toggle-split">
+                            <span class="sr-only">Toggle dropdown</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="list/users.php" class="dropdown-item">
+                                <i class="fas fa-users"></i> Felhasználók
+                            </a>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
@@ -175,8 +185,12 @@ session_start();
         </div>
     </footer>
 </div>
-<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../assets/js/popper.min.js"></script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../../assets/js/popper.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
+
