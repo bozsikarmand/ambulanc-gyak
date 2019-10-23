@@ -89,12 +89,12 @@ session_start();
                 <th scope="row">1</th>
                 <td>Aladár</td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
@@ -103,12 +103,12 @@ session_start();
                 <th scope="row">2</th>
                 <td>Bálint</td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
@@ -117,12 +117,12 @@ session_start();
                 <th scope="row">3</th>
                 <td>Cecil</td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-success">
+                    <a href="edit.php" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
