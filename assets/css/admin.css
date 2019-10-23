@@ -4,3 +4,7 @@
     height: 20px;
     border-radius: 50%;
 }
+
+td[colspan="2"] {
+    text-align: center;
+}

@@ -10,6 +10,7 @@ session_start();
     <title>Főoldal</title>
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -80,7 +81,7 @@ session_start();
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th scope="col">Műveletek</th>
+                <th scope="col" colspan="2">Műveletek</th>
                 </tr>
             </thead>
             <tbody>

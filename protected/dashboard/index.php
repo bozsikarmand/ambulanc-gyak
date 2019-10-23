@@ -10,6 +10,7 @@ session_start();
     <title>Főoldal</title>
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
