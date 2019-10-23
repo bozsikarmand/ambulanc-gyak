@@ -1,15 +1,15 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Vezérlőpult</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/css/admin.css">
-    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
+    <title>Főoldal</title>
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -21,35 +21,41 @@ session_start();
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">    
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-            <form class="mx-5 my-0 d-inline w-75">
-                <div class="input-group">
-                    <input type="text" class="form-control border border-right-0" placeholder="Keresés">
-                    <span class="input-group-append">
-                    <button class="btn btn-primary border border-left-0" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                  </span>
-                </div>
-            </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-users"></i> Felhasználók
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások
+                    </a>
                 </li>
             </ul>
-            <div class="navbar-nav ml-auto">   
+            <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username">Chuck Norris</span>
+                        <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
@@ -68,36 +74,8 @@ session_start();
         </div>
     </nav>
 
-    <div class="row mr-0">
-        <div class="col-2">
-
-        <div class="mx-0 my-auto d-inline" id="wrapper">
-            <div class="bg-dark border-right" id="sidebar-wrapper">        
-                <div class="sidebar-heading">Teszt</div>
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-users"></i> Felhasználók</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-dove"></i> Állatok
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-building"></i> Állomások
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-shuttle-van"></i> Szállitások</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col bg-light">
-            <div class="container">
-            <table class="table">
+    <div class="container-fullwidth" style="margin-top:100px">
+        <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
@@ -149,9 +127,7 @@ session_start();
                 </td>
                 </tr>
             </tbody>
-            </table>
-            </div>
-        </div>
+        </table>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
@@ -198,8 +174,8 @@ session_start();
         </div>
     </footer>
 </div>
-<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../assets/js/popper.min.js"></script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../../assets/js/popper.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
