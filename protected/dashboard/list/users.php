@@ -12,8 +12,8 @@ session_start();
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<div class="container-fullwidth">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -68,88 +68,88 @@ session_start();
         </div>
     </nav>
 
-    <div class="container-fullwidth">
-        <div class="row mr-0">
-            <div class="col-md-2">
+    <div class="row mr-0">
+        <div class="col-2">
 
-            <div class="mx-0 my-auto d-inline" id="wrapper">
-                <div class="bg-dark border-right" id="sidebar-wrapper">        
-                    <div class="sidebar-heading">Teszt</div>
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-chart-pie"></i> Statisztikák
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-users"></i> Felhasználók</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-dove"></i> Állatok
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-building"></i> Állomások
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                            <i class="fas fa-shuttle-van"></i> Szállitások</a>
-                        </div>
+        <div class="mx-0 my-auto d-inline" id="wrapper">
+            <div class="bg-dark border-right" id="sidebar-wrapper">        
+                <div class="sidebar-heading">Teszt</div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-users"></i> Felhasználók</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások</a>
                     </div>
                 </div>
             </div>
-            <div class="col bg-light mt-2">
+        </div>
+        <div class="col bg-light">
+            <div class="container">
             <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Név</th>
-                    <th scope="col">Műveletek</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Aladár</td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-edit"></i> Módositás
-                        </a>
-                    </td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-trash-alt"></i> Törlés
-                        </a>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Bálint</td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-edit"></i> Módositás
-                        </a>
-                    </td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-trash-alt"></i> Törlés
-                        </a>
-                    </td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>Cecil</td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-edit"></i> Módositás
-                        </a>
-                    </td>
-                    <td>
-                        <a href="edit.php" class="btn btn-success">
-                            <i class="fas fa-trash-alt"></i> Törlés
-                        </a>
-                    </td>
-                    </tr>
-                </tbody>
-                </table>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Név</th>
+                <th scope="col">Műveletek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Aladár</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Bálint</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td>Cecil</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+            </tbody>
+            </table>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@ session_start();
             <a href="#"></a>
         </div>
     </footer>
-
+</div>
 <script src="../../../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
