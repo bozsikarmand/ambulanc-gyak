@@ -101,7 +101,7 @@
     </nav>
 
     <div class="row mr-0">
-        <div class="col-6">
+        <div class="col-2">
 
         <div class="mx-0 my-auto d-inline" id="wrapper">
             <div class="bg-dark border-right" id="sidebar-wrapper">        
