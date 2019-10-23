@@ -33,7 +33,7 @@ session_start();
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók
-                        <i class="fas fa-users">
+                        <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a href="list/user/adminapproval.php" class="dropdown-item">
