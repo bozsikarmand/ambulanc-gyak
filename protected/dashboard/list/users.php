@@ -96,7 +96,59 @@ session_start();
             </div>
         </div>
         <div class="col bg-light">
-            
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Név</th>
+                <th scope="col" colspan="2">Műveletek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Aladár</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Bálint</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td>Cecil</td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-success">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+                </tr>
+            </tbody>
+            </table>
         </div>
     </div>
 
