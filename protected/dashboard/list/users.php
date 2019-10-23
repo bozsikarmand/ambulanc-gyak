@@ -127,39 +127,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 bg-light">
-            <div class="table-responsive mx-0 my-auto d-inline">
-                <table class="table table-striped table-dark">
-                    <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Teszt</th>
-                                <th scope="col">Teszt</th>
-                                <th scope="col">Teszt</th>
-                            </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Aladár</td>
-                            <td>Bálint</td>
-                            <td>Cecilia</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Dália</td>
-                            <td>Elemér</td>
-                            <td>Ferenc</td>
-                            </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Gábor</td>
-                            <td>Hugó</td>
-                            <td>Irén</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="col bg-light">
+            
         </div>
     </div>
 
