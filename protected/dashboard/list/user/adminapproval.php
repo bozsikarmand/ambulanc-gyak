@@ -98,13 +98,13 @@ session_start();
                 <th scope="row">1</th>
                 <td>Aladár</td>
                 <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
+                    <a href="approve.php" class="btn btn-success">
+                        <i class="fas fa-check-circle"></i> Elfogadás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
+                    <a href="deny.php" class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i> Elutasitás
                     </a>
                 </td>
                 </tr>
@@ -112,13 +112,13 @@ session_start();
                 <th scope="row">2</th>
                 <td>Bálint</td>
                 <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
+                    <a href="approve.php" class="btn btn-success">
+                        <i class="fas fa-check-circle"></i> Elfogadás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
+                    <a href="deny.php" class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i> Elutasitás
                     </a>
                 </td>
                 </tr>
@@ -126,13 +126,13 @@ session_start();
                 <th scope="row">3</th>
                 <td>Cecil</td>
                 <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
+                    <a href="approve.php" class="btn btn-success">
+                        <i class="fas fa-check-circle"></i> Elfogadás
                     </a>
                 </td>
                 <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
+                    <a href="deny.php" class="btn btn-danger">
+                        <i class="fas fa-times-circle"></i> Elutasitás
                     </a>
                 </td>
                 </tr>
