@@ -1,15 +1,15 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Vezérlőpult</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../assets/css/admin.css">
+    <title>Főoldal</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -21,23 +21,37 @@ session_start();
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
                 </li>
-                <li class="nav-item">    
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-users"></i> Felhasználók
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások
+                    </a>
                 </li>
             </ul>
-            <form class="mx-5 my-0 d-inline w-75">
-                <div class="input-group">
-                    <input type="text" class="form-control border border-right-0" placeholder="Keresés">
-                    <span class="input-group-append">
-                    <button class="btn btn-primary border border-left-0" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                  </span>
-                </div>
-            </form>
-            <div class="navbar-nav ml-auto">   
+            <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
@@ -60,36 +74,18 @@ session_start();
         </div>
     </nav>
 
-    <div class="row mr-0">
-        <div class="col-2">
+    <div id="container-fullwidth">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc enim neque, dictum eget leo ut, luctus tincidunt lectus. Nam vel euismod ante. Fusce vitae euismod velit, eu pellentesque ipsum. In eget diam iaculis, maximus ligula sit amet, euismod augue. Aliquam erat volutpat. Vivamus et erat rutrum, feugiat dolor eu, aliquam dui. Suspendisse eu magna at nisl congue feugiat. Nunc sed tempus dui, nec ornare ante. Suspendisse condimentum fermentum nisi quis tempor. Morbi posuere consequat varius. Nunc ornare laoreet egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
-            <div class="mx-0 my-auto d-inline" id="wrapper">
-                <div class="bg-dark border-right" id="sidebar-wrapper">        
-                    <div class="sidebar-heading">Teszt</div>
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
-                    </a>
-                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-users"></i> Felhasználók</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-dove"></i> Állatok
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-building"></i> Állomások
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-shuttle-van"></i> Szállitások</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col bg-light">
-            
-        </div>
+Aliquam venenatis, purus ut cursus euismod, mauris sapien blandit elit, in pulvinar purus turpis id ligula. Sed non faucibus justo. Cras rutrum congue lobortis. Vestibulum volutpat eget enim nec tempus. Etiam at faucibus odio. Mauris eleifend lorem ultrices libero pulvinar condimentum. Praesent nec neque sit amet nisl euismod aliquam. Donec ac enim erat. Pellentesque suscipit bibendum ornare. Ut vel purus id mi sodales eleifend id vitae tellus. Vestibulum vel nulla pharetra, lobortis neque eu, consectetur turpis.
+
+Maecenas suscipit quis libero nec hendrerit. Aenean tristique dictum turpis quis accumsan. In hac habitasse platea dictumst. Proin posuere pharetra dignissim. Integer a tortor gravida, tristique enim ut, dignissim ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis bibendum varius velit, sed fringilla sem bibendum eget. Donec a luctus turpis. Pellentesque lacinia volutpat lorem vel lacinia. Aliquam id erat luctus ante malesuada semper.
+
+Nunc suscipit euismod enim vel feugiat. Etiam quis sapien feugiat, blandit sem a, vehicula dui. Maecenas eu orci dignissim, efficitur dui nec, posuere ligula. Maecenas laoreet, sapien fringilla pretium laoreet, purus odio vulputate ligula, ut euismod enim nisl sit amet mi. Nam fermentum elementum risus vitae rhoncus. Nunc consequat, nisi a consectetur vehicula, est purus molestie nulla, eu venenatis ex neque ut diam. Donec condimentum, diam pellentesque auctor lobortis, sem nunc consequat leo, ut sodales mauris velit id sapien. Suspendisse vestibulum nisi id diam vehicula, sit amet luctus dui pulvinar. Nam condimentum enim urna. Ut dapibus, erat sed tincidunt rutrum, diam ligula tincidunt libero, vel fermentum turpis elit ac libero. Cras magna tellus, consectetur vel maximus at, fringilla sed sem. Pellentesque venenatis vulputate odio quis condimentum. Ut nec consequat odio.
+
+Integer vel tincidunt lacus. Vivamus sit amet laoreet nisl, in imperdiet turpis. Vivamus ac convallis nulla, eu egestas velit. Pellentesque feugiat mollis viverra. Pellentesque libero risus, volutpat in accumsan luctus, gravida non velit. Quisque eget est eget justo feugiat congue. Nam in risus eu eros elementum posuere. Aliquam hendrerit massa sem, id vulputate justo posuere in. Nunc at iaculis lacus, eu ornare nisi. In pharetra, sapien nec dignissim suscipit, nisl lacus facilisis quam, at faucibus tellus nunc efficitur eros. Nunc aliquet ex non nunc ullamcorper egestas. Vivamus eros metus, posuere ac nisi a, tempus hendrerit lacus. Integer quis urna congue, hendrerit nunc eget, faucibus mi. Mauris sed elit quis nibh consequat placerat. Donec at feugiat enim.
+        </p> 
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
@@ -136,8 +132,9 @@ session_start();
         </div>
     </footer>
 </div>
-<script src="../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../assets/js/popper.min.js"></script>
-<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
+
