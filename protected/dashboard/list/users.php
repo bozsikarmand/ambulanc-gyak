@@ -97,7 +97,7 @@ session_start();
         </div>
         <div class="col bg-light">
         <table class="table">
-            <thead class="thead-dark">
+            <thead class="thead">
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
