@@ -32,7 +32,9 @@ session_start();
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók
+                        <i class="fas fa-users">
+                    </a>
                     <div class="dropdown-menu">
                         <a href="list/user/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
