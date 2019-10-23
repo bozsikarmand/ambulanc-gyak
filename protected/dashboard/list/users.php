@@ -101,7 +101,7 @@ session_start();
                 <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th scope="col" colspan="2">Műveletek</th>
+                <th scope="col">Műveletek</th>
                 </tr>
             </thead>
             <tbody>
