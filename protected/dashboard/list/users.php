@@ -31,9 +31,6 @@
         #sidebar-wrapper .list-group {
             width: 15rem;
         }
-        .row {
-            margin-right: 0px;
-        }
         @media (min-width: 768px) {
             #sidebar-wrapper {
                 margin-left: 0;
@@ -103,7 +100,7 @@
         </div>
     </nav>
 
-    <div class="row">
+    <div class="row mr-0">
         <div class="col">
 
         <div class="mx-0 my-auto d-inline" id="wrapper">
