@@ -31,6 +31,9 @@
         #sidebar-wrapper .list-group {
             width: 15rem;
         }
+        .row {
+            margin-right: 0px;
+        }
         @media (min-width: 768px) {
             #sidebar-wrapper {
                 margin-left: 0;
