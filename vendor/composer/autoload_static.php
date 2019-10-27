@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544
 {
     public static $prefixLengthsPsr4 = array (
+        'k' => 
+        array (
+            'kartik\\plugins\\strengthmeter\\' => 29,
+            'kartik\\plugins\\fileinput\\' => 25,
+        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
@@ -14,6 +19,14 @@ class ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544
     );
 
     public static $prefixDirsPsr4 = array (
+        'kartik\\plugins\\strengthmeter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/strength-meter',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',

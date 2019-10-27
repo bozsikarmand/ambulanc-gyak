@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
     <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../../../assets/css/fileinput.min.css">
+    <link rel="stylesheet" href="../../../assets/css/profiledata.css">
     <script src="../../../assets/js/populate-select.js" defer></script>
 </head>
 <body>
@@ -71,6 +73,16 @@
         <label for="inputBuildingLetter">Épület betűjele</label>
     </div>
 
+    <div class="kv-avatar">
+        <div class="file-loading">
+            <input id="avatar" name="avatar" type="file" required>
+        </div>
+    </div>
+    <div class="kv-avatar-hint">
+        <small>A fájlnak 1500 KB-nál kisebbenk kell lennie</small>
+    </div>
+    <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
+
     <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
         <i class="fas fa-user-check"></i> Adminisztratori jovahagyas kerese
     </button>
@@ -78,11 +90,34 @@
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
+<script>
+    $("#avatar").fileinput({
+    overwriteInitial: true,
+    maxFileSize: 1500,
+    showClose: false,
+    showCaption: false,
+    showBrowse: false,
+    browseOnZoneClick: true,
+    removeLabel: '',
+    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+    removeTitle: 'Törlés',
+    elErrorContainer: '#kv-avatar-errors-2',
+    msgErrorClass: 'alert alert-block alert-danger',
+    defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
+    layoutTemplates: {main2: '{preview} {remove} {browse}'},
+    allowedFileExtensions: ["jpg", "png", "gif"]
+});
+</script>
 <script src="../../../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
 <script src="../../../assets/js/populate-select.js"></script>
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
+<script src="../../../assets/js/piexif.min.js"></script>
+<script src="../../../assets/js/purify.min.js"></script>
+<script src="../../../assets/js/fileinput.min.js"></script>
+<script src="../../../assets/js/theme.js"></script>
+<script src="../../../assets/js/hu.js"></script>
 </body>
 </html>
