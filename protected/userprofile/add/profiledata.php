@@ -90,6 +90,17 @@
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
+<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../../../assets/js/popper.min.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/populate-select.js"></script>
+<script src="../../../assets/js/bootstrap-select.min.js"></script>
+<script src="../../../assets/js/defaults-hu_HU.min.js"></script>
+<script src="../../../assets/js/piexif.min.js"></script>
+<script src="../../../assets/js/purify.min.js"></script>
+<script src="../../../assets/js/fileinput.min.js"></script>
+<script src="../../../assets/js/theme.js"></script>
+<script src="../../../assets/js/hu.js"></script>
 <script>
     $("#avatar").fileinput({
     overwriteInitial: true,
@@ -108,16 +119,5 @@
     allowedFileExtensions: ["jpg", "png", "gif"]
 });
 </script>
-<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../assets/js/popper.min.js"></script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/populate-select.js"></script>
-<script src="../../../assets/js/bootstrap-select.min.js"></script>
-<script src="../../../assets/js/defaults-hu_HU.min.js"></script>
-<script src="../../../assets/js/piexif.min.js"></script>
-<script src="../../../assets/js/purify.min.js"></script>
-<script src="../../../assets/js/fileinput.min.js"></script>
-<script src="../../../assets/js/theme.js"></script>
-<script src="../../../assets/js/hu.js"></script>
 </body>
 </html>
