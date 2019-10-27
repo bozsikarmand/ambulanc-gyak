@@ -79,7 +79,7 @@
         </div>
     </div>
     <div class="kv-avatar-hint">
-        <small>A fájlnak 1500 KB-nál kisebbenk kell lennie</small>
+        <small>A fájlnak 1500 KB-nál kisebbnek kell lennie</small>
     </div>
 
     <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
