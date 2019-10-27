@@ -81,7 +81,6 @@
     <div class="kv-avatar-hint">
         <small>A fájlnak 1500 KB-nál kisebbenk kell lennie</small>
     </div>
-    <div id="kv-avatar-errors-1" class="center-block" style="width:800px;display:none"></div>
 
     <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
         <i class="fas fa-user-check"></i> Adminisztratori jovahagyas kerese
@@ -90,6 +89,9 @@
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
+
+<div id="kv-avatar-errors" class="center-block" style="width:800px;display:none"></div>
+
 <script src="../../../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
@@ -109,10 +111,12 @@
     showCaption: false,
     showBrowse: false,
     browseOnZoneClick: true,
+    browseLabel: '',
     removeLabel: '',
-    removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+    browseIcon: '<i class="fas fa-folder-open"></i>',
+    removeIcon: '<i class="fas fa-trash-alt"></i>',
     removeTitle: 'Törlés',
-    elErrorContainer: '#kv-avatar-errors-2',
+    elErrorContainer: '#kv-avatar-errors',
     msgErrorClass: 'alert alert-block alert-danger',
     defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
     layoutTemplates: {main2: '{preview} {remove} {browse}'},
