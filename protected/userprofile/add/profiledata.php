@@ -106,6 +106,7 @@
 <script>
     $("#avatar").fileinput({
         theme: "fas",
+        language: 'hu',
         overwriteInitial: true,
         maxFileSize: 1500,
         showClose: false,
