@@ -101,27 +101,28 @@
 <script src="../../../assets/js/piexif.min.js"></script>
 <script src="../../../assets/js/purify.min.js"></script>
 <script src="../../../assets/js/fileinput.min.js"></script>
-<script src="../../../assets/js/theme.js"></script>
+<script src="../../../assets/js/theme.min.js"></script>
 <script src="../../../assets/js/hu.js"></script>
 <script>
     $("#avatar").fileinput({
-    overwriteInitial: true,
-    maxFileSize: 1500,
-    showClose: false,
-    showCaption: false,
-    showBrowse: false,
-    browseOnZoneClick: true,
-    browseLabel: '',
-    removeLabel: '',
-    browseIcon: '<i class="fas fa-folder-open"></i>',
-    removeIcon: '<i class="fas fa-trash-alt"></i>',
-    removeTitle: 'Törlés',
-    elErrorContainer: '#kv-avatar-errors',
-    msgErrorClass: 'alert alert-block alert-danger',
-    defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
-    layoutTemplates: {main2: '{preview} {remove} {browse}'},
-    allowedFileExtensions: ["jpg", "png", "gif"]
-});
+        theme: "fas",
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        showBrowse: false,
+        browseOnZoneClick: true,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="fas fa-folder-open"></i>',
+        removeIcon: '<i class="fas fa-trash-alt"></i>',
+        removeTitle: 'Törlés',
+        elErrorContainer: '#kv-avatar-errors',
+        msgErrorClass: 'alert alert-block alert-danger',
+        defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
+        layoutTemplates: {main2: '{preview} {remove} {browse}'},
+        allowedFileExtensions: ["jpg", "png", "gif"]
+    });
 </script>
 </body>
 </html>
