@@ -8,6 +8,7 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../database/config.php");
+require_once ("../../../vendor/autoload.php");
 
 /**
  *  
@@ -33,59 +34,90 @@ if (isset($_POST['button-request-admin-approval'])) {
      $publicplacetrait = $_POST['inputPublicPlaceTrait'];
      $housenumber = $_POST['inputHouseNumber'];
      $buildingletter = $_POST['inputBuildingLetter'];
+     $chosenAvatar = $_FILES['avatar'];
      $stat = 3;
      $newStat = 4; 
 
      // A session-ben atadott email cim
      $sessionLoginEmail = $_SESSION['email'];
+     // A sessionben atadott felhasznalonev
+     $sessionUsername = $_SESSION['username'];
+
+     $image = new Bulletproof\Image($chosenAvatar);
+
+     if ($image) {
+         $image->setName($sessionUsername); 
+         $image->setLocation('../../../uploads/avatar');
+         $image->setSize(0, 1536000);
+         $image->setDimension(1000, 1000);
+         $image->setMime(array('jpg', 'jpeg', 'png', 'gif'));  
+
+         $upload = $image->upload();
+
+         if ($upload) {
+             resize(
+                 $image->getFullPath(), 
+                 $image->getMime(),
+                 $image->getWidth(),
+                 $image->getHeight(),
+                 20,
+                 20
+                );
+
+             $avatarfullpath = ($image->getFullPath());
+
+             $addUserData = "UPDATE szemely
+                             JOIN email 
+                             ON email.ID = szemely.ID
+                             SET szemely.Vezeteknev = :firstname,
+                                 szemely.Keresztnev = :lastname,
+                                 szemely.Utonev = :middlename,
+                                 szemely.VezetekesTel = :landlinetel,
+                                 szemely.MobilTel = :mobiletel,
+                                 szemely.IRSZ = :zipcode,
+                                 szemely.Varos = :city,
+                                 szemely.KozteruletNeve = :publicplacename,
+                                 szemely.KozteruletJellege = :publicplacetrait,
+                                 szemely.Hazszam = :housenumber,
+                                 szemely.Epulet = :buildingletter,
+                                 szemely.Statusz = :newStat
+                                 szemely.ProfilkepUtvonal = :avatarfullpath
+                             WHERE szemely.Vezeteknev IS NULL
+                             AND szemely.Keresztnev IS NULL
+                             AND szemely.Utonev IS NULL
+                             AND szemely.VezetekesTel IS NULL
+                             AND szemely.MobilTel IS NULL
+                             AND szemely.IRSZ IS NULL
+                             AND szemely.Varos IS NULL
+                             AND szemely.KozteruletNeve IS NULL
+                             AND szemely.KozteruletJellege IS NULL
+                             AND szemely.Hazszam IS NULL
+                             AND szemely.Epulet IS NULL
+                             AND szemely.ProfilkepUtvonal IS NULL
+                             AND szemely.Statusz = :stat
+                             AND email.BelepesiEmail = :sessionloginemail";
      
-     $addUserData = "UPDATE szemely
-                     JOIN email 
-                     ON email.ID = szemely.ID
-                     SET szemely.Vezeteknev = :firstname,
-                         szemely.Keresztnev = :lastname,
-                         szemely.Utonev = :middlename,
-                         szemely.VezetekesTel = :landlinetel,
-                         szemely.MobilTel = :mobiletel,
-                         szemely.IRSZ = :zipcode,
-                         szemely.Varos = :city,
-                         szemely.KozteruletNeve = :publicplacename,
-                         szemely.KozteruletJellege = :publicplacetrait,
-                         szemely.Hazszam = :housenumber,
-                         szemely.Epulet = :buildingletter,
-                         szemely.Statusz = :newStat
-                     WHERE szemely.Vezeteknev IS NULL
-                     AND szemely.Keresztnev IS NULL
-                     AND szemely.Utonev IS NULL
-                     AND szemely.VezetekesTel IS NULL
-                     AND szemely.MobilTel IS NULL
-                     AND szemely.IRSZ IS NULL
-                     AND szemely.Varos IS NULL
-                     AND szemely.KozteruletNeve IS NULL
-                     AND szemely.KozteruletJellege IS NULL
-                     AND szemely.Hazszam IS NULL
-                     AND szemely.Epulet IS NULL
-                     AND szemely.Statusz = :stat
-                     AND email.BelepesiEmail = :sessionloginemail";
-     
-     $run = $databaseConnection -> prepare($addUserData);
-     $run->bindValue(':firstname', $firstname);
-     $run->bindValue(':lastname', $lastname);
-     $run->bindValue(':middlename', $middlename);
-     $run->bindValue(':landlinetel', $landlinetel);
-     $run->bindValue(':mobiletel', $mobiletel);
-     $run->bindValue(':zipcode', $zipcode);
-     $run->bindValue(':city', $city);
-     $run->bindValue(':publicplacename', $publicplacename);
-     $run->bindValue(':publicplacetrait', $publicplacetrait);
-     $run->bindValue(':housenumber', $housenumber);
-     $run->bindValue(':buildingletter', $buildingletter);
-     $run->bindValue(':newStat', $newStat);
-     $run->bindValue(':stat', $stat);
-     $run->bindValue(':sessionloginemail', $sessionLoginEmail);
-     $exitcode = $run->execute();
-     
-     if ($exitcode) {
-        header('Location: ../../default/frontend/adminapproval.php');
+             $run = $databaseConnection -> prepare($addUserData);
+             $run->bindValue(':firstname', $firstname);
+             $run->bindValue(':lastname', $lastname);
+             $run->bindValue(':middlename', $middlename);
+             $run->bindValue(':landlinetel', $landlinetel);
+             $run->bindValue(':mobiletel', $mobiletel);
+             $run->bindValue(':zipcode', $zipcode);
+             $run->bindValue(':city', $city);
+             $run->bindValue(':publicplacename', $publicplacename);
+             $run->bindValue(':publicplacetrait', $publicplacetrait);
+             $run->bindValue(':housenumber', $housenumber);
+             $run->bindValue(':buildingletter', $buildingletter);
+             $run->bindValue(':newStat', $newStat);
+             $run->bindValue(':stat', $stat);
+             $run->bindValue(':avatarfullpath', $avatarfullpath);
+             $run->bindValue(':sessionloginemail', $sessionLoginEmail);
+             $exitcode = $run->execute();
+            
+             if ($exitcode) {
+                 header('Location: ../../default/frontend/adminapproval.php');
+             }
+         }
      }
 }

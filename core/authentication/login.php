@@ -60,7 +60,23 @@ if (isset($_POST['button-login'])) {
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
-            // Megkeresem azokat akiknel 2 a statusz, es atallitom 3-ra (elso belepes)
+
+            $queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
+                        FROM szemely 
+                        JOIN email
+                        ON szemely.ID = email.ID
+                        WHERE email.BelepesiEmail=:loginemail";
+            
+            $run = $databaseConnection -> prepare($queryID);
+            $run->bindValue(':loginemail', $loginEmail);
+            $run->execute();
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            // Sessionben eltarolom az ID-t
+            $_SESSION["id"] = $resultSet['id'];
+            // illetve a felhasznalonevet
+            $_SESSION["username"] = $resultSet['username'];
+            // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
                             JOIN email

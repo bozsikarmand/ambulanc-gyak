@@ -33,11 +33,16 @@ class ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544
         ),
     );
 
+    public static $classMap = array (
+        'Bulletproof\\Image' => __DIR__ . '/..' . '/samayo/bulletproof/src/bulletproof.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544::$classMap;
 
         }, null, ClassLoader::class);
     }
