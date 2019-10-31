@@ -44,7 +44,7 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    print("Email ellenorzes:")
+    echo "Email ellenorzes:";
     print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
@@ -56,7 +56,7 @@ if (isset($_POST['button-login'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        print("Jelszo ellenorzes:")
+        echo "Jelszo ellenorzes:";
         print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
@@ -74,7 +74,7 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            print("Azonosito ellenorzes:")
+            echo "Azonosito ellenorzes:";
             print_r($resultSet);
 
             // Sessionben eltarolom az ID-t
