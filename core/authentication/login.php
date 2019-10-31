@@ -59,7 +59,7 @@ if (isset($_POST['button-login'])) {
         echo "Jelszo ellenorzes:";
         print_r($resultSet);
 
-        if (password_verify($password, $resultSet['ph'])) {
+        /*if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
 
@@ -136,7 +136,7 @@ if (isset($_POST['button-login'])) {
                 header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 5) {
                 header("Location: ../../protected/dashboard/index.php");
-            }
+            }*/
 
             // Routing vege
         } else {
