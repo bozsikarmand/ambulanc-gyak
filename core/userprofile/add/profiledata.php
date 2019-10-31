@@ -34,7 +34,7 @@ if (isset($_POST['button-request-admin-approval'])) {
      $publicplacetrait = $_POST['inputPublicPlaceTrait'];
      $housenumber = $_POST['inputHouseNumber'];
      $buildingletter = $_POST['inputBuildingLetter'];
-     $chosenAvatar = $_FILES['avatar'];
+     $image = $_FILES;
      $stat = 3;
      $newStat = 4; 
 
@@ -43,9 +43,9 @@ if (isset($_POST['button-request-admin-approval'])) {
      // A sessionben atadott felhasznalonev
      $sessionUsername = $_SESSION['username'];
 
-     $image = new Bulletproof\Image($chosenAvatar);
+     $image = new Bulletproof\Image($fileArray);
 
-     if ($image) {
+     if ($image["avatar"]) {
          $image->setName($sessionUsername); 
          $image->setLocation('../../../uploads/avatar');
          $image->setSize(0, 1536000);
