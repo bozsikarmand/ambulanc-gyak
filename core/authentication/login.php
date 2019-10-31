@@ -74,10 +74,9 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            echo "Azonosito ellenorzes:";
-            print_r($resultSet);
+            //echo "Azonosito ellenorzes:";
+            //print_r($resultSet);
 
-            /*
             // Sessionben eltarolom az ID-t
             $_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
@@ -140,7 +139,6 @@ if (isset($_POST['button-login'])) {
             }
 
             // Routing vege
-            */
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
