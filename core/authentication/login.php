@@ -44,7 +44,8 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    //print_r($resultSet);
+    print("Email ellenorzes:")
+    print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
@@ -55,7 +56,8 @@ if (isset($_POST['button-login'])) {
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-        //print_r($resultSet);
+        print("Jelszo ellenorzes:")
+        print_r($resultSet);
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
@@ -71,6 +73,9 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            print("Azonosito ellenorzes:")
+            print_r($resultSet);
 
             // Sessionben eltarolom az ID-t
             $_SESSION["id"] = $resultSet['id'];
