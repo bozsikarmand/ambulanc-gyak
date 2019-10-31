@@ -104,29 +104,27 @@
 <script src="../../../assets/js/theme.min.js"></script>
 <script src="../../../assets/js/hu.js"></script>
 <script>
-    $(document).on("ready", function() {
-        $("#avatar").fileinput({
-            theme: "fas",
-            language: 'hu',
-            overwriteInitial: true,
-            maxFileSize: 1500,
-            showClose: false,
-            showCaption: false,
-            showBrowse: false,
-            browseOnZoneClick: true,
-            browseLabel: '',
-            removeLabel: '',
-            browseIcon: '<i class="fas fa-folder-open"></i>',
-            removeIcon: '<i class="fas fa-trash-alt"></i>',
-            removeTitle: 'Törlés',
-            elErrorContainer: '#kv-avatar-errors',
-            msgErrorClass: 'alert alert-block alert-danger',
-            defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
-            layoutTemplates: {main2: '{preview} {remove} {browse}'},
-            allowedFileExtensions: ["jpg", "jpeg", "png", "gif"],
-            uploadAsync: false
-        });    
-    });
+    $("#avatar").fileinput({
+        theme: "fas",
+        language: 'hu',
+        overwriteInitial: true,
+        maxFileSize: 1500,
+        showClose: false,
+        showCaption: false,
+        showBrowse: false,
+        browseOnZoneClick: true,
+        browseLabel: '',
+        removeLabel: '',
+        browseIcon: '<i class="fas fa-folder-open"></i>',
+        removeIcon: '<i class="fas fa-trash-alt"></i>',
+        removeTitle: 'Törlés',
+        elErrorContainer: '#kv-avatar-errors',
+        msgErrorClass: 'alert alert-block alert-danger',
+        defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt</h6>',
+        layoutTemplates: {main2: '{preview} {remove} {browse}'},
+        allowedFileExtensions: ["jpg", "png", "gif"],
+        uploadAsync: false
+    });    
 </script>
 </body>
 </html>

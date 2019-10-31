@@ -50,7 +50,7 @@ if (isset($_POST['button-request-admin-approval'])) {
          $image->setLocation('../../../uploads/avatar');
          $image->setSize(0, 1536000);
          $image->setDimension(1000, 1000);
-         $image->setMime(array('jpg', 'jpeg', 'png', 'gif'));  
+         $image->setMime(array('jpg', 'png', 'gif'));  
 
          $upload = $image->upload();
 
