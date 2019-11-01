@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="../../../assets/css/fileinput.min.css">
     <link rel="stylesheet" href="../../../assets/css/profiledata.css">
-    <script src="../../../assets/js/populate-select.js" defer></script>
 </head>
 <body>
 <form class="form-signin">
