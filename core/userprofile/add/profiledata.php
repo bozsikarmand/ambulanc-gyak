@@ -8,8 +8,6 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../database/config.php");
-require_once ("../../../libraries/bulletproof/bulletproof.php");
-require_once ("../../../libraries/bulletproof/utils/func.image-resize.php");
 
 /**
  *  
@@ -40,7 +38,7 @@ if (isset($_POST['button-request-admin-approval'])) {
      
 
      // A session-ben atadott email cim
-     //$sessionLoginEmail = $_SESSION['email'];
+     $sessionLoginEmail = $_SESSION['email'];
      // A sessionben atadott felhasznalonev
      //$sessionUsername = $_SESSION['username'];
      
