@@ -91,7 +91,7 @@ if (isset($_POST['button-request-admin-approval'])) {
     $exitcode = $run->execute();
             
     if ($exitcode) {
-        header('Location: ../../../default/frontend/profilepicture.php');
+        header('Location: ../../default/frontend/profilepicture.php');
         //header('Location: ../../default/frontend/adminapproval.php');
     }
 }
