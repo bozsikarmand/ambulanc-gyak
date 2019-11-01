@@ -87,7 +87,6 @@ if (isset($_POST['button-request-admin-approval'])) {
     $run->bindValue(':buildingletter', $buildingletter);
     $run->bindValue(':newStat', $newStat);
     $run->bindValue(':stat', $stat);
-    $run->bindValue(':avatarfullpath', $avatarfullpath);
     $run->bindValue(':sessionloginemail', $sessionLoginEmail);
     $exitcode = $run->execute();
             
