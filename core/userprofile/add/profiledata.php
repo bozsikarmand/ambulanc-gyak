@@ -98,5 +98,6 @@ if (isset($_POST['button-request-admin-approval'])) {
     }*/
     echo '<pre>' . print_r($_SESSION, true) . '</pre>';
     echo '<hr>';
+    echo '<hr>';
     echo '<pre>' . print_r($_FILES, true) . '</pre>';
 }
