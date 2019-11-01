@@ -8,7 +8,8 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../../database/config.php");
-require_once ("../../../vendor/autoload.php");
+require_once ("../../../libraries/bulletproof/bulletproof.php");
+require_once ("../../../libraries/bulletproof/utils/func.image-resize.php");
 
 /**
  *  
@@ -34,7 +35,6 @@ if (isset($_POST['button-request-admin-approval'])) {
      $publicplacetrait = $_POST['inputPublicPlaceTrait'];
      $housenumber = $_POST['inputHouseNumber'];
      $buildingletter = $_POST['inputBuildingLetter'];
-     $imagearray = $_FILES;
      $stat = 3;
      $newStat = 4; 
 
@@ -43,11 +43,9 @@ if (isset($_POST['button-request-admin-approval'])) {
      // A sessionben atadott felhasznalonev
      $sessionUsername = $_SESSION['username'];
 
-     $image = new Bulletproof\Image($imagearray);
+     $image = new Bulletproof\Image($_FILES);
 
-     print_r($image['avatar']);
-
-     /*if ($image["avatar"]) {
+     if ($image["avatar"]) {
          $image->setName($sessionUsername); 
          $image->setLocation('../../../uploads/avatar');
          $image->setSize(0, 1536000);
@@ -121,5 +119,5 @@ if (isset($_POST['button-request-admin-approval'])) {
                  header('Location: ../../default/frontend/adminapproval.php');
              }
          }
-     }*/
+     }
 }

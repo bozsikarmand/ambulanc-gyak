@@ -2,7 +2,6 @@
     "require": {
         "phpmailer/phpmailer": "^6.1",
         "kartik-v/strength-meter": "dev-master",
-        "kartik-v/bootstrap-fileinput": "dev-master",
-        "samayo/bulletproof": "4.0.*"
+        "kartik-v/bootstrap-fileinput": "dev-master"
     }
 }
