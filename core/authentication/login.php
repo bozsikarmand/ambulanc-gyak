@@ -16,8 +16,8 @@ require_once ("../database/config.php");
  * 1: Meg nincs megerositve az email cime, 
  * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
  * 3: Elso alkalommal lepett be
- * 4: Megadta az adatait, am meg adminisztratori jovahagyasra var
- * 5: Megadta a kepet
+ * 4: Megadta az adatait, am meg a kep megadasa kell 
+ * 5: Megadta a kepet, adminisztratori jovahagyasra var
  * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
  * 
  */
@@ -134,9 +134,9 @@ if (isset($_POST['button-login'])) {
             if ($resultSetRouting['statusz'] == 3) {
                 header("Location: ../../protected/userprofile/add/profiledata.php");
             } else if ($resultSetRouting['statusz'] == 4) {
-                header("Location: ../../core/default/frontend/adminapproval.php");
-            } else if ($resultSetRouting['statusz'] == 5) {
                 header("Location: ../../protected/userprofile/add/profilepicture.php");
+            } else if ($resultSetRouting['statusz'] == 5) {
+                header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
                 header("Location: ../../protected/dashboard/index.php");
             }

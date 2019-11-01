@@ -73,8 +73,8 @@
         <label for="inputBuildingLetter">Épület betűjele</label>
     </div>
 
-    <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
-        <i class="fas fa-user-check"></i> Adminisztratori jovahagyas kerese
+    <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-avatar" type="submit">
+        <i class="fas fa-user-check"></i> Arckep megadasa
     </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>

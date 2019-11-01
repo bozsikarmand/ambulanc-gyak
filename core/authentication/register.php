@@ -116,17 +116,19 @@ if (isset($_POST['button-sign-up'])) {
         
             $run->bindValue(':username', $username);
         
-            /** 
+            /**
              * 
              * Statusz: 
              * 0: Torolt felhasznalo, 
              * 1: Meg nincs megerositve az email cime, 
              * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
              * 3: Elso alkalommal lepett be
-             * 4: Megadta az adatait, am meg adminisztratori jovahagyasra var
-             * 5: Megadta a kepet
+             * 4: Megadta az adatait, am meg a kep megadasa kell 
+             * 5: Megadta a kepet, adminisztratori jovahagyasra var
              * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
+             * 
              */
+            
             $stat = 1;
         
             $run->bindValue(':stat', $stat);
