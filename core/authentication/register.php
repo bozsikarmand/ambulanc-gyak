@@ -124,8 +124,8 @@ if (isset($_POST['button-sign-up'])) {
              * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
              * 3: Elso alkalommal lepett be
              * 4: Megadta az adatait, am meg adminisztratori jovahagyasra var
-             * 5: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
-             * 
+             * 5: Megadta a kepet
+             * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
              */
             $stat = 1;
         

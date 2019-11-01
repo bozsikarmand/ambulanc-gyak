@@ -17,7 +17,8 @@ require_once ("../../database/config.php");
  * 2: Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
  * 3: Elso alkalommal lepett be
  * 4: Megadta az adatait, am meg adminisztratori jovahagyasra var
- * 5: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
+ * 5: Megadta a kepet
+ * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
  *  
  */
 
@@ -89,7 +90,7 @@ if (isset($_POST['button-request-admin-approval'])) {
     $exitcode = $run->execute();
             
     if ($exitcode) {
-        header('Location: ../../default/frontend/profilepicture.php');
+        header('Location: ../../../protected/userprofile/add/profilepicture.php');
         //header('Location: ../../default/frontend/adminapproval.php');
     }
 }
