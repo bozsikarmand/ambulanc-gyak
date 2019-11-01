@@ -74,7 +74,7 @@
     </div>
 
     <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-avatar" type="submit">
-        <i class="fas fa-user-check"></i> Arckep megadasa
+        <i class="fas fa-user-tie"></i> Arckep megadasa
     </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
