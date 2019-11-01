@@ -45,7 +45,7 @@ if (isset($_POST['button-request-admin-approval'])) {
 
      $image = new Bulletproof\Image($imagearray);
 
-     print_r($image["avatar"]);
+     print_r($image['avatar']);
 
      /*if ($image["avatar"]) {
          $image->setName($sessionUsername); 
