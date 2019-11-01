@@ -13,7 +13,7 @@
     <script src="../../../assets/js/populate-select.js" defer></script>
 </head>
 <body>
-<form class="form-signin" action="../../../core/userprofile/add/profiledata.php" method="post">
+<form class="form-signin" action="../../../core/userprofile/add/profiledata.php" method="post" enctype="multipart/form-data">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a továbblépéshez!</h1>
     </div>
@@ -71,6 +71,13 @@
     <div class="form-label-group">
         <input type="text" id="inputBuildingLetter" name="inputBuildingLetter" class="form-control" placeholder="Épület betűjele" required>
         <label for="inputBuildingLetter">Épület betűjele</label>
+    </div>
+
+    <button class="btn btn-lg btn-secondary btn-block" name="button-request-admin-approval" type="submit">
+        <i class="fas fa-user-check"></i> Adminisztratori jovahagyas kerese
+    </button>
+    <div>
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
 </form>
 
