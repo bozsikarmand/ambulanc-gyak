@@ -45,7 +45,9 @@ if (isset($_POST['button-request-admin-approval'])) {
 
      $image = new Bulletproof\Image($imagearray);
 
-     if ($image["avatar"]) {
+     print_r($image["avatar"]);
+
+     /*if ($image["avatar"]) {
          $image->setName($sessionUsername); 
          $image->setLocation('../../../uploads/avatar');
          $image->setSize(0, 1536000);
@@ -119,5 +121,5 @@ if (isset($_POST['button-request-admin-approval'])) {
                  header('Location: ../../default/frontend/adminapproval.php');
              }
          }
-     }
+     }*/
 }
