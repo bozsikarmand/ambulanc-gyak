@@ -37,14 +37,14 @@ if (isset($_POST['button-request-admin-approval'])) {
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 3;
      $newStat = 4; 
-     $avatar = $_FILES['avatar'];
+     
 
      // A session-ben atadott email cim
-     $sessionLoginEmail = $_SESSION['email'];
+     //$sessionLoginEmail = $_SESSION['email'];
      // A sessionben atadott felhasznalonev
-     $sessionUsername = $_SESSION['username'];
+     //$sessionUsername = $_SESSION['username'];
      
-     /*$addUserData = "UPDATE szemely
+     $addUserData = "UPDATE szemely
                      JOIN email 
                      ON email.ID = szemely.ID
                      SET szemely.Vezeteknev = :firstname,
@@ -59,7 +59,6 @@ if (isset($_POST['button-request-admin-approval'])) {
                          szemely.Hazszam = :housenumber,
                          szemely.Epulet = :buildingletter,
                          szemely.Statusz = :newStat
-                         szemely.ProfilkepUtvonal = :avatarfullpath
                    WHERE szemely.Vezeteknev IS NULL
                    AND szemely.Keresztnev IS NULL
                    AND szemely.Utonev IS NULL
@@ -71,7 +70,6 @@ if (isset($_POST['button-request-admin-approval'])) {
                    AND szemely.KozteruletJellege IS NULL
                    AND szemely.Hazszam IS NULL
                    AND szemely.Epulet IS NULL
-                   AND szemely.ProfilkepUtvonal IS NULL
                    AND szemely.Statusz = :stat
                    AND email.BelepesiEmail = :sessionloginemail";
      
@@ -94,10 +92,7 @@ if (isset($_POST['button-request-admin-approval'])) {
     $exitcode = $run->execute();
             
     if ($exitcode) {
-        header('Location: ../../default/frontend/adminapproval.php');
-    }*/
-    echo '<pre>' . print_r($_SESSION, true) . '</pre>';
-    echo '<hr>';
-    echo '<hr>';
-    echo '<pre>' . print_r($_FILES, true) . '</pre>';
+        header('Location: ../../../default/frontend/profilepicture.php');
+        //header('Location: ../../default/frontend/adminapproval.php');
+    }
 }
