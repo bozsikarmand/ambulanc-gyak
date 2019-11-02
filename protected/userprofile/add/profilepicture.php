@@ -50,6 +50,7 @@
         theme: "fas",
         language: 'hu',
         overwriteInitial: true,
+        minFileSize: 50,
         maxFileSize: 1500,
         showClose: false,
         showCaption: false,
