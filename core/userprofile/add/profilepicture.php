@@ -15,7 +15,7 @@ echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
 $image = new Bulletproof\Image($_FILES);
 $image->setName($username)
       ->setSize(1500000)
-      ->setMime(array('jpg','png','gif'))
+      ->setMime(array('jpg','png','gif','jpeg'))
       ->setDimension(1000, 1000)
       ->setLocation("../../../uploads/avatars", 0777);
 

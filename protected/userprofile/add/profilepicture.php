@@ -64,7 +64,7 @@
         msgErrorClass: 'alert alert-block alert-danger',
         defaultPreviewContent: '<img src="../../../assets/images/avatar.png" alt="Avatar"><h6 class="text-muted">Válassz ki egy fájlt!</h6>',
         layoutTemplates: {main2: '{preview} {remove} {browse}'},
-        allowedFileExtensions: ["jpg", "png", "gif"],
+        allowedFileExtensions: ["jpg", "png", "gif", "jpeg"],
         uploadClass: "btn btn-primary",
         uploadLabel: "Adminisztratori jovahagyas kerese",
         uploadIcon: '<i class=fas fa-user-check></i>',
