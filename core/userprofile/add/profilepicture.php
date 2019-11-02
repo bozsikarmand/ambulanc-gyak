@@ -7,7 +7,12 @@ require_once ("../../../libraries/bulletproof/utils/func.image-resize.php");
 
 $username = $_SESSION["username"];
 
-$image = new Bulletproof\Image($_FILES);
+echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+echo '<hr>';
+echo '<hr>';
+echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
+
+/*$image = new Bulletproof\Image($_FILES);
 $image->setName(username)
       ->setSize(1500000)
       ->setMime(array('jpg','png','gif'))
@@ -28,4 +33,4 @@ if($image["avatar"]){
         );
         header('Location: ../../default/frontend/adminapproval.php');
 	}
-}
+}*/
