@@ -14,7 +14,7 @@
 <body>
 <form class="form-signin" method="post" action="../../../core/userprofile/add/profilepicture.php" enctype="multipart/form-data">
     <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a továbblépéshez!</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg arcképed a továbblépéshez!</h1>
     </div>
     <div class="kv-avatar">
         <div class="file-loading">
@@ -24,6 +24,10 @@
     <div class="kv-avatar-hint">
         <small>A választott fajlnak 1500 KB-nal kisebbnek kell lennie</small>
     </div>
+    
+    <button class="btn btn-lg btn-secondary btn-block" name="button-user-request-admin-approval" type="submit">
+        <i class="fas fa-user-check"></i> Arckep megadasa
+    </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
     </div>
@@ -42,7 +46,6 @@
 <script src="../../../assets/js/theme.min.js"></script>
 <script src="../../../assets/js/hu.js"></script>
 <script>
-
     $("#avatar").fileinput({
         theme: "fas",
         language: 'hu',
@@ -64,7 +67,7 @@
         allowedFileExtensions: ["jpg", "png", "gif"],
         uploadClass: "btn btn-primary",
         uploadLabel: "Adminisztratori jovahagyas kerese",
-        uploadIcon: "<i class=\"fas fa-user-check\"></i>"
+        uploadIcon: '<i class=fas fa-user-check></i>',
         uploadAsync: false
     });
 </script>
