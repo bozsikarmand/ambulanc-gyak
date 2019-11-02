@@ -10,6 +10,7 @@ $username = $_SESSION["username"];
 $sessionLoginEmail = $_SESSION['email'];
 $stat = 4;
 $newStat = 5;
+$appRootPath = getenv('APP_ROOT_PATH'); 
 
 echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 echo '<hr>';
@@ -21,7 +22,7 @@ $image->setName($username)
       ->setSize(51200, 1500000)
       ->setMime(array('jpg','png','gif','jpeg'))
       ->setDimension(1000, 1000)
-      ->setLocation("../../../uploads/avatars", 0777);
+      ->setLocation($appRootPath . "uploads/avatars", 0777);
 
 if($image["avatar"]){
 	$upload = $image->upload();
