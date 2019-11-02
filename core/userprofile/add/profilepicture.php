@@ -40,7 +40,7 @@ if($image["avatar"]){
 		$addUserAvatar = "UPDATE szemely
 						  JOIN email 
 						  ON email.ID = szemely.ID
-						  SET szemely.ProfilkepUtvonal = :avatarfullpath,
+						  SET szemely.ProfilkepUtvonal = :avatarFullPath,
 						      szemely.Statusz = :newStat
 					      WHERE szemely.ProfilkepUtvonal IS NULL
 					      AND szemely.Statusz = :stat
