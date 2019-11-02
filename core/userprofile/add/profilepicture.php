@@ -21,7 +21,7 @@ $image->setName($username)
       ->setSize(51200, 1500000)
       ->setMime(array('jpg','png','gif','jpeg'))
       ->setDimension(1000, 1000)
-      ->setLocation("/uploads/avatars", 0777);
+      ->setLocation("../../../uploads/avatars", 0777);
 
 if($image["avatar"]){
 	$upload = $image->upload();
@@ -35,19 +35,23 @@ if($image["avatar"]){
 			20,
             20
 		);
+		$leadingPart = '../../..'; 
 		$avatarFullPath = $image->getFullPath();
 
-		$addUserAvatar = "UPDATE szemely
+		$avatarNormalizedPath = preg_replace('/^' . preg_quote($leadingPart, '/') . '/', '', $avatarFullPath);
+
+		echo $avatarNormalizedPath;
+		/*$addUserAvatar = "UPDATE szemely
 						  JOIN email 
 						  ON email.ID = szemely.ID
-						  SET szemely.ProfilkepUtvonal = :avatarFullPath,
+						  SET szemely.ProfilkepUtvonal = :avatarNormalizedPath,
 						      szemely.Statusz = :newStat
 					      WHERE szemely.ProfilkepUtvonal IS NULL
 					      AND szemely.Statusz = :stat
 						  AND email.BelepesiEmail = :sessionloginemail";
 		
 		$run = $databaseConnection -> prepare($addUserAvatar);
-		$run->bindValue(':avatarFullPath', $avatarFullPath);
+		$run->bindValue(':avatarNormalizedPath', $avatarNormalizedPath);
 		$run->bindValue(':newStat', $newStat);
     	$run->bindValue(':stat', $stat);
 		$run->bindValue(':sessionloginemail', $sessionLoginEmail);
@@ -55,7 +59,7 @@ if($image["avatar"]){
             
     	if ($exitcode) {
         	header('Location: ../../default/frontend/adminapproval.php');
-    	}
+    	}*/
 	}
 	else {
 		echo $image->getError();
