@@ -12,14 +12,17 @@
     <link rel="stylesheet" href="../../../assets/css/profiledata.css">
 </head>
 <body>
-<form class="form-signin">
+<form class="form-signin" method="post" action="../../../core/userprofile/add/profilepicture.php" enctype="multipart/form-data">
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a továbblépéshez!</h1>
+    </div>
     <div class="kv-avatar">
         <div class="file-loading">
             <input id="avatar" name="avatar" type="file" required>
         </div>
     </div>
     <div class="kv-avatar-hint">
-        <small>A választott fajlnak 1500 KB-nal kisebbenek kell lennie</small>
+        <small>A választott fajlnak 1500 KB-nal kisebbnek kell lennie</small>
     </div>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
@@ -39,7 +42,7 @@
 <script src="../../../assets/js/theme.min.js"></script>
 <script src="../../../assets/js/hu.js"></script>
 <script>
-$(document).ready(function() {
+
     $("#avatar").fileinput({
         theme: "fas",
         language: 'hu',
@@ -62,11 +65,8 @@ $(document).ready(function() {
         uploadClass: "btn btn-primary",
         uploadLabel: "Adminisztratori jovahagyas kerese",
         uploadIcon: "<i class=\"fas fa-user-check\"></i>"
-        uploadUrl: "../../../core/userprofile/add/profilepicture.php",
-        uploadAsync: false,
-        initialPreviewAsData: true
+        uploadAsync: false
     });
-});
 </script>
 </body>
 </html>
