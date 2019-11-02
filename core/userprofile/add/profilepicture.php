@@ -11,11 +11,6 @@ $sessionLoginEmail = $_SESSION['email'];
 $stat = 4;
 $newStat = 5;
 
-echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-echo '<hr>';
-echo '<hr>';
-echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
-
 $image = new Bulletproof\Image($_FILES);
 $image->setName($username)
       ->setSize(51200, 1500000)
@@ -40,8 +35,7 @@ if($image["avatar"]){
 
 		$avatarNormalizedPath = preg_replace('/^' . preg_quote($leadingPart, '/') . '/', '', $avatarFullPath);
 
-		echo $avatarNormalizedPath;
-		/*$addUserAvatar = "UPDATE szemely
+		$addUserAvatar = "UPDATE szemely
 						  JOIN email 
 						  ON email.ID = szemely.ID
 						  SET szemely.ProfilkepUtvonal = :avatarNormalizedPath,
@@ -59,7 +53,7 @@ if($image["avatar"]){
             
     	if ($exitcode) {
         	header('Location: ../../default/frontend/adminapproval.php');
-    	}*/
+    	}
 	}
 	else {
 		echo $image->getError();
