@@ -12,8 +12,8 @@ echo '<hr>';
 echo '<hr>';
 echo '<pre>' . print_r($_FILES, TRUE) . '</pre>';
 
-/*$image = new Bulletproof\Image($_FILES);
-$image->setName(username)
+$image = new Bulletproof\Image($_FILES);
+$image->setName($username)
       ->setSize(1500000)
       ->setMime(array('jpg','png','gif'))
       ->setDimension(1000, 1000)
@@ -33,4 +33,7 @@ if($image["avatar"]){
         );
         header('Location: ../../default/frontend/adminapproval.php');
 	}
-}*/
+	else {
+		echo $image->getError();
+	}
+}
