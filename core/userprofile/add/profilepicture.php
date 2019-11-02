@@ -10,7 +10,7 @@ $username = $_SESSION["username"];
 $sessionLoginEmail = $_SESSION['email'];
 $stat = 4;
 $newStat = 5;
-$appRootPath = getenv('APP_ROOT_PATH'); 
+$appRootPath = '/'; 
 
 echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 echo '<hr>';
