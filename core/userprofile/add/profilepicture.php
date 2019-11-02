@@ -2,10 +2,14 @@
 
 session_start();
 
+require_once ("../../database/config.php");
 require_once ("../../../libraries/bulletproof/bulletproof.php");
 require_once ("../../../libraries/bulletproof/utils/func.image-resize.php");
 
 $username = $_SESSION["username"];
+$sessionLoginEmail = $_SESSION['email'];
+$stat = 4;
+$newStat = 5;
 
 echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
 echo '<hr>';
@@ -30,8 +34,28 @@ if($image["avatar"]){
 			$image->getHeight(),
 			20,
             20
-        );
-        header('Location: ../../default/frontend/adminapproval.php');
+		);
+		$avatarFullPath = $image->getFullPath();
+
+		$addUserAvatar = "UPDATE szemely
+						  JOIN email 
+						  ON email.ID = szemely.ID
+						  SET szemely.ProfilkepUtvonal = :avatarfullpath,
+						      szemely.Statusz = :newStat
+					      WHERE szemely.ProfilkepUtvonal IS NULL
+					      AND szemely.Statusz = :stat
+						  AND email.BelepesiEmail = :sessionloginemail";
+		
+		$run = $databaseConnection -> prepare($addUserAvatar);
+		$run->bindValue(':avatarFullPath', $avatarFullPath);
+		$run->bindValue(':newStat', $newStat);
+    	$run->bindValue(':stat', $stat);
+		$run->bindValue(':sessionloginemail', $sessionLoginEmail);
+		$exitcode = $run->execute();
+            
+    	if ($exitcode) {
+        	header('Location: ../../default/frontend/adminapproval.php');
+    	}
 	}
 	else {
 		echo $image->getError();
