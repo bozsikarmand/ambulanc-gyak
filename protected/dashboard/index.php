@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once ("../../core/session/redirect.php");
 ?>
 
 <!DOCTYPE html>

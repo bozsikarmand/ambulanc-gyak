@@ -138,6 +138,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 5) {
                 header("Location: ../../core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
+                $_SESSION["isLoggedIn"] = true;
                 header("Location: ../../protected/dashboard/index.php");
             }
 
