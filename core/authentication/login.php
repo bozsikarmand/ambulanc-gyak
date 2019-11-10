@@ -129,9 +129,9 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
 
-            //print_r($resultSetRouting);
+            print_r($resultSetRouting);
 
-            if ($resultSetRouting['statusz'] == 3) {
+            /*if ($resultSetRouting['statusz'] == 3) {
                 header("Location: ../../protected/userprofile/add/profiledata.php");
             } else if ($resultSetRouting['statusz'] == 4) {
                 header("Location: ../../protected/userprofile/add/profilepicture.php");
@@ -140,7 +140,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 6) {
                 $_SESSION["isLoggedIn"] = true;
                 header("Location: ../../protected/dashboard/index.php");
-            }
+            }*/
 
             // Routing vege
         } else {
