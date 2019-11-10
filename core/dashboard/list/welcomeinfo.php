@@ -16,7 +16,7 @@ $queryName = "SELECT email.BelepesiEmail as le,
               WHERE szemely.ID = email.ID 
               AND BelepesiEmail=:loginemail";
 
-$run = $databaseConnection -> prepare($queryUserData);
+$run = $databaseConnection -> prepare($queryName);
 $run->bindValue(':loginemail', $loginEmail);
 $run->execute();
 $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
