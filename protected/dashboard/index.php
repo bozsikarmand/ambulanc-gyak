@@ -2,7 +2,6 @@
 session_start();
 
 require_once ("../../core/session/redirect.php");
-require_once ("../../core/session/variables.php");
 ?>
 
 <!DOCTYPE html>
