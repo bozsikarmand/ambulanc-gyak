@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-//require_once ("../../core/session/redirect.php");
-require_once ("../../core/dashboard/list/welcomeinfo.php");
+require_once ("../../core/session/redirect.php");
+//require_once ("../../core/dashboard/list/welcomeinfo.php");
 ?>
 
 <!DOCTYPE html>
