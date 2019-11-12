@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ("../../../core/admin/list/user.php");
+//require_once ("../../../core/admin/list/user.php");
 ?>
 
 <!DOCTYPE html>

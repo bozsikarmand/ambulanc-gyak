@@ -15,6 +15,4 @@ $listAvailableUsers = "SELECT
 
 $run = $databaseConnection -> prepare($listAvailableUsers);
 $run->execute();
-
-?>
     
