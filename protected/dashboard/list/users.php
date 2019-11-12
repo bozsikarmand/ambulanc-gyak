@@ -107,7 +107,7 @@ $userlist = $run->fetchAll();
 
     <div class="container-fullwidth" style="margin-top:100px">
     <table class="table" data-toggle="table">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
