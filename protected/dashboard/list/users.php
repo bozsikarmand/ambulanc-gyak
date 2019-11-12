@@ -106,7 +106,14 @@ $userlist = $run->fetchAll();
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <table>
+    <table class="table" data-toggle="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Név</th>
+                <th scope="col">Muveletek</th>
+            </tr>
+        </thead>
         <tbody>
             <?php foreach ($userlist as $row) { ?>
             <tr>
