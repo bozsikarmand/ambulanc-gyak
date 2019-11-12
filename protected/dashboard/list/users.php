@@ -87,7 +87,9 @@ session_start();
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-            
+            <?php 
+                require_once ("../../../core/admin/list/user.php");
+            ?>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

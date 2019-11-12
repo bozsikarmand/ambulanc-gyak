@@ -50,4 +50,5 @@ $run->execute();
     </tr>
 
 <?php } ?>
+</table>
     
