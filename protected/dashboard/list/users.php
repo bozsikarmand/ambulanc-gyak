@@ -18,6 +18,7 @@ $listAvailableUsers = "SELECT
 
 $run = $databaseConnection -> prepare($listAvailableUsers);
 $run->execute();
+$userlist = $run->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +106,26 @@ $run->execute();
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    Teszt
+    <table>
+        <tbody>
+            <?php foreach ($users as $row) { ?>
+            <tr>
+                <th scope="row"><?php echo $row['id']; ?></th>
+                <td><?php echo $row['fullname']; ?></td>
+                <td>
+                    <a href="edit.php" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
