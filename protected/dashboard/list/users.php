@@ -87,19 +87,7 @@ session_start();
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <table class="table" data-toggle="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col" colspan="2">Műveletek</th>
-                </tr>
-            </thead>
             
-            <?php 
-                require_once ("../../../core/admin/list/user.php");
-            ?>
-        </table>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
