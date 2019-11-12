@@ -36,7 +36,7 @@
             </button>
         </div>
         <div>
-            <a href="forgotpassword.php">
+            <a href="core/default/frontend/passwordrecovery.php">
                 <i class="fas fa-key"></i> Elfelejtetted jelszavad?
             </a>
         </div>

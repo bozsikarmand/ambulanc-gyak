@@ -14,7 +14,6 @@
 </head>
 <body>
 <?php
-    include_once ("../../../core/database/config.php");
     include_once ("../../../core/userprofile/list/profiledata.php");
 ?>
 <form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
@@ -87,8 +86,11 @@
         <label for="inputBuildingLetter">Épület betűjele</label>
     </div>
 
-    <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-avatar" type="submit">
-        <i class="fas fa-user-tie"></i> Arckep megadasa
+    <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-info" type="submit">
+        <i class="fas fa-times-circle"></i> Mégsem
+    </button>
+    <button class="btn btn-lg btn-primary btn-block" name="button-add-user-info" type="submit">
+        <i class="fas fa-check-circle"></i> Mentés
     </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>

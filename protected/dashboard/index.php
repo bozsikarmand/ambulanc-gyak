@@ -2,7 +2,7 @@
 session_start();
 
 require_once ("../../core/session/redirect.php");
-require_once ("../../core/dashboard/list/welcomeinfo.php");
+//require_once ("../../core/dashboard/list/welcomeinfo.php");
 ?>
 
 <!DOCTYPE html>
@@ -68,15 +68,13 @@ require_once ("../../core/dashboard/list/welcomeinfo.php");
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username"><?php echo $fullname ?></span>
+                        <span class="header-username"></span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="#">Valami</a>
-                      <a class="dropdown-item" href="#">Még valami</a>
-                      <a class="dropdown-item" href="#">Meg még valami</a>
+                      <a class="dropdown-item" href="userprofile/list/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés

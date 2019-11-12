@@ -12,14 +12,14 @@
     </style>
 </head>
 <body>
-    <form class="form-signin" action="../../../../core/authentication/login.php" method="post">
+    <form class="form-signin" action="../../../../core/authentication/password/reset.php" method="post">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a jelszó visszaallitasahoz!</h1>
         </div>
 
         <div class="form-label-group">
-            <input type="text" name="inputLoginEmail" id="inputLoginEmail" class="form-control" placeholder="Belépési email cim vagy felhasznalonev" required autofocus>
-            <label for="inputLoginEmailOrUsername">Belépési email cim vagy felhasznalonev</label>
+            <input type="text" name="inputLoginEmail" id="inputLoginEmail" class="form-control" placeholder="Belépési email cim" required autofocus>
+            <label for="inputLoginEmail">Belépési email cim</label>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-password-recovery" type="submit">
