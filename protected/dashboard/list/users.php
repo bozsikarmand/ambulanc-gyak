@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once ("../../../assets/")
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +13,8 @@ session_start();
     <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap-table.min.css">
+
 </head>
 <body>
 <div class="container-fullwidth">
@@ -85,7 +89,7 @@ session_start();
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <table class="table">
+        <table class="table" data-toggle="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
@@ -93,50 +97,10 @@ session_start();
                 <th scope="col" colspan="2">Műveletek</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Aladár</td>
-                <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                </td>
-                <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Bálint</td>
-                <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                </td>
-                <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Cecil</td>
-                <td>
-                    <a href="edit.php" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                </td>
-                <td>
-                    <a href="edit.php" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-                </tr>
-            </tbody>
+            
+            <?php 
+                require_once ("../../../core/admin/list/user.php");
+            ?>
         </table>
     </div>
 
@@ -187,6 +151,7 @@ session_start();
 <script src="../../../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/bootstrap-table.min.js"></script>
 </body>
 </html>
 
