@@ -108,7 +108,7 @@ $userlist = $run->fetchAll();
     <div class="container-fullwidth" style="margin-top:100px">
     <table>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($userlist as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
