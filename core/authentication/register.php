@@ -61,7 +61,7 @@ if (isset($_POST['button-sign-up'])) {
         }
     
         $token = bin2hex(openssl_random_pseudo_bytes(50));
-        $_SESSION['token'] = $token;
+        $_SESSION["regtoken"] = $token;
         $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
      
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -156,7 +156,7 @@ if (isset($_POST['button-sign-up'])) {
             unset($run);
         
             if (!empty($resultSet['vt'])) {
-                $sentMail = sendEmail($loginEmail, $token, $subject, $body);
+                $sentMail = sendEmail($loginEmail, $subject, $body);
                 if ($sentMail) {
                     echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
                 } else {
