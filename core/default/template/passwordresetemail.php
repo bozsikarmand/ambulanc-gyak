@@ -1,3 +1,7 @@
+<?php
+
+session_start();
+
 $body = '<!DOCTYPE html>
       <html lang="hu">
 
