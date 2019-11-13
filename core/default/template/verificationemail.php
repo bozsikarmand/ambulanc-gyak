@@ -1,10 +1,9 @@
 <?php
 
-session_start();
+require_once ("../../authentication/token/get.php");
 
-$token = $_SESSION["regtoken"];
+$receivedToken = getToken($username, $loginEmail);
 $subject = 'Regisztráció megerősitése';
-
 $body = '<!DOCTYPE html>
       <html lang="hu">
 
@@ -29,7 +28,7 @@ $body = '<!DOCTYPE html>
       <body>
         <div class="wrapper">
           <p>Koszonjuk hogy regisztraltal oldalunkon! Email cimed megerositesehez kattints erre a linkre:</p>
-          <a href="https://ambulanc.bozsikarmand.hu/core/mail/verifyemail.php?token=' . $token . '">Email cim megerositese!</a>
+          <a href="https://ambulanc.bozsikarmand.hu/core/mail/verifyemail.php?token=' . $receivedToken . '">Email cim megerositese!</a>
         </div>
       </body>
       </html>';

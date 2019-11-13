@@ -3,8 +3,6 @@
 require_once ("../mail/sender.php");
 require_once ("../default/timezone.php");
 
-session_start();
-
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
 ini_set("log_errors", 1);
@@ -12,6 +10,7 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../database/config.php");
 require_once ("../default/template/verificationemail.php");
+require_once ("../authentication/token/get.php");
 
 if (isset($_POST['button-sign-up'])) {
     if ($_POST['agree-tos'] == 'Yes' && $_POST['agree-pp'] == 'Yes') {
@@ -141,32 +140,7 @@ if (isset($_POST['button-sign-up'])) {
         
             $resultSet = $run->execute();
 
-            // token vegso erteke sessionbe
-            $_SESSION["regtoken"] = $token;
-        
-            // Email megerositese
-            $queryToken = "SELECT HitelesitoKod as vt 
-                        FROM szemely
-                        WHERE HitelesitoKod=:querytoken";
-                        
-            $run = $databaseConnection -> prepare($queryToken);
-            $run->bindValue(':querytoken', $token);
-            $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-        
-            // Eroforras felszabaditasa
-            unset($run);
-        
-            if (!empty($resultSet['vt'])) {
-                $sentMail = sendEmail($loginEmail, $subject, $body);
-                if ($sentMail) {
-                    echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
-                } else {
-                    echo "Az email kuldese soran hiba lepett fel!";
-                }
-            } else {
-                header("Location: fail.php");
-            }
+            getToken($username, $loginEmail);
         } else {
             echo "Recaptcha error!";
         }

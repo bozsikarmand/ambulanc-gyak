@@ -48,8 +48,8 @@ if (isset($_GET['token'])) {
         if ($resultSet['id'] >= 1 && !empty($resultSet['user'])) {
             // Munkamenet adatok beallitasa
             $_SESSION['id'] = $resultSet['id'];
-            $_SESSION['user'] = $_SESSION['user'];
-            $_SESSION['stat'] = $_SESSION['stat'];
+            $_SESSION['user'] = $resultSet['user'];
+            $_SESSION['stat'] = $resultSet['stat'];
             $_SESSION['message'] = "Sikeresen megerositetted email cimed! A rendszerbe valo elso bejelentkezeshez atiranyitottunk a bejelentkezesi feluletre!";
             header('Location: ../../login.php');
         }
