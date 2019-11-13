@@ -1,7 +1,6 @@
 <?php
 
 require_once ("../mail/sender.php");
-require_once ("../default/template/verificationemail.php");
 require_once ("../default/timezone.php");
 
 session_start();
@@ -12,6 +11,7 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../database/config.php");
+require_once ("../default/template/verificationemail.php");
 
 if (isset($_POST['button-sign-up'])) {
     if ($_POST['agree-tos'] == 'Yes' && $_POST['agree-pp'] == 'Yes') {
