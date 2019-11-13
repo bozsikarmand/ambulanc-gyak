@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../../authentication/token/get.php");
+require_once ("../../../core/authentication/token/get.php");
 
 $receivedToken = getToken($username, $loginEmail);
 $subject = 'Regisztráció megerősitése';
