@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../database/config.php");
+require_once ("../../database/config.php");
 
 function getToken($username, $loginEmail) {
     // Email megerositese
