@@ -61,7 +61,6 @@ if (isset($_POST['button-sign-up'])) {
         }
     
         $token = bin2hex(openssl_random_pseudo_bytes(50));
-        $_SESSION["regtoken"] = $token;
         $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
      
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -141,6 +140,9 @@ if (isset($_POST['button-sign-up'])) {
             $run->bindValue(':regtime', $regtime);
         
             $resultSet = $run->execute();
+
+            // token vegso erteke sessionbe
+            $_SESSION["regtoken"] = $token;
         
             // Email megerositese
             $queryToken = "SELECT HitelesitoKod as vt 
