@@ -2,7 +2,7 @@
 
 session_start();
 
-$token = $_SESSION['token'];
+$token = $_SESSION["token"];
 $subject = 'Regisztráció megerősitése';
 
 $body = '<!DOCTYPE html>
