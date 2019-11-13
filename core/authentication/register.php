@@ -61,6 +61,7 @@ if (isset($_POST['button-sign-up'])) {
         }
     
         $token = bin2hex(openssl_random_pseudo_bytes(50));
+        $_SESSION['token'] = $token;
         $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
      
         $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';

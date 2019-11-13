@@ -1,5 +1,6 @@
 <?php
 
+$token = $_SESSION['token'];
 $subject = 'Regisztráció megerősitése';
 
 $body = '<!DOCTYPE html>
