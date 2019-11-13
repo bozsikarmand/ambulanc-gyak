@@ -1,6 +1,7 @@
 <?php
 
-require_once ("../mail/verificationmailsender.php");
+require_once ("../mail/sender.php");
+require_once ("../default/template/verificationemail.php");
 require_once ("../default/timezone.php");
 
 session_start();
@@ -154,7 +155,7 @@ if (isset($_POST['button-sign-up'])) {
             unset($run);
         
             if (!empty($resultSet['vt'])) {
-                $sentMail = sendVerificationEmail($loginEmail, $token);
+                $sentMail = sendEmail($loginEmail, $token, $subject, $body);
                 if ($sentMail) {
                     echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
                 } else {
