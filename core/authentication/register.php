@@ -6,6 +6,8 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../database/config.php");
+require_once ("token/get.php");
+require_once ("token/set.php");
 require_once ("../default/template/verificationemail.php");
 require_once ("../default/timezone.php");
 require_once ("../mail/sender.php");
@@ -138,7 +140,9 @@ if (isset($_POST['button-sign-up'])) {
         
             $resultSet = $run->execute();
 
-            getToken($username, $loginEmail);
+            $receivedToken = getToken($username, $loginEmail);
+            setReceivedToken($receivedToken); 
+            
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
