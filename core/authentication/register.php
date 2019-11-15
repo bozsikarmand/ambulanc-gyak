@@ -6,8 +6,8 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/token/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/token/set.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/set.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
