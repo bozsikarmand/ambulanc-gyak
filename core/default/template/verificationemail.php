@@ -2,7 +2,7 @@
 
 //require_once ("../../database/config.php");
 //require_once ("../../authentication/token/get.php");
-require_once ("../core/authentication/token/set.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/set.php");
 
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 

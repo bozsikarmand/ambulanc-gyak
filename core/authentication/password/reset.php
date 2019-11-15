@@ -1,7 +1,7 @@
 <?php
 
-require_once ("../../mail/passwordresetmailsender.php");
-require_once ("../../default/timezone.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/passwordresetmailsender.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 
 session_start();
 
@@ -10,7 +10,7 @@ ini_set("display_errors", "1");
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-require_once ("../../database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 if ($_POST['button-password-recovery']) {
     $token = bin2hex(openssl_random_pseudo_bytes(50));

@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once ("../../database/config.php");
-require_once ("../../../libraries/bulletproof/bulletproof.php");
-require_once ("../../../libraries/bulletproof/utils/func.image-resize.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/bulletproof.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/utils/func.image-resize.php");
 
 $username = $_SESSION["username"];
 $sessionLoginEmail = $_SESSION['email'];

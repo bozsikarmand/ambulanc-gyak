@@ -14,7 +14,7 @@
 </head>
 <body>
 <?php
-    include_once ("../../../core/userprofile/list/profiledata.php");
+    require_once ("../../../core/userprofile/list/profiledata.php");
 ?>
 <form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
     <div class="text-center mb-4">

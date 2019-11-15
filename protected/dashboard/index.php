@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ("../../core/session/redirect.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 //require_once ("../../core/dashboard/list/welcomeinfo.php");
 ?>
 

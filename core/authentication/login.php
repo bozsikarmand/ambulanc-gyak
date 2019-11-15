@@ -7,8 +7,8 @@ ini_set("display_errors", "1");
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-require_once ("../database/config.php");
-require_once ("../session/create.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/create.php");
 
 /**
  * 

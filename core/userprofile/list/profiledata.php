@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once ("../../database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 $loginEmail = $_SESSION["email"];
 
