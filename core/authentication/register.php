@@ -1,8 +1,5 @@
 <?php
 
-require_once ("../mail/sender.php");
-require_once ("../default/timezone.php");
-
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
 ini_set("log_errors", 1);
@@ -10,7 +7,8 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../database/config.php");
 require_once ("../default/template/verificationemail.php");
-require_once ("../authentication/token/get.php");
+require_once ("../default/timezone.php");
+require_once ("../mail/sender.php");
 
 if (isset($_POST['button-sign-up'])) {
     if ($_POST['agree-tos'] == 'Yes' && $_POST['agree-pp'] == 'Yes') {
@@ -139,8 +137,14 @@ if (isset($_POST['button-sign-up'])) {
             $run->bindValue(':regtime', $regtime);
         
             $resultSet = $run->execute();
-
-            getToken($username, $loginEmail);
+            
+            $sentMail = sendEmail($loginEmail, $subject, $body, $receivedToken);
+            
+            if ($sentMail) {
+                echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
+            } else {
+                echo "Az email kuldese soran hiba lepett fel!";
+            }
         } else {
             echo "Recaptcha error!";
         }

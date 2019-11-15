@@ -1,7 +1,5 @@
 <?php
 
-require_once ("../../database/config.php");
-
 function getToken($username, $loginEmail) {
     // Email megerositese
     $queryToken = "SELECT HitelesitoKod as vt 
@@ -22,7 +20,6 @@ function getToken($username, $loginEmail) {
     
     return $resultSet['vt'];
 }
-
 
 $receivedToken = getToken($username, $loginEmail);
 $subject = 'Regisztráció megerősitése';

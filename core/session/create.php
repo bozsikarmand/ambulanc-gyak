@@ -1,9 +1,6 @@
 <?php
 
-require_once ("../database/config.php");
-require_once ("utils/getIPAddress.php");
-require_once ("utils/getBrowser.php");
-require_once ("utils/getUserID.php");
+require_once ("utils/getUserData.php");
 
 function sessionCreateDatabaseEntry($loginEmail) {
     $sessionStartTime = date('Y-m-d H:i:s');
@@ -27,3 +24,4 @@ function sessionCreateDatabaseEntry($loginEmail) {
 
     return $resultSet;
 }
+
