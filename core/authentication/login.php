@@ -8,6 +8,7 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ("../database/config.php");
+require_once ("../session/create.php");
 
 /**
  * 
@@ -62,7 +63,7 @@ if (isset($_POST['button-login'])) {
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
-            $_SESSION["email"] = $loginEmail;
+            //$_SESSION["email"] = $loginEmail;
 
             $queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
                         FROM szemely 
@@ -79,9 +80,9 @@ if (isset($_POST['button-login'])) {
             //print_r($resultSet);
 
             // Sessionben eltarolom az ID-t
-            $_SESSION["id"] = $resultSet['id'];
+            //$_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
-            $_SESSION["username"] = $resultSet['username'];
+            //$_SESSION["username"] = $resultSet['username'];
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
@@ -129,17 +130,32 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
 
-            print_r($resultSetRouting);
+           // print_r($resultSetRouting);
 
             if ($resultSetRouting['statusz'] == 3) {
-                header("Location: ../../protected/userprofile/add/profiledata.php");
+                $result = sessionCreateDatabaseEntry($loginEmail);
+                
+                if (!empty($result)) {
+                    header("Location: ../../protected/userprofile/add/profiledata.php");
+                } 
             } else if ($resultSetRouting['statusz'] == 4) {
-                header("Location: ../../protected/userprofile/add/profilepicture.php");
+                $result = sessionCreateDatabaseEntry($loginEmail);
+
+                if (!empty($result)) {
+                    header("Location: ../../protected/userprofile/add/profilepicture.php");
+                }
             } else if ($resultSetRouting['statusz'] == 5) {
-                header("Location: ../../core/default/frontend/adminapproval.php");
+                $result = sessionCreateDatabaseEntry($loginEmail);
+
+                if (!empty($result)) {
+                    header("Location: ../../core/default/frontend/adminapproval.php");
+                }
             } else if ($resultSetRouting['statusz'] == 6) {
-                $_SESSION["isLoggedIn"] = true;
-                header("Location: ../../protected/dashboard/index.php");
+                $result = sessionCreateDatabaseEntry($loginEmail);
+
+                if (!empty($result)) {
+                    header("Location: ../../protected/dashboard/index.php");
+                }
             }
 
             // Routing vege

@@ -12,8 +12,13 @@ class ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544
             'kartik\\plugins\\strengthmeter\\' => 29,
             'kartik\\plugins\\fileinput\\' => 25,
         ),
+        'W' => 
+        array (
+            'WhichBrowser\\' => 13,
+        ),
         'P' => 
         array (
+            'Psr\\Cache\\' => 10,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
     );
@@ -26,6 +31,15 @@ class ComposerStaticInitb9a3f9ccba42fe454b1f104ce7d58544
         'kartik\\plugins\\fileinput\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
+        'WhichBrowser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/whichbrowser/parser/src',
+            1 => __DIR__ . '/..' . '/whichbrowser/parser/tests/src',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
