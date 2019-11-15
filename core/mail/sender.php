@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
 
-function sendEmail($loginEmail, $subject, $body, $receivedToken)
+function sendEmail($loginEmail, $subject, $body)
 {
   $EMAIL_HOST = "ambulanc.bozsikarmand.hu";
   $EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";

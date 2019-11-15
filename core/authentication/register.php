@@ -137,8 +137,9 @@ if (isset($_POST['button-sign-up'])) {
             $run->bindValue(':regtime', $regtime);
         
             $resultSet = $run->execute();
-            
-            $sentMail = sendEmail($loginEmail, $subject, $body, $receivedToken);
+
+            getToken($username, $loginEmail);
+            $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
                 echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
