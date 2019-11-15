@@ -142,7 +142,7 @@ if (isset($_POST['button-sign-up'])) {
 
             $receivedToken = getToken($username, $loginEmail);
             setReceivedToken($receivedToken); 
-            
+                        
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
