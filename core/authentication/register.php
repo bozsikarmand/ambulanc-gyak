@@ -8,7 +8,6 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
 
 if (isset($_POST['button-sign-up'])) {
     if ($_POST['agree-tos'] == 'Yes' && $_POST['agree-pp'] == 'Yes') {
@@ -136,7 +135,37 @@ if (isset($_POST['button-sign-up'])) {
         
             $run->bindValue(':regtime', $regtime);
         
-            $resultSet = $run->execute();            
+            $resultSet = $run->execute();
+            
+            $subject = 'Regisztráció megerősitése';
+            $body = '<!DOCTYPE html>
+                    <html lang="hu">
+
+                    <head>
+                        <meta charset="UTF-8">
+                        <title>Regisztráció megerősitése</title>
+                        <style>
+                        .wrapper {
+                            padding: 10px;
+                            color: #000;
+                            font-size: 1.4em;
+                        }
+                        a {
+                            background: #dd3333;
+                            text-decoration: none;
+                            padding: 8px 10px;
+                            color: #fff;
+                        }
+                        </style>
+                    </head>
+
+                    <body>
+                        <div class="wrapper">
+                        <p>Koszonjuk hogy regisztraltal oldalunkon! Email cimed megerositesehez kattints erre a linkre:</p>
+                        <a href="https://ambulanc.bozsikarmand.hu/core/mail/verifyemail.php?token=' . $token . '">Email cim megerositese!</a>
+                        </div>
+                    </body>
+                    </html>';
 
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
