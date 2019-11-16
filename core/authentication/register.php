@@ -138,8 +138,9 @@ if (isset($_POST['button-sign-up'])) {
             $resultSet = $run->execute();
 
             $_SESSION["regtoken"] = $token;
+            print_r($_SESSION);
 
-            require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
+            /*require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
 
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
@@ -147,7 +148,7 @@ if (isset($_POST['button-sign-up'])) {
                 echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
             } else {
                 echo "Az email kuldese soran hiba lepett fel!";
-            }
+            }*/
         } else {
             echo "Recaptcha error!";
         }
