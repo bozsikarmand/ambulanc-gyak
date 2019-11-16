@@ -1,15 +1,11 @@
 <?php
 
-//require_once ("../../database/config.php");
-//require_once ("../../authentication/token/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/set.php");
-
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
 ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
-$token = setReceivedToken($receivedToken);
+$token = $_SESSION["regtoken"];
 $subject = 'Regisztráció megerősitése';
 $body = '<!DOCTYPE html>
       <html lang="hu">

@@ -6,11 +6,9 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/token/set.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/template/verificationemail.php");
 
 if (isset($_POST['button-sign-up'])) {
     if ($_POST['agree-tos'] == 'Yes' && $_POST['agree-pp'] == 'Yes') {
@@ -140,9 +138,7 @@ if (isset($_POST['button-sign-up'])) {
         
             $resultSet = $run->execute();
 
-            $receivedToken = getToken($username, $loginEmail);
-            setReceivedToken($receivedToken); 
-                        
+            $_SESSION["regtoken"] = $token;
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
