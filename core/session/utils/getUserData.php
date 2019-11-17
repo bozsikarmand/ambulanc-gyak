@@ -7,7 +7,7 @@ function getUserID($loginEmail, $databaseConnection) {
                 FROM szemely 
                 JOIN email
                 ON szemely.ID = email.ID
-                WHERE email.BelepesiEmail=:loginemail";
+                WHERE email.BelepesiEmail=:loginEmail";
     
     $run = $databaseConnection->prepare($queryID);
         
