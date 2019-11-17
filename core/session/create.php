@@ -26,7 +26,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 }
 
 function sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection) {
-    $userID = getUserID($loginEmail);
+    $userID = getUserID($loginEmail, $databaseConnection);
     $sessionID = $databaseConnection->lastInsertId();
     
     $insertSessionUserLinkData = "INSERT INTO szemelymunkamenet (SzemelyID, MunkamenetID) 
