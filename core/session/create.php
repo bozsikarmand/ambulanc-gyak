@@ -1,9 +1,10 @@
 <?php
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/utils/getUserData.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 function sessionCreateDatabaseEntry($loginEmail) {
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+
     $sessionStartTime = date('Y-m-d H:i:s');
     //$userID = getUserID($loginEmail);
     $sessionLive = true;
