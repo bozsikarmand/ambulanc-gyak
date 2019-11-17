@@ -31,7 +31,7 @@ function sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection) {
     
     $insertSessionUserLinkData = "INSERT INTO szemelymunkamenet (SzemelyID, MunkamenetID) 
                                          VALUES (:userID, :sessionID)";
-    $run = $databaseConnection->prepare($insertSessionData);
+    $run = $databaseConnection->prepare($insertSessionUserLinkData);
         
     $run->bindValue(':userID', $sessionStartTime);
     $run->bindValue(':sessionLive', $sessionLive);
