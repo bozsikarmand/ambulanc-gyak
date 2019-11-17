@@ -33,11 +33,8 @@ function sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection) {
                                          VALUES (:userID, :sessionID)";
     $run = $databaseConnection->prepare($insertSessionUserLinkData);
         
-    $run->bindValue(':userID', $sessionStartTime);
-    $run->bindValue(':sessionLive', $sessionLive);
-    $run->bindValue(':IP', $IP);
-    $run->bindValue(':UA', $UA);
-    $run->bindValue(':sessionKey', $sessionKey);
+    $run->bindValue(':userID', $userID);
+    $run->bindValue(':sessionID', $sessionID);
 
     $resultSet = $run->execute();
 
