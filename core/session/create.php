@@ -22,12 +22,12 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 
     $run->execute();
 
-    $userID = getUserID($loginEmail, $databaseConnection);
-    $sessionID = $databaseConnection->lastInsertId();
-
     $insertSessionUserLinkData = "INSERT INTO szemelymunkamenet (SzemelyID, MunkamenetID) 
                                          VALUES (:userID, :sessionID)";
     $run = $databaseConnection->prepare($insertSessionUserLinkData);
+
+    $sessionID = $databaseConnection->lastInsertId();
+    $userID = getUserID($loginEmail, $databaseConnection);
         
     $run->bindValue(':userID', $userID);
     $run->bindValue(':sessionID', $sessionID);
