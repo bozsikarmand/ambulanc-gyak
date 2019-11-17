@@ -8,7 +8,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $sessionLive = true;
     $IP = getIPAddress();
     $UA = getBrowser();
-    $sessionKey = session_id();
+    $sessionKey = bin2hex(openssl_random_pseudo_bytes(50));
 
     $insertSessionData = "INSERT INTO munkamenet (MunkamenetKezdete, Aktiv, IP, UserAgent, MunkamenetKulcs) 
                                  VALUES (:sessionStartTime, :sessionLive, :IP, :UA, :sessionKey)";
