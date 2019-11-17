@@ -12,9 +12,9 @@ function getUserID($loginEmail, $databaseConnection) {
     $run = $databaseConnection->prepare($queryID);
         
     $run->bindValue(':loginEmail', $loginEmail);
-    $resultSet = $run->execute();
+    $rs = $run->execute();
 
-    return $resultSet;
+    echo $rs;
 }
 
 function getBrowser() {
