@@ -1,5 +1,7 @@
 <?php 
 
+require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
 function getUserID($loginEmail) {
     $queryID = "SELECT ID as id 
                 FROM szemely 

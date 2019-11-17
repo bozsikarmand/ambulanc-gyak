@@ -22,8 +22,8 @@ if (isset($_GET['token'])) {
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     if (!empty($resultSet['token'])) {
-        /*$stat = 2;
-        $updateUserStatusStatement = "UPDATE szemely 
+        /*
+        $updateUserPasswordStatement = "UPDATE jelszo 
                                       SET Statusz=:stat 
                                       WHERE HitelesitoKod=:token";
         
