@@ -20,15 +20,11 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $run->bindValue(':UA', $UA);
     $run->bindValue(':sessionKey', $sessionKey);
 
-    $resultSet = $run->execute();
+    $run->execute();
 
-    return $resultSet;
-}
-
-function sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $userID = getUserID($loginEmail, $databaseConnection);
     $sessionID = $databaseConnection->lastInsertId();
-    
+
     $insertSessionUserLinkData = "INSERT INTO szemelymunkamenet (SzemelyID, MunkamenetID) 
                                          VALUES (:userID, :sessionID)";
     $run = $databaseConnection->prepare($insertSessionUserLinkData);
@@ -40,4 +36,3 @@ function sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection) {
 
     return $resultSet;
 }
-
