@@ -133,25 +133,25 @@ if (isset($_POST['button-login'])) {
            // print_r($resultSetRouting);
 
             if ($resultSetRouting['statusz'] == 3) {
-                $result = sessionCreateDatabaseEntry($loginEmail);
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
                 
                 if (!empty($result)) {
                     header("Location: ../../protected/userprofile/add/profiledata.php");
                 } 
             } else if ($resultSetRouting['statusz'] == 4) {
-                $result = sessionCreateDatabaseEntry($loginEmail);
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
                     header("Location: ../../protected/userprofile/add/profilepicture.php");
                 }
             } else if ($resultSetRouting['statusz'] == 5) {
-                $result = sessionCreateDatabaseEntry($loginEmail);
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
                     header("Location: ../../core/default/frontend/adminapproval.php");
                 }
             } else if ($resultSetRouting['statusz'] == 6) {
-                $result = sessionCreateDatabaseEntry($loginEmail);
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
                     header("Location: ../../protected/dashboard/index.php");
