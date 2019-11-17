@@ -3,7 +3,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 function getUserID($loginEmail, $databaseConnection) {
-    $queryID = "SELECT szemely.ID as id 
+    $queryID = "SELECT szemely.ID
                 FROM szemely 
                 JOIN email
                 ON szemely.ID = email.ID
@@ -14,7 +14,7 @@ function getUserID($loginEmail, $databaseConnection) {
     $run->bindValue(':loginEmail', $loginEmail);
     $resultSet = $run->execute();
 
-    return $resultSet['id'];
+    echo $resultSet;
 }
 
 function getBrowser() {

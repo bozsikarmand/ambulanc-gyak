@@ -28,11 +28,11 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 
     $sessionID = $databaseConnection->lastInsertId();
     $userID = getUserID($loginEmail, $databaseConnection);
-        
+    /*    
     $run->bindValue(':userID', $userID);
     $run->bindValue(':sessionID', $sessionID);
 
     $resultSet = $run->execute();
-
     return $resultSet;
+    */
 }
