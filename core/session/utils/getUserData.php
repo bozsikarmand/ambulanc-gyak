@@ -14,7 +14,7 @@ function getUserID($loginEmail, $databaseConnection) {
     $run->bindValue(':loginEmail', $loginEmail);
     $resultSet = $run->execute();
 
-    echo $resultSet;
+    return $resultSet;
 }
 
 function getBrowser() {
