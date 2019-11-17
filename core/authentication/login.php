@@ -156,11 +156,7 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
-                    $sessionLink = sessionUserLinkCreateDatabaseEntry($loginEmail, $databaseConnection);
-
-                    if (!empty($sessionLink)) {
-                        header("Location: ../../protected/dashboard/index.php");
-                    }
+                    header("Location: ../../protected/dashboard/index.php");
                 }
             }
 
