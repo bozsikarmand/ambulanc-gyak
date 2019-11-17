@@ -3,7 +3,7 @@
 require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 function getUserID($loginEmail, $databaseConnection) {
-    $queryID = "SELECT ID as id 
+    $queryID = "SELECT szemely.ID as id 
                 FROM szemely 
                 JOIN email
                 ON szemely.ID = email.ID
