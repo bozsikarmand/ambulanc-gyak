@@ -33,9 +33,5 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionID', $sessionID);
 
     $resultSet = $run->execute();
-    echo $resultSet;
-
-    echo $userID;
-    echo "F/\ \/S";
-    echo $sessionID;
+    return $resultSet;
 }
