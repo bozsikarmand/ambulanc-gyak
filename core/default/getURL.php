@@ -1,9 +1,11 @@
 <?php
 
 function getURL() {
-    return sprintf(
-        "%s://%s",
-        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
-        $_SERVER['SERVER_NAME']
-      );
+  if(isset($_SERVER['HTTPS'])){
+    $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+  }
+  else{
+    $protocol = 'http';
+  }
+  return $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 }
