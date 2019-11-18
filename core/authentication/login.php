@@ -148,7 +148,7 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
-                    header("Location: ../../protected/dashboard/index.php");
+                    header("Location:" . $_SERVER['DOCUMENT_ROOT'] . "/protected/dashboard/index.php");
                 }
             }
 
