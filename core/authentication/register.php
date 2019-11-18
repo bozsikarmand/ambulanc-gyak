@@ -170,7 +170,8 @@ if (isset($_POST['button-sign-up'])) {
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
-                echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
+                //echo "Az email cimedet erositsd meg a kikuldott levelunkben talahato link segitsegevel!";
+                header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
             } else {
                 echo "Az email kuldese soran hiba lepett fel!";
             }

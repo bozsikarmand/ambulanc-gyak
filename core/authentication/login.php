@@ -133,7 +133,15 @@ if (isset($_POST['button-login'])) {
 
            // print_r($resultSetRouting);
 
-            if ($resultSetRouting['statusz'] == 3) {
+           if ($resultSetRouting['statusz'] == 1) {
+                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+            
+                header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
+            } else if ($resultSetRouting['statusz'] == 2) {
+                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+            
+                header("Location:" . getURL() . "/core/default/frontend/beforefirstlogin.php");
+            } else if ($resultSetRouting['statusz'] == 3) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
                 
                 header("Location:" . getURL() . "/protected/userprofile/add/profiledata.php");
