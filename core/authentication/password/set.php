@@ -1,5 +1,9 @@
 <?
 
+session_start();
+
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+
 $token = $_SESSION['token'];
 
 if ($_POST['button-password-set']) {
@@ -29,6 +33,6 @@ if ($_POST['button-password-set']) {
     $resultSet = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../login.php");
+        header("Location:" . getURL() . "/login.php");
     }
 }

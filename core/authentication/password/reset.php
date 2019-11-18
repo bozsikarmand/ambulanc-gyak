@@ -1,9 +1,10 @@
 <?php
 
+session_start();
+
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/passwordresetmailsender.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
-
-session_start();
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
 
 error_reporting(E_ALL);
 ini_set("display_errors", "1"); 
@@ -77,6 +78,6 @@ if ($_POST['button-password-recovery']) {
             echo "Az email kuldese soran hiba lepett fel!";
         }
     } else {
-        header("Location: fail.php");
+        header("Location:" . getURL() . "/fail.php");
     }
 }
