@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/passwordresetmailsender.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
