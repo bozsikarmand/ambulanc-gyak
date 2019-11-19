@@ -155,15 +155,13 @@ if (isset($_POST['button-login'])) {
                 
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
-                /*$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
-                    exit(header("Location:" . getURL() . "/protected/dashboard/index.php"));
+                    header("Location:" . getURL() . "/protected/dashboard/index.php");
                     ob_flush();
                     ob_end_clean();
-                }*/
-
-                exit(header("Location:" . getURL() . "/protected/dashboard/index.php"));
+                }
             }
 
             // Routing vege
