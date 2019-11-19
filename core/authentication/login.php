@@ -162,6 +162,9 @@ if (isset($_POST['button-login'])) {
                     ob_flush();
                     ob_end_clean();
                 }
+                else {
+                    echo "Ures!";
+                }
             }
 
             // Routing vege
