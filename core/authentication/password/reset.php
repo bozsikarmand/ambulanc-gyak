@@ -1,6 +1,8 @@
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/passwordresetmailsender.php");
+ob_start();
+
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
 
@@ -71,11 +73,15 @@ if ($_POST['button-password-recovery']) {
     if (!empty($resultSet['vt'])) {
         $sentMail = sendEmail($loginemail, $subject, $body);
         if ($sentMail) {
-            echo "Allitsd be uj jelszavadat a kikuldott levelunkben talahato link segitsegevel!";
+          header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
+          ob_flush();
+          ob_end_clean();
         } else {
-            echo "Az email kuldese soran hiba lepett fel!";
+          echo "Az email kuldese soran hiba lepett fel!";
         }
     } else {
         header("Location:" . getURL() . "/fail.php");
+        ob_flush();
+        ob_end_clean();
     }
 }
