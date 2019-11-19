@@ -1,5 +1,6 @@
 <?php
 
+ob_start();
 session_start();
 
 error_reporting(E_ALL);
@@ -157,7 +158,9 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if (!empty($result)) {
-                    header("Location:" . getURL() . "/protected/dashboard/index.php");
+                    exit(header("Location:" . getURL() . "/protected/dashboard/index.php"));
+                    ob_flush();
+                    ob_end_clean();
                 }
             }
 
