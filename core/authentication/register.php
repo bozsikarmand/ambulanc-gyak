@@ -173,7 +173,9 @@ if (isset($_POST['button-sign-up'])) {
             $sentMail = sendEmail($loginEmail, $subject, $body);
             
             if ($sentMail) {
-                exit(header("Location:" . getURL() . "/core/default/frontend/verifyemail.php"));
+                header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
+                ob_flush();
+                ob_end_clean();
             } else {
                 echo "Az email kuldese soran hiba lepett fel!";
             }
