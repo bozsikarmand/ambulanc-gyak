@@ -157,7 +157,7 @@ if (isset($_POST['button-login'])) {
             } else if ($resultSetRouting['statusz'] == 6) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
-                if (!empty($result)) {
+                if ($result) {
                     header("Location:" . getURL() . "/protected/dashboard/index.php");
                     ob_flush();
                     ob_end_clean();
