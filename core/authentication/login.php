@@ -23,7 +23,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
  * 
  */
-  
+ 
+ print_r($_POST);
+
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
 if (isset($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
