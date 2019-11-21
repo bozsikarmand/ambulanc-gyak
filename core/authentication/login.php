@@ -1,6 +1,5 @@
 <?php
 
-ob_start();
 session_start();
 
 error_reporting(E_ALL);
@@ -159,12 +158,13 @@ if (isset($_POST['button-login'])) {
 
                 if ($result) {
                     header("Location:" . getURL() . "/protected/dashboard/index.php");
-                    ob_flush();
-                    ob_end_clean();
                 }
                 else {
                     echo "Ures!";
                 }
+            }
+            else {
+                header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
 
             // Routing vege
