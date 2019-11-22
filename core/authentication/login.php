@@ -24,10 +24,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  * 
  */
  
- print_r($_POST);
-
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
-if (isset($_POST['button-login'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['inputLoginEmail'])) {
         $error['inputLoginEmail'] = 'A belépési email cim megadása kötelező!';
         echo 'A belépési email cim megadása kötelező!';
