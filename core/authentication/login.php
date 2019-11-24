@@ -130,10 +130,10 @@ if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
+            
+            print_r($resultSetRouting);
 
-           // print_r($resultSetRouting);
-
-           if ($resultSetRouting['statusz'] == 1) {
+           /*if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
@@ -157,7 +157,7 @@ if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
                 header("Location:" . getURL() . "/protected/dashboard/index.php");
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }
+            }*/
 
             // Routing vege
         } else {
