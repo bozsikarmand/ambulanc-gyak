@@ -25,7 +25,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  */
  
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
         $error['inputLoginEmail'] = 'A belépési email cim megadása kötelező!';
         echo 'A belépési email cim megadása kötelező!';
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
-                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+                // $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 header("Location:" . getURL() . "/protected/dashboard/index.php");
                 
@@ -164,8 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 else {
                     echo "Ures!";
                 }*/
-            }
-            else {
+            } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
 
