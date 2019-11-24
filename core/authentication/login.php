@@ -156,12 +156,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else if ($resultSetRouting['statusz'] == 6) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
-                if ($result) {
+                header("Location:" . getURL() . "/protected/dashboard/index.php");
+                
+                /*if ($result) {
                     header("Location:" . getURL() . "/protected/dashboard/index.php");
                 }
                 else {
                     echo "Ures!";
-                }
+                }*/
             }
             else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
