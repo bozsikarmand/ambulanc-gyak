@@ -174,8 +174,6 @@ if (isset($_POST['button-sign-up'])) {
             
             if ($sentMail) {
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
-                ob_flush();
-                ob_end_clean();
             } else {
                 echo "Az email kuldese soran hiba lepett fel!";
             }
@@ -186,3 +184,5 @@ if (isset($_POST['button-sign-up'])) {
         echo "A nyilatkozatok elfogadasa kotelezo!"; 
     }
 }
+
+ob_end_clean();
