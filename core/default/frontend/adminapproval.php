@@ -12,7 +12,7 @@
     </style>
 </head>
 <body>
-    <form class="form-signin" action="../../../index.php" method="post">
+    <form class="form-signin">
         <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Sikeresen megadtad adataid!</h1>
         </div>
@@ -21,7 +21,7 @@
             Egy adminisztrátor hamarosan átnézi jelentkezésed, majd megerősiti azt. A felhasználói fiókod aktiválásáról emailben értesitünk.
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" name="button-home" type="submit">
+        <button class="btn btn-lg btn-primary btn-block" name="button-home">
             <i class="fas fa-home"></i> Visszatérés a főoldalra
         </button>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
