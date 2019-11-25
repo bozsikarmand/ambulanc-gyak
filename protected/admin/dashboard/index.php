@@ -2,7 +2,7 @@
 session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
-//require_once ("../../core/dashboard/list/welcomeinfo.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +11,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -74,7 +74,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
                         <span class="sr-only">Menu lenyitása</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="userprofile/list/profiledata.php">Adataim</a>
+                      <a class="dropdown-item" href="../userprofile/list/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
@@ -143,9 +143,9 @@ Integer vel tincidunt lacus. Vivamus sit amet laoreet nisl, in imperdiet turpis.
         </div>
     </footer>
 </div>
-<script src="../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../assets/js/popper.min.js"></script>
-<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
+<script src="../../../assets/js/popper.min.js"></script>
+<script src="../../../assets/js/bootstrap.min.js"></script>
 </body>
 </html>
 

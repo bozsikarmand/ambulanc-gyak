@@ -33,3 +33,57 @@ function getIPAddress() {
     }
     return $ip;
 }
+
+function getCurrentSession($loginEmail, $databaseConnection)
+{
+    $queryCurrentSession = "SELECT MunkamenetID 
+                            FROM szemelymunkamenet 
+                            WHERE SzemelyID=:userid 
+                            ORDER BY MunkamenetID DESC 
+                            LIMIT 1";
+                        
+    $run = $databaseConnection -> prepare($queryName);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}
+
+function getName($loginEmail, $databaseConnection)
+{
+    $queryName = "SELECT email.BelepesiEmail as le, 
+                  CONCAT(szemely.Vezeteknev, 
+                      SPACE(1), 
+                      szemely.Keresztnev, 
+                      SPACE(1), 
+                      szemely.Utonev) as fullname 
+                  FROM email, szemely 
+                  WHERE szemely.ID = email.ID 
+                  AND BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryName);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}
+
+function getInfo($sessionID, $databaseConnection)
+{
+    $queryInfo = "SELECT szemely.Felhasznalonev, szemely.Vezeteknev, szemely.Keresztnev, szemely.Utonev, 
+                         szemely.VezetekesTel, szemely.MobilTel, szemely.IRSZ, szemely.Varos, 
+                         szemely.KozteruletNeve, szemely.KozteruletJellege, szemely.Hazszam, 
+                         szemely.Epulet, szemely.Statusz, email.BelepesiEmail, email.PublikusEmail  
+                  FROM email, szemely 
+                  WHERE szemely.ID = email.ID 
+                  AND BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryName);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}

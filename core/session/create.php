@@ -35,3 +35,18 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $resultSet = $run->execute();
     return $resultSet;
 }
+
+function sessionCheckPrivilege($loginEmail, $databaseConnection) {
+    $sessionGetUserID = getUserID($loginEmail, $databaseConnection);
+
+    $querySessionPrivilege = "SELECT szemelyjog.JogID 
+                              FROM szemelyjog, szemely
+                              WHERE szemelyjog.SzemelyID = :sessionGetUserID";
+    
+    $run = $databaseConnection->prepare($querySessionPrivilege);
+
+    $run->bindValue(':sessionGetUserID', $sessionGetUserID);
+    
+    $resultSet = $run->execute();
+    return $resultSet;
+}
