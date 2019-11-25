@@ -25,7 +25,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  */
  
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
-if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
+if (isset($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
         $error['inputLoginEmail'] = 'A belépési email cim megadása kötelező!';
         echo 'A belépési email cim megadása kötelező!';
@@ -133,7 +133,7 @@ if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
             
             print_r($resultSetRouting);
 
-           /*if ($resultSetRouting['statusz'] == 1) {
+            if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
@@ -154,10 +154,14 @@ if (isset($_POST['button-login']) && !empty($_POST['button-login'])) {
                 
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
-                header("Location:" . getURL() . "/protected/dashboard/index.php");
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+
+                if ($result) {
+                    header("Location:" . getURL() . "/protected/dashboard/index.php");
+                }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }*/
+            }
 
             // Routing vege
         } else {
