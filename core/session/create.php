@@ -39,7 +39,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $sessionGetUserID = getUserID($loginEmail, $databaseConnection);
 
-    $querySessionPrivilege = "SELECT szemelyjog.JogID 
+    $querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
                               FROM szemelyjog, szemely
                               WHERE szemelyjog.SzemelyID = :sessionGetUserID";
     
