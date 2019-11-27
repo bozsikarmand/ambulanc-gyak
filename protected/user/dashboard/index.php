@@ -29,8 +29,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <li class="nav-item">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-users"></i> Felhasználók
                     </a>
                 </li>
