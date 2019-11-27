@@ -131,7 +131,7 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
-            print_r($resultSetRouting);
+            //print_r($resultSetRouting);
 
             if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
