@@ -154,13 +154,12 @@ if (isset($_POST['button-login'])) {
                 
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
-                sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-                header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
+                $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
-                // Jogosultsagkezeles
+                if ($result) {
+                    header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
 
-                /*if ($result) {
-                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
 
                     if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;
@@ -168,8 +167,7 @@ if (isset($_POST['button-login'])) {
                     } else if ($privilege['privid'] == 2) {
                         $_SESSION["isLoggedIn"] = true;
                         header("Location:" . getURL() . "/protected/user/dashboard/index.php");
-                    
-                }*/
+                    }*/
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
