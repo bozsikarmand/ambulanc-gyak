@@ -30,7 +30,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="list/users.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-users"></i> Felhasználók
                     </a>
                 </li>
