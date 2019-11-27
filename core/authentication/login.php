@@ -168,6 +168,7 @@ if (isset($_POST['button-login'])) {
                         $_SESSION["isLoggedIn"] = true;
                         header("Location:" . getURL() . "/protected/user/dashboard/index.php");
                     }*/
+                }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
