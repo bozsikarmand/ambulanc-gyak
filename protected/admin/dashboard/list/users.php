@@ -117,7 +117,7 @@ $userlist = $run->fetchAll();
         <tbody>
             <?php foreach ($userlist as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
+                <th scope="row" colspan="2"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
 
                 <td>
@@ -130,7 +130,7 @@ $userlist = $run->fetchAll();
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
-                
+
             </tr>
             <?php } ?>
         </tbody>
