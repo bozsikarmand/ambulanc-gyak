@@ -111,6 +111,7 @@ $userlist = $run->fetchAll();
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
+                <th colspan="2">Muvelet</th>
             </tr>
         </thead>
         <tbody>
@@ -120,12 +121,12 @@ $userlist = $run->fetchAll();
                 <td><?php echo $row['fullname']; ?></td>
                 <td>
                     <a href="edit.php" class="btn btn-warning">
-                    Módositás
+                        <i class="fas fa-edit"></i> Módositás
                     </a>
                 </td>
                 <td>
                     <a href="edit.php" class="btn btn-danger">
-                    Törlés
+                        <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
             </tr>
