@@ -5,7 +5,9 @@ session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 $addAnimal = "INSERT INTO allat (Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
-              VALUES (:species, :carrierW, :carrierH, :carrierD, :dangerous, :serious, :indinvidualNum);
+              VALUES (:species, :carrierW, :carrierH, :carrierD, :dangerous, :serious, :individualNum)";
+
+              
 
 $run = $databaseConnection -> prepare($addAnimal);
 $run->execute();
