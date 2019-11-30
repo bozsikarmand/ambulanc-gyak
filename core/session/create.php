@@ -1,5 +1,11 @@
 <?php
 
+
+error_reporting(E_ALL);
+ini_set("display_errors", "1"); 
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
+
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/utils/getUserData.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
@@ -39,9 +45,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $sessionGetUserID = getUserID($loginEmail, $databaseConnection);
 
-    echo $sessionGetUserID;
-
-    /*$querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
+    $querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
                               FROM szemelyjog, szemely
                               WHERE szemelyjog.SzemelyID = :sessionGetUserID";
     
@@ -50,5 +54,5 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
     $resultSet = $run->fetch(PDO::FETCH_ASSOC);
-    echo $resultSet;*/
+    return $resultSet;
 }
