@@ -119,6 +119,16 @@ $userlist = $run->fetchAll();
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
+                <td>
+                    <a href="edit.php" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                </td>
+                <td>
+                    <a href="edit.php" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
             </tr>
             <?php } ?>
         </tbody>
