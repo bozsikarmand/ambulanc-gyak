@@ -39,7 +39,9 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
 function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $sessionGetUserID = getUserID($loginEmail, $databaseConnection);
 
-    $querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
+    echo $sessionGetUserID;
+
+    /*$querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
                               FROM szemelyjog, szemely
                               WHERE szemelyjog.SzemelyID = :sessionGetUserID";
     
@@ -48,5 +50,5 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
     $resultSet = $run->fetch(PDO::FETCH_ASSOC);
-    echo $resultSet;
+    echo $resultSet;*/
 }
