@@ -111,7 +111,6 @@ $userlist = $run->fetchAll();
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th colspan="2">Muvelet</th>
             </tr>
         </thead>
         <tbody>
