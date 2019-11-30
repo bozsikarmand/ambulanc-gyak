@@ -158,12 +158,12 @@ if (isset($_POST['button-login'])) {
 
                 if ($result) {
                     $_SESSION["isLoggedIn"] = true;
-                    //header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
+                    header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
 
-                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
                     echo $privilege;
 
-                    /*if ($privilege['privid'] == 1) {
+                    if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;
                         header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
                     } else if ($privilege['privid'] == 2) {
