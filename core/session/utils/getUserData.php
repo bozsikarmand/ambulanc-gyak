@@ -12,9 +12,9 @@ function getUserID($loginEmail, $databaseConnection) {
     $run = $databaseConnection->prepare($queryID);
         
     $run->bindValue(':loginEmail', $loginEmail);
-    $rs = $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    return $rs;
+    return $resultSet;
 }
 
 function getBrowser() {
