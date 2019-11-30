@@ -14,7 +14,7 @@ function getUserID($loginEmail, $databaseConnection) {
     $run->bindValue(':loginEmail', $loginEmail);
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    return $resultSet;
+    echo $resultSet;
 }
 
 function getBrowser() {
