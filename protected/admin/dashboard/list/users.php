@@ -111,13 +111,13 @@ $userlist = $run->fetchAll();
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th scope="col">Muveletek</th>
+                <th colspan="2">Muveletek</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($userlist as $row) { ?>
             <tr>
-                <th scope="row" colspan="2"><?php echo $row['id']; ?></th>
+                <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
 
                 <td>
