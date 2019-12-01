@@ -1,24 +1,11 @@
 <?php
 session_start();
 
-//require_once ("../../../core/admin/list/user.php");
+require_once ("../../../core/action/list/user.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$listAvailableUsers = "SELECT 
-                            ID as id, 
-                            CONCAT(
-                                szemely.Vezeteknev, 
-                                SPACE(1), 
-                                szemely.Keresztnev, 
-                                SPACE(1), 
-                                szemely.Utonev
-                                ) as fullname
-                       FROM szemely";
-
-$run = $databaseConnection -> prepare($listAvailableUsers);
-$run->execute();
-$userlist = $run->fetchAll();
+$users = listUser($databaseConnection);
 ?>
 
 <!DOCTYPE html>
