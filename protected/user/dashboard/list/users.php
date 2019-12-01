@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ("../../../core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 $users = listUser($databaseConnection);

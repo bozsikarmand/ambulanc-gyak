@@ -1,24 +1,10 @@
 <?php
 session_start();
 
-//require_once ("../../../core/admin/list/user.php");
-
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$listAvailableUsers = "SELECT 
-                            ID as id, 
-                            CONCAT(
-                                szemely.Vezeteknev, 
-                                SPACE(1), 
-                                szemely.Keresztnev, 
-                                SPACE(1), 
-                                szemely.Utonev
-                                ) as fullname
-                       FROM szemely";
-
-$run = $databaseConnection -> prepare($listAvailableUsers);
-$run->execute();
-$userlist = $run->fetchAll();
+$users = listUser($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +101,7 @@ $userlist = $run->fetchAll();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($userlist as $row) { ?>
+            <?php foreach ($users as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
