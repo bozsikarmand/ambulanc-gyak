@@ -4,9 +4,22 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$queryAnimal = "SELECT ID, Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam
-                FROM allat";
+function listAnimal($databaseConnection)
+{
+    $listAnimals = "SELECT 
+                        ID, 
+                        Faj, 
+                        HordozoSz, 
+                        HordozoM, 
+                        HordozoH, 
+                        Veszelyes, 
+                        Sulyos, 
+                        EgyedSzam
+                    FROM allat";
 
-$run = $databaseConnection -> prepare($queryAnimal);
-$run->execute();
-$resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $run = $databaseConnection -> prepare($listAnimals);
+    $run->execute();
+    $animallist = $run->fetchAll();
+
+    return $animallist;
+}

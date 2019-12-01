@@ -4,9 +4,14 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$queryPermission = "SELECT ID, Nev
-                    FROM jog";
+function listPermissions($databaseConnection)
+{
+    $listPermissions =  "SELECT ID, Nev
+                         FROM jog";
 
-$run = $databaseConnection -> prepare($queryPermission);
-$run->execute();
-$resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $run = $databaseConnection -> prepare($listPermissions);
+    $run->execute();
+    $permissionlist = $run->fetchAll();
+
+    return $permissionlist;
+}

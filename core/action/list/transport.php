@@ -4,9 +4,17 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$queryPublicPlace = "SELECT ID, Szakasz, Allapot
-                     FROM szallitas";
+function listTransports($databaseConnection)
+{
+    $listTransports = "SELECT 
+                            ID, 
+                            Szakasz, 
+                            Allapot
+                       FROM szallitas";
 
-$run = $databaseConnection -> prepare($queryPublicPlace);
-$run->execute();
-$resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $run = $databaseConnection -> prepare($listTransports);
+    $run->execute();
+    $transportlist = $run->fetchAll();
+
+    return $transportlist;
+}
