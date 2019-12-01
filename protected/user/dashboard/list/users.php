@@ -2,7 +2,6 @@
 session_start();
 
 require_once ("../../../core/action/list/user.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 $users = listUser($databaseConnection);
@@ -101,7 +100,7 @@ $users = listUser($databaseConnection);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($userlist as $row) { ?>
+            <?php foreach ($users as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
