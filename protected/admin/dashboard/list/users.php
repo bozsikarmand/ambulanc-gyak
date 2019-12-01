@@ -111,7 +111,7 @@ $userlist = $run->fetchAll();
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th colspan="2">Muvelet</th>
+                <th scope="col">Muvelet</th>
             </tr>
         </thead>
         <tbody>
@@ -123,8 +123,6 @@ $userlist = $run->fetchAll();
                     <a href="edit.php" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                </td>
-                <td>
                     <a href="edit.php" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
