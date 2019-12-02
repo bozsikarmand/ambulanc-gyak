@@ -36,11 +36,11 @@ session_start();
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="list/user/adminapproval.php" class="dropdown-item">
+                        <a href="functions/admin/list/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="list/users.php" class="dropdown-item">
+                        <a href="functions/common/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
