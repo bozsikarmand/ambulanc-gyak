@@ -39,11 +39,11 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
                         <i class="fas fa-users"></i> Felhasználók
                     </a>
                     <div class="dropdown-menu">
-                        <a href="admin/list/adminapproval.php" class="dropdown-item">
+                        <a href="functions/admin/list/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="common/list/users.php" class="dropdown-item">
+                        <a href="functions/common/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
