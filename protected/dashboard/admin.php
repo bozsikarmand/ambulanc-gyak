@@ -11,9 +11,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -39,11 +39,11 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
                         <i class="fas fa-users"></i> Felhasználók
                     </a>
                     <div class="dropdown-menu">
-                        <a href="list/user/adminapproval.php" class="dropdown-item">
+                        <a href="admin/list/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="list/users.php" class="dropdown-item">
+                        <a href="common/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
