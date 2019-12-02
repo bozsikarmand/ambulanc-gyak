@@ -13,10 +13,10 @@ $users = listUser($databaseConnection);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../../assets/css/admin.css">
-    <link rel="stylesheet" href="../../../../assets/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
 
 </head>
 <body>
@@ -43,7 +43,7 @@ $users = listUser($databaseConnection);
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="list/user/adminapproval.php" class="dropdown-item">
+                        <a href="/core/protected/dashboard/functions/admin/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
@@ -106,10 +106,10 @@ $users = listUser($databaseConnection);
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
                 <td>
-                    <a href="../../../../core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="../../../../core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
@@ -163,9 +163,9 @@ $users = listUser($databaseConnection);
         </div>
     </footer>
 </div>
-<script src="../../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../../assets/js/popper.min.js"></script>
-<script src="../../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../../assets/js/bootstrap-table.min.js"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap-table.min.js"></script>
 </body>
 </html>
