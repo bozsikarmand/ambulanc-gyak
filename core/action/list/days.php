@@ -9,7 +9,7 @@ function listDays($databaseConnection)
     $listDays =  "SELECT ID, Nap
                   FROM napok";
 
-    $run = $databaseConnection -> prepare($listAnimals);
+    $run = $databaseConnection -> prepare($listDays);
     $run->execute();
     $daylist = $run->fetchAll();
 
