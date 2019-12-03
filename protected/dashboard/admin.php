@@ -3,6 +3,10 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+
+sessionRegenerateExistingMainKey($_SESSION["email"], $databaseConnection);
 ?>
 
 <!DOCTYPE html>
