@@ -48,7 +48,7 @@ function getCurrentSessionKey($userID, $databaseConnection)
     $run = $databaseConnection -> prepare($queryCurrentSessionKey);
     $run->bindValue(':userid', $userID);
     $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run -> fetchColumn();
 
     return $resultSet;
 }
