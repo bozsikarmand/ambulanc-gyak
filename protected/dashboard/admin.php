@@ -87,6 +87,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
     <div class="container-fullwidth" style="margin-top:100px">
         <p>
+        <? echo $_SESSION["key"]; ?>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc enim neque, dictum eget leo ut, luctus tincidunt lectus. Nam vel euismod ante. Fusce vitae euismod velit, eu pellentesque ipsum. In eget diam iaculis, maximus ligula sit amet, euismod augue. Aliquam erat volutpat. Vivamus et erat rutrum, feugiat dolor eu, aliquam dui. Suspendisse eu magna at nisl congue feugiat. Nunc sed tempus dui, nec ornare ante. Suspendisse condimentum fermentum nisi quis tempor. Morbi posuere consequat varius. Nunc ornare laoreet egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
 Aliquam venenatis, purus ut cursus euismod, mauris sapien blandit elit, in pulvinar purus turpis id ligula. Sed non faucibus justo. Cras rutrum congue lobortis. Vestibulum volutpat eget enim nec tempus. Etiam at faucibus odio. Mauris eleifend lorem ultrices libero pulvinar condimentum. Praesent nec neque sit amet nisl euismod aliquam. Donec ac enim erat. Pellentesque suscipit bibendum ornare. Ut vel purus id mi sodales eleifend id vitae tellus. Vestibulum vel nulla pharetra, lobortis neque eu, consectetur turpis.
