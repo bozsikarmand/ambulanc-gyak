@@ -38,7 +38,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionID', $sessionID);
 
     $resultSet = $run->execute();
-    return $resultSet;
+    echo $resultSet;
 }
 
 function sessionCheckPrivilege($loginEmail, $databaseConnection) {
