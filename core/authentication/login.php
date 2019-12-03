@@ -159,10 +159,10 @@ if (isset($_POST['button-login'])) {
 
                 if ($result) {
                     $_SESSION["isLoggedIn"] = true;
-                    //$_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
+                    $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
-                    //echo $_SESSION["key"];
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                    echo $_SESSION["key"];
+                    //header("Location:" . getURL() . "/protected/dashboard/admin.php");
 
                     /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
                     echo $privilege;
