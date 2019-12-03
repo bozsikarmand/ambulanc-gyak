@@ -34,16 +34,18 @@ function getIPAddress() {
     return $ip;
 }
 
-function getCurrentSession($loginEmail, $databaseConnection)
+function getCurrentSessionKey($userID, $databaseConnection)
 {
-    $queryCurrentSession = "SELECT MunkamenetID 
-                            FROM szemelymunkamenet 
-                            WHERE SzemelyID=:userid 
-                            ORDER BY MunkamenetID DESC 
-                            LIMIT 1";
+    $queryCurrentSessionKey = "SELECT MunkamenetKulcs 
+                               FROM munkamenet, szemelymunkamenet, szemely 
+                               WHERE munkamenet.MunkamenetID = szemelymunkamenet.MunkamenetID 
+                               AND szemely.ID = szemelymunkamenet.SzemelyID 
+                               AND szemely.ID=:userid 
+                               ORDER BY szemelymunkamenet.MunkamenetID DESC 
+                               LIMIT 1";
                         
     $run = $databaseConnection -> prepare($queryName);
-    $run->bindValue(':loginemail', $loginEmail);
+    $run->bindValue(':userid', $userID);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 

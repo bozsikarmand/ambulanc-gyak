@@ -158,7 +158,7 @@ if (isset($_POST['button-login'])) {
 
                 if ($result) {
                     $_SESSION["isLoggedIn"] = true;
-                    $_SESSION["key"] = $result["sessionkey"];
+                    $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
                     echo $_SESSION["key"];
                     //header("Location:" . getURL() . "/protected/dashboard/admin.php");

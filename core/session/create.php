@@ -15,7 +15,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $UA = getBrowser();
     $sessionKey = bin2hex(openssl_random_pseudo_bytes(50));
 
-    $insertSessionData = "INSERT INTO munkamenet (MunkamenetKezdete as sessionStartTime, Aktiv as active, IP as ip, UserAgent as ua, MunkamenetKulcs as sessionkey) 
+    $insertSessionData = "INSERT INTO munkamenet (MunkamenetKezdete, Aktiv, IP, UserAgent, MunkamenetKulcs) 
                                  VALUES (:sessionStartTime, :sessionLive, :IP, :UA, :sessionKey)";
     $run = $databaseConnection->prepare($insertSessionData);
         
@@ -53,5 +53,12 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
     $resultSet = $run->fetch(PDO::FETCH_ASSOC);
+    return $resultSet;
+}
+
+function getSessionKey($loginEmail, $databaseConnection)
+{
+    $sessionGetUserID = getUserID($loginEmail, $databaseConnection);
+    $resultSet = getCurrentSessionKey($sessionGetUserID, $databaseConnection);
     return $resultSet;
 }
