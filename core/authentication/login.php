@@ -131,6 +131,7 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
+            //print("Routing:")
             //print_r($resultSetRouting);
 
             if ($resultSetRouting['statusz'] == 1) {

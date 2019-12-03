@@ -12,6 +12,7 @@ function getUserID($loginEmail, $databaseConnection) {
     $run = $databaseConnection->prepare($queryID);
         
     $run->bindValue(':loginEmail', $loginEmail);
+    $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
     return $resultSet;
