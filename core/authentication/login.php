@@ -164,7 +164,6 @@ if (isset($_POST['button-login'])) {
                     //header("Location:" . getURL() . "/protected/dashboard/admin.php");
 
                     $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
-                    echo $privilege[0];
 
                     /*if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;
