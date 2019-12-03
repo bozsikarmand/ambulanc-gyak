@@ -44,7 +44,7 @@ function getCurrentSessionKey($userID, $databaseConnection)
                                ORDER BY szemelymunkamenet.MunkamenetID DESC 
                                LIMIT 1";
                         
-    $run = $databaseConnection -> prepare($queryName);
+    $run = $databaseConnection -> prepare($queryCurrentSessionKey);
     $run->bindValue(':userid', $userID);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
