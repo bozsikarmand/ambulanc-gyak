@@ -64,7 +64,7 @@ if (isset($_POST['button-login'])) {
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
-            // $_SESSION["email"] = $loginEmail;
+            $_SESSION["email"] = $loginEmail;
 
             $queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
                         FROM szemely 
