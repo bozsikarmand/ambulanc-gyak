@@ -15,7 +15,7 @@ function sessionCreateDatabaseEntry($loginEmail, $databaseConnection) {
     $UA = getBrowser();
     $sessionKey = bin2hex(openssl_random_pseudo_bytes(50));
 
-    $insertSessionData = "INSERT INTO munkamenet (MunkamenetKezdete, Aktiv, IP, UserAgent, MunkamenetKulcs) 
+    $insertSessionData = "INSERT INTO munkamenet (MunkamenetKezdete, Aktiv, IP, UserAgent, MunkamenetKulcs as sessionkey) 
                                  VALUES (:sessionStartTime, :sessionLive, :IP, :UA, :sessionKey)";
     $run = $databaseConnection->prepare($insertSessionData);
         

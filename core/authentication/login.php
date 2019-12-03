@@ -64,7 +64,7 @@ if (isset($_POST['button-login'])) {
 
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
-            $_SESSION["email"] = $loginEmail;
+            // $_SESSION["email"] = $loginEmail;
 
             $queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
                         FROM szemely 
@@ -81,9 +81,9 @@ if (isset($_POST['button-login'])) {
             //print_r($resultSet);
 
             // Sessionben eltarolom az ID-t
-            $_SESSION["id"] = $resultSet['id'];
+            // $_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
-            $_SESSION["username"] = $resultSet['username'];
+            // $_SESSION["username"] = $resultSet['username'];
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
@@ -158,7 +158,10 @@ if (isset($_POST['button-login'])) {
 
                 if ($result) {
                     $_SESSION["isLoggedIn"] = true;
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                    $_SESSION["key"] = $result["sessionkey"];
+
+                    echo $_SESSION["key"];
+                    //header("Location:" . getURL() . "/protected/dashboard/admin.php");
 
                     /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
                     echo $privilege;
