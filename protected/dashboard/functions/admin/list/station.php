@@ -4,7 +4,7 @@ session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
+$users = listUser($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +13,11 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Főoldal</title>
-    <link rel="stylesheet" href="../../../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../../../assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
+
 </head>
 <body>
 <div class="container-fullwidth">
@@ -27,7 +29,7 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../index.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>
@@ -41,11 +43,11 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="functions/admin/list/adminapproval.php" class="dropdown-item">
+                        <a href="/core/protected/dashboard/functions/admin/adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="functions/common/list/users.php" class="dropdown-item">
+                        <a href="list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
@@ -99,16 +101,16 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($listUsersWaitingForApproval as $row) { ?>
+            <?php foreach ($users as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
                 <td>
-                    <a href="/core/actions/approve/user.php" class="btn btn-success">
-                        <i class="far fa-check-circle"></i> Elfogadas
+                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Módositás
                     </a>
                     <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
-                        <i class="far fa-times-circle"></i> Törlés
+                        <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
             </tr>
@@ -161,8 +163,9 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
         </div>
     </footer>
 </div>
-<script src="../../../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../../../assets/js/popper.min.js"></script>
-<script src="../../../../../assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap-table.min.js"></script>
 </body>
 </html>

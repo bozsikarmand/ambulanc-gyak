@@ -161,16 +161,19 @@ if (isset($_POST['button-login'])) {
                     $_SESSION["isLoggedIn"] = true;
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                    //header("Location:" . getURL() . "/protected/dashboard/admin.php");
 
-                    /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
 
                     foreach ($privilege as $accesslevel) {
-                        if ($accesslevel == 1) {
+                        if ($accesslevel['privid'] == 1) {
                             $_SESSION["isLoggedIn"] = true;
-                            header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
+                            header("Location:" . getURL() . "/protected/dashboard/user.php");
+                        } else if ($accesslevel['privid'] >= 2) {
+                            $_SESSION["isLoggedIn"] = true;
+                            header("Location:" . getURL() . "/protected/dashboard/admin.php");
                         }
-                    }*/
+                    }
 
                     /*if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;

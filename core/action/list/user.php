@@ -23,3 +23,25 @@ function listUser($databaseConnection)
 
     return $userlist;
 }
+
+function listUserWaitingForApproval($databaseConnection)
+{
+    $stat = 5;
+    $listAvailableUsersWaitingForApproval = "SELECT 
+                                             ID as id, 
+                                             CONCAT(
+                                             szemely.Vezeteknev, 
+                                             SPACE(1), 
+                                             szemely.Keresztnev, 
+                                             SPACE(1), 
+                                             szemely.Utonev
+                                             ) as fullname
+                                             FROM szemely
+                                             WHERE szemely.Statusz = :stat";
+
+    $run = $databaseConnection -> prepare($listAvailableUsersWaitingForApproval);
+    $run->execute();
+    $userlist = $run->fetchAll();
+
+    return $userlist;
+}

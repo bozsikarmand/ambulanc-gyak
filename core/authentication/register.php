@@ -98,12 +98,12 @@ if (isset($_POST['button-sign-up'])) {
             $run->bindValue(':passwordhash', $password);
             $resultSet = $run->execute();
         
-            // Jog (Alapbol: 2)
+            // Jog (Alapbol: 1)
             $insertPermission = "INSERT INTO szemelyjog (SzemelyID, JogID) VALUES (:lastUserID, :permissionID)";
             $run = $databaseConnection->prepare($insertPermission);
         
             $lastUserID = $databaseConnection->lastInsertId();
-            $permissionID = 2;
+            $permissionID = 1;
         
             $run->bindValue(':lastUserID', $lastUserID);
             $run->bindValue(':permissionID', $permissionID);
