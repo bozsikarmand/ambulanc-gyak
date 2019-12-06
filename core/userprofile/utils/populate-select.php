@@ -10,7 +10,7 @@ function populateSelect($databaseConnection)
 
     $run = $databaseConnection -> prepare($listPublicPlaceTraits);
     $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run -> fetchAll();
 
     return $resultSet;
 }
