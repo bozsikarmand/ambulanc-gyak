@@ -5,7 +5,6 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 function populateSelect($databaseConnection)
 {
     $listPublicPlaceTraits = "SELECT 
-                              ID as id, 
                               Jelleg as trait
                               FROM kozterulet";
 

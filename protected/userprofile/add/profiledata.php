@@ -74,10 +74,10 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
                 foreach ($listPublicPlaceTrait as $trait) { ?>
 
                     <option data-tokens="<?php 
-                                            echo $trait; 
+                                            echo $trait['trait']; 
                                          ?>">
                                             <?php 
-                                                echo $trait;
+                                                echo $trait['trait'];
                                             ?>
                     </option>
 
