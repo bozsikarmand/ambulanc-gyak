@@ -51,9 +51,10 @@ if (isset($_POST['button-login'])) {
     //print_r($resultSet);
 
     if (!empty($resultSet['le'])) {
-        $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph
-                              FROM szemely, jelszo
-                              WHERE szemely.ID = jelszo.ID";
+        $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph, email.ID as eid
+                              FROM szemely, jelszo, email
+                              WHERE szemely.ID = jelszo.ID 
+                              AND szemely.ID = email.ID";
         
         $run = $databaseConnection -> prepare($queryUserPassword);
         $run->execute();
@@ -66,7 +67,8 @@ if (isset($_POST['button-login'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
 
-            $queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
+            // TODO: 20191206-an eltavolitani. Az ID lekereshez van mar kulon fuggveny
+            /*$queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
                         FROM szemely 
                         JOIN email
                         ON szemely.ID = email.ID
@@ -75,7 +77,7 @@ if (isset($_POST['button-login'])) {
             $run = $databaseConnection -> prepare($queryID);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);*/
 
             //echo "Azonosito ellenorzes:";
             //print_r($resultSet);
@@ -84,6 +86,7 @@ if (isset($_POST['button-login'])) {
             // $_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
             // $_SESSION["username"] = $resultSet['username'];
+
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 

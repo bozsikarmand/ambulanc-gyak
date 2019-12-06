@@ -1,3 +1,12 @@
+<?php 
+
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
+
+$listPublicPlaceTrait = populateSelect($databaseConnection); 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +19,6 @@
     <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="../../../assets/css/fileinput.min.css">
     <link rel="stylesheet" href="../../../assets/css/profiledata.css">
-    <script src="../../../assets/js/populate-select.js" defer></script>
 </head>
 <body>
 <form class="form-signin" action="../../../core/userprofile/add/profiledata.php" method="post">
@@ -60,6 +68,21 @@
 
     <div class="form-label-group">
         <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
+
+            <?php
+
+                foreach ($listPublicPlaceTrait as $trait) { ?>
+
+                    <option data-tokens="<?php 
+                                            echo $trait; 
+                                         ?>">
+                                            <?php 
+                                                echo $trait;
+                                            ?>
+                    </option>
+
+                <?php } ?>
+
         </select>
     </div>
 
@@ -86,7 +109,6 @@
 <script src="../../../assets/js/jquery-3.4.1.min.js"></script>
 <script src="../../../assets/js/popper.min.js"></script>
 <script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/populate-select.js"></script>
 <script src="../../../assets/js/bootstrap-select.min.js"></script>
 <script src="../../../assets/js/defaults-hu_HU.min.js"></script>
 <script src="../../../assets/js/piexif.min.js"></script>
