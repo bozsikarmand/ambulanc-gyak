@@ -2,7 +2,6 @@
 
 session_start();
 
-echo $_GET['token'];
 $token = $_GET['token'];
 $_SESSION['sessToken'] = $token;
 

@@ -19,7 +19,8 @@ if (isset($_POST['button-password-set'])) {
     
     $token = $_SESSION['sessToken'];
 
-    if (!empty($token) {
+    echo $token;
+    /*if (!empty($token) {
         $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
 
         // Jelszo hash
@@ -37,6 +38,6 @@ if (isset($_POST['button-password-set'])) {
         if ($resultSet) {
             header("Location:" . getURL() . "/login.php");
         }
-    }
+    }*/
 }
     
