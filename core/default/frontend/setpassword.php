@@ -2,6 +2,8 @@
 
 session_start();
 
+$_POST['posttoken'] = $_GET['token'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

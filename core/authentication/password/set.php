@@ -4,9 +4,9 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "core/session/get.php");
 
-if (isset($_GET['token'])) {
-//if (isset($_POST['button-password-set'])) {
+if (isset($_POST['button-password-set'])) {
     if (empty($_POST['inputPassword'])) {
         $error['inputPassword'] = 'Jelszó megadása kötelező';
     }
@@ -18,7 +18,7 @@ if (isset($_GET['token'])) {
         $error['passwordsDoNotMatch'] = 'A megadott két jelszó nem egyezik!';
     }
     
-    $token = $_GET['token'];
+    $token = $_POST['posttoken'];
     echo $token;
 }
         /*$queryGetToken = "SELECT HitelesitoKod as token 

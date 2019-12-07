@@ -105,3 +105,17 @@ function getCurrentSessionUsername($loginEmail, $databaseConnection)
 
     return $resultSet;
 }
+
+function getToken($loginEmail, $databaseConnection) {
+    $queryToken = "SELECT szemely.HitelesitoKod
+                   FROM email, szemely 
+                   WHERE szemely.ID = email.ID 
+                   AND BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryToken);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}

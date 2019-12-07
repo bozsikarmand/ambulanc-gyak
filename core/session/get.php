@@ -14,3 +14,9 @@ function sessionGetInfo($loginEmail, $databaseConnection) {
     
     return $resultSet;
 }
+
+function sessionGetToken($loginEmail, $databaseConnection) {
+    $resultSet = getToken($loginEmail, $databaseConnection);
+
+    return $resultSet;
+}
