@@ -1,4 +1,4 @@
-<?
+<?php
 
 session_start();
 
@@ -18,12 +18,14 @@ if (isset($_POST['button-password-set'])) {
     }
     
     $token = $_SESSION['sessToken'];
-    
-    if (isset($token)) {
-        $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
+    $newPassword = $_POST['inputPassword'];
 
+    if (isset($token)) {
+        $password = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        echo $password;
         // Jelszo hash
-        $updatePasswordHash = "UPDATE szemely sz
+        /*$updatePasswordHash = "UPDATE szemely sz
                             JOIN jelszo j
                             ON sz.ID = j.ID
                             SET j.JelszoHash = :passwordhash
@@ -38,7 +40,7 @@ if (isset($_POST['button-password-set'])) {
             header("Location:" . getURL() . "/login.php");
         } else {
             echo "Ures!";
-        }
+        }*/
     }
 }
 
