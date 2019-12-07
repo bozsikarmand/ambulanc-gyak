@@ -35,7 +35,7 @@ if ($_POST['button-password-set']) {
             $updatePasswordHash = "UPDATE szemely 
                                    JOIN jelszo
                                    SET JelszoHash = :passwordhash
-                                   WHERE szemely.ID = jelszo ID
+                                   WHERE szemely.ID = jelszo.ID
                                    AND szemely.HitelesitoKod = :token";
             $run = $databaseConnection->prepare($updatePasswordHash);
     
