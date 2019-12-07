@@ -2,9 +2,9 @@
 
 session_start();
 
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "core/session/get.php");
 
 if (isset($_POST['button-password-set'])) {
     if (empty($_POST['inputPassword'])) {
@@ -18,36 +18,26 @@ if (isset($_POST['button-password-set'])) {
         $error['passwordsDoNotMatch'] = 'A megadott két jelszó nem egyezik!';
     }
     
-    echo $_SESSION['sessToken'];
-}
-        /*$queryGetToken = "SELECT HitelesitoKod as token 
-                          FROM szemely
-                          WHERE HitelesitoKod=:token
-                          LIMIT 1";
-        
-        $run = $databaseConnection->prepare($queryGetToken);
-        $run->bindValue(':token', $token, PDO::PARAM_STR);
-        $run->execute();
-        $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-    
-        if (!empty($resultSet['token'])) {
-            $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
-    
-            // Jelszo hash
-            $updatePasswordHash = "UPDATE szemely per
-                                   JOIN jelszo pass
-                                   SET pass.JelszoHash = :passwordhash
-                                   WHERE per.ID = pass.ID
-                                   AND per.HitelesitoKod = :token";
-            $run = $databaseConnection->prepare($updatePasswordHash);
-    
-            $run->bindValue(':passwordhash', $password);
-            $run->bindValue(':token', $token);
-            $resultSet = $run->execute();
-    
-            if ($resultSet) {
-                header("Location:" . getURL() . "/login.php");
-            }
+    $token = $_SESSION['sessToken'];
+
+    if (!empty($token) {
+        $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
+
+        // Jelszo hash
+        $updatePasswordHash = "UPDATE szemely per
+                               JOIN jelszo pass
+                               ON per.ID = pass.ID
+                               SET pass.JelszoHash = :passwordhash
+                               AND per.HitelesitoKod = :token";
+        $run = $databaseConnection->prepare($updatePasswordHash);
+
+        $run->bindValue(':passwordhash', $password);
+        $run->bindValue(':token', $token);
+        $resultSet = $run->execute();
+
+        if ($resultSet) {
+            header("Location:" . getURL() . "/login.php");
         }
     }
-}*/
+}
+    
