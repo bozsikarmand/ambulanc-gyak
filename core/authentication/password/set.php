@@ -4,7 +4,6 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "core/session/get.php");
 
 if (isset($_POST['button-password-set'])) {
     if (empty($_POST['inputPassword'])) {
@@ -24,11 +23,11 @@ if (isset($_POST['button-password-set'])) {
         $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
 
         // Jelszo hash
-        $updatePasswordHash = "UPDATE szemely per
-                               JOIN jelszo pass
-                               ON per.ID = pass.ID
-                               SET pass.JelszoHash = :passwordhash
-                               AND per.HitelesitoKod = :token";
+        $updatePasswordHash = "UPDATE szemely sz
+                               JOIN jelszo j
+                               ON sz.ID = j.ID
+                               SET j.JelszoHash = :passwordhash
+                               AND sz.HitelesitoKod = :token";
         $run = $databaseConnection->prepare($updatePasswordHash);
 
         $run->bindValue(':passwordhash', $password);
