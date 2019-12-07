@@ -5,7 +5,7 @@ session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
 
-if ($_POST['button-password-set']) {
+if (isset($_POST['button-password-set'])) {
     if (empty($_POST['inputPassword'])) {
         $error['inputPassword'] = 'Jelszó megadása kötelező';
     }
