@@ -14,14 +14,14 @@ ini_set("error_log", "/tmp/php-error.log");
 
 if (isset($_POST['button-password-recovery'])) {
   $token = bin2hex(openssl_random_pseudo_bytes(50));
-  $loginemail = $_POST['inputLoginEmail'];
+  $loginEmail = $_POST['inputLoginEmail'];
   
   $updateToken = "UPDATE szemely 
                   JOIN email 
                   SET szemely.HitelesitoKod=:updatetoken
                   WHERE szemely.ID = email.ID
                   AND email.BelepesiEmail=:loginemail";
-
+                  
   $run = $databaseConnection -> prepare($updateToken);
   $run->bindValue(':updatetoken', $token);
   $run->bindValue(':loginemail', $loginemail);
@@ -57,15 +57,12 @@ if (isset($_POST['button-password-recovery'])) {
       </body>
       </html>';
       
-      $sentMail = sendEmail($loginemail, $subject, $body);
+      $sentMail = sendEmail($loginEmail, $subject, $body);
       
       if ($sentMail) {
         header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
       } else {
         echo "Az email kuldese soran hiba lepett fel!";
       }
-    else {
-      echo "Nem nyomtad meg!";
-    }
 }
 ob_end_clean();
