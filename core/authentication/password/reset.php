@@ -57,17 +57,13 @@ if ($_POST['button-password-recovery']) {
         </div>
       </body>
       </html>';
-    
-    if (!empty($resultSet['vt'])) {
-        $sentMail = sendEmail($loginemail, $subject, $body);
-        if ($sentMail) {
-          header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
-        } else {
-          echo "Az email kuldese soran hiba lepett fel!";
-        }
-    } else {
-        header("Location:" . getURL() . "/fail.php");
-    }
-}
+      
+      $sentMail = sendEmail($loginemail, $subject, $body);
+      
+      if ($sentMail) {
+        header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
+      } else {
+        echo "Az email kuldese soran hiba lepett fel!";
+      }
 
 ob_end_clean();
