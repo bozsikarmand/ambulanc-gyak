@@ -91,7 +91,7 @@ function getInfo($sessionID, $databaseConnection)
     return $resultSet;
 }
 
-function getUsername($loginEmail, $databaseConnection)
+function getCurrentSessionUsername($loginEmail, $databaseConnection)
 {
     $queryUsername = "SELECT szemely.Felhasznalonev
                       FROM email, szemely 

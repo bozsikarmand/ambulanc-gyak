@@ -65,6 +65,6 @@ function getSessionKey($loginEmail, $databaseConnection)
 
 function getSessionUsername($loginEmail, $databaseConnection)
 {
-    $resultSet = sessionGetCurrentUsername($loginEmail, $databaseConnection);
+    $resultSet = getCurrentSessionUsername($loginEmail, $databaseConnection);
     return $resultSet;
 }
