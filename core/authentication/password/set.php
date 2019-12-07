@@ -18,9 +18,10 @@ if ($_POST['button-password-set']) {
     }
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
-    
-        echo $token;
 
+        echo $token;
+    }
+}
         /*$queryGetToken = "SELECT HitelesitoKod as token 
                           FROM szemely
                           WHERE HitelesitoKod=:token
@@ -48,7 +49,7 @@ if ($_POST['button-password-set']) {
     
             if ($resultSet) {
                 header("Location:" . getURL() . "/login.php");
-            }*/
+            }
         }
     }
-}
+}*/
