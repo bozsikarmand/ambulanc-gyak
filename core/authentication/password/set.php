@@ -18,7 +18,7 @@ if (isset($_POST['button-password-set'])) {
         $error['passwordsDoNotMatch'] = 'A megadott két jelszó nem egyezik!';
     }
     
-    $token = $_POST['posttoken'];
+    $token = $_SESSION['sess_token'];
     echo $token;
 }
         /*$queryGetToken = "SELECT HitelesitoKod as token 
