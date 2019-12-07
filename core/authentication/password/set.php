@@ -20,7 +20,7 @@ if (isset($_POST['button-password-set'])) {
     $token = $_SESSION['sessToken'];
 
     
-    if (!empty($token) {
+    if (isset($token) {
         echo "NU " . $token;
         /*$password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
 
