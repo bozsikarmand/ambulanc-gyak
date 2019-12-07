@@ -24,10 +24,9 @@ if (isset($_POST['button-password-set'])) {
         $password = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Jelszo hash
-        $updatePasswordHash = "UPDATE szemely sz
-                            JOIN jelszo j
-                            ON sz.ID = j.ID
-                            SET j.JelszoHash = :passwordhash";
+        $updatePasswordHash = "UPDATE szemely sz, jelszo j
+                               SET j.JelszoHash = :passwordhash
+                               WHERE sz.HitelesitoKod = :token";
         $run = $databaseConnection->prepare($updatePasswordHash);
 
         $run->bindValue(':passwordhash', $password);
