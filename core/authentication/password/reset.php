@@ -28,18 +28,6 @@ if ($_POST['button-password-recovery']) {
     $run->bindValue(':loginemail', $loginemail);
     $run->execute();
 
-    $queryToken = "SELECT HitelesitoKod as vt 
-                   FROM szemely
-                   WHERE HitelesitoKod=:querytoken";
-                        
-    $run = $databaseConnection -> prepare($queryToken);
-    $run->bindValue(':querytoken', $token);
-    $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-        
-    // Eroforras felszabaditasa
-    unset($run);
-
     $subject = "Elfelejtett jelszo visszaallitasa";
     $body = '<!DOCTYPE html>
       <html lang="hu">
@@ -74,14 +62,12 @@ if ($_POST['button-password-recovery']) {
         $sentMail = sendEmail($loginemail, $subject, $body);
         if ($sentMail) {
           header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
-          ob_flush();
-          ob_end_clean();
         } else {
           echo "Az email kuldese soran hiba lepett fel!";
         }
     } else {
         header("Location:" . getURL() . "/fail.php");
-        ob_flush();
-        ob_end_clean();
     }
 }
+
+ob_end_clean();

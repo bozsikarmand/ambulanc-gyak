@@ -2,10 +2,6 @@
 
 session_start();
 
-if (isset($_GET['token'])) {
-    $_SESSION['token'] = $_GET['token'];
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
