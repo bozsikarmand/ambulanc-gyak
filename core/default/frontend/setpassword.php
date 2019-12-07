@@ -2,7 +2,7 @@
 
 session_start();
 
-$_POST['posttoken'] = $_GET['token'];
+echo $_GET['token'];
 
 ?>
 <!DOCTYPE html>
