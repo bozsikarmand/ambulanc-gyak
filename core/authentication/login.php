@@ -54,9 +54,11 @@ if (isset($_POST['button-login'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph, email.ID as eid
                               FROM szemely, jelszo, email
                               WHERE szemely.ID = jelszo.ID 
-                              AND szemely.ID = email.ID";
+                              AND szemely.ID = email.ID
+                              AND email.BelepesiEmail=:loginemail";
         
         $run = $databaseConnection -> prepare($queryUserPassword);
+        $run->bindValue(':loginemail', $loginEmail);
         $run->execute();
         $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
@@ -85,7 +87,7 @@ if (isset($_POST['button-login'])) {
             // Sessionben eltarolom az ID-t
             // $_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
-            $_SESSION["username"] = $resultSet['username'];
+            $_SESSION["username"] = getSessionUsername($loginEmail, $databaseConnection);
 
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le

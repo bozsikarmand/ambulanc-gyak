@@ -90,3 +90,18 @@ function getInfo($sessionID, $databaseConnection)
 
     return $resultSet;
 }
+
+function getUsername($loginEmail, $databaseConnection)
+{
+    $queryUsername = "SELECT szemely.Felhasznalonev
+                      FROM email, szemely 
+                      WHERE szemely.ID = email.ID 
+                      AND BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryUsername);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+    return $resultSet;
+}

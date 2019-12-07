@@ -14,3 +14,10 @@ function sessionGetInfo($loginEmail, $databaseConnection) {
     
     return $resultSet;
 }
+
+function sessionGetCurrentUsername($loginEmail, $databaseConnection)
+{
+    $resultSet = getUsername($loginEmail, $databaseConnection);
+
+    return $resultSet;
+}
