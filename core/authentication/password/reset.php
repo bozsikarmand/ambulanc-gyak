@@ -16,15 +16,14 @@ if (isset($_POST['button-password-recovery'])) {
   $token = bin2hex(openssl_random_pseudo_bytes(50));
   $loginEmail = $_POST['inputLoginEmail'];
   
-  $updateToken = "UPDATE szemely 
-                  JOIN email 
-                  SET szemely.HitelesitoKod=:updatetoken
-                  WHERE szemely.ID = email.ID
-                  AND email.BelepesiEmail=:loginemail";
+  $updateToken = "UPDATE szemely p
+                  JOIN email e ON e.ID = p.ID
+                  SET p.HitelesitoKod=:updatetoken
+                  WHERE e.BelepesiEmail=:loginemail";
                   
   $run = $databaseConnection -> prepare($updateToken);
   $run->bindValue(':updatetoken', $token);
-  $run->bindValue(':loginemail', $loginemail);
+  $run->bindValue(':loginemail', $loginEmail);
   $run->execute();
 
   $subject = "Elfelejtett jelszo visszaallitasa";
