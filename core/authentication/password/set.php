@@ -20,8 +20,7 @@ if (isset($_POST['button-password-set'])) {
     $token = $_SESSION['sessToken'];
     
     if (isset($token)) {
-        echo $token;
-        /*$password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
+        $password = password_hash($_POST['inputPassword'], PASSWORD_DEFAULT);
 
         // Jelszo hash
         $updatePasswordHash = "UPDATE szemely sz
@@ -39,7 +38,7 @@ if (isset($_POST['button-password-set'])) {
             header("Location:" . getURL() . "/login.php");
         } else {
             echo "Ures!";
-        }*/
+        }
     }
 }
 
