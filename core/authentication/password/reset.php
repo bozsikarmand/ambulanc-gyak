@@ -2,6 +2,7 @@
 
 ob_start();
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
@@ -14,23 +15,22 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 if ($_POST['button-password-recovery']) {
+  $token = bin2hex(openssl_random_pseudo_bytes(50));
+  $loginemail = $_POST['inputLoginEmail'];
+  
+  $updateToken = "UPDATE szemely 
+                  JOIN email 
+                  SET szemely.HitelesitoKod=:updatetoken
+                  WHERE szemely.ID = email.ID
+                  AND email.BelepesiEmail=:loginemail";
 
-    $token = bin2hex(openssl_random_pseudo_bytes(50));
-    $loginemail = $_POST['inputLoginEmail'];
+  $run = $databaseConnection -> prepare($updateToken);
+  $run->bindValue(':updatetoken', $token);
+  $run->bindValue(':loginemail', $loginemail);
+  $run->execute();
 
-    $updateToken = "UPDATE szemely 
-                    JOIN email 
-                    SET szemely.HitelesitoKod=:updatetoken
-                    WHERE szemely.ID = email.ID
-                    AND email.BelepesiEmail=:loginemail";
-
-    $run = $databaseConnection -> prepare($updateToken);
-    $run->bindValue(':updatetoken', $token);
-    $run->bindValue(':loginemail', $loginemail);
-    $run->execute();
-
-    $subject = "Elfelejtett jelszo visszaallitasa";
-    $body = '<!DOCTYPE html>
+  $subject = "Elfelejtett jelszo visszaallitasa";
+  $body = '<!DOCTYPE html>
       <html lang="hu">
 
       <head>
@@ -66,5 +66,8 @@ if ($_POST['button-password-recovery']) {
       } else {
         echo "Az email kuldese soran hiba lepett fel!";
       }
-  }
+    else {
+      echo "Nem nyomtad meg!";
+    }
+}
 ob_end_clean();
