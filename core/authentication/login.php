@@ -85,7 +85,7 @@ if (isset($_POST['button-login'])) {
             // Sessionben eltarolom az ID-t
             // $_SESSION["id"] = $resultSet['id'];
             // illetve a felhasznalonevet
-            // $_SESSION["username"] = $resultSet['username'];
+            $_SESSION["username"] = $resultSet['username'];
 
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
