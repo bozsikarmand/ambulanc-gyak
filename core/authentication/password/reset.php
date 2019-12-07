@@ -14,6 +14,7 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 if ($_POST['button-password-recovery']) {
+
     $token = bin2hex(openssl_random_pseudo_bytes(50));
     $loginemail = $_POST['inputLoginEmail'];
 
@@ -65,5 +66,5 @@ if ($_POST['button-password-recovery']) {
       } else {
         echo "Az email kuldese soran hiba lepett fel!";
       }
-
+  }
 ob_end_clean();
