@@ -160,18 +160,15 @@ if (isset($_POST['button-login'])) {
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+                header("Location:" . getURL() . "/protected/dashboard/admin.php");*/
 
-                if ($result) {
+                /*if ($result) {
                     $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
                     echo $privilege;
-
-                    /*if ($privilege['privid'])
-
                     $_SESSION["isLoggedIn"] = true;
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");*/
-                }
+                }*/
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
