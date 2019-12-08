@@ -133,12 +133,12 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
-            //print("Routing:");
-            //print_r($resultSetRouting);
+            print("Routing:");
+            print_r($resultSetRouting);
 
             // Innentol
 
-            if ($resultSetRouting['statusz'] == 1) {
+            /*if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
