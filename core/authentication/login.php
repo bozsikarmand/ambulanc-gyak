@@ -134,12 +134,12 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
-            print("Routing:");
-            print_r($resultSetRouting);
+            //print("Routing:");
+            //print_r($resultSetRouting);
 
             // Innentol
 
-            /*if ($resultSetRouting['statusz'] == 1) {
+            if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
@@ -161,18 +161,19 @@ if (isset($_POST['button-login'])) {
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-                header("Location:" . getURL() . "/protected/dashboard/admin.php");
 
-                /*if ($result) {
+                if ($result) {
                     $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
                     echo $privilege;
-                    $_SESSION["isLoggedIn"] = true;
-                    $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
+
+                    //header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                    //$_SESSION["isLoggedIn"] = true;
+                    //$_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }*/
+            }
 
             // Idaig
             // Mukodik
