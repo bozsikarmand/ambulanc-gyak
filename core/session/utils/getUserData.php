@@ -101,7 +101,7 @@ function getCurrentSessionUsername($loginEmail, $databaseConnection)
     $run = $databaseConnection -> prepare($queryUsername);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetchAll();
+    $resultSet = $run -> fetchColumn();
 
     return $resultSet;
 }
