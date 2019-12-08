@@ -113,7 +113,8 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':stat', $status);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
-    
+            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
             echo "Uj:";
             print_r($resultSet);
 
