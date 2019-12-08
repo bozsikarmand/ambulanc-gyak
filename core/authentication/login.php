@@ -94,9 +94,10 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            echo "Statusz: ";
-            print_r($resultSet);
-            
+            //echo "Statusz: ";
+            //print_r($resultSet);
+            // Ez is jo
+
             $newStatus = 3;
             
             // Frissitem a statuszt
@@ -113,17 +114,17 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':stat', $status);
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            echo "Uj:";
-            print_r($resultSet);
+            //echo "Uj:";
+            //print_r($resultSet);
+            // A lekerdezes frissit
 
             // Routing kezdete
             //
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
             // Tehat eloszor leptem be. Ekkor kotelezo az adatmegadas, oda iranyitok
 
-            /*$queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+            $queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                                            FROM szemely, email
                                            WHERE BelepesiEmail=:loginemail";
     
@@ -132,10 +133,10 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
-            //print("Routing:")
-            //print_r($resultSetRouting);
+            print("Routing:")
+            print_r($resultSetRouting);
 
-            if ($resultSetRouting['statusz'] == 1) {
+            /*if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
