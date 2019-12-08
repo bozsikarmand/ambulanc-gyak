@@ -72,11 +72,11 @@ if (isset($_POST['button-login'])) {
             $_SESSION["email"] = $loginEmail;
             $_SESSION["username"] = getSessionUsername($loginEmail, $databaseConnection);
 
-            print_r($_SESSION);
-            // erre meg ranezek
+            // print_r($_SESSION);
+            // A megfelelo ertek kerul be
 
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
-            /*$queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+            $queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                             FROM szemely 
                             JOIN email
                             ON szemely.ID = email.ID
@@ -90,8 +90,11 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+
+            echo "Statusz: ";
+            print_r($resultSet);
             
-            $newStatus = 3;
+            /*$newStatus = 3;
             
             // Frissitem a statuszt
             // Csak ott allitom be az uj statuszt ahol a regi statusz van
