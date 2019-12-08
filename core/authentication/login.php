@@ -97,7 +97,7 @@ if (isset($_POST['button-login'])) {
             echo "Statusz: ";
             print_r($resultSet);
             
-            /*$newStatus = 3;
+            $newStatus = 3;
             
             // Frissitem a statuszt
             // Csak ott allitom be az uj statuszt ahol a regi statusz van
@@ -114,12 +114,15 @@ if (isset($_POST['button-login'])) {
             $run->bindValue(':loginemail', $loginEmail);
             $run->execute();
     
+            echo "Uj:";
+            print_r($resultSet);
+
             // Routing kezdete
             //
             // Az elobb a statuszt 2-rol 3-ra frissitettem.
             // Tehat eloszor leptem be. Ekkor kotelezo az adatmegadas, oda iranyitok
 
-            $queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
+            /*$queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                                            FROM szemely, email
                                            WHERE BelepesiEmail=:loginemail";
     
