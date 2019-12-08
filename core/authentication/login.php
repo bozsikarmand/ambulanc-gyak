@@ -162,16 +162,22 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if ($result) {
+                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    echo $privilege;
+
+                    /*if ($privilege['privid'])
+
                     $_SESSION["isLoggedIn"] = true;
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                    header("Location:" . getURL() . "/protected/dashboard/admin.php");*/
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
             }
 
             // Idaig
+            // Mukodik
 
             // Routing vege
         } else {

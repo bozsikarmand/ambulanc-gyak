@@ -52,7 +52,7 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
 
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
-    $resultSet = $run->fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run->fetchColumn();
     echo $resultSet;
 }
 
