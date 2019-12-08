@@ -73,6 +73,7 @@ if (isset($_POST['button-login'])) {
             $_SESSION["username"] = getSessionUsername($loginEmail, $databaseConnection);
 
             print_r($_SESSION);
+            // erre meg ranezek
 
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
             /*$queryStatus = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le

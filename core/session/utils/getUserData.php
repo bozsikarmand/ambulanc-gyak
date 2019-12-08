@@ -101,7 +101,7 @@ function getCurrentSessionUsername($loginEmail, $databaseConnection)
     $run = $databaseConnection -> prepare($queryUsername);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run -> fetchAll();
 
     return $resultSet;
 }
