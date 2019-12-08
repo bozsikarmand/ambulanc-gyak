@@ -133,10 +133,12 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSetRouting = $run -> fetch(PDO::FETCH_ASSOC);
             
-            print("Routing:");
-            print_r($resultSetRouting);
+            //print("Routing:");
+            //print_r($resultSetRouting);
 
-            /*if ($resultSetRouting['statusz'] == 1) {
+            // Innentol
+
+            if ($resultSetRouting['statusz'] == 1) {
                 //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
             
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
@@ -167,7 +169,9 @@ if (isset($_POST['button-login'])) {
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }*/
+            }
+
+            // Idaig
 
             // Routing vege
         } else {
