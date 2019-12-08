@@ -168,10 +168,10 @@ if (isset($_POST['button-login'])) {
                     $_SESSION["isLoggedIn"] = true;
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
-                }*/
+                }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }
+            }*/
 
             // Idaig
             // Mukodik
