@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/days.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$days = listDays($databaseConnection);
+$path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace);
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +92,27 @@ $days = listDays($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <div class="form-label-group">
+        <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
+            <?php
+                foreach ($listStartCity as $scity) { ?>
+                    <option data-tokens="<?php echo $scity['IndVaros']; ?>">
+                        <?php echo $trait['IndVaros']; ?>
+                    </option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="form-label-group">
+        <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
+            <?php
+                foreach ($listEndCity as $ecity) { ?>
+                    <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
+                        <?php echo $ecity['ErkVaros']; ?>
+                    </option>
+            <?php } ?>
+        </select>
+    </div>
+
     <table class="table" data-toggle="table">
         <thead class="thead-dark">
             <tr>
@@ -101,15 +122,15 @@ $days = listDays($databaseConnection);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($days as $row) { ?>
+            <?php foreach ($users as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['ID']; ?></th>
-                <td><?php echo $row['Nap']; ?></td>
+                <th scope="row"><?php echo $row['id']; ?></th>
+                <td><?php echo $row['fullname']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/days.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/days.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
@@ -169,3 +190,7 @@ $days = listDays($databaseConnection);
 <script src="/assets/js/bootstrap-table.min.js"></script>
 </body>
 </html>
+
+
+
+

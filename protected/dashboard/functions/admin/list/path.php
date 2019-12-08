@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/path.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$users = listUser($databaseConnection);
+$paths = listPath($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +101,7 @@ $users = listUser($databaseConnection);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($paths as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>

@@ -23,8 +23,6 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  * 6: Elfogadasra kerult az adminisztrator altal, hasznalatba veheti a rendszert
  * 
  */
- 
-$_SESSION['email'] = "";
 
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
 if (isset($_POST['button-login'])) {
@@ -49,10 +47,10 @@ if (isset($_POST['button-login'])) {
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-    //echo "Email ellenorzes:";
-    //print_r($resultSet);
+    echo "Email ellenorzes:";
+    print_r($resultSet);
 
-    if (!empty($resultSet['le'])) {
+    /*if (!empty($resultSet['le'])) {
         $queryUserPassword = "SELECT szemely.ID as userid, jelszo.ID as pid, jelszo.JelszoHash as ph, email.ID as eid
                               FROM szemely, jelszo, email
                               WHERE szemely.ID = jelszo.ID 
@@ -70,25 +68,6 @@ if (isset($_POST['button-login'])) {
         if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
-
-            // TODO: 20191206-an eltavolitani. Az ID lekereshez van mar kulon fuggveny
-            /*$queryID = "SELECT szemely.ID as id, szemely.Felhasznalonev as username, email.BelepesiEmail as le
-                        FROM szemely 
-                        JOIN email
-                        ON szemely.ID = email.ID
-                        WHERE email.BelepesiEmail=:loginemail";
-            
-            $run = $databaseConnection -> prepare($queryID);
-            $run->bindValue(':loginemail', $loginEmail);
-            $run->execute();
-            $resultSet = $run -> fetch(PDO::FETCH_ASSOC);*/
-
-            //echo "Azonosito ellenorzes:";
-            //print_r($resultSet);
-
-            // Sessionben eltarolom az ID-t
-            // $_SESSION["id"] = $resultSet['id'];
-            // illetve a felhasznalonevet
             $_SESSION["username"] = getSessionUsername($loginEmail, $databaseConnection);
 
             // Megkeresem azt akinel 2 a statusz, es atallitom 3-ra (elso belepes)
@@ -169,26 +148,6 @@ if (isset($_POST['button-login'])) {
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
                     header("Location:" . getURL() . "/protected/dashboard/admin.php");
-
-                    /*$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
-
-                    foreach ($privilege as $accesslevel) {
-                        if ($accesslevel['privid'] == 1) {
-                            $_SESSION["isLoggedIn"] = true;
-                            header("Location:" . getURL() . "/protected/dashboard/user.php");
-                        } else if ($accesslevel['privid'] >= 2) {
-                            $_SESSION["isLoggedIn"] = true;
-                            header("Location:" . getURL() . "/protected/dashboard/admin.php");
-                        }
-                    }*/
-
-                    /*if ($privilege['privid'] == 1) {
-                        $_SESSION["isLoggedIn"] = true;
-                        header("Location:" . getURL() . "/protected/admin/dashboard/index.php");
-                    } else if ($privilege['privid'] == 2) {
-                        $_SESSION["isLoggedIn"] = true;
-                        header("Location:" . getURL() . "/protected/user/dashboard/index.php");
-                    }*/
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
@@ -201,7 +160,7 @@ if (isset($_POST['button-login'])) {
         }
     } else {
         echo "Nem talalom a megadott email cimu felhasznalot!";
-    }
+    }*/
 } else {
     echo "Nem nyomtad meg!";
 }
