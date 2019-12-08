@@ -53,7 +53,7 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
     $resultSet = $run->fetchColumn();
-    echo $resultSet;
+    print_r($resultSet);
 }
 
 function getSessionKey($loginEmail, $databaseConnection)
