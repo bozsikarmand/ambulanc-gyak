@@ -67,9 +67,10 @@ if (isset($_POST['button-login'])) {
         //print_r($resultSet);
         // A megfelelo ertek kerul be
 
-        print_r($resultSet['ph']);
+        //print_r($resultSet['ph']);
+        // Ez is jo
 
-        /*if (password_verify($password, $resultSet['ph'])) {
+        if (password_verify($password, $resultSet['ph'])) {
             // Beallitok egy munkamenet valtozot amiben eltarolom az email cimet
             $_SESSION["email"] = $loginEmail;
             $_SESSION["username"] = getSessionUsername($loginEmail, $databaseConnection);
@@ -93,10 +94,10 @@ if (isset($_POST['button-login'])) {
             $run->execute();
             $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-            //echo "Statusz: ";
-            //print_r($resultSet);
+            echo "Statusz: ";
+            print_r($resultSet);
             
-            $newStatus = 3;
+            /*$newStatus = 3;
             
             // Frissitem a statuszt
             // Csak ott allitom be az uj statuszt ahol a regi statusz van
@@ -161,13 +162,13 @@ if (isset($_POST['button-login'])) {
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }
+            }*/
 
             // Routing vege
         } else {
             $error['emailOrPassDoesNotExist'] = "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
             echo "A megadott email cimmel regisztrált felhasználó nem létezik rendszerünkben vagy a megadott jelszó hibás!";
-        }*/
+        }
     } else {
         echo "Nem talalom a megadott email cimu felhasznalot!";
     }
