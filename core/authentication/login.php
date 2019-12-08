@@ -126,7 +126,8 @@ if (isset($_POST['button-login'])) {
 
             $queryStatusCheckForRouting = "SELECT szemely.Statusz as statusz, email.BelepesiEmail as le
                                            FROM szemely, email
-                                           WHERE BelepesiEmail=:loginemail";
+                                           WHERE szemely.ID = email.ID 
+                                           AND BelepesiEmail=:loginemail";
     
             $run = $databaseConnection -> prepare($queryStatusCheckForRouting);
             $run->bindValue(':loginemail', $loginEmail);
