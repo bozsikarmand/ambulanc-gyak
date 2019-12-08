@@ -24,6 +24,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
  * 
  */
  
+$_SESSION['email'] = "";
+
  // Mar megerositesre kerult az email cime, am meg nem lepett be elso alkalommal es nem adta meg az adatait,
 if (isset($_POST['button-login'])) {
     if (empty($_POST['inputLoginEmail'])) {
@@ -163,7 +165,6 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if ($result) {
-                    unset($_SESSION['email']);
                     $_SESSION["isLoggedIn"] = true;
                     $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
 
