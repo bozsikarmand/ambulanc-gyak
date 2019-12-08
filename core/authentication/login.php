@@ -163,8 +163,9 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if ($result) {
-                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
-                    echo $privilege['privid'];
+                    //$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    //echo $privilege;
+                    echo "OK";
 
                     //header("Location:" . getURL() . "/protected/dashboard/admin.php");
                     //$_SESSION["isLoggedIn"] = true;
