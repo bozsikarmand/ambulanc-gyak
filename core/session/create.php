@@ -46,7 +46,8 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
 
     $querySessionPrivilege = "SELECT szemelyjog.JogID as privid 
                               FROM szemelyjog, szemely
-                              WHERE szemelyjog.SzemelyID = :sessionGetUserID";
+                              WHERE szemelyjog.SzemelyID = szemely.ID 
+                              AND szemelyjog.SzemelyID = :sessionGetUserID";
     
     $run = $databaseConnection->prepare($querySessionPrivilege);
 
