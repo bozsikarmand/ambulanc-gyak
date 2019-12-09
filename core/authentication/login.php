@@ -166,13 +166,13 @@ if (isset($_POST['button-login'])) {
                     $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
 
                     if ($privilege['privid'] == 1) {
+                        $_SESSION["isLoggedIn"] = true;
+                        $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
                         header("Location:" . getURL() . "/protected/dashboard/user.php");
-                        $_SESSION["isLoggedIn"] = true;
-                        $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
                     } else if ($privilege['privid'] == 2) {
-                        header("Location:" . getURL() . "/protected/dashboard/admin.php");
                         $_SESSION["isLoggedIn"] = true;
                         $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
+                        header("Location:" . getURL() . "/protected/dashboard/admin.php");
                     }
                 }
             } else {
