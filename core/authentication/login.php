@@ -165,11 +165,11 @@ if (isset($_POST['button-login'])) {
                 if ($result) {
                     $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
 
-                    echo "Jog:";
+                    //echo "Jog:";
 
-                    print_r($privilege);
+                    /*print_r($privilege);
                     echo $privilege;
-                    var_dump($privilege);
+                    var_dump($privilege);*/
 
                     /*if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;

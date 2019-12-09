@@ -54,7 +54,10 @@ function sessionCheckPrivilege($loginEmail, $databaseConnection) {
     $run->bindValue(':sessionGetUserID', $sessionGetUserID);
     
     $resultSet = $run->fetch(PDO::FETCH_ASSOC);
-    return $resultSet;
+    
+    print_r($resultSet);
+    echo $resultSet;
+    var_dump($resultSet);
 }
 
 function getSessionKey($loginEmail, $databaseConnection)
