@@ -163,12 +163,17 @@ if (isset($_POST['button-login'])) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
 
                 if ($result) {
-                    //$privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
+                    $privilege = sessionCheckPrivilege($loginEmail, $databaseConnection);
 
-                    header("Location:" . getURL() . "/protected/dashboard/admin.php");
-                    $_SESSION["isLoggedIn"] = true;
-                    $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
-
+                    if ($privilege['privid'] == 1) {
+                        header("Location:" . getURL() . "/protected/dashboard/user.php");
+                        $_SESSION["isLoggedIn"] = true;
+                        $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
+                    } else if ($privilege['privid'] == 2) {
+                        header("Location:" . getURL() . "/protected/dashboard/admin.php");
+                        $_SESSION["isLoggedIn"] = true;
+                        $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
+                    }
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
