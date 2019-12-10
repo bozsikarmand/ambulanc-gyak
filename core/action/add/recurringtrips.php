@@ -4,8 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-function addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace)
-{
+
     $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
                       VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
 
@@ -21,4 +20,3 @@ function addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate
 
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-}

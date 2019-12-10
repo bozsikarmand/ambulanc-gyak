@@ -12,8 +12,6 @@ $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 if ($currentRole == $ADMIN) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
-
-//$path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace);
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +97,7 @@ if ($currentRole == $ADMIN) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="" method="post">
+        <form action="../../../../../core/action/add/recurringtrips.php" method="post">
             <p>Indulo varos:</p>
             <div class="form-label-group">
                 <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
@@ -206,14 +204,14 @@ if ($currentRole == $ADMIN) {
     </footer>
 </div>
 <script src="/assets/js/jquery-3.4.1.min.js"></script>
-<script src="/assets/js/popper.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/bootstrap-table.min.js"></script>
 <script src="/assets/js/gijgo.min.js"></script>
 <script src="/assets/js/bootstrap-input-spinner.js"></script>
 <script>
     $("input[type='number']").inputSpinner();
 </script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap-table.min.js"></script>
 </body>
 </html>
 
