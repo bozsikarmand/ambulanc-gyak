@@ -26,3 +26,9 @@ function sessionGetRoleInfo($loginEmail, $databaseConnection) {
 
     return $resultSet;
 }
+
+function sessionGetUserImage($loginEmail, $databaseConnection) {
+    $resultSet = getUserImage($loginEmail, $databaseConnection);
+
+    return $resultSet;
+}

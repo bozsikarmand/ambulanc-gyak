@@ -136,3 +136,16 @@ function getRoleInfo($loginEmail, $databaseConnection)
 
     return $resultSet;
 }
+
+function getUserImage($loginEmail, $databaseConnection) {
+    $queryImage = "SELECT szemely.ProfilkepUtvonal
+                  FROM email, szemely 
+                  WHERE email.ID = szemely.ID
+                  AND email.BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryImage);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetchColumn();
+    return $resultSet;
+}

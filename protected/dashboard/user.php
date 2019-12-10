@@ -3,6 +3,9 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+
+$userProfileImage = sessionGetUserImage($loginEmail, $databaseConnection);
 
 ?>
 
@@ -68,7 +71,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
+                        <img src="<?php echo $userProfileImage; ?>" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"></span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
