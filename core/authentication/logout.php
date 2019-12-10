@@ -1,9 +1,8 @@
 <?php
 
-session_start();
 
-function $sessionLogout($databaseConnection, $loginEmail)
-{
+    session_start();
+
     $active = 1;
     $inactive = 0;
 
@@ -23,4 +22,3 @@ function $sessionLogout($databaseConnection, $loginEmail)
     session_destroy();
 
     header('Location: /index.php');
-}
