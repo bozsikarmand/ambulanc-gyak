@@ -29,13 +29,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="admin.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -53,18 +48,18 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="functions/admin/list/animal.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-dove"></i> Állatok
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="functions/admin/list/station.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-building"></i> Állomások
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-shuttle-van"></i> Szállitások
+                    <a href="functions/admin/list/path.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Utak
                     </a>
                 </li>
             </ul>

@@ -104,20 +104,29 @@ $paths = listPath($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Indulas</th>
+                <th scope="col">Erkezes</th>
+                <th scope="col">Surgos</th>
+                <th scope="col">Allapot</th>
+                <th scope="col">Atado szemely</th>
+                <th scope="col">Atvevo szemely</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($paths as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
+                <th scope="row"><?php echo $row['ID']; ?></th>
+                <td><?php echo $row['Indulas']; ?></td>
+                <td><?php echo $row['Erkezes']; ?></td>
+                <td><?php echo $row['Surgos']; ?></td>
+                <td><?php echo $row['Allapot']; ?></td>
+                <td><?php echo $row['AtadoSzemely']; ?></td>
+                <td><?php echo $row['AtvevoSzemely']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/path.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/path.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
