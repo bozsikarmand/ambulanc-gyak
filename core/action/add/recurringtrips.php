@@ -4,7 +4,9 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-recurring-trips'])) {
+print_r($_POST);
+
+/*if (isset($_POST['button-add-recurring-trips'])) {
     $startCity = $_POST['inputStartCity'];
     $endCity = $_POST['inputEndCity'];
     $startDate = $_POST['datepickerStartDate'];
@@ -15,7 +17,7 @@ if (isset($_POST['button-add-recurring-trips'])) {
     $availableSpace = $_POST['inputAvailableSpace'];
 
     $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
-                      VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
+                          VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
 
     $run = $databaseConnection -> prepare($addRecurringTrips);
     $run->bindValue(':startcity', $startCity);
@@ -27,5 +29,9 @@ if (isset($_POST['button-add-recurring-trips'])) {
     $run->bindValue(':weeklyrecurrence', $weeklyRecurrence);
     $run->bindValue(':availablespace', $availableSpace);
 
-    $run->execute();
-}
+    $resultSet = $run->execute();
+
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/user.php");
+    }
+}*/
