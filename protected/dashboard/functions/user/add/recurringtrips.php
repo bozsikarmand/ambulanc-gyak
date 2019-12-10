@@ -25,6 +25,12 @@ if ($currentRole == $ADMIN) {
     <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
     <link rel="stylesheet" href="/assets/css/gijgo.min.css">
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/gijgo.min.js"></script>
+    <script src="/assets/js/bootstrap-input-spinner.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner();
+    </script>
 </head>
 <body>
 <div class="container-fullwidth">
@@ -203,12 +209,6 @@ if ($currentRole == $ADMIN) {
         </div>
     </footer>
 </div>
-<script src="/assets/js/jquery-3.4.1.min.js"></script>
-<script src="/assets/js/gijgo.min.js"></script>
-<script src="/assets/js/bootstrap-input-spinner.js"></script>
-<script>
-    $("input[type='number']").inputSpinner();
-</script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/bootstrap-table.min.js"></script>
