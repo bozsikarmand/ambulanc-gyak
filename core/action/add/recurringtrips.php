@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset('button-add-recurring-trips')) {
+if (isset($_POST['button-add-recurring-trips'])) {
     $startCity = $_POST['inputStartCity'];
     $endCity = $_POST['inputEndCity'];
     $startDate = $_POST['datepickerStartDate'];
