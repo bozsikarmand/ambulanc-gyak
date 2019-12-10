@@ -212,7 +212,7 @@ if ($currentRole == $ADMIN) {
 <script src="/assets/js/gijgo.min.js"></script>
 <script src="/assets/js/bootstrap-input-spinner.js"></script>
 <script>
-    $("input[type='number']").inputSpinner()
+    $("input[type='number']").inputSpinner();
 </script>
 </body>
 </html>
