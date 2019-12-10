@@ -1,7 +1,9 @@
 <?php
 
-
     session_start();
+
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+
 
     $active = 1;
     $inactive = 0;
