@@ -162,11 +162,11 @@ if (isset($_POST['button-login'])) {
                     if ($privilege['privid'] == 1) {
                         $_SESSION["isLoggedIn"] = true;
                         $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
-                        header("Location:" . getURL() . "/protected/dashboard/functions/user.php");
+                        header("Location:" . getURL() . "/protected/dashboard/functions/user/user.php");
                     } else if ($privilege['privid'] == 2) {
                         $_SESSION["isLoggedIn"] = true;
                         $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
-                        header("Location:" . getURL() . "/protected/dashboard/functions/admin.php");
+                        header("Location:" . getURL() . "/protected/dashboard/functions/admin/admin.php");
                     }
                 }
             } else {
