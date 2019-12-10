@@ -16,7 +16,7 @@
                     WHERE MunkamenetVege IS NULL 
                     AND Aktiv = :active
                     AND munkamenet.ID = szmelymunkamenet.MunkamenetID 
-                    AND szemelymunkamenet.SzemelyID = Szemely.ID
+                    AND szemelymunkamenet.SzemelyID = szemely.ID
                     AND szemely.ID = email.ID 
                     AND BelepesiEmail=:loginemail"; 
 
