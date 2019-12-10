@@ -35,8 +35,8 @@ $userName = sessionGetName($loginEmail, $databaseConnection);
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
+                    <a href="functions/user/add/recurringtrips.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-chart-pie"></i> Rendszeres út hozzáadása 
                     </a>
                 </li>
                 <li class="nav-item dropdown">

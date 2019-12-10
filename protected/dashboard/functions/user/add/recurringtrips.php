@@ -26,7 +26,7 @@ $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate,
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
-
+    <link rel="stylesheet" href="/assets/css/gijgo.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -81,15 +81,13 @@ $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate,
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
+                        <span class="header-username"> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="#">Valami</a>
-                      <a class="dropdown-item" href="#">Még valami</a>
-                      <a class="dropdown-item" href="#">Meg még valami</a>
                       <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
@@ -101,52 +99,66 @@ $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate,
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <div class="form-label-group">
-            <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
-                <?php
-                    foreach ($listStartCity as $scity) { ?>
-                        <option data-tokens="<?php echo $scity['IndVaros']; ?>">
-                            <?php echo $trait['IndVaros']; ?>
-                        </option>
-                <?php } ?>
-            </select>
-        </div>
-        <div class="form-label-group">
-            <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
-                <?php
-                    foreach ($listEndCity as $ecity) { ?>
-                        <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
-                            <?php echo $ecity['ErkVaros']; ?>
-                        </option>
-                <?php } ?>
-            </select>
-        </div>
+        <form action="" method="post">
+            <p>Indulo varos:</p>
+            <div class="form-label-group">
+                <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
+                    <?php
+                        foreach ($listStartCity as $scity) { ?>
+                            <option data-tokens="<?php echo $scity['IndVaros']; ?>">
+                                <?php echo $trait['IndVaros']; ?>
+                            </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <p>Erkezo varos:</p>
+            <div class="form-label-group">
+                <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
+                    <?php
+                        foreach ($listEndCity as $ecity) { ?>
+                            <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
+                                <?php echo $ecity['ErkVaros']; ?>
+                            </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <p>Indulo datum:</p>
+            <input id="datepickerStartDate" width="276" />
+            <script>
+                $('#datepickerStartDate').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Erkezo datum:</p>
+            <input id="datepickerEndDate" width="276" />
+            <script>
+                $('#datepickerEndDate').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Indulo ido:</p>
+            <input id="timepickerStartTime" width="276" />
+            <script>
+                $('#timepickerStartTime').timepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Erkezo ido:</p>
+            <input id="timepickerEndTime" width="276" />
+            <script>
+                $('#timepickerEndTime').timepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Heti rendszeresseg:</p>
+            <input id="inputWeeklyRecurrence" name="inputWeeklyRecurrence" type="number" value="1" min="1" max="7" step="1"/>
+            <p>Helyek szama:</p>   
+            <input id="inputAvailableSpace" name="inputAvailableSpace" type="number" value="1" min="1" max="10" step="1"/>
 
-        <table class="table" data-toggle="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Név</th>
-                    <th scope="col">Muvelet</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($users as $row) { ?>
-                <tr>
-                    <th scope="row"><?php echo $row['id']; ?></th>
-                    <td><?php echo $row['fullname']; ?></td>
-                    <td>
-                        <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
-                            <i class="fas fa-edit"></i> Módositás
-                        </a>
-                        <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
-                            <i class="fas fa-trash-alt"></i> Törlés
-                        </a>
-                    </td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+            <button class="btn btn-lg btn-secondary btn-block" name="button-add-recurring-trips" type="submit">
+                Hozzaadas
+            </button>
+        </form>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
@@ -197,6 +209,11 @@ $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate,
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/bootstrap-table.min.js"></script>
+<script src="/assets/js/gijgo.min.js"></script>
+<script src="/assets/js/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
 </body>
 </html>
 
