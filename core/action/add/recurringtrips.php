@@ -4,6 +4,14 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
+    $startCity = $_POST['inputStartCity'];
+    $endCity = $_POST['inputEndCity'];
+    $startDate = $_POST['datepickerStartDate'];
+    $endDate = $_POST['datepickerEndDate'];
+    $startTime = $_POST['timepickerStartTime'];
+    $endTime = $_POST['timepickerEndTime'];
+    $weeklyRecurrence = $_POST['inputWeeklyRecurrence'];
+    $availableSpace = $_POST['inputAvailableSpace'];
 
     $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
                       VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
@@ -16,7 +24,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
     $run->bindValue(':starttime', $startTime);
     $run->bindValue(':endtime', $endTime);
     $run->bindValue(':weeklyrecurrence', $weeklyRecurrence);
-    $run->bindValue(':availablespace', $ava);
+    $run->bindValue(':availablespace', $availableSpace);
 
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);

@@ -114,28 +114,28 @@ if ($currentRole == $ADMIN) {
                 <input id="inputEndCity" name="inputEndCity" type="text" />
             </div>
             <p>Indulo datum:</p>
-            <input id="datepickerStartDate" width="276" />
+            <input id="datepickerStartDate" name="datepickerStartDate" width="276" />
             <script>
                 $('#datepickerStartDate').datepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
             <p>Erkezo datum:</p>
-            <input id="datepickerEndDate" width="276" />
+            <input id="datepickerEndDate" name="datepickerEndDate" width="276" />
             <script>
                 $('#datepickerEndDate').datepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
             <p>Indulo ido:</p>
-            <input id="timepickerStartTime" width="276" />
+            <input id="timepickerStartTime" name="datepickerStartTime" width="276" />
             <script>
                 $('#timepickerStartTime').timepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
             <p>Erkezo ido:</p>
-            <input id="timepickerEndTime" width="276" />
+            <input id="timepickerEndTime" name="datepickerEndTime" width="276" />
             <script>
                 $('#timepickerEndTime').timepicker({
                     uiLibrary: 'bootstrap4'
