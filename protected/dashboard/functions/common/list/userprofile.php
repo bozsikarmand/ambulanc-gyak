@@ -43,15 +43,15 @@ $listuserprofile = listUserProfile($databaseConnection, $sessionKey);
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                    <label for="inputZIPCode" class="col-4 col-form-label">Iranyitoszam*</label> 
+                                        <label for="inputMobileTel" class="col-4 col-form-label">Mobil telefon*</label> 
                                         <div class="col-8">
-                                            <input id="inputZIPCode" name="inputZIPCode" placeholder="Iranyitoszam" class="form-control" type="text">
+                                            <input id="inputMobileTel" name="inputMobileTel" placeholder="Mobil telefon" class="form-control" type="tel">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputLandlineTel" class="col-4 col-form-label">Vezetékes telefon*</label> 
+                                        <label for="inputZIPCode" class="col-4 col-form-label">Iranyitoszam*</label> 
                                         <div class="col-8">
-                                            <input id="inputLandlineTel" name="inputLandlineTel" placeholder="Vezetékes telefon" class="form-control" type="tel">
+                                            <input id="inputZIPCode" name="inputZIPCode" placeholder="Iranyitoszam" class="form-control" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group row">

@@ -36,7 +36,6 @@ if (isset($_POST['button-add-user-avatar'])) {
      $buildingletter = $_POST['inputBuildingLetter'];
      $stat = 3;
      $newStat = 4; 
-     
 
      // A session-ben atadott email cim
      $sessionLoginEmail = $_SESSION['email'];

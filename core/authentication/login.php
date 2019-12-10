@@ -136,28 +136,22 @@ if (isset($_POST['button-login'])) {
             
             //print("Routing:");
             //print_r($resultSetRouting);
+            // Itt a selectek es az update-ek mind a lokalis loginemail-re hivatkoznak
 
             // Innentol
 
-            if ($resultSetRouting['statusz'] == 1) {
-                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-            
+            if ($resultSetRouting['statusz'] == 1) {            
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
-            } else if ($resultSetRouting['statusz'] == 2) {
-                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-            
+            } else if ($resultSetRouting['statusz'] == 2) {            
                 header("Location:" . getURL() . "/core/default/frontend/beforefirstlogin.php");
             } else if ($resultSetRouting['statusz'] == 3) {
-                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
+                // Keszitek egy bejegyzest a kozos tablaba, hogy onnan kerdezhessem le az emailt
+                // sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
                 
                 header("Location:" . getURL() . "/protected/userprofile/add/profiledata.php");
             } else if ($resultSetRouting['statusz'] == 4) {
-                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-                
                 header("Location:" . getURL() . "/protected/userprofile/add/profilepicture.php");
-            } else if ($resultSetRouting['statusz'] == 5) {
-                //$result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);
-                
+            } else if ($resultSetRouting['statusz'] == 5) {                
                 header("Location:" . getURL() . "/core/default/frontend/adminapproval.php");
             } else if ($resultSetRouting['statusz'] == 6) {
                 $result = sessionCreateDatabaseEntry($loginEmail, $databaseConnection);

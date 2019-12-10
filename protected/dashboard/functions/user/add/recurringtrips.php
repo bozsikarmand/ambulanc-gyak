@@ -92,52 +92,52 @@ $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate,
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <div class="form-label-group">
-        <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
-            <?php
-                foreach ($listStartCity as $scity) { ?>
-                    <option data-tokens="<?php echo $scity['IndVaros']; ?>">
-                        <?php echo $trait['IndVaros']; ?>
-                    </option>
-            <?php } ?>
-        </select>
-    </div>
-    <div class="form-label-group">
-        <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
-            <?php
-                foreach ($listEndCity as $ecity) { ?>
-                    <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
-                        <?php echo $ecity['ErkVaros']; ?>
-                    </option>
-            <?php } ?>
-        </select>
-    </div>
+        <div class="form-label-group">
+            <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
+                <?php
+                    foreach ($listStartCity as $scity) { ?>
+                        <option data-tokens="<?php echo $scity['IndVaros']; ?>">
+                            <?php echo $trait['IndVaros']; ?>
+                        </option>
+                <?php } ?>
+            </select>
+        </div>
+        <div class="form-label-group">
+            <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
+                <?php
+                    foreach ($listEndCity as $ecity) { ?>
+                        <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
+                            <?php echo $ecity['ErkVaros']; ?>
+                        </option>
+                <?php } ?>
+            </select>
+        </div>
 
-    <table class="table" data-toggle="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col">Muvelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $row) { ?>
-            <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
-                <td>
-                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+        <table class="table" data-toggle="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Név</th>
+                    <th scope="col">Muvelet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $row) { ?>
+                <tr>
+                    <th scope="row"><?php echo $row['id']; ?></th>
+                    <td><?php echo $row['fullname']; ?></td>
+                    <td>
+                        <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Módositás
+                        </a>
+                        <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Törlés
+                        </a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
