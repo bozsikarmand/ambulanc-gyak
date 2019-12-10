@@ -81,7 +81,7 @@ $userName = sessionGetName($loginEmail, $databaseConnection);
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="../userprofile/list/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="../../core/authentication/logout.php">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
                         </a>
                     </div>
