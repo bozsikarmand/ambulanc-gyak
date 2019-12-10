@@ -13,7 +13,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
     $weeklyRecurrence = $_POST['inputWeeklyRecurrence'];
     $availableSpace = $_POST['inputAvailableSpace'];
 
-    $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
+    print_r($_POST);
+
+    /*$addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
                       VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
 
     $run = $databaseConnection -> prepare($addRecurringTrips);
@@ -26,5 +28,4 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
     $run->bindValue(':weeklyrecurrence', $weeklyRecurrence);
     $run->bindValue(':availablespace', $availableSpace);
 
-    $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $run->execute();*/
