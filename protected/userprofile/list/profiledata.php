@@ -39,7 +39,6 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     $publicplacename = $listProfileData['KozteruletNeve'];
     $housenumber = $listProfileData['Hazszam'];    
     $building = $listProfileData['Epulet'];
-    $lastlogin = $listProfileData['UtolsoBelepesIdopontja'];
 
     ?>
     <div class="text-center mb-4">
