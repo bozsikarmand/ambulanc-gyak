@@ -3,6 +3,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -106,25 +107,11 @@ if ($currentRole == $ADMIN) {
         <form action="../../../../../core/action/add/recurringtrips.php" method="post">
             <p>Indulo varos:</p>
             <div class="form-label-group">
-                <select class="form-control selectpicker" data-live-search="true" id="inputStartCity" name="inputStartCity" title="Indulo varos" data-width="100%" required>
-                    <?php
-                        foreach ($listStartCity as $scity) { ?>
-                            <option data-tokens="<?php echo $scity['IndVaros']; ?>">
-                                <?php echo $trait['IndVaros']; ?>
-                            </option>
-                    <?php } ?>
-                </select>
+                <input id="inputStartCity" name="inputStartCity" type="text" />
             </div>
             <p>Erkezo varos:</p>
             <div class="form-label-group">
-                <select class="form-control selectpicker" data-live-search="true" id="inputEndCity" name="inputEndCity" title="Erkezesi varos" data-width="100%" required>
-                    <?php
-                        foreach ($listEndCity as $ecity) { ?>
-                            <option data-tokens="<?php echo $ecity['ErkVaros']; ?>">
-                                <?php echo $ecity['ErkVaros']; ?>
-                            </option>
-                    <?php } ?>
-                </select>
+                <input id="inputEndCity" name="inputEndCity" type="text" />
             </div>
             <p>Indulo datum:</p>
             <input id="datepickerStartDate" width="276" />
