@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $userProfileImage = sessionGetUserImage($loginEmail, $databaseConnection);
+$userName = sessionGetName($loginEmail, $databaseConnection);
 
 ?>
 
@@ -71,8 +72,8 @@ $userProfileImage = sessionGetUserImage($loginEmail, $databaseConnection);
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="<?php echo $userProfileImage['ProfilkepUtvonal']; ?>" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username"></span>
+                        <img src="<?php echo $userProfileImage['pp']; ?>" class="avatar img-responsive" alt="Profilkép">
+                        <span class="header-username"><? echo $userName['fullname']; ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
