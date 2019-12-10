@@ -13,7 +13,7 @@ if ($currentRole == $ADMIN) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace);
+//$path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace);
 ?>
 
 <!DOCTYPE html>
