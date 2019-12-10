@@ -4,15 +4,6 @@ session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
-
-$currentRole = getRoleInfo($loginEmail, $databaseConnection);
-
-if ($currentRole == $ADMIN) {
-    header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
-} 
-
 ?>
 
 <!DOCTYPE html>
