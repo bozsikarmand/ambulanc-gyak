@@ -72,7 +72,7 @@ $userName = sessionGetName($loginEmail, $databaseConnection);
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="<?php echo $userProfileImage['pp']; ?>" class="avatar img-responsive" alt="Profilkép">
+                        <img src="#" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"><? echo $userName['fullname']; ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
