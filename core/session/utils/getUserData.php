@@ -119,3 +119,20 @@ function getToken($loginEmail, $databaseConnection) {
 
     return $resultSet;
 }
+
+function getRoleInfo($loginEmail, $databaseConnection)
+{
+    $queryRole = "SELECT szemelyjog.JogID
+                  FROM email, szemely, szemelyjog, jog 
+                  WHERE email.ID = szemely.ID
+                  AND szemely.ID = szemelyjog.SzemelyID
+                  AND szemelyjog.JogID = jog.ID
+                  AND email.BelepesiEmail=:loginemail";
+                        
+    $run = $databaseConnection -> prepare($queryRole);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetchColumn();
+
+    return $resultSet;
+}

@@ -2,7 +2,9 @@
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/list/profiledata.php");
 
+$listProfileData = listProfileData($sessionKey, $databaseConnection);
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 
 ?>
@@ -21,61 +23,81 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     <link rel="stylesheet" href="../../../assets/css/profiledata.css">
 </head>
 <body>
-<?php
-    require_once ("../../../core/userprofile/list/profiledata.php");
-?>
 <form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
+    <?php 
+
+    $lemail = $listProfileData['BelepesiEmail'];
+    $pemail = $listProfileData['PublikusEmail'];
+    $username = $listProfileData['Felhasznalonev'];
+    $lastname = $listProfileData['Vezeteknev'];
+    $firstname = $listProfileData['Keresztnev'];
+    $middlename = $listProfileData['Utonev'];
+    $landlinetel = $listProfileData['VezetekesTel'];
+    $mobiletel = $listProfileData['MobilTel'];
+    $zipcode = $listProfileData['IRSZ'];
+    $city = $listProfileData['Varos'];
+    $publicplacename = $listProfileData['KozteruletNeve'];
+    $housenumber = $listProfileData['Hazszam'];    
+    $building = $listProfileData['Epulet'];
+    $lastlogin = $listProfileData['UtolsoBelepesIdopontja'];
+
+    ?>
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Itt megtekintheted adataid!</h1>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputLoginEmail" name="inputLoginEmail" class="form-control" placeholder="Belépési email cim" required>
+        <input type="text" value="<?php echo $lemail; ?>" id="inputLoginEmail" name="inputLoginEmail" class="form-control" placeholder="Belépési email cim" required>
         <label for="inputLoginEmail">Belépési email cim</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Felhasználónév" required>
+        <input type="text" value="<?php echo $pemail; ?>" id="inputPublicEmail" name="inputPublicEmail" class="form-control" placeholder="Publikus email cim" required>
+        <label for="inputPublicEmail">Publikus email cim</label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="text" value="<?php echo $username; ?>" id="inputUsername" name="inputUsername" class="form-control" placeholder="Felhasználónév" required>
         <label for="inputUsername">Felhasználónév</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputLastName" name="inputLastName" class="form-control" placeholder="Vezetéknév" required>
+        <input value="<?php echo $lastname; ?>" type="text" id="inputLastName" name="inputLastName" class="form-control" placeholder="Vezetéknév" required>
         <label for="inputLastName">Vezetéknév</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputFirstName" name="inputFirstName" class="form-control" placeholder="Keresztnév" required>
+        <input value="<?php echo $firstname; ?>" type="text" id="inputFirstName" name="inputFirstName" class="form-control" placeholder="Keresztnév" required>
         <label for="inputFirstName">Keresztnév</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputMiddleName" name="inputMiddleName" class="form-control" placeholder="Utónév" required>
+        <input value="<?php echo $middlename; ?>" type="text" id="inputMiddleName" name="inputMiddleName" class="form-control" placeholder="Utónév" required>
         <label for="inputMiddleName">Utónév</label>
     </div>
 
     <div class="form-label-group">
-        <input type="tel" id="inputLandlineTel" name="inputLandlineTel" class="form-control" placeholder="Vezetékes telefonszám" required>
+        <input value="<?php echo $landlinetel; ?>" type="tel" id="inputLandlineTel" name="inputLandlineTel" class="form-control" placeholder="Vezetékes telefonszám" required>
         <label for="inputLandlineTel">Vezetékes telefonszám</label>
     </div>
 
     <div class="form-label-group">
-        <input type="tel" id="inputMobileTel" name="inputMobileTel" class="form-control" placeholder="Mobil telefonszám" required>
+        <input value="<?php echo $mobiletel; ?>" type="tel" id="inputMobileTel" name="inputMobileTel" class="form-control" placeholder="Mobil telefonszám" required>
         <label for="inputMobileTel">Mobil telefonszám</label>
     </div>
 
     <div class="form-label-group">
-        <input type="number" id="inputZIPCode" name="inputZIPCode" class="form-control" placeholder="Irányitószám" required>
+        <input value="<?php echo $zipcode; ?>" type="number" id="inputZIPCode" name="inputZIPCode" class="form-control" placeholder="Irányitószám" required>
         <label for="inputZIPCode">Irányitószám</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputCity" name="inputCity" class="form-control" placeholder="Város" required>
+        <input value="<?php echo $city; ?>" type="text" id="inputCity" name="inputCity" class="form-control" placeholder="Város" required>
         <label for="inputCity">Város</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputPublicPlaceName" name="inputPublicPlaceName" class="form-control" placeholder="Közterület neve" required>
+        <input value="<?php echo $publicplacename; ?>" type="text" id="inputPublicPlaceName" name="inputPublicPlaceName" class="form-control" placeholder="Közterület neve" required>
         <label for="inputPublicPlaceName">Közterület neve</label>
     </div>
 
@@ -100,12 +122,12 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     </div>
 
     <div class="form-label-group">
-        <input type="number" id="inputHouseNumber" name="inputHouseNumber" class="form-control" placeholder="Házszám" required>
+        <input value="<?php echo $housenumber; ?>" type="number" id="inputHouseNumber" name="inputHouseNumber" class="form-control" placeholder="Házszám" required>
         <label for="inputHouseNumber">Házszám</label>
     </div>
 
     <div class="form-label-group">
-        <input type="text" id="inputBuildingLetter" name="inputBuildingLetter" class="form-control" placeholder="Épület betűjele" required>
+        <input value="<?php echo $building; ?>" type="text" id="inputBuildingLetter" name="inputBuildingLetter" class="form-control" placeholder="Épület betűjele" required>
         <label for="inputBuildingLetter">Épület betűjele</label>
     </div>
 

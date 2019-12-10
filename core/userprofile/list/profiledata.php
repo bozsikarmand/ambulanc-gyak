@@ -4,9 +4,10 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$loginEmail = $_SESSION["email"];
-
-$queryUserData = "SELECT email.BelepesiEmail as le, 
+function queryUserData($loginEmail, $databaseConnection)
+{
+    $queryUserData = "SELECT email.BelepesiEmail as le,
+                         email.PublikusEmail as pe,
                          szemely.Felhasznalonev as un, 
                          szemely.Vezeteknev as fn, 
                          szemely.Keresztnev as ln, 
@@ -16,10 +17,8 @@ $queryUserData = "SELECT email.BelepesiEmail as le,
                          szemely.IRSZ as zip, 
                          szemely.Varos as city, 
                          szemely.KozteruletNeve as pn, 
-                         szemely.KozteruletJellege as pt, 
                          szemely.Hazszam as hn, 
                          szemely.Epulet as bn, 
-                         szemely.UtolsoBelepesIdopontja as lld
                   FROM email, szemely
                   WHERE szemely.ID = email.ID 
                   AND BelepesiEmail=:loginemail";
@@ -29,4 +28,5 @@ $run->bindValue(':loginemail', $loginEmail);
 $run->execute();
 $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
-
+return $resultSet;
+}

@@ -20,3 +20,9 @@ function sessionGetToken($loginEmail, $databaseConnection) {
 
     return $resultSet;
 }
+
+function sessionGetRoleInfo($loginEmail, $databaseConnection) {
+    $resultSet = getRoleInfo($loginEmail, $databaseConnection);
+
+    return $resultSet;
+}

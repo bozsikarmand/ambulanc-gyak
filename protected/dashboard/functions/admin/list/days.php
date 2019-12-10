@@ -3,6 +3,14 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/days.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+
+$currentRole = getRoleInfo($loginEmail, $databaseConnection);
+
+if ($currentRole == $USER) {
+    header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
+} 
 
 $days = listDays($databaseConnection);
 ?>

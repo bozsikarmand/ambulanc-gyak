@@ -4,6 +4,15 @@ session_start();
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+
+$currentRole = getRoleInfo($loginEmail, $databaseConnection);
+
+if ($currentRole == $ADMIN) {
+    header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
+} 
+
 $path = addRecurringTrips($databaseConnection, $startCity, $endCity, $startDate, $endDate, $startTime, $endTime, $weeklyRecurrence, $availableSpace);
 ?>
 
