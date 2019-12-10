@@ -15,7 +15,7 @@
                         Aktiv=:inactive
                     WHERE MunkamenetVege IS NULL 
                     AND Aktiv = :active
-                    AND munkamenet.ID = szmelymunkamenet.MunkamenetID 
+                    AND munkamenet.ID = szemelymunkamenet.MunkamenetID 
                     AND szemelymunkamenet.SzemelyID = szemely.ID
                     AND szemely.ID = email.ID 
                     AND BelepesiEmail=:loginemail"; 
