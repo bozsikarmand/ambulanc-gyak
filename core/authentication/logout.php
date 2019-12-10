@@ -10,11 +10,14 @@
     $active = 1;
     $inactive = 0;
 
-    $endSession = "UPDATE munkamenet, email
+    $endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
                     SET MunkamenetVege=:endtime,
                         Aktiv=:inactive
                     WHERE MunkamenetVege IS NULL 
                     AND Aktiv = :active
+                    AND munkamenet.ID = szmelymunkamenet.MunkamenetID 
+                    AND szemelymunkamenet.SzemelyID = Szemely.ID
+                    AND szemely.ID = email.ID 
                     AND BelepesiEmail=:loginemail"; 
 
     $run = $databaseConnection -> prepare($endSession);
