@@ -22,3 +22,4 @@ function listPath($databaseConnection)
 
     return $pathlist;
 }
+// OK

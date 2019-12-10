@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/animal.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listUser($databaseConnection);
+$animals = listAnimal($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -104,15 +104,27 @@ $users = listUser($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
+                <th scope="col">Faj</th>
+                <th scope="col">Hordozo szelessege</th>
+                <th scope="col">Hordozo magassaga</th>
+                <th scope="col">Hordozo hosszusaga</th>
+                <th scope="col">Veszelyes</th>
+                <th scope="col">Sulyos</th>
+                <th scope="col">Egyedszam</th>
                 <th scope="col">Muvelet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($animals as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
+                <th scope="row"><?php echo $row['ID']; ?></th>
+                <td><?php echo $row['Faj']; ?></td>
+                <td><?php echo $row['HordozoSz']; ?></td>
+                <td><?php echo $row['HordozoM']; ?></td>
+                <td><?php echo $row['HordozoH']; ?></td>
+                <td><?php echo $row['Veszelyes']; ?></td>
+                <td><?php echo $row['Sulyos']; ?></td>
+                <td><?php echo $row['EgyedSzam']; ?></td>
                 <td>
                     <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás

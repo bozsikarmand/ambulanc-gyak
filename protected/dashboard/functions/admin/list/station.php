@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listUser($databaseConnection);
+$users = listStation($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -104,20 +104,34 @@ $users = listUser($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
+                <th scope="col">IRSZ</th>
+                <th scope="col">Varos</th>
+                <th scope="col">Kozterulet neve</th>
+                <th scope="col">Kozterulet jellege</th>
+                <th scope="col">Hazszam</th>
+                <th scope="col">Epulet</th>
+                <th scope="col">Koord sz.</th>
+                <th scope="col">Koord h.</th>
                 <th scope="col">Muvelet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($stations as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
+                <th scope="row"><?php echo $row['ID']; ?></th>
+                <td><?php echo $row['IRSZ']; ?></td>
+                <td><?php echo $row['Varos']; ?></td>
+                <td><?php echo $row['KozteruletNeve']; ?></td>
+                <td><?php echo $row['KozteruletJellege']; ?></td>
+                <td><?php echo $row['Hazszam']; ?></td>
+                <td><?php echo $row['Epulet']; ?></td>
+                <td><?php echo $row['KoordSz']; ?></td>
+                <td><?php echo $row['KoordH']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/station.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/station.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

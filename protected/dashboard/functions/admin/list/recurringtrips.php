@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listUser($databaseConnection);
+$recurringtrips = listRecurringTrips($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -104,20 +104,34 @@ $users = listUser($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
+                <th scope="col">Indulasi varos</th>
+                <th scope="col">Erkezesi varos</th>
+                <th scope="col">Indulasi datum</th>
+                <th scope="col">Erkezesi datum</th>
+                <th scope="col">Indulasi ido</th>
+                <th scope="col">Erkezesi ido</th>
+                <th scope="col">Heti rendszeresseg</th>
+                <th scope="col">Hely</th>
                 <th scope="col">Muvelet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($recurringtrips as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
+                <th scope="row"><?php echo $row['ID']; ?></th>
+                <td><?php echo $row['IndVaros']; ?></td>
+                <td><?php echo $row['ErkVaros']; ?></td>
+                <td><?php echo $row['IndDatum']; ?></td>
+                <td><?php echo $row['ErkDatum']; ?></td>
+                <td><?php echo $row['IndIdo']; ?></td>
+                <td><?php echo $row['ErkIdo']; ?></td>
+                <td><?php echo $row['HetiRendszeresseg']; ?></td>
+                <td><?php echo $row['Hely']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

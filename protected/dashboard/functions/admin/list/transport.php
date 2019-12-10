@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listUser($databaseConnection);
+$transport = listTransport($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -104,20 +104,22 @@ $users = listUser($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
+                <th scope="col">Szakasz</th>
+                <th scope="col">Allapot</th>
                 <th scope="col">Muvelet</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($transport as $row) { ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
+                <th scope="row"><?php echo $row['ID']; ?></th>
+                <td><?php echo $row['Szakasz']; ?></td>
+                <td><?php echo $row['Allapot']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/transport.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/transport.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

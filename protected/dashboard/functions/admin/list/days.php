@@ -104,7 +104,7 @@ $days = listDays($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Név</th>
+                <th scope="col">Napok</th>
                 <th scope="col">Muvelet</th>
             </tr>
         </thead>

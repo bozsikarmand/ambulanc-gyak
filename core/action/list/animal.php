@@ -7,14 +7,14 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 function listAnimal($databaseConnection)
 {
     $listAnimals = "SELECT 
-                        ID as id, 
-                        Faj as species, 
-                        HordozoSz as carrierw, 
-                        HordozoM as carrierh, 
-                        HordozoH as carrierd, 
-                        Veszelyes as dangerous, 
-                        Sulyos as serious, 
-                        EgyedSzam as individualNum
+                        ID, 
+                        Faj, 
+                        HordozoSz, 
+                        HordozoM, 
+                        HordozoH, 
+                        Veszelyes, 
+                        Sulyos, 
+                        EgyedSzam
                     FROM allat";
 
     $run = $databaseConnection -> prepare($listAnimals);
