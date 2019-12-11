@@ -15,88 +15,110 @@ $listuserprofile = listUserProfile($databaseConnection, $sessionKey);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Profilod</title>
-    <link rel="stylesheet" href="../../../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../../../assets/css/floating-labels.css">
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/floating-labels.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/assets/css/fileinput.min.css">
+    <link rel="stylesheet" href="/assets/css/profiledata.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/addons/datatables.min.css">
 </head>
     <body>
-        <form class="form-signin" action="#" method="post">
-            <div class="row">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Profilod</h4>
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form>
-                                    <div class="form-group row">
-                                        <label for="inputLandlineTel" class="col-4 col-form-label">Vezetékes telefon*</label> 
-                                        <div class="col-8">
-                                            <input id="inputLandlineTel" name="inputLandlineTel" placeholder="Vezetékes telefon" class="form-control" type="tel">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputMobileTel" class="col-4 col-form-label">Mobil telefon*</label> 
-                                        <div class="col-8">
-                                            <input id="inputMobileTel" name="inputMobileTel" placeholder="Mobil telefon" class="form-control" type="tel">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputZIPCode" class="col-4 col-form-label">Iranyitoszam*</label> 
-                                        <div class="col-8">
-                                            <input id="inputZIPCode" name="inputZIPCode" placeholder="Iranyitoszam" class="form-control" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="select" class="col-4 col-form-label">Display Name public as</label> 
-                                        <div class="col-8">
-                                        <select id="select" name="select" class="custom-select">
+        <form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
+            <div class="text-center mb-4">
+                <h1 class="h3 mb-3 font-weight-normal">Itt megtekitheted adataid!</h1>
+            </div>
+            
+            <div class="form-label-group">
+                <input type="text" id="inputLastName" name="inputLastName" class="form-control" placeholder="Vezetéknév" required>
+                <label for="inputLastName">Vezetéknév</label>
+            </div>
 
-                                        </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email" class="col-4 col-form-label">Email*</label> 
-                                        <div class="col-8">
-                                        <input id="email" name="email" placeholder="Email" class="form-control here" required="required" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="website" class="col-4 col-form-label">Website</label> 
-                                        <div class="col-8">
-                                        <input id="website" name="website" placeholder="website" class="form-control here" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="publicinfo" class="col-4 col-form-label">Public Info</label> 
-                                        <div class="col-8">
-                                        <textarea id="publicinfo" name="publicinfo" cols="40" rows="4" class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="newpass" class="col-4 col-form-label">New Password</label> 
-                                        <div class="col-8">
-                                        <input id="newpass" name="newpass" placeholder="New Password" class="form-control here" type="text">
-                                        </div>
-                                    </div> 
-                                    <div class="form-group row">
-                                        <div class="offset-4 col-8">
-                                        <button name="submit" type="submit" class="btn btn-primary">Update My Profile</button>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </form>
-</body>
+            <div class="form-label-group">
+                <input type="text" id="inputFirstName" name="inputFirstName" class="form-control" placeholder="Keresztnév" required>
+                <label for="inputFirstName">Keresztnév</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputMiddleName" name="inputMiddleName" class="form-control" placeholder="Utónév" required>
+                <label for="inputMiddleName">Utónév</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="tel" id="inputLandlineTel" name="inputLandlineTel" class="form-control" placeholder="Vezetékes telefonszám" required>
+                <label for="inputLandlineTel">Vezetékes telefonszám</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="tel" id="inputMobileTel" name="inputMobileTel" class="form-control" placeholder="Mobil telefonszám" required>
+                <label for="inputMobileTel">Mobil telefonszám</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="number" id="inputZIPCode" name="inputZIPCode" class="form-control" placeholder="Irányitószám" required>
+                <label for="inputZIPCode">Irányitószám</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputCity" name="inputCity" class="form-control" placeholder="Város" required>
+                <label for="inputCity">Város</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputPublicPlaceName" name="inputPublicPlaceName" class="form-control" placeholder="Közterület neve" required>
+                <label for="inputPublicPlaceName">Közterület neve</label>
+            </div>
+
+            <div class="form-label-group">
+                <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
+
+                    <?php
+
+                        foreach ($listPublicPlaceTrait as $trait) { ?>
+
+                            <option data-tokens="<?php 
+                                                    echo $trait['trait']; 
+                                                ?>">
+                                                    <?php 
+                                                        echo $trait['trait'];
+                                                    ?>
+                            </option>
+
+                        <?php } ?>
+
+                </select>
+            </div>
+
+            <div class="form-label-group">
+                <input type="number" id="inputHouseNumber" name="inputHouseNumber" class="form-control" placeholder="Házszám" required>
+                <label for="inputHouseNumber">Házszám</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="inputBuildingLetter" name="inputBuildingLetter" class="form-control" placeholder="Épület betűjele" required>
+                <label for="inputBuildingLetter">Épület betűjele</label>
+            </div>
+
+            <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-avatar" type="submit">
+                <i class="fas fa-user-tie"></i> Arckep megadasa
+            </button>
+            <div>
+                <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
+            </div>
+        </form>
+        <script src="/assets/js/jquery-3.4.1.min.js"></script>
+        <script src="/assets/js/popper.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/bootstrap-select.min.js"></script>
+        <script src="/assets/js/defaults-hu_HU.min.js"></script>
+        <script src="/assets/js/piexif.min.js"></script>
+        <script src="/assets/js/purify.min.js"></script>
+        <script src="/assets/js/fileinput.min.js"></script>
+        <script src="/assets/js/theme.min.js"></script>
+        <script src="/assets/js/hu.js"></script>
+        <script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+        <script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+    </body>
+</html>

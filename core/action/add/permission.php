@@ -24,3 +24,4 @@ if (isset($_POST['button-add-permission'])) {
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
     }
+}

@@ -23,3 +23,4 @@ if (isset($_POST['button-add-day'])) {
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
     }
+}

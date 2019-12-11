@@ -24,8 +24,8 @@ $stations = listStations($databaseConnection);
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
-
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/addons/datatables.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -184,6 +184,7 @@ $stations = listStations($databaseConnection);
 <script src="/assets/js/jquery-3.4.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
 </body>
 </html>
