@@ -50,7 +50,7 @@ $permissions = listPermissions($databaseConnection);
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="../../common/list/users.php" class="dropdown-item">
+                        <a href="users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>

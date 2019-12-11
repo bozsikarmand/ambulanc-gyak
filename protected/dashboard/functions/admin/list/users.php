@@ -3,6 +3,14 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+
+$currentRole = getRoleInfo($loginEmail, $databaseConnection);
+
+if ($currentRole == $USER) {
+    header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
+} 
 
 $users = listUser($databaseConnection);
 ?>
@@ -28,6 +36,11 @@ $users = listUser($databaseConnection);
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók
                         <i class="fas fa-users"></i>
@@ -37,7 +50,7 @@ $users = listUser($databaseConnection);
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="../../common/list/users.php" class="dropdown-item">
+                        <a href="users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
