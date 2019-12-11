@@ -4,7 +4,6 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-animal'])) {
     $species = $_POST['inputSpecies'];
     $carrierW = $_POST['inputCarrierW'];
     $carrierH = $_POST['inputCarrierH'];
@@ -12,6 +11,7 @@ if (isset($_POST['button-add-animal'])) {
     $dangerous = $_POST['inputDangerous'];
     $serious = $_POST['inputSerious'];
     $individualNum = $_POST['inputNumOfIndividuals']; 
+    $submit = $_POST['button-add-animal'];
     
     print_r($_POST);
 
