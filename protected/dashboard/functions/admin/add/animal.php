@@ -35,7 +35,7 @@ if ($currentRole == $USER) {
 </head>
 <body>
 <div class="container-fullwidth">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -43,13 +43,8 @@ if ($currentRole == $USER) {
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="../../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -57,27 +52,27 @@ if ($currentRole == $USER) {
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="/core/protected/dashboard/functions/admin/adminapproval.php" class="dropdown-item">
+                        <a href="adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="../list/users.php" class="dropdown-item">
+                        <a href="users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="animal.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-dove"></i> Állatok
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="station.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-building"></i> Állomások
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="transport.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-shuttle-van"></i> Szállitások
                     </a>
                 </li>
@@ -86,13 +81,15 @@ if ($currentRole == $USER) {
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username"> </span>
+                        <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="#">Valami</a>
+                      <a class="dropdown-item" href="#">Még valami</a>
+                      <a class="dropdown-item" href="#">Meg még valami</a>
                       <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés

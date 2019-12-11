@@ -95,6 +95,7 @@ $users = listUser($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <a class="btn btn-success" href="../add/publicplace.php" role="button">Uj kozterulet jelleg hozzaadasa</a>
     <table class="table" data-toggle="table">
         <thead class="thead-dark">
             <tr>

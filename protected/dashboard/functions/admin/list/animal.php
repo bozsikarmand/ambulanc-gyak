@@ -95,6 +95,7 @@ $animals = listAnimal($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <a class="btn btn-success" href="../add/animal.php" role="button">Uj allat hozzaadasa</a>
     <table class="table" data-toggle="table">
         <thead class="thead-dark">
             <tr>

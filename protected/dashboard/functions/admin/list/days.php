@@ -95,6 +95,7 @@ $days = listDays($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <a class="btn btn-success" href="../add/days.php" role="button">Uj nap hozzaadasa</a>
     <table class="table" data-toggle="table">
         <thead class="thead-dark">
             <tr>

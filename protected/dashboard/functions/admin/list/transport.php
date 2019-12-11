@@ -95,6 +95,7 @@ $transport = listTransport($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <a class="btn btn-success" href="../add/transport.php" role="button">Uj szallitas hozzaadasa</a>
     <table class="table" data-toggle="table">
         <thead class="thead-dark">
             <tr>
