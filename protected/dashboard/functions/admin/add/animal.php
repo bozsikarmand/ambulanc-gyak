@@ -104,19 +104,19 @@ if ($currentRole == $USER) {
         <form action="../../../../../core/action/add/animal.php" method="post">
             <p>Fajta:</p>
             <div class="form-label-group">
-                <input id="inputSpecies" name="inputSpecies" type="number" />
+                <input id="inputSpecies" name="inputSpecies" type="text" />
             </div>
             <p>Hordozo szelessege:</p>
             <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" />
+                <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
             </div>
             <p>Hordozo magassaga:</p>
             <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" />
+                <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
             </div>
             <p>Hordozo hosszusaga:</p>
             <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" />
+                <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
             </div>
             <p>Veszelyes:</p>
             <div class="form-label-group">

@@ -28,19 +28,22 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
 <form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
     <?php 
 
-    $lemail = $listProfileData['BelepesiEmail'];
-    $pemail = $listProfileData['PublikusEmail'];
-    $username = $listProfileData['Felhasznalonev'];
-    $lastname = $listProfileData['Vezeteknev'];
-    $firstname = $listProfileData['Keresztnev'];
-    $middlename = $listProfileData['Utonev'];
-    $landlinetel = $listProfileData['VezetekesTel'];
-    $mobiletel = $listProfileData['MobilTel'];
-    $zipcode = $listProfileData['IRSZ'];
-    $city = $listProfileData['Varos'];
-    $publicplacename = $listProfileData['KozteruletNeve'];
-    $housenumber = $listProfileData['Hazszam'];    
-    $building = $listProfileData['Epulet'];
+    $lemail, $pemail, $username, $lastname, $firstname, $middlename, $landlinetel, $mobiletel, $
+    foreach ($listProfileData as $row) {
+        $lemail = $row['BelepesiEmail'];
+        $pemail = $row['PublikusEmail'];
+        $username = $row['Felhasznalonev'];
+        $lastname = $row['Vezeteknev'];
+        $firstname = $row['Keresztnev'];
+        $middlename = $row['Utonev'];
+        $landlinetel = $listProfileData['VezetekesTel'];
+        $mobiletel = $listProfileData['MobilTel'];
+        $zipcode = $listProfileData['IRSZ'];
+        $city = $listProfileData['Varos'];
+        $publicplacename = $listProfileData['KozteruletNeve'];
+        $housenumber = $listProfileData['Hazszam'];    
+        $building = $listProfileData['Epulet'];
+    }
 
     ?>
     <div class="text-center mb-4">
