@@ -33,7 +33,7 @@ if (isset($_POST['button-add-station'])) {
     $run->bindValue(':coordW', $coordW);
     $run->bindValue(':coordH', $coordH);
 
-    $resultset = $run->execute();
+    $resultSet = $run->execute();
 
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
