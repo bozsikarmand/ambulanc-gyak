@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listStation($databaseConnection);
+$stations = listStation($databaseConnection);
 ?>
 
 <!DOCTYPE html>
