@@ -32,6 +32,7 @@ if ($currentRole == $ADMIN) {
     <script>
         $("input[type='number']").inputSpinner();
     </script>
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
 <body>
 <div class="container-fullwidth">

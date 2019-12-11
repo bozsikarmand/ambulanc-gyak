@@ -32,6 +32,7 @@ if ($currentRole == $USER) {
     <script>
         $("input[type='number']").inputSpinner();
     </script>
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -157,9 +158,10 @@ if ($currentRole == $USER) {
         </div>
     </footer>
 </div>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
 </body>
 </html>
 
