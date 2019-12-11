@@ -40,6 +40,9 @@ function listUserWaitingForApproval($databaseConnection)
                                              WHERE szemely.Statusz = :stat";
 
     $run = $databaseConnection -> prepare($listAvailableUsersWaitingForApproval);
+
+    $run->bindValue(':stat', $stat);
+
     $run->execute();
     $userlist = $run->fetchAll();
 

@@ -4,17 +4,18 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-function addPermission($databaseConnection, $name)
-{
+if (isset($_POST['button-add-permission'])) {
+    $name = $_POST['inputName'];
+
     $addPermission = "INSERT INTO jog(Nev)
-                      VALUES (:name)";
+                      VALUES (:namez)";
 
     $run = $databaseConnection -> prepare($addPermission);
 
-    $run->bindValue(':name', $name);
+    $run->bindValue(':namez', $name);
 
-    $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultset = $run->execute();
 
-    return $resultSet;
-}
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/admin.php");
+    }

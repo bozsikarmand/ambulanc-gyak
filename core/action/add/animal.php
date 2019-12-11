@@ -4,6 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
+if (isset($_POST['button-add-animal'])) {
     $species = $_POST['species'];
     $carrierW = $_POST['carrierW'];
     $carrierH = $_POST['carrierH'];
@@ -30,4 +31,4 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
     }
-    
+}

@@ -4,9 +4,19 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$queryPublicPlace = "SELECT ID, Jelleg
-                     FROM kozterulet";
+if (isset($_POST['button-add-public-place'])) {
+    $trait = $_POST['inputTrait'];
+    
+    $addPublicPlace = "INSERT INTO kozterulet(Jelleg)
+                       VALUES (:trait)";
 
-$run = $databaseConnection -> prepare($queryPublicPlace);
-$run->execute();
-$resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $run = $databaseConnection -> prepare($addPublicPlace);
+
+    $run->bindValue(':trait', $trait);
+
+    $resultset = $run->execute();
+
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/admin.php");
+    }
+}

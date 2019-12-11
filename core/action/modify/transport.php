@@ -4,9 +4,17 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$queryPublicPlace = "SELECT ID, Szakasz, Allapot
-                     FROM szallitas";
+if (isset($_POST['button-add-transport'])) {
+    $stage = $_POST['inputStage'];
+    $stat = $_POST['inputStat'];
 
-$run = $databaseConnection -> prepare($queryPublicPlace);
-$run->execute();
-$resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $addTransport = "INSERT INTO szallitas(Szakasz, Allapot)
+                     VALUES(:stage, :stat)";
+    
+    $run = $databaseConnection -> prepare($addTransport);
+    $resultset = $run->execute();
+
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/admin.php");
+    }
+}

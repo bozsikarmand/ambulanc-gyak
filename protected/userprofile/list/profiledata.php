@@ -4,6 +4,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/list/profiledata.php");
 
+$sessionKey = $_SESSION["key"];
+
 $listProfileData = listProfileData($sessionKey, $databaseConnection);
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 

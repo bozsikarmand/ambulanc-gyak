@@ -4,8 +4,9 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-function addPublicPlace($databaseConnection, $trait)
-{
+if (isset($_POST['button-add-public-place'])) {
+    $trait = $_POST['inputTrait'];
+    
     $addPublicPlace = "INSERT INTO kozterulet(Jelleg)
                        VALUES (:trait)";
 
@@ -13,8 +14,9 @@ function addPublicPlace($databaseConnection, $trait)
 
     $run->bindValue(':trait', $trait);
 
-    $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultset = $run->execute();
 
-    return $resultSet;
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/admin.php");
+    }
 }

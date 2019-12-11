@@ -4,17 +4,17 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-function addDay($databaseConnection, $day)
-{
+if (isset($_POST['button-add-day'])) {
+    $day = $_POST['inputDays'];
     $addDays = "INSERT INTO napok(Nap)
-                VALUES (:day)";
+                VALUES (:dayz)";
 
     $run = $databaseConnection -> prepare($addDays);
 
-    $run->bindValue(':day', $day);
+    $run->bindValue(':dayz', $day);
 
-    $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultset = $run->execute();
 
-    return $resultSet
-}
+    if ($resultSet) {
+        header("Location: ../../../protected/dashboard/admin.php");
+    }
