@@ -95,7 +95,7 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <table class="table" data-toggle="table">
+    <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
@@ -171,5 +171,11 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
 <script src="../../../../../assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/mdb.min.js"></script>
 <script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#datatable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 </body>
 </html>

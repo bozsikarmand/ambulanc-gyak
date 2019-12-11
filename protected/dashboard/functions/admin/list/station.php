@@ -96,7 +96,7 @@ $stations = listStations($databaseConnection);
 
     <div class="container-fullwidth" style="margin-top:100px">
     <a class="btn btn-success" href="../add/station.php" role="button">Uj allomas hozzaadasa</a>
-    <table class="table" data-toggle="table">
+    <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
@@ -186,5 +186,11 @@ $stations = listStations($databaseConnection);
 <script src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/mdb.min.js"></script>
 <script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#datatable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 </body>
 </html>

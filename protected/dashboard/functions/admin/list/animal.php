@@ -96,7 +96,7 @@ $animals = listAnimal($databaseConnection);
 
     <div class="container-fullwidth" style="margin-top:100px">
     <a class="btn btn-success" href="../add/animal.php" role="button">Uj allat hozzaadasa</a>
-    <table class="table" data-toggle="table">
+    <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
@@ -184,5 +184,11 @@ $animals = listAnimal($databaseConnection);
 <script src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/mdb.min.js"></script>
 <script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#datatable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 </body>
 </html>
