@@ -31,7 +31,7 @@ if (isset($_POST['button-add-animal'])) {
     $run->bindValue(':serious', $serious);
     $run->bindValue(':individualNum', $individualNum);
 
-    $resultset = $run->execute();
+    $resultSet = $run->execute();
 
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");

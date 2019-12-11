@@ -10,7 +10,7 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 if (isset($_POST['button-add-day'])) {
-    $day = $_POST['inputDays'];
+    $day = $_POST['inputDay'];
     $addDays = "INSERT INTO napok(Nap)
                 VALUES (:dayz)";
 
@@ -18,7 +18,7 @@ if (isset($_POST['button-add-day'])) {
 
     $run->bindValue(':dayz', $day);
 
-    $resultset = $run->execute();
+    $resultSet = $run->execute();
 
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
