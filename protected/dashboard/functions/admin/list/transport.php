@@ -29,7 +29,7 @@ $transport = listTransport($databaseConnection);
 </head>
 <body>
 <div class="container-fullwidth">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -37,13 +37,8 @@ $transport = listTransport($databaseConnection);
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,27 +46,27 @@ $transport = listTransport($databaseConnection);
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="/core/protected/dashboard/functions/admin/adminapproval.php" class="dropdown-item">
+                        <a href="adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="list/users.php" class="dropdown-item">
+                        <a href="../../common/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="animal.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-dove"></i> Állatok
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="station.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-building"></i> Állomások
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="transport.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-shuttle-van"></i> Szállitások
                     </a>
                 </li>

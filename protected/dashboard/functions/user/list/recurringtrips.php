@@ -8,7 +8,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
-if ($currentRole == $USER) {
+if ($currentRole == $ADMIN) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
@@ -37,7 +37,7 @@ $recurringtrips = listRecurringTrips($databaseConnection);
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="../user.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>

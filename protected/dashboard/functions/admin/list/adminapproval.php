@@ -35,13 +35,8 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../index.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
-                        <i class="fas fa-chart-pie"></i> Statisztikák
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -49,27 +44,27 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
                         <i class="fas fa-users"></i>
                     </a>
                     <div class="dropdown-menu">
-                        <a href="functions/admin/list/adminapproval.php" class="dropdown-item">
+                        <a href="adminapproval.php" class="dropdown-item">
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="functions/common/list/users.php" class="dropdown-item">
+                        <a href="../../common/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="animal.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-dove"></i> Állatok
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="station.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-building"></i> Állomások
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="transport.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-shuttle-van"></i> Szállitások
                     </a>
                 </li>
