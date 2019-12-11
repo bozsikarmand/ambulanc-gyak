@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/publicplace.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -12,7 +12,7 @@ if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
 
-$users = listUser($databaseConnection);
+$publicplaces = listPublicPlace($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +105,7 @@ $users = listUser($databaseConnection);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($users as $row) { ?>
+            <?php foreach ($publicplaces as $row) { ?>
             <tr>
                 <th scope="row"><?php echo $row['ID']; ?></th>
                 <td><?php echo $row['Jelleg']; ?></td>
