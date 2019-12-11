@@ -4,6 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
+if (isset($_POST['button-add-animal'])) {
     $species = $_POST['inputSpecies'];
     $carrierW = $_POST['inputCarrierW'];
     $carrierH = $_POST['inputCarrierH'];
@@ -11,11 +12,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
     $dangerous = $_POST['inputDangerous'];
     $serious = $_POST['inputSerious'];
     $individualNum = $_POST['inputNumOfIndividuals']; 
-    $submit = $_POST['button-add-animal'];
     
-    print_r($_POST);
-
-    /*$addAnimal = "INSERT INTO allat (Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
+    $addAnimal = "INSERT INTO allat (Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
                   VALUES (:species, :carrierW, :carrierH, :carrierD, :dangerous, :serious, :individualNum)";
 
     $run = $databaseConnection -> prepare($addAnimal);
@@ -32,5 +30,5 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
     if ($resultSet) {
         header("Location: ../../../protected/dashboard/admin.php");
-    }*/
+    }
 }
