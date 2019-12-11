@@ -42,7 +42,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
                             <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="functions/common/list/users.php" class="dropdown-item">
+                        <a href="functions/admin/list/users.php" class="dropdown-item">
                             <i class="fas fa-users"></i> Felhasználók
                         </a>
                     </div>
