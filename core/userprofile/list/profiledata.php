@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-function queryUserData($loginEmail, $databaseConnection)
+function queryUserData($sessionKey, $databaseConnection)
 {
     $queryUserData = "SELECT email.BelepesiEmail as le,
                          email.PublikusEmail as pe,
@@ -19,12 +19,14 @@ function queryUserData($loginEmail, $databaseConnection)
                          szemely.KozteruletNeve as pn, 
                          szemely.Hazszam as hn, 
                          szemely.Epulet as bn, 
-                  FROM email, szemely
+                  FROM email, szemely, szemelymunkamenet, munkamenet
                   WHERE szemely.ID = email.ID 
-                  AND BelepesiEmail=:loginemail";
+                  AND szemely.ID = szemelymunkamant.Szemely.ID 
+                  AND szemelymunkamenet.MunkamenetID = munkamenet.MunkamenetID 
+                  AND munkamenet.MunkamenetKulcs=:sessionkey";
 
 $run = $databaseConnection -> prepare($queryUserData);
-$run->bindValue(':loginemail', $loginEmail);
+$run->bindValue(':sessionkey', $sessionKey);
 $run->execute();
 $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
 
