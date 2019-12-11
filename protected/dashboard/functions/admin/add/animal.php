@@ -120,11 +120,13 @@ if ($currentRole == $USER) {
             </div>
             <p>Veszelyes:</p>
             <div class="form-label-group">
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" />
+                <input type="hidden" name="inputDangerous" value="0" />
+                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
             </div>
             <p>Sulyos:</p>
             <div class="form-label-group">
-                <input id="inputSerious" name="inputSerious" type="checkbox" />
+                <input type="hidden" name="inputSerious" value="0" />
+                <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
             </div>
             <p>Egyedek szama:</p>   
             <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
