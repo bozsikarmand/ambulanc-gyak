@@ -4,9 +4,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/list/profiledata.php");
 
-$email = $_SESSION["email"];
+$key = $_SESSION["key"];
 
-$listProfileData = queryUserData($email, $databaseConnection);
+$listProfileData = queryUserData($key, $databaseConnection);
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 
 ?>
@@ -107,7 +107,7 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
         
         <?php
 
-                /*foreach ($listPublicPlaceTrait as $trait) { ?>
+                foreach ($listPublicPlaceTrait as $trait) { ?>
 
                     <option data-tokens="<?php 
                                             echo $trait['trait']; 
