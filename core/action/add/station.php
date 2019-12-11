@@ -24,7 +24,7 @@ if (isset($_POST['button-add-station'])) {
 
     $run = $databaseConnection -> prepare($addStation);
 
-    $run->bindValue(':zip', $zip);
+    $run->bindValue(':zip', $zipcode);
     $run->bindValue(':city', $city);
     $run->bindValue(':publicplacename', $publicplacename);
     $run->bindValue(':publicplacetrait', $publicplacetrait);
