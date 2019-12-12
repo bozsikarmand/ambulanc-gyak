@@ -44,7 +44,7 @@ if ($currentRole == $ADMIN) {
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../../user.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="/protected/dashboard/user.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>

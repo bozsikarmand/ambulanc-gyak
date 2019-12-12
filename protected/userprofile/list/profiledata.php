@@ -17,15 +17,15 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Adataid megtekintése</title>
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="../../../assets/css/floating-labels.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="../../../assets/css/fileinput.min.css">
-    <link rel="stylesheet" href="../../../assets/css/profiledata.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/floating-labels.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/assets/css/fileinput.min.css">
+    <link rel="stylesheet" href="/assets/css/profiledata.css">
 </head>
 <body>
-<form class="form-signin" action="../../../core/userprofile/modify/profiledata.php" method="post">
+<form class="form-signin" action="/protected/core/userprofile/modify/profiledata.php" method="post">
     <?php 
 
     $lemail, $pemail, $username, $lastname, $firstname, $middlename, $landlinetel, $mobiletel, $
@@ -148,15 +148,15 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
 
 <div id="kv-avatar-errors" class="center-block" style="width:800px;display:none"></div>
 
-<script src="../../../assets/js/jquery-3.4.1.min.js"></script>
-<script src="../../../assets/js/popper.min.js"></script>
-<script src="../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../assets/js/bootstrap-select.min.js"></script>
-<script src="../../../assets/js/defaults-hu_HU.min.js"></script>
-<script src="../../../assets/js/piexif.min.js"></script>
-<script src="../../../assets/js/purify.min.js"></script>
-<script src="../../../assets/js/fileinput.min.js"></script>
-<script src="../../../assets/js/theme.min.js"></script>
-<script src="../../../assets/js/hu.js"></script>
+<script src="/assets/js/jquery-3.4.1.min.js"></script>
+<script src="/assets/js/popper.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/bootstrap-select.min.js"></script>
+<script src="/assets/js/defaults-hu_HU.min.js"></script>
+<script src="/assets/js/piexif.min.js"></script>
+<script src="/assets/js/purify.min.js"></script>
+<script src="/assets/js/fileinput.min.js"></script>
+<script src="/assets/js/theme.min.js"></script>
+<script src="/assets/js/hu.js"></script>
 </body>
 </html>

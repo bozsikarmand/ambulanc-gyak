@@ -44,7 +44,7 @@ if ($currentRole == $USER) {
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="../../admin.php" class="list-group-item list-group-item-action bg-dark text-light">
+                    <a href="/protected/dashboard/admin.php" class="list-group-item list-group-item-action bg-dark text-light">
                         <i class="fas fa-tachometer-alt"></i> Vezérlőpult
                     </a>
                 </li>
@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="../../../../../core/action/add/transport.php" method="post">
+        <form action="/protected/core/action/add/transport.php" method="post">
             <p>Szakasz:</p>
             <div class="form-label-group">
                 <input id="inputStage" name="inputStage" type="number" value="1" min="1" max="10" step="1" />
