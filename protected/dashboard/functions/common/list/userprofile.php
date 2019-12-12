@@ -26,7 +26,7 @@ $listuserprofile = listUserProfile($databaseConnection, $sessionKey);
     <link rel="stylesheet" href="/assets/css/addons/datatables.min.css">
 </head>
     <body>
-        <form class="form-signin" action="/protected/core/userprofile/modify/profiledata.php" method="post">
+        <form class="form-signin" action="/core/userprofile/modify/profiledata.php" method="post">
             <div class="text-center mb-4">
                 <h1 class="h3 mb-3 font-weight-normal">Itt megtekitheted adataid!</h1>
             </div>

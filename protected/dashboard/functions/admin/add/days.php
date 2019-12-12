@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/protected/core/action/add/days.php" method="post">
+        <form action="/core/action/add/days.php" method="post">
             <p>Nap:</p>
             <div class="form-label-group">
                 <input id="inputDay" name="inputDay" type="text" />

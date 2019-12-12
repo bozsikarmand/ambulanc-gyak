@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
 <body>
-<form class="form-signin" method="post" action="/protected/core/userprofile/add/profilepicture.php" enctype="multipart/form-data">
+<form class="form-signin" method="post" action="/core/userprofile/add/profilepicture.php" enctype="multipart/form-data">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg arcképed a továbblépéshez!</h1>
     </div>

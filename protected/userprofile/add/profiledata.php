@@ -22,7 +22,7 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
 <body>
-<form class="form-signin" action="/protected/core/userprofile/add/profiledata.php" method="post">
+<form class="form-signin" action="/core/userprofile/add/profiledata.php" method="post">
     <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a továbblépéshez!</h1>
     </div>

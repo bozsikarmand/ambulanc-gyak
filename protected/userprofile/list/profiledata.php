@@ -25,7 +25,7 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
     <link rel="stylesheet" href="/assets/css/profiledata.css">
 </head>
 <body>
-<form class="form-signin" action="/protected/core/userprofile/modify/profiledata.php" method="post">
+<form class="form-signin" action="/core/userprofile/modify/profiledata.php" method="post">
     <?php 
 
     $lemail, $pemail, $username, $lastname, $firstname, $middlename, $landlinetel, $mobiletel, $

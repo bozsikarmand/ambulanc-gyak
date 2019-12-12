@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/protected/core/action/add/publicplace.php" method="post">
+        <form action="/core/action/add/publicplace.php" method="post">
             <p>Fajta:</p>
             <div class="form-label-group">
                 <input id="inputTrait" name="inputTrait" type="text" />

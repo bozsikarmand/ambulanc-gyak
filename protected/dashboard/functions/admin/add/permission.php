@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/protected/core/action/add/permission.php" method="post">
+        <form action="/core/action/add/permission.php" method="post">
             <p>Jog megnevezese:</p>
             <div class="form-label-group">
                 <input id="inputName" name="inputName" type="text" />
