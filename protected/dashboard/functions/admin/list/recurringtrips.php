@@ -125,10 +125,10 @@ $recurringtrips = listRecurringTrips($databaseConnection);
                 <td><?php echo $row['HetiRendszeresseg']; ?></td>
                 <td><?php echo $row['Hely']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/recurringtrips.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/recurringtrips.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

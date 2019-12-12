@@ -111,7 +111,7 @@ if ($currentRole == $USER) {
                 <button class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
                     Igen
                 </button>
-                <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal">
+                <button class="btn btn-lg btn-secondary btn-block" name="button-back-animal">
                     Nem
                 </button>
             </div>

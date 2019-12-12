@@ -124,10 +124,10 @@ $stations = listStations($databaseConnection);
                 <td><?php echo $row['KoordSz']; ?></td>
                 <td><?php echo $row['KoordH']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/station.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                    <a href="/core/actions/modify/station.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/station.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                    <a href="/core/action/remove/station.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
