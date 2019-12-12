@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/floating-labels.css">
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="assets/css/mdb.min.css">
 </head>
 <body>
     <form class="form-signin" action="core/authentication/login.php" method="post">
@@ -48,5 +46,6 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/mdb.min.js"></script>
 </body>
 </html>
