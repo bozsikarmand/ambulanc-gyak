@@ -23,5 +23,5 @@ if (isset($_POST['button-modify-day'])) {
     $resultset = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../protected/dashboard/admin.php");
+        header("Location: /protected/dashboard/admin.php");
     }

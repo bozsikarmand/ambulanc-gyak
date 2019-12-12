@@ -66,6 +66,6 @@ if (isset($_POST['button-modify-animal'])) {
     $resultset = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../protected/dashboard/admin.php");
+        header("Location: /protected/dashboard/admin.php");
     }
 }

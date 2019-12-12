@@ -36,6 +36,6 @@ if (isset($_POST['button-add-station'])) {
     $resultSet = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../protected/dashboard/admin.php");
+        header("Location: /protected/dashboard/admin.php");
     }
 }

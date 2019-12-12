@@ -89,6 +89,6 @@ if (isset($_POST['button-add-user-avatar'])) {
     $exitcode = $run->execute();
             
     if ($exitcode) {
-        header('Location: ../../../protected/userprofile/add/profilepicture.php');
+        header('Location: /protected/userprofile/add/profilepicture.php');
     }
 }

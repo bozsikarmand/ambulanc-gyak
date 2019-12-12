@@ -51,7 +51,7 @@ if (isset($_GET['token'])) {
             $_SESSION['user'] = $_SESSION['user'];
             $_SESSION['stat'] = $_SESSION['stat'];
             $_SESSION['message'] = "Sikeresen megerositetted email cimed! A rendszerbe valo elso bejelentkezeshez atiranyitottunk a bejelentkezesi feluletre!";
-            header('Location: ../../login.php');
+            header('Location: /login.php');
         }
         else {
             echo "A felhasznalo nem talalhato!";
