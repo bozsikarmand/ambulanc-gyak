@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/floating-labels.css">
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="assets/css/mdb.min.css">
 </head>
 <body>
 <form class="form-signin" action="core/authentication/register.php" method="post">
@@ -77,5 +75,6 @@
             });
         });
     </script>
+    <script type="text/javascript" src="assets/js/mdb.min.js"></script>
 </body>
 </html>
