@@ -51,7 +51,7 @@ if (isset($_POST['button-password-recovery'])) {
       <body>
         <div class="wrapper">
           <p>Jelszavad visszaallitasat kezdemenyezted az Ambulanc oldalon! A visszaallitashoz kerlek kattints az alabbi linkre:</p>
-          <a href="' getURL(); '/core/default/frontend/setpassword.php?token=' . $token . '">Jelszo visszaallitasa!</a>
+          <a href="' . getURL() . '/core/default/frontend/setpassword.php?token=' . $token . '">Jelszo visszaallitasa!</a>
         </div>
       </body>
       </html>';
