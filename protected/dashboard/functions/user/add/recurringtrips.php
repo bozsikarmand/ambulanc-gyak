@@ -76,7 +76,7 @@ if ($currentRole == $ADMIN) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="../../../../../core/action/add/recurringtrips.php" method="post">
+        <form action="/core/action/add/recurringtrips.php" method="post">
             <p>Indulo varos:</p>
             <div class="form-label-group">
                 <input id="inputStartCity" name="inputStartCity" type="text" />

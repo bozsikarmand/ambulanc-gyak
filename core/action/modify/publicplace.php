@@ -17,6 +17,6 @@ if (isset($_POST['button-add-public-place'])) {
     $resultset = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../protected/dashboard/admin.php");
+        header("Location: /protected/dashboard/admin.php");
     }
 }

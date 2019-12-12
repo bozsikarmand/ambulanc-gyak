@@ -53,7 +53,7 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 			$exitcode = $run->execute();
 				
 			if ($exitcode) {
-				header('Location: ../../default/frontend/adminapproval.php');
+				header('Location: /core/default/frontend/adminapproval.php');
 			}
 		}
 		else {

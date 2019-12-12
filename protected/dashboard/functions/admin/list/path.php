@@ -95,7 +95,7 @@ $paths = listPath($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="../add/path.php" role="button">Uj ut hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/path.php" role="button">Uj ut hozzaadasa</a>
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>

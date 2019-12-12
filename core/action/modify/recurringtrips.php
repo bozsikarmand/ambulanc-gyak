@@ -30,6 +30,6 @@ if (isset($_POST['button-add-recurring-trips'])) {
     $resultSet = $run->execute();
 
     if ($resultSet) {
-        header("Location: ../../../protected/dashboard/user.php");
+        header("Location: /protected/dashboard/user.php");
     }
 }

@@ -95,7 +95,7 @@ $stations = listStations($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="../add/station.php" role="button">Uj allomas hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/station.php" role="button">Uj allomas hozzaadasa</a>
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
