@@ -160,7 +160,7 @@ $recurringtrips = listRecurringTrips($databaseConnection);
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/bootstrap-table.min.js"></script>
-<script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+<script src="/assets/js/addons/datatables.min.js"></script>
 <script>
 $(document).ready(function () {
 $('#datatable').DataTable();

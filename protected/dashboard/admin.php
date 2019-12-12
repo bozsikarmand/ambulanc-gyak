@@ -146,7 +146,7 @@ Integer vel tincidunt lacus. Vivamus sit amet laoreet nisl, in imperdiet turpis.
 <script src="/assets/js/jquery-3.4.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/assets/js/mdb.min.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
 </body>
 </html>
 

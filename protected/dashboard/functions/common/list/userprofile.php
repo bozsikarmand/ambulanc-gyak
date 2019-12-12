@@ -118,7 +118,7 @@ $listuserprofile = listUserProfile($databaseConnection, $sessionKey);
         <script src="/assets/js/fileinput.min.js"></script>
         <script src="/assets/js/theme.min.js"></script>
         <script src="/assets/js/hu.js"></script>
-        <script type="text/javascript" src="/assets/js/mdb.min.js"></script>
-        <script type="text/javascript" src="/assets/js/addons/datatables.min.js"></script>
+        <script src="/assets/js/mdb.min.js"></script>
+        <script src="/assets/js/addons/datatables.min.js"></script>
     </body>
 </html>
