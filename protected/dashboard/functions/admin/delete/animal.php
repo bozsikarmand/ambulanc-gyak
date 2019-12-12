@@ -3,6 +3,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -101,39 +102,19 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/add/animal.php" method="post">
-            <p>Fajta:</p>
+        <form action="/core/action/delete/animal.php" method="post">
+            <p>Szeretned torolni a megadott azonositoju allatot?</p>
             <div class="form-label-group">
                 <input id="inputSpecies" name="inputSpecies" type="text" />
             </div>
-            <p>Hordozo szelessege:</p>
             <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
+                <button class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
+                    Igen
+                </button>
+                <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal">
+                    Nem
+                </button>
             </div>
-            <p>Hordozo magassaga:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozo hosszusaga:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
-            </div>
-            <p>Veszelyes:</p>
-            <div class="form-label-group">
-                <input type="hidden" name="inputDangerous" value="0" />
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
-            </div>
-            <p>Sulyos:</p>
-            <div class="form-label-group">
-                <input type="hidden" name="inputSerious" value="0" />
-                <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
-            </div>
-            <p>Egyedek szama:</p>   
-            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
-
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal" type="submit">
-                Hozzaadas
-            </button>
         </form>
     </div>
 

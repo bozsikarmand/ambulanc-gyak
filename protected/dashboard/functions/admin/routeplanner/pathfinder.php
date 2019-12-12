@@ -3,6 +3,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -12,6 +13,8 @@ $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
+
+define('infinity', 99);
 ?>
 
 <!DOCTYPE html>
@@ -101,38 +104,46 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/add/animal.php" method="post">
-            <p>Fajta:</p>
+        <form action="/core/action/routeplanner/pathfinder.php" method="post">
+            <p>Indulo varos:</p>
             <div class="form-label-group">
-                <input id="inputSpecies" name="inputSpecies" type="text" />
+                <input id="inputStartCity" name="inputStartCity" type="text" />
             </div>
-            <p>Hordozo szelessege:</p>
+            <p>Erkezo varos:</p>
             <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
+                <input id="inputEndCity" name="inputEndCity" type="text" />
             </div>
-            <p>Hordozo magassaga:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozo hosszusaga:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
-            </div>
-            <p>Veszelyes:</p>
-            <div class="form-label-group">
-                <input type="hidden" name="inputDangerous" value="0" />
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
-            </div>
-            <p>Sulyos:</p>
-            <div class="form-label-group">
-                <input type="hidden" name="inputSerious" value="0" />
-                <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
-            </div>
-            <p>Egyedek szama:</p>   
-            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
+            <p>Indulo datum:</p>
+            <input id="datepickerStartDate" name="datepickerStartDate" width="276" />
+            <script>
+                $('#datepickerStartDate').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Erkezo datum:</p>
+            <input id="datepickerEndDate" name="datepickerEndDate" width="276" />
+            <script>
+                $('#datepickerEndDate').datepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Indulo ido:</p>
+            <input id="timepickerStartTime" name="datepickerStartTime" width="276" />
+            <script>
+                $('#timepickerStartTime').timepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
+            <p>Erkezo ido:</p>
+            <input id="timepickerEndTime" name="datepickerEndTime" width="276" />
+            <script>
+                $('#timepickerEndTime').timepicker({
+                    uiLibrary: 'bootstrap4'
+                });
+            </script>
 
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal" type="submit">
-                Hozzaadas
+            <button class="btn btn-lg btn-secondary btn-block" name="button-search-path" type="submit">
+                Utvonal keresese
             </button>
         </form>
     </div>
@@ -191,3 +202,46 @@ if ($currentRole == $USER) {
 
 
 
+
+
+
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/routeplanner/pathfinder.class.php");
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/routeplanner/utils/pathfinder.helper.php");
+
+    $graph = array(array(0,0,0,0,5,12),
+                   array(15,0,9,0,0,0),
+                   array(0,0,0,5,0,0),
+                   array(0,2,0,0,0,0),
+                   array(0,0,10,0,0,4),
+                   array(0,0,17,20,0,0));
+                   
+    $nodes = array("a", "b", "c", "d", "e", "f");
+
+    $fw = new FloydWarshall($graph, $nodes);
+    $fw->print_path(0,2);
+    $fw->print_graph();
+    $fw->print_dist();
+    $fw->print_pred();
+
+    $sp = $fw->get_path(0,2);
+
+    echo 'The sortest path from a to c is: <strong>';
+    foreach ($sp as $value) {
+        echo $nodes[$value] . ' ';
+    }
+    echo '</strong>';
+
+    $sp = $fw->get_path(1,3);
+
+    echo 'The sortest path from a to c is: <strong>';
+    foreach ($sp as $value) {
+        echo $nodes[$value] . ' ';
+    }
+    echo '</strong>';
+
+    
+
+    //print_r($fw->get_distance(0,2));
+
+?>
