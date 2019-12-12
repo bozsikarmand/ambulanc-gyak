@@ -96,7 +96,7 @@ if ($currentRole == $USER) {
                       <a class="dropdown-item" href="#">Még valami</a>
                       <a class="dropdown-item" href="#">Meg még valami</a>
                       <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="/core/authentication/logout.php">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
                         </a>
                     </div>
