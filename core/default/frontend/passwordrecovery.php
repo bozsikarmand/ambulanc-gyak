@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/floating-labels.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
 <body>
     <form class="form-signin" action="/core/authentication/password/reset.php" method="post">
