@@ -111,10 +111,10 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
                 <td>
-                    <a href="/core/actions/approve/user.php?id=<?php $row['id']?>" class="btn btn-success">
+                    <a href="/protected/dashboard/functions/admin/approve/user.php?id=<?php $row['id']?>" class="btn btn-success">
                         <i class="far fa-check-circle"></i> Elfogadas
                     </a>
-                    <a href="/core/action/remove/user.php?id=<?php $row['id']?>" class="btn btn-danger">
+                    <a href="/protected/dashboard/functions/admin/reject/user.php?id=<?php $row['id']?>" class="btn btn-danger">
                         <i class="far fa-times-circle"></i> Törlés
                     </a>
                 </td>

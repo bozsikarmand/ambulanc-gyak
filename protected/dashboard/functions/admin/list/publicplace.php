@@ -110,10 +110,10 @@ $publicplaces = listPublicPlace($databaseConnection);
                 <th scope="row"><?php echo $row['ID']; ?></th>
                 <td><?php echo $row['Jelleg']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/publicplace.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
+                    <a href="/protected/dashboard/functions/admin/modify/publicplace.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/publicplace.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
+                    <a href="/protected/dashboard/functions/admin/delete/publicplace.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

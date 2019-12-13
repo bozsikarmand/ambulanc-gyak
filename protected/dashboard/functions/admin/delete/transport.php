@@ -102,18 +102,15 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/delete/animal.php" method="post">
-            <p>Szeretned torolni a megadott azonositoju allatot?</p>
+        <form action="/core/action/delete/transport.php" method="post">
+            <p>Szeretned torolni a megadott azonositoju szallitast?</p>
             <div class="form-label-group">
-                <input id="inputSpecies" name="inputSpecies" type="text" />
-            </div>
-            <div class="form-label-group">
-                <button class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
+                <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-transport" type="submit">
                     Igen
-                </button>
-                <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal">
+                </a>
+                <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-transport">
                     Nem
-                </button>
+                </a>
             </div>
         </form>
     </div>

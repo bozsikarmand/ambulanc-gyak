@@ -119,10 +119,10 @@ $paths = listPath($databaseConnection);
                 <td><?php echo $row['AtadoSzemely']; ?></td>
                 <td><?php echo $row['AtvevoSzemely']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/path.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
+                    <a href="/protected/dashboard/functions/admin/modify/path.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/path.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
+                    <a href="/protected/dashboard/functions/admin/delete/path.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

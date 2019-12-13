@@ -3,7 +3,17 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
+
+$loginEmail = $_SESSION['email'];
+$currentRole = getRoleInfo($loginEmail, $databaseConnection);
+
+if ($currentRole == $ADMIN) {
+    header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
+} 
+
 
 $userProfileImage = sessionGetUserImage($loginEmail, $databaseConnection);
 $userName = sessionGetName($loginEmail, $databaseConnection);

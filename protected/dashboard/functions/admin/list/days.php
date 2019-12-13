@@ -110,10 +110,10 @@ $days = listDays($databaseConnection);
                 <th scope="row"><?php echo $row['ID']; ?></th>
                 <td><?php echo $row['Nap']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/days.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
+                    <a href="/protected/dashboard/functions/admin/modify/days.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/days.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
+                    <a href="/protected/dashboard/functions/admin/delete/days.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>

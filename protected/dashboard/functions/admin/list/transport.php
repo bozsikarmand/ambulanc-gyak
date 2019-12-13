@@ -112,10 +112,10 @@ $transport = listTransport($databaseConnection);
                 <td><?php echo $row['Szakasz']; ?></td>
                 <td><?php echo $row['Allapot']; ?></td>
                 <td>
-                    <a href="/core/actions/modify/transport.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
+                    <a href="/protected/dashboard/functions/admin/modify/transport.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>
-                    <a href="/core/action/remove/transport.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
+                    <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>
                 </td>
