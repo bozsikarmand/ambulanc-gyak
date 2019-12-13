@@ -97,6 +97,7 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
@@ -122,6 +123,7 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
             <?php } ?>
         </tbody>
     </table>
+    </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

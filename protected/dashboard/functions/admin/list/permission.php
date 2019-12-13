@@ -98,6 +98,7 @@ $permissions = listPermissions($databaseConnection);
 
     <div class="container-fullwidth" style="margin-top:100px">
     <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/permission.php" role="button">Uj jog hozzaadasa</a>
+    <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
@@ -123,6 +124,7 @@ $permissions = listPermissions($databaseConnection);
             <?php } ?>
         </tbody>
     </table>
+    </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
