@@ -10,6 +10,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
 
+$loginEmail = $_SESSION['email'];
+
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
