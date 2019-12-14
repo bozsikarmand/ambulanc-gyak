@@ -1,11 +1,11 @@
 <?php
 
-session_start();
-
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
-
 function sessionLogout($loginEmail) {
+    session_start();
+
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+    require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
+
     $endtime = date('Y-m-d H:i:s');
     $active = 1;
     $inactive = 0;

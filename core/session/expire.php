@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/utils/logout.php
 
 session_start();
 
+$loginEmail = $_SESSION['email'];
 $expiryTime = 60;
 
 if (time() - $_SESSION['timestamp'] > $expiryTime) {
