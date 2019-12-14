@@ -3,6 +3,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/expire.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
@@ -85,10 +86,9 @@ if ($currentRole == $USER) {
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="/protected/userprofile/list/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
-                      <form action="/core/authentication/logout.php" method="post">
-                        <button class="dropdown-item" name="button-logout" type="submit">
+                        <a class="dropdown-item" href="/core/authentication/logout.php">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
