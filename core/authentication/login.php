@@ -166,6 +166,7 @@ if (isset($_POST['button-login'])) {
                         header("Location:" . getURL() . "/protected/dashboard/user.php");
                     } else if ($privilege['privid'] == 2) {
                         $_SESSION["isLoggedIn"] = true;
+                        $_SESSION['timestamp'] = time();
                         $_SESSION["key"] = getSessionKey($loginEmail, $databaseConnection);
                         header("Location:" . getURL() . "/protected/dashboard/admin.php");
                     }

@@ -85,9 +85,10 @@ if ($currentRole == $USER) {
                     <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="/protected/userprofile/list/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/core/authentication/logout.php">
+                      <form action="/core/authentication/logout.php" method="post">
+                        <button class="dropdown-item" name="button-logout" type="submit">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
