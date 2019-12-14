@@ -10,6 +10,7 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/create.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 
 /**
  * 
