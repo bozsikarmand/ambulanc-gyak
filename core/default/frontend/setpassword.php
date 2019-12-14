@@ -11,7 +11,7 @@ $_SESSION['sessToken'] = $token;
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Elfelejtett jelszo visszaallitasa</title>
+    <title>Új jelszó beállitása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/floating-labels.css">
@@ -25,16 +25,16 @@ $_SESSION['sessToken'] = $token;
 
         <div class="form-label-group">
             <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Uj jelszo" required autofocus>
-            <label for="inputPassword">Uj jelszo</label>
+            <label for="inputPassword">Új jelszó</label>
         </div>
 
         <div class="form-label-group">
             <input type="password" name="inputPasswordConfirmation" id="inputPasswordConfirmation" class="form-control" placeholder="Uj jelszo ellenorzese" required autofocus>
-            <label for="inputPasswordConfirmation">Uj jelszo ellenorzese</label>
+            <label for="inputPasswordConfirmation">Új jelszó mégegyszer</label>
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-password-set" type="submit">
-            <i class="fas fa-key"></i> Új jelszó beallitasa
+            <i class="fas fa-key"></i> Új jelszó beállitása
         </button>
         
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>

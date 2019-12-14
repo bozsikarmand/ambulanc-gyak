@@ -97,14 +97,14 @@ $permissions = listPermissions($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/permission.php" role="button">Uj jog hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/permission.php" role="button">Új jog hozzáadása</a>
     <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nev</th>
-                <th scope="col">Muveletek</th>
+                <th scope="col">Név</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

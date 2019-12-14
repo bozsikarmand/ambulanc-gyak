@@ -23,11 +23,11 @@
         </div>
     </div>
     <div class="kv-avatar-hint">
-        <small>A választott fajlnak 1500 KB-nal kisebbnek kell lennie</small>
+        <small>A választott fájlnak 1500 KB-nál kisebbnek kell lennie!</small>
     </div>
     
     <button class="btn btn-lg btn-secondary btn-block" name="button-user-request-admin-approval" type="submit">
-        <i class="fas fa-user-check"></i> Arckep megadasa
+        <i class="fas fa-user-check"></i> Arckép megadása
     </button>
     <div>
         <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>

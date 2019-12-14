@@ -95,15 +95,15 @@ $transport = listTransport($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/transport.php" role="button">Uj szallitas hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/transport.php" role="button">Új szállitás hozzáadása</a>
     <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Szakasz</th>
-                <th scope="col">Allapot</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Állapot</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

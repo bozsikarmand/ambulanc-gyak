@@ -1,3 +1,3 @@
 <?php 
 
-echo "Nincs megfelelo jogosultsagod a funkcio eleresehez!";
+echo "Nincs megfelelő jogosultságod a funkció eléréséhez!";

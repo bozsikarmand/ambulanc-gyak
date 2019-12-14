@@ -103,7 +103,7 @@ if ($currentRole == $USER) {
 
     <div class="container-fullwidth" style="margin-top:100px">
         <form action="/core/action/delete/transport.php" method="post">
-            <p>Szeretned torolni a megadott azonositoju szallitast?</p>
+            <p>Szeretnéd törölni a megadott azonositójú szállitást?</p>
             <div class="form-label-group">
                 <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-transport" type="submit">
                     Igen

@@ -108,33 +108,33 @@ if ($currentRole == $USER) {
             <div class="form-label-group">
                 <input id="inputSpecies" name="inputSpecies" type="text" />
             </div>
-            <p>Hordozo szelessege:</p>
+            <p>Hordozó szélessége:</p>
             <div class="form-label-group">
                 <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Hordozo magassaga:</p>
+            <p>Hordozó magassága:</p>
             <div class="form-label-group">
                 <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Hordozo hosszusaga:</p>
+            <p>Hordozó hosszúsága:</p>
             <div class="form-label-group">
                 <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Veszelyes:</p>
+            <p>Veszélyes:</p>
             <div class="form-label-group">
                 <input type="hidden" name="inputDangerous" value="0" />
                 <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
             </div>
-            <p>Sulyos:</p>
+            <p>Súlyos:</p>
             <div class="form-label-group">
                 <input type="hidden" name="inputSerious" value="0" />
                 <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
             </div>
-            <p>Egyedek szama:</p>   
+            <p>Egyedek száma:</p>   
             <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>

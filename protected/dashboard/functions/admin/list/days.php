@@ -97,33 +97,33 @@ $days = listDays($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/days.php" role="button">Uj nap hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/days.php" role="button">Uj nap hozzáadása</a>
     <div class="table-responsive">
-    <table class="table" data-toggle="table" id="datatable">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Napok</th>
-                <th scope="col">Muvelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($days as $row) { ?>
-            <tr>
-                <th scope="row"><?php echo $row['ID']; ?></th>
-                <td><?php echo $row['Nap']; ?></td>
-                <td>
-                    <a href="/protected/dashboard/functions/admin/modify/days.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                    <a href="/protected/dashboard/functions/admin/delete/days.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+        <table class="table" data-toggle="table" id="datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Napok</th>
+                    <th scope="col">Művelet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($days as $row) { ?>
+                <tr>
+                    <th scope="row"><?php echo $row['ID']; ?></th>
+                    <td><?php echo $row['Nap']; ?></td>
+                    <td>
+                        <a href="/protected/dashboard/functions/admin/modify/days.php?id=<? echo $row['ID'] ?>" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Módositás
+                        </a>
+                        <a href="/protected/dashboard/functions/admin/delete/days.php?id=<? echo $row['ID'] ?>" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Törlés
+                        </a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
     </div>
 

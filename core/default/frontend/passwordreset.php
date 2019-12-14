@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Uj jelszo kikuldese</title>
+    <title>Uj jelszó kiküldése</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/floating-labels.css">
@@ -12,11 +12,11 @@
 <body>
     <form class="form-signin" action="/index.php" method="post">
         <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">Uj jelszavadat elkuldtuk!</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Az új jelszavad beállitásához szükséges emailt elküldtük!</h1>
         </div>
 
         <div class="text-left">
-            Kerlek kattints az emailben talalhato gombra a tovabblepeshez!
+            Kérlek kattints az emailben található gombra a továbblépéshez!
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-home" type="submit">

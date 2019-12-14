@@ -73,47 +73,47 @@ $recurringtrips = listRecurringTrips($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <div class="table-responsive">
-    <table class="table" data-toggle="table" id="datatable">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Indulasi varos</th>
-                <th scope="col">Erkezesi varos</th>
-                <th scope="col">Indulasi datum</th>
-                <th scope="col">Erkezesi datum</th>
-                <th scope="col">Indulasi ido</th>
-                <th scope="col">Erkezesi ido</th>
-                <th scope="col">Heti rendszeresseg</th>
-                <th scope="col">Hely</th>
-                <th scope="col">Muvelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($recurringtrips as $row) { ?>
-            <tr>
-                <th scope="row"><?php echo $row['ID']; ?></th>
-                <td><?php echo $row['IndVaros']; ?></td>
-                <td><?php echo $row['ErkVaros']; ?></td>
-                <td><?php echo $row['IndDatum']; ?></td>
-                <td><?php echo $row['ErkDatum']; ?></td>
-                <td><?php echo $row['IndIdo']; ?></td>
-                <td><?php echo $row['ErkIdo']; ?></td>
-                <td><?php echo $row['HetiRendszeresseg']; ?></td>
-                <td><?php echo $row['Hely']; ?></td>
-                <td>
-                    <a href="/core/actions/modify/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                    <a href="/core/action/remove/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Indulási város</th>
+                        <th scope="col">Érkezési város</th>
+                        <th scope="col">Indulási dátum</th>
+                        <th scope="col">Érkezési dátum</th>
+                        <th scope="col">Indulási idő</th>
+                        <th scope="col">Érkezési idő</th>
+                        <th scope="col">Heti rendszeresség</th>
+                        <th scope="col">Hely</th>
+                        <th scope="col">Művelet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($recurringtrips as $row) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $row['ID']; ?></th>
+                        <td><?php echo $row['IndVaros']; ?></td>
+                        <td><?php echo $row['ErkVaros']; ?></td>
+                        <td><?php echo $row['IndDatum']; ?></td>
+                        <td><?php echo $row['ErkDatum']; ?></td>
+                        <td><?php echo $row['IndIdo']; ?></td>
+                        <td><?php echo $row['ErkIdo']; ?></td>
+                        <td><?php echo $row['HetiRendszeresseg']; ?></td>
+                        <td><?php echo $row['Hely']; ?></td>
+                        <td>
+                            <a href="/core/actions/modify/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Módositás
+                            </a>
+                            <a href="/core/action/remove/recurringtrips.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Törlés
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

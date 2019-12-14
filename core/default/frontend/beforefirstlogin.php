@@ -12,11 +12,11 @@
 <body>
     <form class="form-signin" action="/index.php" method="post">
         <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">Sikeresen megerositetted email cimed!</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Sikeresen megerősitetted email cimed!</h1>
         </div>
 
         <div class="text-left">
-            Kerlek jelentkezz be a fooldalon!
+            Kérlek jelentkezz be a főoldalon!
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-home" type="submit">

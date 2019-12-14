@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-            <p>Szeretned torolni a megadott azonositoju allatot?</p>
+            <p>Szeretnéd törölni a megadott azonositójú állatot?</p>
             <div class="form-label-group">
                 <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php $row['ID']?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
                     Igen

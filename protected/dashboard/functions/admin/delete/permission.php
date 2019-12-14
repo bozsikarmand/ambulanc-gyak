@@ -102,7 +102,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-            <p>Szeretned torolni a megadott azonositoju jogot?</p>
+            <p>Szeretnéd törölni a megadott azonositójú jogot?</p>
             <div class="form-label-group">
                 <a href="/protected/dashboard/functions/admin/delete/permission.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-permission" type="submit">
                     Igen

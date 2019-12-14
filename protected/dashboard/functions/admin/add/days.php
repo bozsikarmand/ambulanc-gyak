@@ -111,7 +111,7 @@ if ($currentRole == $USER) {
             </div>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>

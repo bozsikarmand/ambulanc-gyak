@@ -105,13 +105,13 @@ if ($currentRole == $USER) {
 
     <div class="container-fullwidth" style="margin-top:100px">
         <form action="/core/action/add/permission.php" method="post">
-            <p>Jog megnevezese:</p>
+            <p>Jog megnevezése:</p>
             <div class="form-label-group">
                 <input id="inputName" name="inputName" type="text" />
             </div>
             
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-permission" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>

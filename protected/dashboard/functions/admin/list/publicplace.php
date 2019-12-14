@@ -97,14 +97,14 @@ $publicplaces = listPublicPlace($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/publicplace.php" role="button">Uj kozterulet jelleg hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/publicplace.php" role="button">Új közterület jelleg hozzáadása</a>
     <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Jelleg</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

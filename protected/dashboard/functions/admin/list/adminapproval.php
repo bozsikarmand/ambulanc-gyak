@@ -97,33 +97,33 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <div class="table-responsive">
-    <table class="table" data-toggle="table" id="datatable">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col">Muvelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($listUsersWaitingForApproval as $row) { ?>
-            <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
-                <td>
-                    <a href="/protected/dashboard/functions/admin/approve/user.php?id=<?php $row['id']?>" class="btn btn-success">
-                        <i class="far fa-check-circle"></i> Elfogadas
-                    </a>
-                    <a href="/protected/dashboard/functions/admin/reject/user.php?id=<?php $row['id']?>" class="btn btn-danger">
-                        <i class="far fa-times-circle"></i> Törlés
-                    </a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Név</th>
+                        <th scope="col">Művelet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($listUsersWaitingForApproval as $row) { ?>
+                    <tr>
+                        <th scope="row"><?php echo $row['id']; ?></th>
+                        <td><?php echo $row['fullname']; ?></td>
+                        <td>
+                            <a href="/protected/dashboard/functions/admin/approve/user.php?id=<?php $row['id']?>" class="btn btn-success">
+                                <i class="far fa-check-circle"></i> Elfogadás
+                            </a>
+                            <a href="/protected/dashboard/functions/admin/reject/user.php?id=<?php $row['id']?>" class="btn btn-danger">
+                                <i class="far fa-times-circle"></i> Törlés
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

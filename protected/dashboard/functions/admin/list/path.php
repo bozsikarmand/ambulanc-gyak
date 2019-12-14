@@ -103,12 +103,12 @@ $paths = listPath($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Indulas</th>
-                <th scope="col">Erkezes</th>
-                <th scope="col">Surgos</th>
-                <th scope="col">Allapot</th>
-                <th scope="col">Atado szemely</th>
-                <th scope="col">Atvevo szemely</th>
+                <th scope="col">Indulás</th>
+                <th scope="col">Érkezés</th>
+                <th scope="col">Sürgős</th>
+                <th scope="col">Állapot</th>
+                <th scope="col">Átadó személy</th>
+                <th scope="col">Átvevő személy</th>
             </tr>
         </thead>
         <tbody>

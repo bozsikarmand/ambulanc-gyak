@@ -12,7 +12,7 @@
 <body>
     <form class="form-signin" action="/core/authentication/password/reset.php" method="post">
         <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a jelszó visszaallitasahoz!</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Kérlek add meg adataid a jelszó visszaállitásához!</h1>
         </div>
 
         <div class="form-label-group">
@@ -21,7 +21,7 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-password-recovery" type="submit">
-            <i class="fas fa-key"></i> Új jelszó kuldese
+            <i class="fas fa-key"></i> Új jelszó küldése
         </button>
         <div>
             <a href="index.php" role="button" class="btn btn-secondary btn-block">

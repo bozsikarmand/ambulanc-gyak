@@ -102,15 +102,15 @@ $recurringtrips = listRecurringTrips($databaseConnection);
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Indulasi varos</th>
-                <th scope="col">Erkezesi varos</th>
-                <th scope="col">Indulasi datum</th>
-                <th scope="col">Erkezesi datum</th>
-                <th scope="col">Indulasi ido</th>
-                <th scope="col">Erkezesi ido</th>
-                <th scope="col">Heti rendszeresseg</th>
+                <th scope="col">Indulási város</th>
+                <th scope="col">Érkezési város</th>
+                <th scope="col">Indulási dátum</th>
+                <th scope="col">Érkezési dátum</th>
+                <th scope="col">Indulási idő</th>
+                <th scope="col">Érkezési idő</th>
+                <th scope="col">Heti rendszeresség</th>
                 <th scope="col">Hely</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

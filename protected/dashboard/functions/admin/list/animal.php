@@ -97,45 +97,45 @@ $animals = listAnimal($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/animal.php" role="button">Uj allat hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/animal.php" role="button">Új állat hozzáadása</a>
     <div class="table-responsive">
-    <table class="table" data-toggle="table" id="datatable">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Faj</th>
-                <th scope="col">Hordozo szelessege</th>
-                <th scope="col">Hordozo magassaga</th>
-                <th scope="col">Hordozo hosszusaga</th>
-                <th scope="col">Veszelyes</th>
-                <th scope="col">Sulyos</th>
-                <th scope="col">Egyedszam</th>
-                <th scope="col">Muvelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($animals as $row) { ?>
-            <tr>
-                <th scope="row"><?php echo $row['ID']; ?></th>
-                <td><?php echo $row['Faj']; ?></td>
-                <td><?php echo $row['HordozoSz']; ?></td>
-                <td><?php echo $row['HordozoM']; ?></td>
-                <td><?php echo $row['HordozoH']; ?></td>
-                <td><?php echo $row['Veszelyes']; ?></td>
-                <td><?php echo $row['Sulyos']; ?></td>
-                <td><?php echo $row['EgyedSzam']; ?></td>
-                <td>
-                    <a href="/protected/dashboard/functions/admin/modify/animal.php?id=<?php $row['ID']?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                    <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php $row['ID']?>" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+        <table class="table" data-toggle="table" id="datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Faj</th>
+                    <th scope="col">Hordozó szélessége</th>
+                    <th scope="col">Hordozó magassága</th>
+                    <th scope="col">Hordozó hosszúsága</th>
+                    <th scope="col">Veszélyes</th>
+                    <th scope="col">Súlyos</th>
+                    <th scope="col">Egyedszám</th>
+                    <th scope="col">Művelet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($animals as $row) { ?>
+                <tr>
+                    <th scope="row"><?php echo $row['ID']; ?></th>
+                    <td><?php echo $row['Faj']; ?></td>
+                    <td><?php echo $row['HordozoSz']; ?></td>
+                    <td><?php echo $row['HordozoM']; ?></td>
+                    <td><?php echo $row['HordozoH']; ?></td>
+                    <td><?php echo $row['Veszelyes']; ?></td>
+                    <td><?php echo $row['Sulyos']; ?></td>
+                    <td><?php echo $row['EgyedSzam']; ?></td>
+                    <td>
+                        <a href="/protected/dashboard/functions/admin/modify/animal.php?id=<?php $row['ID']?>" class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Módositás
+                        </a>
+                        <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php $row['ID']?>" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Törlés
+                        </a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
     </div>
 

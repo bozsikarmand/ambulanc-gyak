@@ -113,15 +113,15 @@ if ($currentRole == $USER) {
             <div class="form-label-group">
                 <input id="inputZIPCode" name="inputZIPCode" type="number" value="1" min="1" max="9999" step="1" />
             </div>
-            <p>Varos:</p>
+            <p>Város:</p>
             <div class="form-label-group">
                 <input id="inputCity" name="inputCity" type="text" />
             </div>
-            <p>Kozterulet neve:</p>
+            <p>Közterület neve:</p>
             <div class="form-label-group">
                 <input id="inputPublicPlaceName" name="inputPublicPlaceName" type="text" />
             </div>
-            <p>Kozterulet jellege:</p>
+            <p>Közterület jellege:</p>
             <div class="form-label-group">
                 <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
 

@@ -79,49 +79,49 @@ if ($currentRole == $ADMIN) {
 
     <div class="container-fullwidth" style="margin-top:100px">
         <form action="/core/action/add/recurringtrips.php" method="post">
-            <p>Indulo varos:</p>
+            <p>Induló város:</p>
             <div class="form-label-group">
                 <input id="inputStartCity" name="inputStartCity" type="text" />
             </div>
-            <p>Erkezo varos:</p>
+            <p>Érkező város:</p>
             <div class="form-label-group">
                 <input id="inputEndCity" name="inputEndCity" type="text" />
             </div>
-            <p>Indulo datum:</p>
+            <p>Induló dátum:</p>
             <input id="datepickerStartDate" name="datepickerStartDate" width="276" />
             <script>
                 $('#datepickerStartDate').datepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
-            <p>Erkezo datum:</p>
+            <p>Érkező dátum:</p>
             <input id="datepickerEndDate" name="datepickerEndDate" width="276" />
             <script>
                 $('#datepickerEndDate').datepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
-            <p>Indulo ido:</p>
+            <p>Indulási idő:</p>
             <input id="timepickerStartTime" name="datepickerStartTime" width="276" />
             <script>
                 $('#timepickerStartTime').timepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
-            <p>Erkezo ido:</p>
+            <p>Érkezési idő:</p>
             <input id="timepickerEndTime" name="datepickerEndTime" width="276" />
             <script>
                 $('#timepickerEndTime').timepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
-            <p>Heti rendszeresseg:</p>
+            <p>Heti rendszeresség:</p>
             <input id="inputWeeklyRecurrence" name="inputWeeklyRecurrence" type="number" value="1" min="1" max="7" step="1"/>
             <p>Helyek szama:</p>   
             <input id="inputAvailableSpace" name="inputAvailableSpace" type="number" value="1" min="1" max="10" step="1"/>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-recurring-trips" type="submit">
-                Hozzaadas
+                Hozzaadás
             </button>
         </form>
     </div>

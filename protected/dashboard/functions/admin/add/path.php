@@ -105,34 +105,34 @@ if ($currentRole == $USER) {
 
     <div class="container-fullwidth" style="margin-top:100px">
         <form action="/core/action/add/path.php" method="post">
-            <p>Indulas:</p>
+            <p>Indulás:</p>
             <div class="form-label-group">
                 <input id="inputStartPoint" name="inputStartPoint" type="text" />
             </div>
-            <p>Erkezes:</p>
+            <p>Érkezés:</p>
             <div class="form-label-group">
                 <input id="inputEndPoint" name="inputEndPoint" type="text" />
             </div>
-            <p>Surgos:</p>
+            <p>Sürgős:</p>
             <div class="form-label-group">
                 <input type="hidden" name="inputImportant" value="0" />
                 <input id="inputImportant" name="inputImportant" type="checkbox" value="1"  />
             </div>
-            <p>Allapot:</p>
+            <p>Állapot:</p>
             <div class="form-label-group">
                 <input id="inputStat" name="inputStat" type="text" />
             </div>
-            <p>Atado szemely:</p>
+            <p>Átadó személy:</p>
             <div class="form-label-group">
                 <input id="inputGivePerson" name="inputGivePerson" type="checkbox" value="1" />
             </div>
-            <p>Atvevo szemely:</p>
+            <p>Átvevő személy:</p>
             <div class="form-label-group">
                 <input id="inputTakePerson" name="inputTakePerson" type="text" />
             </div>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-path" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>

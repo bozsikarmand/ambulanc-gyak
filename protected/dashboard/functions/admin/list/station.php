@@ -97,21 +97,21 @@ $stations = listStations($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/station.php" role="button">Uj allomas hozzaadasa</a>
+    <a class="btn btn-success" href="/protected/dashboard/functions/admin/add/station.php" role="button">Új állomás hozzáadása</a>
     <div class="table-responsive">
     <table class="table" data-toggle="table" id="datatable">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">IRSZ</th>
-                <th scope="col">Varos</th>
-                <th scope="col">Kozterulet neve</th>
-                <th scope="col">Kozterulet jellege</th>
-                <th scope="col">Hazszam</th>
-                <th scope="col">Epulet</th>
+                <th scope="col">Város</th>
+                <th scope="col">Közterület neve</th>
+                <th scope="col">Közterület jellege</th>
+                <th scope="col">Házszám</th>
+                <th scope="col">Épület</th>
                 <th scope="col">Koord sz.</th>
                 <th scope="col">Koord h.</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

@@ -109,13 +109,13 @@ if ($currentRole == $USER) {
             <div class="form-label-group">
                 <input id="inputStage" name="inputStage" type="number" value="1" min="1" max="10" step="1" />
             </div>
-            <p>Allapot:</p>
+            <p>Állapot:</p>
             <div class="form-label-group">
                 <input id="inputStat" name="inputStat" type="text" />
             </div>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-transport" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>

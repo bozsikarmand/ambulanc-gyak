@@ -101,7 +101,7 @@ $users = listUser($databaseConnection);
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Név</th>
-                <th scope="col">Muvelet</th>
+                <th scope="col">Művelet</th>
             </tr>
         </thead>
         <tbody>

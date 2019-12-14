@@ -12,11 +12,11 @@
 <body>
     <form class="form-signin" action="/index.php" method="post">
         <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">Sikeresen regisztraltal!</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Sikeresen regisztráltál!</h1>
         </div>
 
         <div class="text-left">
-            Kerlek erositsd meg az email cimed a kikuldott levelunkben talalhato link segitsegevel!
+            Kérlek erősitsd meg az email cimed a kiküldött levelünkben található link segitségével!
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" name="button-home" type="submit">
