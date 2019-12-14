@@ -22,7 +22,7 @@ $listUsersWaitingForApproval = listUserWaitingForApproval($databaseConnection);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Főoldal</title>
+    <title>Elfogadásra váró felhasználók</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">

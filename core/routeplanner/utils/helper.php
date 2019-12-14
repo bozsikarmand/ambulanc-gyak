@@ -8,7 +8,7 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'Regenerate') {
 ?><!DOCTYPE html>
 <html>
 <head>
-    <title>Minimalis koltsegu ut</title>
+    <title>Minimális költségű út</title>
     <style type="text/css">
         body{
             background: #a6ffa1;

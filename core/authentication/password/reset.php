@@ -32,7 +32,7 @@ if (isset($_POST['button-password-recovery'])) {
 
       <head>
         <meta charset="UTF-8">
-        <title>Elfelejtett jelszo visszaallitasa</title>
+        <title>Elfelejtett jelszó visszaállitása</title>
         <style>
           .wrapper {
             padding: 10px;
@@ -50,8 +50,8 @@ if (isset($_POST['button-password-recovery'])) {
 
       <body>
         <div class="wrapper">
-          <p>Jelszavad visszaallitasat kezdemenyezted az Ambulanc oldalon! A visszaallitashoz kerlek kattints az alabbi linkre:</p>
-          <a href="' . getURL() . '/core/default/frontend/setpassword.php?token=' . $token . '">Jelszo visszaallitasa!</a>
+          <p>Jelszavad visszaállitását kezdeményezted az Ambulánc oldalon! A visszaállitáshoz kérlek kattints az alábbi linkre:</p>
+          <a href="' . getURL() . '/core/default/frontend/setpassword.php?token=' . $token . '">Jelszó visszaállitása!</a>
         </div>
       </body>
       </html>';
@@ -61,7 +61,7 @@ if (isset($_POST['button-password-recovery'])) {
       if ($sentMail) {
         header("Location:" . getURL() . "/core/default/frontend/passwordreset.php");
       } else {
-        echo "Az email kuldese soran hiba lepett fel!";
+        echo "Az email küldése során hiba lépett fel!";
       }
 }
 ob_end_clean();

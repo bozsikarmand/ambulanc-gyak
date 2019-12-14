@@ -164,8 +164,8 @@ if (isset($_POST['button-sign-up'])) {
 
                     <body>
                         <div class="wrapper">
-                        <p>Koszonjuk hogy regisztraltal oldalunkon! Email cimed megerositesehez kattints erre a linkre:</p>
-                        <a href="' . getURL() . '/core/mail/verifyemail.php?token=' . $token . '">Email cim megerositese!</a>
+                        <p>Köszönjük hogy regisztráltál oldalunkon! Email cimed megerősitéséhez kattints erre a linkre:</p>
+                        <a href="' . getURL() . '/core/mail/verifyemail.php?token=' . $token . '">Email cim megerősitése!</a>
                         </div>
                     </body>
                     </html>';
