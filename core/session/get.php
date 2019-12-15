@@ -32,3 +32,9 @@ function sessionGetUserImage($loginEmail, $databaseConnection) {
 
     return $resultSet;
 }
+
+function sessionGetUserLoginTimeStamp($loginEmail, $databaseConnection) {
+    $resultSet = getUserLoginTimeStamp($loginEmail, $databaseConnection);
+
+    return $resultSet;
+}

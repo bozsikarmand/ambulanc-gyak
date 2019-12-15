@@ -149,3 +149,21 @@ function getUserImage($loginEmail, $databaseConnection) {
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
     return $resultSet;
 }
+
+function getUserLoginTimeStamp($loginEmail, $databaseConnection)
+{
+    $queryTimeStamp = "SELECT munkamenet.MunkamenetKezdete
+                       FROM munkamenet, szemelymunkamenet, szemely, email 
+                       WHERE munkamenet.MunkamenetID = szemelymunkamenet.MunkamenetID 
+                       AND szemelymunkamenet.SzemelyID = szemely.ID
+                       AND email.ID = szemely.ID 
+                       AND email.BelepesiEmail=:loginemail
+                       ORDER BY munkamenet.MunkamenetKezdete DESC
+                       LIMIT 1";
+
+    $run = $databaseConnection -> prepare($queryTimeStamp);
+    $run->bindValue(':loginemail', $loginEmail);
+    $run->execute();
+    $resultSet = $run -> fetchColumn();
+    return $resultSet;
+}
