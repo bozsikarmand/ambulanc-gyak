@@ -138,7 +138,7 @@ function getRoleInfo($loginEmail, $databaseConnection)
 }
 
 function getUserImage($loginEmail, $databaseConnection) {
-    $queryImage = "SELECT szemely.ProfilkepUtvonal as pp
+    $queryImage = "SELECT szemely.ProfilkepUtvonal
                   FROM email, szemely 
                   WHERE email.ID = szemely.ID
                   AND email.BelepesiEmail=:loginemail";
@@ -146,7 +146,7 @@ function getUserImage($loginEmail, $databaseConnection) {
     $run = $databaseConnection -> prepare($queryImage);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run -> fetchColumn();
     return $resultSet;
 }
 
