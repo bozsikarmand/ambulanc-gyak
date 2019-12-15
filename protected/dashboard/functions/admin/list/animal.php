@@ -125,10 +125,10 @@ $animals = listAnimal($databaseConnection);
                     <td><?php echo $row['Sulyos']; ?></td>
                     <td><?php echo $row['EgyedSzam']; ?></td>
                     <td>
-                        <a href="/protected/dashboard/functions/admin/modify/animal.php?id=<?php $row['ID'];?>" class="btn btn-warning">
+                        <a href="/protected/dashboard/functions/admin/modify/animal.php?id=<?php echo $row['ID']; ?>" class="btn btn-warning">
                             <i class="fas fa-edit"></i> Módositás
                         </a>
-                        <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php $row['ID'];?>" class="btn btn-danger">
+                        <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php echo $row['ID']; ?>" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i> Törlés
                         </a>
                     </td>
