@@ -109,7 +109,7 @@ if ($currentRole == $USER) {
                 </a>
                 <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php $row['ID']?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-animal">
                     Nem
-                </button>
+                </a>
             </div>
     </div>
 
