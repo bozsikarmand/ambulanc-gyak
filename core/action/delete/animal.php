@@ -30,11 +30,20 @@ if (isset($getID)) {
         
         $resultSet = $run->execute();
 
-        $deleteAnimal = "INSERT INTO allat (Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
-                    VALUES (:species, :carrierW, :carrierH, :carrierD, :dangerous, :serious, :individualNum)";
+        if ($resultSet && $_GET['confirm'] == 'yes') {
+            $deleteAnimal = "DELETE 
+                             FROM allat
+                             WHERE ID=:getid";
+                         
+            $run->bindValue(':getid', $getID);
 
-        if ($resultSet) {
-            header("Location: /protected/dashboard/admin.php");
+            $resultSet = $run->execute();
+
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $_GET['confirm'] == 'no') {
+                header("Location: /protected/dashboard/admin/delete/animal.php");
         }
     }
 }
