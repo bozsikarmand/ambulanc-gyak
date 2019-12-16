@@ -35,7 +35,9 @@ if (isset($getID)) {
             $deleteAnimal = "DELETE 
                              FROM allat
                              WHERE ID=:getid";
-                             
+            
+            $run = $databaseConnection -> prepare($deleteAnimal);
+
             $run->bindValue(':getid', $getID);
     
             $resultSet = $run->execute();
