@@ -104,10 +104,10 @@ if ($currentRole == $USER) {
     <div class="container-fullwidth" style="margin-top:100px">
             <p>Szeretnéd törölni a megadott azonositójú állatot?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php echo $_GET['id']; ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
+                <a href="/core/action/delete/animal.php?id=<?php echo $_GET['id']; ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/animal.php?id=<?php echo $_GET['id']; ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-animal">
+                <a href="/core/action/delete/animal.php?id=<?php echo $_GET['id']; ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-animal">
                     Nem
                 </a>
             </div>
