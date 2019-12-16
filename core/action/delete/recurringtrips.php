@@ -9,32 +9,45 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-recurring-trips'])) {
-    $startCity = $_POST['inputStartCity'];
-    $endCity = $_POST['inputEndCity'];
-    $startDate = $_POST['datepickerStartDate'];
-    $endDate = $_POST['datepickerEndDate'];
-    $startTime = $_POST['timepickerStartTime'];
-    $endTime = $_POST['timepickerEndTime'];
-    $weeklyRecurrence = $_POST['inputWeeklyRecurrence'];
-    $availableSpace = $_POST['inputAvailableSpace'];
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
 
-    $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
-                          VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
+if (isset($getID)) {
+    $selectRecurringTrips = "SELECT 
+                             IndVaros, 
+                             ErkVaros, 
+                             IndDatum, 
+                             ErkDatum, 
+                             IndIdo, 
+                             ErkIdo, 
+                             HetiRendszeresseg, 
+                             Hely
+                             FROM rendszerut
+                             WHERE ID = :getid";
 
-    $run = $databaseConnection -> prepare($addRecurringTrips);
-    $run->bindValue(':startcity', $startCity);
-    $run->bindValue(':endcity', $endCity);
-    $run->bindValue(':startdate', $startDate);
-    $run->bindValue(':enddate', $endDate);
-    $run->bindValue(':starttime', $startTime);
-    $run->bindValue(':endtime', $endTime);
-    $run->bindValue(':weeklyrecurrence', $weeklyRecurrence);
-    $run->bindValue(':availablespace', $availableSpace);
+    $run = $databaseConnection -> prepare($selectPath);
 
+    $run->bindValue(':getid', $getID);
+        
     $resultSet = $run->execute();
 
-    if ($resultSet) {
-        header("Location: /protected/dashboard/user.php");
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deleteRecurringTrips = "DELETE 
+                                     FROM rendszeresut
+                                     WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deleteRecurringTrips);
+
+            $run->bindValue(':getid', $getID);
+    
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/recurringtrips.php");
+        }
     }
 }

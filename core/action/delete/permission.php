@@ -9,19 +9,38 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-permission'])) {
-    $name = $_POST['inputName'];
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
 
-    $addPermission = "INSERT INTO jog(Nev)
-                      VALUES (:namez)";
+if (isset($getID)) {
+    $selectPermission = "SELECT 
+                         Nev
+                         FROM jog
+                         WHERE ID = :getid";
 
-    $run = $databaseConnection -> prepare($addPermission);
+    $run = $databaseConnection -> prepare($selectPermission);
 
-    $run->bindValue(':namez', $name);
+    $run->bindValue(':getid', $getID);
+        
+    $resultSet = $run->execute();
 
-    $resultset = $run->execute();
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deletePermission = "DELETE 
+                                 FROM jog
+                                 WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deletePermission);
 
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+            $run->bindValue(':getid', $getID);
+    
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/permission.php");
+        }
     }
 }

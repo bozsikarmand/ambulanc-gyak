@@ -9,33 +9,45 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-station'])) {
-    $zipcode = $_POST['inputZIPCode'];
-    $city = $_POST['inputCity'];
-    $publicplacename = $_POST['inputPublicPlaceName'];
-    $publicplacetrait = $_POST['inputPublicPlaceTrait'];
-    $housenumber = $_POST['inputHouseNumber'];
-    $buildingletter = $_POST['inputBuildingLetter'];
-    $coordW = $_POST['inputCoordW'];
-    $coordH = $_POST['inputCoordH'];
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
 
-    $addStation = "INSERT INTO allomas(IRSZ, Varos, KozteruletNeve, KozteruletJellege, Hazszam, Epulet, KoordSz, KoordH) 
-    VALUES(:zip, :city, :publicplacename, :publicplacetrait, :housenumber, :buildingletter, :coordW, :coordH)";
+if (isset($getID)) {
+    $selectStation = "SELECT 
+                      IRSZ, 
+                      Varos, 
+                      KozteruletNeve, 
+                      KozteruletJellege, 
+                      Hazszam, 
+                      Epulet, 
+                      KoordSz, 
+                      KoordH
+                      FROM allomas
+                      WHERE ID = :getid";
 
-    $run = $databaseConnection -> prepare($addStation);
+    $run = $databaseConnection -> prepare($selectStation);
 
-    $run->bindValue(':zip', $zipcode);
-    $run->bindValue(':city', $city);
-    $run->bindValue(':publicplacename', $publicplacename);
-    $run->bindValue(':publicplacetrait', $publicplacetrait);
-    $run->bindValue(':housenumber', $housenumber);
-    $run->bindValue(':buildingletter', $buildingletter);
-    $run->bindValue(':coordW', $coordW);
-    $run->bindValue(':coordH', $coordH);
-
+    $run->bindValue(':getid', $getID);
+        
     $resultSet = $run->execute();
 
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deleteStation = "DELETE 
+                              FROM allomas
+                              WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deleteStation);
+
+            $run->bindValue(':getid', $getID);
+    
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/station.php");
+        }
     }
 }

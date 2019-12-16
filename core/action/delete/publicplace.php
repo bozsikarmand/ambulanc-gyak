@@ -9,19 +9,38 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-public-place'])) {
-    $trait = $_POST['inputTrait'];
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
+
+if (isset($getID)) {
+    $selectPublicPlace = "SELECT 
+                          Jelleg
+                          FROM kozterulet
+                          WHERE ID = :getid";
+
+    $run = $databaseConnection -> prepare($selectPublicPlace);
+
+    $run->bindValue(':getid', $getID);
+        
+    $resultSet = $run->execute();
+
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deletePublicPlace = "DELETE 
+                                  FROM kozterulet
+                                  WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deletePublicPlace);
+
+            $run->bindValue(':getid', $getID);
     
-    $addPublicPlace = "INSERT INTO kozterulet(Jelleg)
-                       VALUES (:trait)";
-
-    $run = $databaseConnection -> prepare($addPublicPlace);
-
-    $run->bindValue(':trait', $trait);
-
-    $resultset = $run->execute();
-
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/publicplace.php");
+        }
     }
 }

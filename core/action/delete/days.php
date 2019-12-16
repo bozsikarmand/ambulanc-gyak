@@ -9,18 +9,38 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-day'])) {
-    $day = $_POST['inputDay'];
-    $addDays = "INSERT INTO napok(Nap)
-                VALUES (:dayz)";
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
 
-    $run = $databaseConnection -> prepare($addDays);
+if (isset($getID)) {
+    $selectDay = "SELECT 
+                  Nap
+                  FROM napok
+                  WHERE ID = :getid";
 
-    $run->bindValue(':dayz', $day);
+    $run = $databaseConnection -> prepare($selectDay);
 
+    $run->bindValue(':getid', $getID);
+        
     $resultSet = $run->execute();
 
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deleteDay = "DELETE 
+                          FROM napok
+                          WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deleteDay);
+
+            $run->bindValue(':getid', $getID);
+    
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/days.php");
+        }
     }
 }

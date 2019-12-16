@@ -9,17 +9,39 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-transport'])) {
-    $stage = $_POST['inputStage'];
-    $stat = $_POST['inputStat'];
+$getID = $_GET['id'];
+$getConfirm = $_GET['confirm'];
 
-    $addTransport = "INSERT INTO szallitas(Szakasz, Allapot)
-                     VALUES(:stage, :stat)";
+if (isset($getID)) {
+    $selectTransport = "SELECT 
+                        Szakasz,
+                        Allapot
+                        FROM szallitas
+                        WHERE ID = :getid";
+
+    $run = $databaseConnection -> prepare($selectStation);
+
+    $run->bindValue(':getid', $getID);
+        
+    $resultSet = $run->execute();
+
+    if (isset($getConfirm)) {
+        if ($resultSet && $getConfirm == 'yes') {
+            $deleteStation = "DELETE 
+                              FROM szallitas
+                              WHERE ID=:getid";
+            
+            $run = $databaseConnection -> prepare($deleteStation);
+
+            $run->bindValue(':getid', $getID);
     
-    $run = $databaseConnection -> prepare($addTransport);
-    $resultset = $run->execute();
-
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+            $resultSet = $run->execute();
+    
+            if ($resultSet) {
+                header("Location: /protected/dashboard/admin.php");
+            }
+        } else if ($resultSet && $getConfirm == 'no') {
+            header("Location: /protected/dashboard/functions/admin/list/transport.php");
+        }
     }
 }
