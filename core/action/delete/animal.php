@@ -12,10 +12,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 $getID = $_GET['id'];
 $getConfirm = $_GET['confirm'];
 
-echo $getID;
-echo $getConfirm;
-
-/*if (isset($getID)) {
+if (isset($getID)) {
     $selectAnimal = "SELECT 
                     Faj, 
                     HordozoSz, 
@@ -47,7 +44,7 @@ echo $getConfirm;
                 header("Location: /protected/dashboard/admin.php");
             }
         } else if ($resultSet && $getConfirm == 'no') {
-            header("Location: /protected/dashboard/admin/delete/animal.php");
+            header("Location: /protected/dashboard/functions/admin/list/animal.php");
         }
     }
-}*/
+}
