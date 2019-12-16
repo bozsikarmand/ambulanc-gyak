@@ -102,17 +102,15 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/delete/transport.php" method="post">
             <p>Szeretnéd törölni a megadott azonositójú szállitást?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-transport" type="submit">
+                <a href="/core/action/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-transport" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-transport">
+                <a href="/core/action/delete/transport.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-transport">
                     Nem
                 </a>
             </div>
-        </form>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

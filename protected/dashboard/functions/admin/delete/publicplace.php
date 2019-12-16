@@ -104,10 +104,10 @@ if ($currentRole == $USER) {
     <div class="container-fullwidth" style="margin-top:100px">
             <p>Szeretnéd törölni a megadott azonositójú közterület tipust?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/publicplace.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-publicplace" type="submit">
+                <a href="/core/action/delete/publicplace.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-publicplace" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/publicplace.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-publicplace">
+                <a href="/core/action/delete/publicplace.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-publicplace">
                     Nem
                 </a>
             </div>

@@ -104,10 +104,10 @@ if ($currentRole == $USER) {
     <div class="container-fullwidth" style="margin-top:100px">
             <p>Szeretnéd törölni a megadott azonositójú utat?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/path.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-path" type="submit">
+                <a href="/core/action/delete/path.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-path" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/path.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-path">
+                <a href="/core/action/delete/path.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-path">
                     Nem
                 </a>
             </div>

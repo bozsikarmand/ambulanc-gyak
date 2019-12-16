@@ -104,10 +104,10 @@ if ($currentRole == $USER) {
     <div class="container-fullwidth" style="margin-top:100px">
             <p>Szeretnéd törölni a megadott azonositójú jogot?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/permission.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-permission" type="submit">
+                <a href="/core/action/delete/permission.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-permission" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/permission.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-permission">
+                <a href="/core/action/delete/permission.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-permission">
                     Nem
                 </a>
             </div>

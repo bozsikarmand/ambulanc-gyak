@@ -104,10 +104,10 @@ if ($currentRole == $USER) {
     <div class="container-fullwidth" style="margin-top:100px">
             <p>Szeretnéd törölni a megadott azonositójú állomást?</p>
             <div class="form-label-group">
-                <a href="/protected/dashboard/functions/admin/delete/station.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-station" type="submit">
+                <a href="/core/action/delete/station.php?id=<? echo $row['ID'] ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-station" type="submit">
                     Igen
                 </a>
-                <a href="/protected/dashboard/functions/admin/delete/station.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-station">
+                <a href="/core/action/delete/station.php?id=<? echo $row['ID'] ?>&confirm=no" class="btn btn-lg btn-secondary btn-block" name="button-back-station">
                     Nem
                 </a>
             </div>
