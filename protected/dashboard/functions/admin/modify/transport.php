@@ -22,7 +22,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Közterületi megnevezések hozzáadása</title>
+    <title>Szállitások hozzáadása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -104,14 +104,18 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/update/publicplace.php" method="post">
-            <p>Fajta:</p>
+        <form action="/core/action/modify/transport.php" method="post">
+            <p>Szakasz:</p>
             <div class="form-label-group">
-                <input id="inputTrait" name="inputTrait" type="text" />
+                <input id="inputStage" name="inputStage" type="number" value="1" min="1" max="10" step="1" />
+            </div>
+            <p>Állapot:</p>
+            <div class="form-label-group">
+                <input id="inputStat" name="inputStat" type="text" />
             </div>
 
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-public-place" type="submit">
-                Hozzáadás
+            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-transport" type="submit">
+                Módositás
             </button>
         </form>
     </div>

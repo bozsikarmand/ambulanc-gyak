@@ -104,14 +104,14 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/update/days.php" method="post">
+        <form action="/core/action/modify/days.php" method="post">
             <p>Nap:</p>
             <div class="form-label-group">
                 <input id="inputDay" name="inputDay" type="text" />
             </div>
 
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-animal" type="submit">
-                Hozzáadás
+            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-days" type="submit">
+                Módositás
             </button>
         </form>
     </div>

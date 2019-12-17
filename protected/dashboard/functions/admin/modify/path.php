@@ -22,7 +22,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Jogok hozzáadása</title>
+    <title>Utak hozzáadása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -104,14 +104,35 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/update/permission.php" method="post">
-            <p>Jog megnevezése:</p>
+        <form action="/core/action/modify/path.php" method="post">
+            <p>Indulás:</p>
             <div class="form-label-group">
-                <input id="inputName" name="inputName" type="text" />
+                <input id="inputStartPoint" name="inputStartPoint" type="text" />
             </div>
-            
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-permission" type="submit">
-                Hozzáadás
+            <p>Érkezés:</p>
+            <div class="form-label-group">
+                <input id="inputEndPoint" name="inputEndPoint" type="text" />
+            </div>
+            <p>Sürgős:</p>
+            <div class="form-label-group">
+                <input type="hidden" name="inputImportant" value="0" />
+                <input id="inputImportant" name="inputImportant" type="checkbox" value="1"  />
+            </div>
+            <p>Állapot:</p>
+            <div class="form-label-group">
+                <input id="inputStat" name="inputStat" type="text" />
+            </div>
+            <p>Átadó személy:</p>
+            <div class="form-label-group">
+                <input id="inputGivePerson" name="inputGivePerson" type="checkbox" value="1" />
+            </div>
+            <p>Átvevő személy:</p>
+            <div class="form-label-group">
+                <input id="inputTakePerson" name="inputTakePerson" type="text" />
+            </div>
+
+            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-path" type="submit">
+                Módositás
             </button>
         </form>
     </div>

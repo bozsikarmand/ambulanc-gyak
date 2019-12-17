@@ -3,7 +3,6 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -22,7 +21,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Utak hozzáadása</title>
+    <title>Állatok hozzáadása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -104,35 +103,38 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/update/path.php" method="post">
-            <p>Indulás:</p>
+        <form action="/core/action/modify/animal.php" method="post">
+            <p>Fajta:</p>
             <div class="form-label-group">
-                <input id="inputStartPoint" name="inputStartPoint" type="text" />
+                <input id="inputSpecies" name="inputSpecies" type="text" />
             </div>
-            <p>Érkezés:</p>
+            <p>Hordozó szélessége:</p>
             <div class="form-label-group">
-                <input id="inputEndPoint" name="inputEndPoint" type="text" />
+                <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Sürgős:</p>
+            <p>Hordozó magassága:</p>
             <div class="form-label-group">
-                <input type="hidden" name="inputImportant" value="0" />
-                <input id="inputImportant" name="inputImportant" type="checkbox" value="1"  />
+                <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Állapot:</p>
+            <p>Hordozó hosszúsága:</p>
             <div class="form-label-group">
-                <input id="inputStat" name="inputStat" type="text" />
+                <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
             </div>
-            <p>Átadó személy:</p>
+            <p>Veszélyes:</p>
             <div class="form-label-group">
-                <input id="inputGivePerson" name="inputGivePerson" type="checkbox" value="1" />
+                <input type="hidden" name="inputDangerous" value="0" />
+                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
             </div>
-            <p>Átvevő személy:</p>
+            <p>Súlyos:</p>
             <div class="form-label-group">
-                <input id="inputTakePerson" name="inputTakePerson" type="text" />
+                <input type="hidden" name="inputSerious" value="0" />
+                <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
             </div>
+            <p>Egyedek száma:</p>   
+            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
 
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-path" type="submit">
-                Hozzáadás
+            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-animal" type="submit">
+                Módositás
             </button>
         </form>
     </div>

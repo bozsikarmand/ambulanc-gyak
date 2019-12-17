@@ -8,11 +8,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
-
 $loginEmail = $_SESSION['email'];
-
-$listPublicPlaceTrait = populateSelect($databaseConnection); 
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
@@ -26,7 +22,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Állomások hozzáadása</title>
+    <title>Közterületi megnevezések hozzáadása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -108,57 +104,14 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/update/station.php" method="post">
-            <p>IRSZ:</p>
+        <form action="/core/action/modify/publicplace.php" method="post">
+            <p>Fajta:</p>
             <div class="form-label-group">
-                <input id="inputZIPCode" name="inputZIPCode" type="number" value="1" min="1" max="9999" step="1" />
+                <input id="inputTrait" name="inputTrait" type="text" />
             </div>
-            <p>Város:</p>
-            <div class="form-label-group">
-                <input id="inputCity" name="inputCity" type="text" />
-            </div>
-            <p>Közterület neve:</p>
-            <div class="form-label-group">
-                <input id="inputPublicPlaceName" name="inputPublicPlaceName" type="text" />
-            </div>
-            <p>Közterület jellege:</p>
-            <div class="form-label-group">
-                <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
 
-                    <?php
-
-                        foreach ($listPublicPlaceTrait as $trait) { ?>
-
-                            <option data-tokens="<?php 
-                                                    echo $trait['trait']; 
-                                                ?>">
-                                                    <?php 
-                                                        echo $trait['trait'];
-                                                    ?>
-                            </option>
-
-                        <?php } ?>
-
-                </select>
-            </div>
-            <p>Hazszam:</p>
-            <div class="form-label-group">
-                <input id="inputHouseNumber" name="inputHouseNumber" type="number" value="1" min="1" max="999" step="1" />
-            </div>
-            <p>Epulet betujele:</p>
-            <div class="form-label-group">
-                <input id="inputBuildingLetter" name="inputBuildingLetter" type="text" />
-            </div>
-            <p>Szelessegi koordinata:</p>   
-            <div class="form-label-group">
-                <input id="inputCoordW" name="inputCoordW" type="number" value="46.232941" data-decimals="6" min="-90" max="90" step="0.000001" />
-            </div>
-            <p>Hosszusagi koordinata:</p>   
-            <div class="form-label-group">
-                <input id="inputCoordH" name="inputCoordH" type="number" value="20.000386" data-decimals="6" min="-180" max="180" step="0.000001" />
-            </div>
-            <button class="btn btn-lg btn-secondary btn-block" name="button-add-station" type="submit">
-                Hozzaadas
+            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-public-place" type="submit">
+                Módositás
             </button>
         </form>
     </div>

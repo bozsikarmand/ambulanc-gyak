@@ -141,24 +141,24 @@ if ($currentRole == $USER) {
 
                 </select>
             </div>
-            <p>Hazszam:</p>
+            <p>Házszám:</p>
             <div class="form-label-group">
                 <input id="inputHouseNumber" name="inputHouseNumber" type="number" value="1" min="1" max="999" step="1" />
             </div>
-            <p>Epulet betujele:</p>
+            <p>Épület betüjele:</p>
             <div class="form-label-group">
                 <input id="inputBuildingLetter" name="inputBuildingLetter" type="text" />
             </div>
-            <p>Szelessegi koordinata:</p>   
+            <p>Szélességi koordináta:</p>   
             <div class="form-label-group">
                 <input id="inputCoordW" name="inputCoordW" type="number" value="46.232941" data-decimals="6" min="-90" max="90" step="0.000001" />
             </div>
-            <p>Hosszusagi koordinata:</p>   
+            <p>Hosszúsági koordináta:</p>   
             <div class="form-label-group">
                 <input id="inputCoordH" name="inputCoordH" type="number" value="20.000386" data-decimals="6" min="-180" max="180" step="0.000001" />
             </div>
             <button class="btn btn-lg btn-secondary btn-block" name="button-add-station" type="submit">
-                Hozzaadas
+                Hozzáadás
             </button>
         </form>
     </div>
