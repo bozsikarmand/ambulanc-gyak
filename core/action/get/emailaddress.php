@@ -12,7 +12,7 @@ function getAdminEmailAddress($databaseConnection)
                           AND szemely.ID = szemelyjog.SzemelyID
                           AND szemelyjog.JogID = :adminpermission";
 
-    $run = $databaseConnection -> prepare($listAnimals);
+    $run = $databaseConnection -> prepare($adminEmailAddress);
     $run->bindValue(':adminpermission', $adminPermission);
     $run->execute();
     $adminemaillist = $run->fetchAll();
