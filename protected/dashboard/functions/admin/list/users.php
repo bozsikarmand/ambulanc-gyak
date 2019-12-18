@@ -110,6 +110,9 @@ $users = listUser($databaseConnection);
                 <th scope="row"><?php echo $row['id']; ?></th>
                 <td><?php echo $row['fullname']; ?></td>
                 <td>
+                    <a href="/protected/dashboard/functions/admin/view/user.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Megtekintés
+                    </a>
                     <a href="/protected/dashboard/functions/admin/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
                         <i class="fas fa-edit"></i> Módositás
                     </a>

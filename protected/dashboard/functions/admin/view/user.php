@@ -3,20 +3,14 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/animal.php");
-
-$loginEmail = $_SESSION['email'];
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
-
-$animals = listAnimal($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +18,12 @@ $animals = listAnimal($databaseConnection);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Állatok hozzáadása</title>
+    <title>Felhasználók listája</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
-    <link rel="stylesheet" href="/assets/css/gijgo.min.css">
-    <script src="/assets/js/jquery-3.4.1.min.js"></script>
-    <script src="/assets/js/gijgo.min.js"></script>
-    <script src="/assets/js/bootstrap-input-spinner.js"></script>
-    <script>
-        $("input[type='number']").inputSpinner();
-    </script>
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/addons/datatables.min.css">
 </head>
 <body>
 <div class="container-fullwidth">
@@ -106,36 +93,38 @@ $animals = listAnimal($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-            <p>Fajta:</p>
-            <div class="form-label-group">
-                <input id="inputSpecies" value="<? echo $row['Faj']; ?>" name="inputSpecies" type="text" />
-            </div>
-            <p>Hordozó szélessége:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" value="<?php echo $row['HordozoSz']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozó magassága:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" value="<?php echo $row['HordozoM']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozó hosszúsága:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" value="<?php echo $row['HordozoH']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Veszélyes:</p>
-            <div class="form-label-group">
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" />
-            </div>
-            <p>Súlyos:</p>
-            <div class="form-label-group">
-                <input id="inputSerious" name="inputSerious" type="checkbox" value="<?php echo $row['Sulyos']; ?>" />
-            </div>
-            <p>Egyedek száma:</p>   
-            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="<?php echo $row['EgyedSzam']; ?>" min="1" max="10" step="1"/>
+    <div class="table-responsive">
+    <table class="table" data-toggle="table" id="datatable">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Név</th>
+                <th scope="col">Művelet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($userprofile as $row) { ?>
+            <tr>
 
-            <a href="" class="btn btn-lg btn-secondary btn-block" name="button-modify-animal" type="submit">
-                Módositás
-            </a>
+                <th scope="row"><?php echo $row['id']; ?></th>
+                <td><?php echo $row['fullname']; ?></td>
+                <td>
+                    <a href="/protected/dashboard/functions/admin/view/user.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Megtekintés
+                    </a>
+                    <a href="/protected/dashboard/functions/admin/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Módositás
+                    </a>
+                    <a href="/protected/dashboard/functions/admin/delete/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Törlés
+                    </a>
+                </td>
+
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
@@ -186,9 +175,12 @@ $animals = listAnimal($databaseConnection);
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/mdb.min.js"></script>
+<script src="/assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#datatable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 </body>
 </html>
-
-
-
-

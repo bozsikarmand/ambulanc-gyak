@@ -1,13 +1,11 @@
 <?php 
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/list/profiledata.php");
 
-$key = $_SESSION["key"];
+$sessionKey = $_SESSION["key"];
 
-$listProfileData = queryUserData($key, $databaseConnection);
-$listPublicPlaceTrait = populateSelect($databaseConnection); 
+$listProfileData = listProfileData($databaseConnection, $sessionKey);
 
 ?>
 
@@ -16,147 +14,217 @@ $listPublicPlaceTrait = populateSelect($databaseConnection);
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Adataid megtekintése</title>
+    <title>Felhasználók listája</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/floating-labels.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="/assets/css/fileinput.min.css">
-    <link rel="stylesheet" href="/assets/css/profiledata.css">
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+    <link rel="stylesheet" href="/assets/css/addons/datatables.min.css">
 </head>
 <body>
-<form class="form-signin" action="/core/userprofile/modify/profiledata.php" method="post">
-    <?php 
+<div class="container-fullwidth">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/protected/dashboard/admin.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-tachometer-alt"></i> Vezérlőpult
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Felhasználók
+                        <i class="fas fa-users"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="adminapproval.php" class="dropdown-item">
+                            <i class="fas fa-user-check"></i> Elfogadásra váró felhasználók
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="users.php" class="dropdown-item">
+                            <i class="fas fa-users"></i> Felhasználók
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="animal.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-dove"></i> Állatok
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="station.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-building"></i> Állomások
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="transport.php" class="list-group-item list-group-item-action bg-dark text-light">
+                        <i class="fas fa-shuttle-van"></i> Szállitások
+                    </a>
+                </li>
+            </ul>
+            <div class="navbar-nav ml-auto">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-info">
+                        <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
+                        <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
+                    </button>
+                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Menu lenyitása</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">Valami</a>
+                      <a class="dropdown-item" href="#">Még valami</a>
+                      <a class="dropdown-item" href="#">Meg még valami</a>
+                      <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/core/authentication/logout.php">
+                            <i class="fas fa-sign-out-alt"></i> Kijelentkezés
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    $lemail, $pemail, $username, $lastname, $firstname, $middlename, $landlinetel, $mobiletel, $
-    foreach ($listProfileData as $row) {
-        $lemail = $row['BelepesiEmail'];
-        $pemail = $row['PublikusEmail'];
-        $username = $row['Felhasznalonev'];
-        $lastname = $row['Vezeteknev'];
-        $firstname = $row['Keresztnev'];
-        $middlename = $row['Utonev'];
-        $landlinetel = $listProfileData['VezetekesTel'];
-        $mobiletel = $listProfileData['MobilTel'];
-        $zipcode = $listProfileData['IRSZ'];
-        $city = $listProfileData['Varos'];
-        $publicplacename = $listProfileData['KozteruletNeve'];
-        $housenumber = $listProfileData['Hazszam'];    
-        $building = $listProfileData['Epulet'];
-    }
-
-    ?>
-    <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Itt megtekintheted adataid!</h1>
+    <div class="container-fullwidth" style="margin-top:100px">
+        <div class="table-responsive">
+        <table class="table" data-toggle="table" id="datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Jellemző</th>
+                    <th scope="col">Adat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($listProfileData as $row) { ?>
+                <tr>
+                    <td>Vezetéknév</td>
+                    <td>
+                        <?php echo $row['Vezeteknev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Keresztnév</td>
+                    <td>                    
+                        <?php echo $row['Keresztnev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Utónév</td>
+                    <td>
+                        <?php echo $row['Utonev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vezetékes telefonszám</td>
+                    <td>
+                        <?php echo $row['VezetekesTel']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobil telefonszám</td>
+                    <td>
+                        <?php echo $row['MobilTel']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Irányitószám</td>
+                    <td>
+                        <?php echo $row['IRSZ']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Város</td>
+                    <td>
+                        <?php echo $row['Varos']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Közterület neve</td>
+                    <td>
+                        <?php echo $row['KozteruletNeve']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Közterület jellege</td>
+                    <td>
+                        <?php echo $row['KozteruletJellege']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Házszám</td>
+                    <td>
+                        <?php echo $row['Hazszam']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Épület</td>
+                    <td>
+                        <?php echo $row['Epulet']; ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        </div>
     </div>
 
-    <div class="form-label-group">
-        <input type="text" value="<?php echo $lemail; ?>" id="inputLoginEmail" name="inputLoginEmail" class="form-control" placeholder="Belépési email cim" required>
-        <label for="inputLoginEmail">Belépési email cim</label>
-    </div>
+    <footer class="page-footer font-small blue pt-4 bg-dark text-light">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase"></h5>
+                    <p></p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5 class="text-uppercase">Linkek</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-label-group">
-        <input type="text" value="<?php echo $pemail; ?>" id="inputPublicEmail" name="inputPublicEmail" class="form-control" placeholder="Publikus email cim" required>
-        <label for="inputPublicEmail">Publikus email cim</label>
-    </div>
-
-    <div class="form-label-group">
-        <input type="text" value="<?php echo $username; ?>" id="inputUsername" name="inputUsername" class="form-control" placeholder="Felhasználónév" required>
-        <label for="inputUsername">Felhasználónév</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $lastname; ?>" type="text" id="inputLastName" name="inputLastName" class="form-control" placeholder="Vezetéknév" required>
-        <label for="inputLastName">Vezetéknév</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $firstname; ?>" type="text" id="inputFirstName" name="inputFirstName" class="form-control" placeholder="Keresztnév" required>
-        <label for="inputFirstName">Keresztnév</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $middlename; ?>" type="text" id="inputMiddleName" name="inputMiddleName" class="form-control" placeholder="Utónév" required>
-        <label for="inputMiddleName">Utónév</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $landlinetel; ?>" type="tel" id="inputLandlineTel" name="inputLandlineTel" class="form-control" placeholder="Vezetékes telefonszám" required>
-        <label for="inputLandlineTel">Vezetékes telefonszám</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $mobiletel; ?>" type="tel" id="inputMobileTel" name="inputMobileTel" class="form-control" placeholder="Mobil telefonszám" required>
-        <label for="inputMobileTel">Mobil telefonszám</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $zipcode; ?>" type="number" id="inputZIPCode" name="inputZIPCode" class="form-control" placeholder="Irányitószám" required>
-        <label for="inputZIPCode">Irányitószám</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $city; ?>" type="text" id="inputCity" name="inputCity" class="form-control" placeholder="Város" required>
-        <label for="inputCity">Város</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $publicplacename; ?>" type="text" id="inputPublicPlaceName" name="inputPublicPlaceName" class="form-control" placeholder="Közterület neve" required>
-        <label for="inputPublicPlaceName">Közterület neve</label>
-    </div>
-
-    <div class="form-label-group">
-        <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
-        
-        <?php
-
-                foreach ($listPublicPlaceTrait as $trait) { ?>
-
-                    <option data-tokens="<?php 
-                                            echo $trait['trait']; 
-                                         ?>">
-                                            <?php 
-                                                echo $trait['trait'];
-                                            ?>
-                    </option>
-
-        <?php } ?>
-        
-        </select>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $housenumber; ?>" type="number" id="inputHouseNumber" name="inputHouseNumber" class="form-control" placeholder="Házszám" required>
-        <label for="inputHouseNumber">Házszám</label>
-    </div>
-
-    <div class="form-label-group">
-        <input value="<?php echo $building; ?>" type="text" id="inputBuildingLetter" name="inputBuildingLetter" class="form-control" placeholder="Épület betűjele" required>
-        <label for="inputBuildingLetter">Épület betűjele</label>
-    </div>
-
-    <button class="btn btn-lg btn-secondary btn-block" name="button-add-user-info" type="submit">
-        <i class="fas fa-times-circle"></i> Mégsem
-    </button>
-    <button class="btn btn-lg btn-primary btn-block" name="button-add-user-info" type="submit">
-        <i class="fas fa-check-circle"></i> Mentés
-    </button>
-    <div>
-        <p class="mt-5 mb-3 text-muted text-center">&copy; 2019 Ambulánc</p>
-    </div>
-</form>
-
-<div id="kv-avatar-errors" class="center-block" style="width:800px;display:none"></div>
-
+        <div class="footer-copyright text-center py-3">© 2019 Ambulánc
+            <a href="#"></a>
+        </div>
+    </footer>
+</div>
 <script src="/assets/js/jquery-3.4.1.min.js"></script>
 <script src="/assets/js/popper.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/bootstrap-select.min.js"></script>
-<script src="/assets/js/defaults-hu_HU.min.js"></script>
-<script src="/assets/js/piexif.min.js"></script>
-<script src="/assets/js/purify.min.js"></script>
-<script src="/assets/js/fileinput.min.js"></script>
-<script src="/assets/js/theme.min.js"></script>
-<script src="/assets/js/hu.js"></script>
+<script src="/assets/js/mdb.min.js"></script>
+<script src="/assets/js/addons/datatables.min.js"></script>
+<script>
+$(document).ready(function () {
+$('#datatable').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>
 </body>
 </html>
