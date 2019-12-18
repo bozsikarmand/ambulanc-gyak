@@ -6,13 +6,13 @@ $getID = $_GET['id'];
 
 if (!empty($getID)) {
     $oldStatus = 5;
-    $newStatus = 0;
+    $newStatus = -1;
     $rejectUser = "UPDATE szemely
                    SET statusz = :newStatus
                    WHERE statusz = :oldStatus 
                    AND ID = :getID";
 
-    $run = $databaseConnection -> prepare($approveUser);
+    $run = $databaseConnection -> prepare($rejectUser);
 
     $run->bindValue(':newStatus', $newStatus);
     $run->bindValue(':oldStatus', $oldStatus);
