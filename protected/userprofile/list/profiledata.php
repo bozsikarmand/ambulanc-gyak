@@ -93,8 +93,7 @@ $listProfileData = listProfileData($databaseConnection, $sessionKey);
         <table class="table" data-toggle="table" id="datatable">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Jellemző</th>
-                    <th scope="col">Adat</th>
+                    <th colspan="2">Adataim</th>
                 </tr>
             </thead>
             <tbody>
