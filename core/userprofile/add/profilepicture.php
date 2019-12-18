@@ -92,6 +92,8 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 
 				if ($sentMail) {
 					header('Location: /core/default/frontend/adminapproval.php');
+				} else {
+					echo "Hiba!";
 				}
 			}
 		}
