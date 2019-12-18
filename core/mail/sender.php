@@ -58,7 +58,7 @@ function sendEmail($loginEmail, $subject, $body)
     }
 }
 
-function sendEmailAfterDataProvided($subject, $body)
+function sendEmailAfterDataProvided($adminEmail, $subject, $body)
 {
   $EMAIL_HOST = "ambulanc.bozsikarmand.hu";
   $EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
