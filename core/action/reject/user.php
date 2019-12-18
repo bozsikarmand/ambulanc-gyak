@@ -6,7 +6,7 @@ $getID = $_GET['id'];
 
 if (!empty($getID)) {
     $oldStatus = 5;
-    $newStatus = -1;
+    $newStatus = 0;
     $rejectUser = "UPDATE szemely
                    SET statusz = :newStatus
                    WHERE statusz = :oldStatus 
