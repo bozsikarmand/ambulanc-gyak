@@ -1,11 +1,11 @@
 <?php 
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/profiledata.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/view/profiledata.php");
 
 $sessionKey = $_SESSION["key"];
 
-$listProfileData = listProfileData($databaseConnection, $sessionKey);
+$viewProfileDataForUser = viewProfileDataForUser($databaseConnection, $sessionKey);
 
 ?>
 
@@ -97,7 +97,7 @@ $listProfileData = listProfileData($databaseConnection, $sessionKey);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($listProfileData as $row) { ?>
+                <?php foreach ($viewProfileDataForUser as $row) { ?>
                 <tr>
                     <td>Vezetéknév</td>
                     <td>

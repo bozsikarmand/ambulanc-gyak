@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/profiledata.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/view/profiledata.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -14,7 +14,7 @@ if ($currentRole == $USER) {
 
 $getID = $_GET['id'];
 
-$listProfileDataForAdmin = listProfileDataForAdmin($databaseConnection, $getID);
+$viewProfileDataForAdmin = viewProfileDataForAdmin($databaseConnection, $getID);
 ?>
 
 <!DOCTYPE html>
@@ -101,11 +101,11 @@ $listProfileDataForAdmin = listProfileDataForAdmin($databaseConnection, $getID);
         <table class="table" data-toggle="table" id="datatable">
             <thead class="thead-dark">
                 <tr>
-                    <th colspan="2">Adataim</th>
+                    <th colspan="2">Felhasználó adatai</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($listProfileDataForAdmin as $row) { ?>
+                <?php foreach ($viewProfileDataForAdmin as $row) { ?>
                 <tr>
                     <td>Vezetéknév</td>
                     <td>

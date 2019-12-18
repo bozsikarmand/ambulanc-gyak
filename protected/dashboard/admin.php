@@ -83,7 +83,7 @@ if ($currentRole == $USER) {
                         <span class="sr-only">Menu lenyitása</span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item" href="/protected/userprofile/list/profiledata.php">Adataim</a>
+                      <a class="dropdown-item" href="/protected/userprofile/view/profiledata.php">Adataim</a>
                       <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/core/authentication/logout.php">
                             <i class="fas fa-sign-out-alt"></i> Kijelentkezés
