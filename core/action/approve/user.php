@@ -1,5 +1,7 @@
 <?php
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+
 $getID = $_GET['id'];
 
 if (!empty($getID)) {
