@@ -1,3 +1,25 @@
 <?php
 
-if ()
+$getID = $_GET['id'];
+
+if (!empty($getID)) {
+    $oldStatus = 5;
+    $newStatus = 6;
+    $approveUser = "UPDATE szemely
+                    SET statusz = :newStatus
+                    WHERE statusz = :oldStatus 
+                    AND ID = :getID";
+
+    $run = $databaseConnection -> prepare($approveUser);
+
+    $run->bindValue(':newStatus', $newStatus);
+    $run->bindValue(':oldStatus', $oldStatus);
+    $run->bindValue(':getID', $getID);
+
+    $resultSet = $run->execute();
+
+    if ($resultSet) {
+        header("Location: /protected/dashboard/admin.php");
+    }
+}
+
