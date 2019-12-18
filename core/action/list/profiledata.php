@@ -20,7 +20,7 @@ function listProfileData($databaseConnection, $sessionKey)
                         szemely.Epulet  
                         FROM szemely, szemelymunkamenet, munkamenet
                         WHERE szemely.ID = szemelymunkamenet.SzemelyID 
-                        AND szemelymunkamenet.ID = munkamenet.ID 
+                        AND szemelymunkamenet.MunkamenetID = munkamenet.ID 
                         AND munkamenet.MunkamenetKulcs=:sessionKey";
 
     $run = $databaseConnection -> prepare($listProfileData);
