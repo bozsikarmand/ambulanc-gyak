@@ -220,11 +220,5 @@ $listProfileData = listProfileData($databaseConnection, $sessionKey);
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/mdb.min.js"></script>
 <script src="/assets/js/addons/datatables.min.js"></script>
-<script>
-$(document).ready(function () {
-$('#datatable').DataTable();
-$('.dataTables_length').addClass('bs-select');
-});
-</script>
 </body>
 </html>
