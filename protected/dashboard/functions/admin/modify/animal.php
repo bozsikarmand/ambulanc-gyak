@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/animal.php");
 
 $loginEmail = $_SESSION['email'];
 
@@ -14,6 +15,8 @@ $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
+
+$animals = listAnimal($databaseConnection);
 ?>
 
 <!DOCTYPE html>
@@ -106,32 +109,30 @@ if ($currentRole == $USER) {
         <form action="/core/action/modify/animal.php" method="post">
             <p>Fajta:</p>
             <div class="form-label-group">
-                <input id="inputSpecies" name="inputSpecies" type="text" />
+                <input id="inputSpecies" value="<? echo $row['Faj']; ?>" name="inputSpecies" type="text" />
             </div>
             <p>Hordozó szélessége:</p>
             <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" value="1" min="1" max="200" step="1" />
+                <input id="inputCarrierW" name="inputCarrierW" type="number" value="<?php echo $row['HordozoSz']; ?>" min="1" max="200" step="1" />
             </div>
             <p>Hordozó magassága:</p>
             <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" value="1" min="1" max="200" step="1" />
+                <input id="inputCarrierH" name="inputCarrierH" type="number" value="<?php echo $row['HordozoM']; ?>" min="1" max="200" step="1" />
             </div>
             <p>Hordozó hosszúsága:</p>
             <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" value="1" min="1" max="200" step="1" />
+                <input id="inputCarrierD" name="inputCarrierD" type="number" value="<?php echo $row['HordozoH']; ?>" min="1" max="200" step="1" />
             </div>
             <p>Veszélyes:</p>
             <div class="form-label-group">
-                <input type="hidden" name="inputDangerous" value="0" />
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
+                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" />
             </div>
             <p>Súlyos:</p>
             <div class="form-label-group">
-                <input type="hidden" name="inputSerious" value="0" />
-                <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
+                <input id="inputSerious" name="inputSerious" type="checkbox" value="<?php echo $row['Sulyos']; ?>" />
             </div>
             <p>Egyedek száma:</p>   
-            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="1" min="1" max="10" step="1"/>
+            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="<?php echo $row['EgyedSzam']; ?>" min="1" max="10" step="1"/>
 
             <button class="btn btn-lg btn-secondary btn-block" name="button-modify-animal" type="submit">
                 Módositás

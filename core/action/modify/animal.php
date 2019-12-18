@@ -2,70 +2,49 @@
 
 session_start();
 
+error_reporting(E_ALL);
+ini_set("display_errors", "1"); 
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
+
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/animal.php");
 
-if (isset($_POST['button-modify-animal'])) {
-    $id = $_GET['id'];
+$getID = $_GET['id'];
 
-    $animallist = listAnimal($databaseConnection);
-    
-    $oldSpecies = $animallist['Faj'];
-    $oldCarrierW = $animallist['HordozoSz'];
-    $oldCarrierH = $animallist['HordozoM'];
-    $oldCarrierD = $animallist['HordozoH'];
-    $oldDangerous = $animallist['Veszelyes'];
-    $oldSerious = $animallist['Sulyos'];
-    $oldIndividualNum = $animallist['EgyedSzam'];
+if (isset($getID)) {
+    if (isset($_POST['button-modify-animal'])) {
+        $species = $_POST['inputSpecies'];
+        $carrierW = $_POST['inputCarrierW'];
+        $carrierH = $_POST['inputCarrierH'];
+        $carrierD = $_POST['inputCarrierD'];
+        $dangerous = $_POST['inputDangerous'];
+        $serious = $_POST['inputSerious'];
+        $individualNum = $_POST['inputNumOfIndividuals'];
 
-    $species = $_POST['species'];
-    $carrierW = $_POST['carrierW'];
-    $carrierH = $_POST['carrierH'];
-    $carrierD = $_POST['carrierD'];
-    $dangerous = $_POST['dangerous'];
-    $serious = $_POST['serious'];
-    $individualNum = $_POST['individualNum']; 
-    
-    $updateAnimal = "UPDATE allat (Faj, HordozoSz, HordozoM, HordozoH, Veszelyes, Sulyos, EgyedSzam)
-                     SET allat.Faj = :species, 
-                         allat.HordozoSz = :carrierW, 
-                         allat.HordozoM = :carrierH, 
-                         allat.HordozoH = :carrierD, 
-                         allat.Veszelyes = :dangerous, 
-                         allat.Sulyos = :serious, 
-                         allat.EgyedSzam = :individualNum
-                    WHERE allat.Faj IS NULL OR allat.Faj = :oldSpecies AND
-                          allat.HordozoSz IS NULL OR allat.HordozoSz = :oldCarrierW AND
-                          allat.HordozoM IS NULL OR allat.HordozoM = :oldCarrierH AND
-                          allat.HordozoH IS NULL OR allat.HordozoH = :oldCarrierD AND
-                          allat.Veszelyes IS NULL OR allat.Veszelyes = :oldDangerous AND
-                          allat.Sulyos IS NULL OR allat.Sulyos = :oldSerious AND
-                          allat.EgyedSzam IS NULL OR allat.EgyedSzam = :oldIndividualNum AND
-                          allat.ID = :id";
+        $updateAnimal = "UPDATE allat
+                         SET Faj = :species, 
+                             HordozoSz = :carrierW, 
+                             HordozoM = :carrierH, 
+                             HordozoH = :carrierD, 
+                             Veszelyes = :dangerous, 
+                             Sulyos = :serious, 
+                             EgyedSzam = :individualNum
+                        WHERE ID = :getid";
 
-    $run = $databaseConnection -> prepare($updateAnimal);
+        $run = $databaseConnection -> prepare($updateAnimal);
 
-    $run->bindValue(':species', $species);
-    $run->bindValue(':carrierW', $carrierW);
-    $run->bindValue(':carrierH', $carrierH);
-    $run->bindValue(':carrierD', $carrierD);
-    $run->bindValue(':dangerous', $dangerous);
-    $run->bindValue(':serious', $serious);
-    $run->bindValue(':individualNum', $individualNum);
-
-    $run->bindValue(':oldSpecies', $oldSpecies);
-    $run->bindValue(':oldCarrierW', $oldCarrierW);
-    $run->bindValue(':oldCarrierH', $oldCarrierH);
-    $run->bindValue(':oldCarrierD', $oldCarrierD);
-    $run->bindValue(':oldDangerous', $oldDangerous);
-    $run->bindValue(':oldSerious', $oldSerious);
-    $run->bindValue(':oldIndividualNum', $oldIndividualNum);
-
-    $run->bindValue(':id', $id);
-
-    $resultset = $run->execute();
-
-    if ($resultSet) {
-        header("Location: /protected/dashboard/admin.php");
+        $run->bindValue(':species', $species);
+        $run->bindValue(':carrierW', $carrierW);
+        $run->bindValue(':carrierH', $carrierH);
+        $run->bindValue(':carrierD', $carrierD);
+        $run->bindValue(':dangerous', $dangerous);
+        $run->bindValue(':serious', $serious);
+        $run->bindValue(':individualNum', $individualNum);
+            
+        $resultSet = $run->execute();
+        
+        if ($resultSet) {
+            header("Location: /protected/dashboard/admin.php");
+        }
     }
 }
