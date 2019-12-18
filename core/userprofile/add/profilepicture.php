@@ -103,4 +103,4 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 		}
 	}
 }
-ob_end_clean();
+//ob_end_clean();
