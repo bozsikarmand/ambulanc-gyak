@@ -1,8 +1,10 @@
 <?php
 
 session_start();
+ob_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/get/emailaddress.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/bulletproof.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/utils/func.image-resize.php");
 
@@ -53,7 +55,42 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 			$exitcode = $run->execute();
 				
 			if ($exitcode) {
-				header('Location: /core/default/frontend/adminapproval.php');
+				$subject = 'Új felhasználó regisztrált az Ambulánc oldalra!';
+				$body = '<!DOCTYPE html>
+						<html lang="hu">
+
+						<head>
+							<meta charset="UTF-8">
+							<title>Új felhasználó regisztrált az Ambulánc oldalra!</title>
+							<style>
+							.wrapper {
+								padding: 10px;
+								color: #000;
+								font-size: 1.4em;
+							}
+							a {
+								background: #dd3333;
+								text-decoration: none;
+								padding: 8px 10px;
+								color: #fff;
+							}
+							</style>
+						</head>
+
+						<body>
+							<div class="wrapper">
+							<p>Új felhasználó regisztrált az Ambulánc oldalra!</p>
+							<a href="' . getURL() . '/login.php">Bejelntkezés!</a>
+							</div>
+						</body>
+						</html>';
+
+			    $adminEmail = getAdminEmailAddress($databaseConnection);
+				$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
+
+				if ($sentMail) {
+					header('Location: /core/default/frontend/adminapproval.php');
+				}
 			}
 		}
 		else {
@@ -61,3 +98,4 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 		}
 	}
 }
+ob_end_clean();
