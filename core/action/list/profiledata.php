@@ -32,3 +32,30 @@ function listProfileData($databaseConnection, $sessionKey)
 
     return $userlist;
 }
+
+function listProfileDataForAdmin($databaseConnection, $getID)
+{
+    $listProfileData = "SELECT
+                        szemely.Vezeteknev,
+                        szemely.Keresztnev,
+                        szemely.Utonev,
+                        szemely.VezetekesTel, 
+                        szemely.MobilTel, 
+                        szemely.IRSZ,
+                        szemely.Varos,
+                        szemely.KozteruletNeve,
+                        szemely.KozteruletJellege,
+                        szemely.Hazszam,
+                        szemely.Epulet  
+                        FROM szemely
+                        WHERE szemely.ID = :getID";
+
+    $run = $databaseConnection -> prepare($listProfileData);
+
+    $run->bindValue(':getID', $getID);
+
+    $run->execute();
+    $userlist = $run->fetchAll();
+
+    return $userlist;
+}

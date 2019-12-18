@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/profiledata.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
@@ -11,6 +11,10 @@ $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
+
+$getID = $_GET['id'];
+
+$listProfileDataForAdmin = listProfileDataForAdmin($databaseConnection, $getID);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Felhasználók listája</title>
+    <title>Felhasználó adatai</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -93,38 +97,85 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    <div class="table-responsive">
-    <table class="table" data-toggle="table" id="datatable">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Név</th>
-                <th scope="col">Művelet</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($userprofile as $row) { ?>
-            <tr>
-
-                <th scope="row"><?php echo $row['id']; ?></th>
-                <td><?php echo $row['fullname']; ?></td>
-                <td>
-                    <a href="/protected/dashboard/functions/admin/view/user.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">
-                        <i class="fas fa-eye"></i> Megtekintés
-                    </a>
-                    <a href="/protected/dashboard/functions/admin/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
-                    <a href="/protected/dashboard/functions/admin/delete/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i> Törlés
-                    </a>
-                </td>
-
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    </div>
+        <div class="table-responsive">
+        <table class="table" data-toggle="table" id="datatable">
+            <thead class="thead-dark">
+                <tr>
+                    <th colspan="2">Adataim</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($listProfileDataForAdmin as $row) { ?>
+                <tr>
+                    <td>Vezetéknév</td>
+                    <td>
+                        <?php echo $row['Vezeteknev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Keresztnév</td>
+                    <td>                    
+                        <?php echo $row['Keresztnev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Utónév</td>
+                    <td>
+                        <?php echo $row['Utonev']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Vezetékes telefonszám</td>
+                    <td>
+                        <?php echo $row['VezetekesTel']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mobil telefonszám</td>
+                    <td>
+                        <?php echo $row['MobilTel']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Irányitószám</td>
+                    <td>
+                        <?php echo $row['IRSZ']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Város</td>
+                    <td>
+                        <?php echo $row['Varos']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Közterület neve</td>
+                    <td>
+                        <?php echo $row['KozteruletNeve']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Közterület jellege</td>
+                    <td>
+                        <?php echo $row['KozteruletJellege']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Házszám</td>
+                    <td>
+                        <?php echo $row['Hazszam']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Épület</td>
+                    <td>
+                        <?php echo $row['Epulet']; ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
