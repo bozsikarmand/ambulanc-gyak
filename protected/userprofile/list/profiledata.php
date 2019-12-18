@@ -1,7 +1,7 @@
 <?php 
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/list/profiledata.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/profiledata.php");
 
 $sessionKey = $_SESSION["key"];
 
