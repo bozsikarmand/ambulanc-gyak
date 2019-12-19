@@ -92,23 +92,18 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 						</body>
 						</html>';
 
-				$adminEmail = getAdminEmailAddress($databaseConnection);
+				$adminEmailAddress = getAdminEmailAddress($databaseConnection);
 				
-				foreach ($adminEmail as $email) {
+				foreach ($adminEmailAddress as $email) {
 					//echo $email;
 					//var_dump($email);
-					print_r($email['BelepesiEmail']);
+					//print_r($email['BelepesiEmail']);
+
+					$adminEmail = $email['BelepesiEmail'];
+					$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
 				}
 				
-				
-				/*$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
-
-				if ($sentMail) {
-					header('Location: /core/default/frontend/adminapproval.php');
-				} else {
-					echo "Hiba!";
-				}*/
-				//header('Location: /core/default/frontend/adminapproval.php');
+				header('Location: /core/default/frontend/adminapproval.php');
 			}
 		}
 		else {
