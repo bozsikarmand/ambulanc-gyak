@@ -105,7 +105,7 @@ function sendEmailAfterDataProvided($adminEmail, $subject, $body)
     }
 }
 
-/*function sendEmailToUserAfterApproval($userEmail, $subject, $body)
+function sendEmailToUserAfterApproval($userEmail, $subject, $body)
 {
   $EMAIL_HOST = "ambulanc.bozsikarmand.hu";
   $EMAIL_USER = "ambulanc@ambulanc.bozsikarmand.hu";
@@ -150,4 +150,4 @@ function sendEmailAfterDataProvided($adminEmail, $subject, $body)
     } catch (Exception $ex) {
       $ex = "A level nem kuldheto el! Hiba: {$mail->ErrorInfo}";
     }
-}*/
+}
