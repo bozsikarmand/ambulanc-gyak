@@ -6,7 +6,7 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 session_start();
-ob_start();
+//ob_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/get/emailaddress.php");
@@ -114,4 +114,4 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 		}
 	}
 }
-ob_end_clean();
+//ob_end_clean();
