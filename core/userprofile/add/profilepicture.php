@@ -92,10 +92,13 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 						</body>
 						</html>';
 
-				$adminEmail = getAdminEmailAddress($databaseConnection);
-				echo $adminEmail;
-				var_dump($adminEmail);
-				print_r($adminEmail);
+						echo $subject;
+						echo $body;
+
+				//$adminEmail = getAdminEmailAddress($databaseConnection);
+				//echo $adminEmail;
+				//var_dump($adminEmail);
+				//print_r($adminEmail);
 				/*$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
 
 				if ($sentMail) {
