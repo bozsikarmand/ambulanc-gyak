@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/get/emailaddress.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
@@ -64,4 +66,4 @@ if (!empty($getID)) {
         }
     }
 }
-
+ob_end_clean();
