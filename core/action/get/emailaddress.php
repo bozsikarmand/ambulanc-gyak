@@ -20,7 +20,7 @@ function getAdminEmailAddress($databaseConnection)
     return $adminemaillist;
 }
 
-/*function getNotYetApprovedUserEmailAddress($databaseConnection, $userID)
+function getNotYetApprovedUserEmailAddress($databaseConnection, $userID)
 {
     $userPermission = 1;
     $userStatus = 6;
@@ -40,4 +40,4 @@ function getAdminEmailAddress($databaseConnection)
     $useremaillist = $run->fetchAll();
 
     return $useremaillist;
-}*/
+}
