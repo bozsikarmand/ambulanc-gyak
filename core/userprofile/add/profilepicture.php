@@ -87,18 +87,20 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 						<body>
 							<div class="wrapper">
 							<p>Új felhasználó regisztrált az Ambulánc oldalra!</p>
-							<a href="' . getURL() . '/login.php">Bejelntkezés!</a>
+							<a href="' . getURL() . '/login.php">Bejelentkezés!</a>
 							</div>
 						</body>
 						</html>';
 
-						echo $subject;
-						echo $body;
-
-				//$adminEmail = getAdminEmailAddress($databaseConnection);
-				//echo $adminEmail;
-				//var_dump($adminEmail);
-				//print_r($adminEmail);
+				$adminEmail = getAdminEmailAddress($databaseConnection);
+				
+				foreach ($adminEmail as $email) {
+					echo $email;
+					var_dump($email);
+					print_r($email);
+				}
+				
+				
 				/*$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
 
 				if ($sentMail) {
