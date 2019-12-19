@@ -19,3 +19,25 @@ function getAdminEmailAddress($databaseConnection)
 
     return $adminemaillist;
 }
+
+function getNotYetApprovedUserEmailAddress($databaseConnection, $userID)
+{
+    $userPermission = 1;
+    $userStatus = 6;
+    $ID = $userID; 
+    $userEmailAddress = "SELECT 
+                          email.BelepesiEmail
+                          FROM email, szemely, szemelyjog 
+                          WHERE email.ID = szemely.ID 
+                          AND szemely.ID = szemelyjog.SzemelyID
+                          AND szemelyjog.JogID = :userpermission
+                          AND szemely.ID=:ID";
+
+    $run = $databaseConnection -> prepare($userEmailAddress);
+    $run->bindValue(':userpermission', $userPermission);
+    $run->bindValue(':ID', $ID);
+    $run->execute();
+    $useremaillist = $run->fetchAll();
+
+    return $useremaillist;
+}
