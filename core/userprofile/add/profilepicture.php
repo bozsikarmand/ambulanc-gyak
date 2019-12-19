@@ -62,7 +62,7 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 			$exitcode = $run->execute();
 				
 			if ($exitcode) {
-				$subject = 'Új felhasználó regisztrált az Ambulánc oldalra!';
+				/*$subject = 'Új felhasználó regisztrált az Ambulánc oldalra!';
 				$body = '<!DOCTYPE html>
 						<html lang="hu">
 
@@ -103,7 +103,7 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 				} else {
 					echo "Hiba!";
 				}*/
-				//header('Location: /core/default/frontend/adminapproval.php');
+				header('Location: /core/default/frontend/adminapproval.php');
 			}
 		}
 		else {
