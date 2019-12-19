@@ -24,7 +24,7 @@ if (!empty($getID)) {
     $resultSet = $run->execute();
 
     if ($resultSet) {
-            $subject = 'Regisztrált felhasználód elfogadásra került!';
+            /*$subject = 'Regisztrált felhasználód elfogadásra került!';
             $body = '<!DOCTYPE html>
                     <html lang="hu">
 
@@ -61,7 +61,7 @@ if (!empty($getID)) {
                 header("Location:" . getURL() . "/core/default/frontend/verifyemail.php");
             } else {
                 echo "Az email kuldese soran hiba lepett fel!";
-            }
+            }*/
         header("Location: /protected/dashboard/admin.php");
     }
 }
