@@ -95,8 +95,8 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 				$adminEmail = getAdminEmailAddress($databaseConnection);
 				
 				foreach ($adminEmail as $email) {
-					echo $email;
-					var_dump($email);
+					//echo $email;
+					//var_dump($email);
 					print_r($email);
 				}
 				
