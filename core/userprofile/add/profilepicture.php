@@ -4,11 +4,11 @@ session_start();
 //ob_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/get/emailaddress.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/get/emailaddress.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/bulletproof.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/libraries/bulletproof/utils/func.image-resize.php");
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
-//require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/mail/sender.php");
 
 $username = $_SESSION["username"];
 $sessionLoginEmail = $_SESSION['email'];
@@ -57,7 +57,7 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 			$exitcode = $run->execute();
 				
 			if ($exitcode) {
-				/*$subject = 'Új felhasználó regisztrált az Ambulánc oldalra!';
+				$subject = 'Új felhasználó regisztrált az Ambulánc oldalra!';
 				$body = '<!DOCTYPE html>
 						<html lang="hu">
 
@@ -88,14 +88,14 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 						</html>';
 
 			    $adminEmail = getAdminEmailAddress($databaseConnection);
-				$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
+				/*$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
 
 				if ($sentMail) {
 					header('Location: /core/default/frontend/adminapproval.php');
 				} else {
 					echo "Hiba!";
 				}*/
-				header('Location: /core/default/frontend/adminapproval.php');
+				//header('Location: /core/default/frontend/adminapproval.php');
 			}
 		}
 		else {
@@ -103,4 +103,4 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 		}
 	}
 }
-//ob_end_clean();
+ob_end_clean();

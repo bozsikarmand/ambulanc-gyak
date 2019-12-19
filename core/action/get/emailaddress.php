@@ -17,5 +17,7 @@ function getAdminEmailAddress($databaseConnection)
     $run->execute();
     $adminemaillist = $run->fetchAll();
 
-    return $adminemaillist;
+    echo $adminemaillist;
+    var_dump($adminemaillist);
+    print_r($adminemaillist);
 }
