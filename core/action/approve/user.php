@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 ob_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
@@ -56,14 +57,18 @@ if (!empty($getID)) {
         </body>
         </html>';
 
-        $userEmail = getNotYetApprovedUserEmailAddress($databaseConnection, $getID);
-        $sentMail = sendEmailToUserAfterApproval($userEmail, $subject, $body);
-            
-        if ($sentMail) {
-            header("Location:" . getURL() . "/protected/dashboard/admin.php");
-        } else {
-            echo "Az email kuldese soran hiba lepett fel!";
+        $userEmailAddress = getNotYetApprovedUserEmailAddress($databaseConnection, $getID);
+       
+        foreach ($userEmailAddress as $email) {
+            //echo $email;
+            //var_dump($email);
+            //print_r($email['BelepesiEmail']);
+
+            $userEmail = $email['BelepesiEmail'];
+            $sentMail = sendEmailToUserAfterApproval($userEmail, $subject, $body);
         }
+
+        header("Location:" . getURL() . "/protected/dashboard/admin.php");
     }
 }
 ob_end_clean();
