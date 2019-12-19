@@ -97,10 +97,10 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 				foreach ($adminEmailAddress as $email) {
 					//echo $email;
 					//var_dump($email);
-					//print_r($email['BelepesiEmail']);
+					print_r($email['BelepesiEmail']);
 
-					$adminEmail = $email['BelepesiEmail'];
-					$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
+					//$adminEmail = $email['BelepesiEmail'];
+					//$sentMail = sendEmailAfterDataProvided($adminEmail, $subject, $body);
 				}
 				
 				header('Location: /core/default/frontend/adminapproval.php');
