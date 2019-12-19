@@ -97,7 +97,7 @@ if (isset($_POST['button-user-request-admin-approval'])) {
 				foreach ($adminEmail as $email) {
 					//echo $email;
 					//var_dump($email);
-					print_r($email);
+					print_r($email['BelepesiEmail']);
 				}
 				
 				
