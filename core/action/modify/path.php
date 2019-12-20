@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-path'])) {
+if (isset($_POST['button-modify-path'])) {
     $startpoint = $_POST['inputStartPoint'];
     $endpoint = $_POST['inputEndPoint'];
     $important = $_POST['inputImportant'];

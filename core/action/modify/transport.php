@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-transport'])) {
+if (isset($_POST['button-modify-transport'])) {
     $stage = $_POST['inputStage'];
     $stat = $_POST['inputStat'];
 

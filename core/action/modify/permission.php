@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-permission'])) {
+if (isset($_POST['button-modify-permission'])) {
     $name = $_POST['inputName'];
 
     $addPermission = "INSERT INTO jog(Nev)

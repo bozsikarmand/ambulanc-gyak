@@ -107,8 +107,6 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-    
-    <?php print_r($animal); ?>
 
         <form name="updateAnimal" action="#" method="post">
             <p>Fajta:</p>

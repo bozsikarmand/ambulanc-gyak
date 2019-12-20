@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-public-place'])) {
+if (isset($_POST['button-modify-public-place'])) {
     $trait = $_POST['inputTrait'];
     
     $addPublicPlace = "INSERT INTO kozterulet(Jelleg)

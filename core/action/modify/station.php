@@ -4,7 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-if (isset($_POST['button-add-station'])) {
+if (isset($_POST['button-modify-station'])) {
     $zipcode = $_POST['inputZIPCode'];
     $city = $_POST['inputCity'];
     $publicplacename = $_POST['inputPublicPlaceName'];
