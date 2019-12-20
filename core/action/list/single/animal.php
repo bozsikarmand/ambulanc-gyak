@@ -24,5 +24,5 @@ function listSingleAnimal($databaseConnection, $getid)
     $run->execute();
     $animal = $run->fetchAll();
 
-    return $animal
+    return $animal;
 }
