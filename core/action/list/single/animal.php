@@ -19,7 +19,7 @@ function listSingleAnimal($databaseConnection, $getid)
 
     $run = $databaseConnection -> prepare($listAnimal);
 
-    $run->bindValue(':getID', $getID);
+    $run->bindValue(':getID', $getid);
 
     $run->execute();
     $animal = $run->fetchAll();
