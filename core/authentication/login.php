@@ -172,7 +172,7 @@ if (isset($_POST['button-login'])) {
                 }
             } else {
                 header("Location:" . getURL() . "/core/default/frontend/error.php");
-            }
+            }/
 
             // Idaig
             // Mukodik
