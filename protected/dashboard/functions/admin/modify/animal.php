@@ -6,11 +6,14 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/animal.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/animal.php");
 
 $loginEmail = $_SESSION['email'];
 
+$getid = $_GET['ID'];
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
+$animal = listSingleAnimal($databaseConnection, $getid);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
@@ -104,6 +107,9 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+    
+    <?php print_r($animal); ?>
+
         <form name="updateAnimal" action="#" method="post">
             <p>Fajta:</p>
             <div class="form-label-group">
