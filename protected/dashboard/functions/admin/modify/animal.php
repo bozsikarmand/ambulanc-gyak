@@ -16,9 +16,10 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/animal.php")
 $loginEmail = $_SESSION['email'];
 
 $getid = $_GET['id'];
+echo $getid;
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
-$animal = listSingleAnimal($databaseConnection, $getid);
+//$animal = listSingleAnimal($databaseConnection, $getid);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
