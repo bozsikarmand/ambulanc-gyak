@@ -140,7 +140,7 @@ if ($currentRole == $USER) {
             <div class="form-label-group">
                 <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="<?php echo $row['EgyedSzam']; ?>" min="1" max="10" step="1"/>
             </div>
-        <?php  ?>
+        <?php } ?>
     </form>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
