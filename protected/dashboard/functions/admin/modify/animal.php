@@ -165,12 +165,10 @@ if ($currentRole == $USER) {
                         <td>
                             <?php 
                                 if ($row['Sulyos'] == 0) { ?>
-                                    <input type="hidden" name="inputSerious" value="1" />
                                     <input id="inputSerious" name="inputSerious" type="checkbox" value="0" />
                             <?php } ?>
                             <?php 
                                 if ($row['Sulyos'] == 1) { ?>
-                                    <input type="hidden" name="inputSerious" value="0" />
                                     <input id="inputSerious" name="inputSerious" type="checkbox" value="1" checked />
                             <?php } ?>
                         </td>
