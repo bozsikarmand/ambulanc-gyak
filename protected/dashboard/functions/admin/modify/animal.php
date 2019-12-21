@@ -146,8 +146,14 @@ if ($currentRole == $USER) {
                     <tr>
                         <td>Veszélyes:</td>
                         <td>
-                            <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
-                            <?php echo $row['Veszelyes']; ?>
+                            <?php 
+                                if ($row['Veszelyes'] == 0) { ?>
+                                    <input id="inputDangerous" name="inputDangerous" type="checkbox" value="0" />
+                                <?php } ?>
+                                <?php 
+                                else if ($row['Veszelyes'] == 1) { ?>
+                                    <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" checked />
+                                <?php } ?>
                         </td>
                     </tr>
                     <tr>
