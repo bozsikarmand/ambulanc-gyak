@@ -40,6 +40,7 @@ if (isset($getID)) {
         $run->bindValue(':dangerous', $dangerous);
         $run->bindValue(':serious', $serious);
         $run->bindValue(':individualNum', $individualNum);
+        $run->bindValue(':getid', $getID);
             
         $resultSet = $run->execute();
         
