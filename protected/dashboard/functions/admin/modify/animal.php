@@ -17,7 +17,7 @@ $loginEmail = $_SESSION['email'];
 $getID = $_GET['id'];
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
-$animal = listSingleAnimal($databaseConnection, $getid);
+$animal = listSingleAnimal($databaseConnection, $getID);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
