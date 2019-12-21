@@ -111,7 +111,6 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-
         <div class="table-responsive">
             <table class="table" data-toggle="table" id="datatable">
                 <thead class="thead-dark">
@@ -167,37 +166,6 @@ if ($currentRole == $USER) {
                 </tbody>
             </table>
         </div>
-
-        <form name="updateAnimal" action="#" method="post">
-            <p>Fajta:</p>
-            <div class="form-label-group">
-                <input id="inputSpecies" value="<? echo $row['Faj']; ?>" name="inputSpecies" type="text" />
-            </div>
-            <p>Hordozó szélessége:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierW" name="inputCarrierW" type="number" value="<?php echo $row['HordozoSz']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozó magassága:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierH" name="inputCarrierH" type="number" value="<?php echo $row['HordozoM']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Hordozó hosszúsága:</p>
-            <div class="form-label-group">
-                <input id="inputCarrierD" name="inputCarrierD" type="number" value="<?php echo $row['HordozoH']; ?>" min="1" max="200" step="1" />
-            </div>
-            <p>Veszélyes:</p>
-            <div class="form-label-group">
-                <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" />
-            </div>
-            <p>Súlyos:</p>
-            <div class="form-label-group">
-                <input id="inputSerious" name="inputSerious" type="checkbox" value="<?php echo $row['Sulyos']; ?>" />
-            </div>
-            <p>Egyedek száma:</p>   
-            <div class="form-label-group">
-                <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="<?php echo $row['EgyedSzam']; ?>" min="1" max="10" step="1"/>
-            </div>
-        </form>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
