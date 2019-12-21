@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/animal.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
@@ -12,7 +10,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-sele
 
 $loginEmail = $_SESSION['email'];
 
+$getID = $_GET['id'];
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
+$station = listSingleStation($databaseConnection, $getID);
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
@@ -26,7 +26,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Állomások hozzáadása</title>
+    <title>Állomások módositása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -108,59 +108,88 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/modify/station.php" method="post">
-            <p>IRSZ:</p>
-            <div class="form-label-group">
-                <input id="inputZIPCode" name="inputZIPCode" type="number" value="1" min="1" max="9999" step="1" />
-            </div>
-            <p>Város:</p>
-            <div class="form-label-group">
-                <input id="inputCity" name="inputCity" type="text" />
-            </div>
-            <p>Közterület neve:</p>
-            <div class="form-label-group">
-                <input id="inputPublicPlaceName" name="inputPublicPlaceName" type="text" />
-            </div>
-            <p>Közterület jellege:</p>
-            <div class="form-label-group">
-                <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
+    <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">Állomás adatai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($station as $row) { ?>
+                    <tr>
+                        <td>IRSZ:</td>
+                        <td>
+                            <input id="inputZIPCode" value="<? echo $row['IRSZ']; ?>" name="inputZIPCode" type="number" min="1" max="9999" step="1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Város:</td>
+                        <td>                    
+                            <input value="<? echo $row['Varos']; ?>" id="inputCity" name="inputCity" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Közterület neve:</td>
+                        <td>
+                            <input value="<? echo $row['KozteruletNeve']; ?>" id="inputPublicPlaceName" name="inputPublicPlaceName" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Közterület jellege:</td>
+                        <td>
+                            <select class="form-control selectpicker" data-live-search="true" id="inputPublicPlaceTrait" name="inputPublicPlaceTrait" title="Közterület jellege" data-width="100%" required>
+                                
+                                    <?php
 
-                    <?php
+                                        foreach ($listPublicPlaceTrait as $trait) { ?>
 
-                        foreach ($listPublicPlaceTrait as $trait) { ?>
+                                            <option data-tokens="<?php 
+                                                                echo $trait['trait']; 
+                                                            ?>">
+                                                                <?php 
+                                                                    echo $trait['trait'];
+                                                                ?>
+                                            </option>
 
-                            <option data-tokens="<?php 
-                                                    echo $trait['trait']; 
-                                                ?>">
-                                                    <?php 
-                                                        echo $trait['trait'];
-                                                    ?>
-                            </option>
+                                    <?php } ?>
 
-                        <?php } ?>
-
-                </select>
-            </div>
-            <p>Házszám:</p>
+                                </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Házszám:</td>
+                        <td>
+                            <input id="inputHouseNumber" value="<? echo $row['Hazszam']; ?>" name="inputHouseNumber" type="number" min="1" max="999" step="1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Épület betüjele:</td>
+                        <td>
+                            <input value="<? echo $row['Epulet']; ?>" id="inputBuildingLetter" name="inputBuildingLetter" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Szélességi koordináta:</td>
+                        <td>
+                            <input value="<? echo $row['KoordSz']; ?>" id="inputCoordW" name="inputCoordW" type="number" data-decimals="6" min="-90" max="90" step="0.000001" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hosszúsági koordináta:</td>
+                        <td>
+                            <input value="<? echo $row['KoordH']; ?>" id="inputCoordH" name="inputCoordH" type="number" data-decimals="6" min="-90" max="90" step="0.000001" />
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             <div class="form-label-group">
-                <input id="inputHouseNumber" name="inputHouseNumber" type="number" value="1" min="1" max="999" step="1" />
+                <a href="/core/action/modify/station.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-modify-animal">
+                    Módositás
+                </a>
             </div>
-            <p>Épület betüjele:</p>
-            <div class="form-label-group">
-                <input id="inputBuildingLetter" name="inputBuildingLetter" type="text" />
-            </div>
-            <p>Szélességi koordináta:</p>   
-            <div class="form-label-group">
-                <input id="inputCoordW" name="inputCoordW" type="number" value="46.232941" data-decimals="6" min="-90" max="90" step="0.000001" />
-            </div>
-            <p>Hosszúsági koordináta:</p>   
-            <div class="form-label-group">
-                <input id="inputCoordH" name="inputCoordH" type="number" value="20.000386" data-decimals="6" min="-180" max="180" step="0.000001" />
-            </div>
-            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-station" type="submit">
-                Módositás
-            </button>
-        </form>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

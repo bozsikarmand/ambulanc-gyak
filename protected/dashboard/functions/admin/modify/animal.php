@@ -164,7 +164,7 @@ if ($currentRole == $USER) {
                                     <input id="inputSerious" name="inputSerious" type="checkbox" value="0" />
                             <?php } ?>
                             <?php 
-                                if ($row['Veszelyes'] == 1) { ?>
+                                if ($row['Sulyos'] == 1) { ?>
                                     <input id="inputSerious" name="inputSerious" type="checkbox" value="1" checked />
                             <?php } ?>
                         </td>

@@ -1,16 +1,17 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/permission.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $loginEmail = $_SESSION['email'];
 
+$getID = $_GET['id'];
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
+$permission = listSinglePermission($databaseConnection, $getID);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
@@ -104,16 +105,30 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/modify/permission.php" method="post">
-            <p>Jog megnevezése:</p>
+    <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">Jog adatai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($permission as $row) { ?>
+                    <tr>
+                        <td>Név:</td>
+                        <td>
+                            <input id="inputName" name="inputName" value="<?php echo $row['Nev']; ?>" type="text" />
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             <div class="form-label-group">
-                <input id="inputName" name="inputName" type="text" />
+                <a href="/core/action/modify/permission.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-modify-permission">
+                    Módositás
+                </a>
             </div>
-            
-            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-permission" type="submit">
-                Módositás
-            </button>
-        </form>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

@@ -1,16 +1,18 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/path.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $loginEmail = $_SESSION['email'];
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
+
+$getID = $_GET['id'];
+
+$path = listSinglePath($databaseConnection, $getID);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
@@ -22,7 +24,7 @@ if ($currentRole == $USER) {
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Utak hozzáadása</title>
+    <title>Utak módositása</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
@@ -104,43 +106,67 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/modify/path.php" method="post">
-            <p>Indulás:</p>
+        <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">Út adatai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($path as $row) { ?>
+                    <tr>
+                        <td>Indulás:</td>
+                        <td>
+                            <input id="inputStartPoint" name="inputStartPoint" value="<?php echo $row['Indulas']; ?>" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Érkezés:</td>
+                        <td>
+                            <input id="inputEndPoint" name="inputEndPoint" value="<?php echo $row['Erkezes']; ?>" type="text" />                    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Sürgős:</td>
+                        <td>
+                            <?php 
+                            if ($row['Surgos'] == 0) { ?>
+                                <input id="inputImportant" name="inputImportant" type="checkbox" value="0" />
+                            <?php } ?>
+                            <?php 
+                                if ($row['Surgos'] == 1) { ?>
+                                    <input id="inputImportant" name="inputImportant" type="checkbox" value="1" checked />
+                            <?php } ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Állapot:</td>
+                        <td>
+                            <input id="inputStat" name="inputStat" value="<?php echo $row['Allapot']; ?>" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Átadó személy:</td>
+                        <td>
+                            <input id="inputGivePerson" name="inputGivePerson" type="text" value="<?php echo $row['AtadoSzemely']; ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Átvevő személy:</td>
+                        <td>
+                            <input id="inputTakePerson" name="inputTakePerson" value="<?php echo $row['AtvevoSzemely']; ?>" type="text" />
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             <div class="form-label-group">
-                <input id="inputStartPoint" name="inputStartPoint" type="text" />
+                <a href="/core/action/modify/path.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-modify-animal">
+                    Módositás
+                </a>
             </div>
-            <p>Érkezés:</p>
-            <div class="form-label-group">
-                <input id="inputEndPoint" name="inputEndPoint" type="text" />
-            </div>
-            <p>Sürgős:</p>
-            <div class="form-label-group">
-                <?php 
-                    if ($row['Surgos'] == 0) { ?>
-                        <input id="inputImportant" name="inputImportant" type="checkbox" value="0" />
-                <?php } ?>
-                <?php 
-                    if ($row['Surgos'] == 1) { ?>
-                        <input id="inputImportant" name="inputImportant" type="checkbox" value="1" checked />
-                <?php } ?>
-            </div>
-            <p>Állapot:</p>
-            <div class="form-label-group">
-                <input id="inputStat" name="inputStat" type="text" />
-            </div>
-            <p>Átadó személy:</p>
-            <div class="form-label-group">
-                <input id="inputGivePerson" name="inputGivePerson" type="checkbox" value="1" />
-            </div>
-            <p>Átvevő személy:</p>
-            <div class="form-label-group">
-                <input id="inputTakePerson" name="inputTakePerson" type="text" />
-            </div>
-
-            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-path" type="submit">
-                Módositás
-            </button>
-        </form>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">

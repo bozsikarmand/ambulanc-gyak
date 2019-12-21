@@ -1,16 +1,17 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/transport.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $loginEmail = $_SESSION['email'];
 
+$getID = $_GET['id'];
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
+$animal = listSingleAnimal($databaseConnection, $getID);
 
 if ($currentRole == $USER) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
@@ -104,20 +105,36 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <form action="/core/action/modify/transport.php" method="post">
-            <p>Szakasz:</p>
+        <div class="table-responsive">
+            <table class="table" data-toggle="table" id="datatable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th colspan="2">Szállitás adatai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($transport as $row) { ?>
+                    <tr>
+                        <td>Szakasz:</td>
+                        <td>
+                            <input id="inputStage" value="<?php echo $row['Szakasz']; ?>" name="inputStage" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Állapot:</td>
+                        <td>                    
+                            <input id="inputStat" name="inputStat" type="number" value="<?php echo $row['Szakasz']; ?>" min="1" max="200" step="1" />
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
             <div class="form-label-group">
-                <input id="inputStage" name="inputStage" type="number" value="1" min="1" max="10" step="1" />
+                <a href="/core/action/modify/transport.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-modify-animal">
+                    Módositás
+                </a>
             </div>
-            <p>Állapot:</p>
-            <div class="form-label-group">
-                <input id="inputStat" name="inputStat" type="text" />
-            </div>
-
-            <button class="btn btn-lg btn-secondary btn-block" name="button-modify-transport" type="submit">
-                Módositás
-            </button>
-        </form>
+        </div>
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
