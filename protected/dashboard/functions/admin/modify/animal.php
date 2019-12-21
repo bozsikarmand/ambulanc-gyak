@@ -120,7 +120,7 @@ if ($currentRole == $USER) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($viewProfileDataForAdmin as $row) { ?>
+                    <?php foreach ($animal as $row) { ?>
                     <tr>
                         <td>Fajta:</td>
                         <td>
