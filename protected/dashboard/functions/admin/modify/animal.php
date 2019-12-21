@@ -149,11 +149,11 @@ if ($currentRole == $USER) {
                             <?php 
                                 if ($row['Veszelyes'] == 0) { ?>
                                     <input id="inputDangerous" name="inputDangerous" type="checkbox" value="0" />
-                                <?php } ?>
-                                <?php 
-                                else if ($row['Veszelyes'] == 1) { ?>
+                            <?php } ?>
+                            <?php 
+                                if ($row['Veszelyes'] == 1) { ?>
                                     <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" checked />
-                                <?php } ?>
+                            <?php } ?>
                         </td>
                     </tr>
                     <tr>
