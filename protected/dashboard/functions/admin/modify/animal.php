@@ -111,6 +111,7 @@ if ($currentRole == $USER) {
 
     <div class="container-fullwidth" style="margin-top:100px">
         <div class="table-responsive">
+        <form action="/core/action/modify/animal.php" method="post">
             <table class="table" data-toggle="table" id="datatable">
                 <thead class="thead-dark">
                     <tr>
@@ -179,10 +180,11 @@ if ($currentRole == $USER) {
                 </tbody>
             </table>
             <div class="form-label-group">
-                <a href="/core/action/modify/animal.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-modify-animal">
+                <button type="submit" class="btn btn-lg btn-primary btn-block" name="button-modify-animal">
                     Módositás
-                </a>
+                </button>
             </div>
+            </form>
         </div>
     </div>
 

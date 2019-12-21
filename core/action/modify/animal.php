@@ -12,6 +12,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 $getID = $_GET['id'];
 
 if (isset($getID)) {
+    if (isset($_POST['button-modify-animal'])) {
         $species = $_POST['inputSpecies'];
         $carrierW = $_POST['inputCarrierW'];
         $carrierH = $_POST['inputCarrierH'];
@@ -45,5 +46,5 @@ if (isset($getID)) {
         if ($resultSet) {
             header("Location: /protected/dashboard/admin.php");
         }
-    
+    }
 }
