@@ -7,7 +7,6 @@ ini_set("log_errors", 1);
 ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
-
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/single/animal.php");
@@ -111,61 +110,7 @@ if ($currentRole == $USER) {
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
-        <div class="table-responsive">
-            <table class="table" data-toggle="table" id="datatable">
-                <thead class="thead-dark">
-                    <tr>
-                        <th colspan="2">Felhasználó adatai</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($animal as $row) { ?>
-                    <tr>
-                        <td>Fajta:</td>
-                        <td>
-                            <input id="inputSpecies" value="<? echo $row['Faj']; ?>" name="inputSpecies" type="text" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hordozó szélessége:</td>
-                        <td>                    
-                            <input id="inputCarrierW" name="inputCarrierW" type="number" value="<?php echo $row['HordozoSz']; ?>" min="1" max="200" step="1" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hordozó magassága:</td>
-                        <td>
-                            <input id="inputCarrierH" name="inputCarrierH" type="number" value="<?php echo $row['HordozoM']; ?>" min="1" max="200" step="1" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hordozó hosszúsága:</td>
-                        <td>
-                            <input id="inputCarrierD" name="inputCarrierD" type="number" value="<?php echo $row['HordozoH']; ?>" min="1" max="200" step="1" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Veszélyes:</td>
-                        <td>
-                            <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Súlyos:</td>
-                        <td>
-                            <input id="inputSerious" name="inputSerious" type="checkbox" value="<?php echo $row['Sulyos']; ?>" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Egyedek száma:</td>
-                        <td>
-                            <input id="inputNumOfIndividuals" name="inputNumOfIndividuals" type="number" value="<?php echo $row['EgyedSzam']; ?>" min="1" max="10" step="1"/>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
 
     <footer class="page-footer font-small blue pt-4 bg-dark text-light">
