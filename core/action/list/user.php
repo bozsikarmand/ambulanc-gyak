@@ -6,6 +6,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 function listUser($databaseConnection)
 {
+    $stat = 6;
     $listAvailableUsers = "SELECT 
                            ID as id, 
                            CONCAT(
@@ -15,9 +16,13 @@ function listUser($databaseConnection)
                                SPACE(1), 
                                szemely.Utonev
                                ) as fullname
-                               FROM szemely";
+                               FROM szemely
+                               WHERE statusz=:stat";
 
     $run = $databaseConnection -> prepare($listAvailableUsers);
+
+    $run->bindValue(':stat', $stat);
+
     $run->execute();
     $userlist = $run->fetchAll();
 
