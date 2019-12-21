@@ -9,7 +9,7 @@ ini_set("error_log", "/tmp/php-error.log");
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
-$getID = $_GET['id'];
+$getID = $_POST['id'];
 
 if (isset($getID)) {
     if (isset($_POST['button-modify-animal'])) {

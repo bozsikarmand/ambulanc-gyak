@@ -123,6 +123,7 @@ if ($currentRole == $USER) {
                     <tr>
                         <td>Fajta:</td>
                         <td>
+                            <input type="hidden" name="id" value="<?php echo $getID; ?>" />
                             <input id="inputSpecies" value="<? echo $row['Faj']; ?>" name="inputSpecies" type="text" />
                         </td>
                     </tr>
