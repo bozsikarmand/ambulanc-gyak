@@ -17,7 +17,7 @@ function listUser($databaseConnection)
                                szemely.Utonev
                                ) as fullname
                                FROM szemely
-                               WHERE statusz=:stat";
+                               WHERE szemely.statusz=:stat";
 
     $run = $databaseConnection -> prepare($listAvailableUsers);
 
