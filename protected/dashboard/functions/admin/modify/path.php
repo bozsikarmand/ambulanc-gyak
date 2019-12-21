@@ -115,8 +115,14 @@ if ($currentRole == $USER) {
             </div>
             <p>Sürgős:</p>
             <div class="form-label-group">
-                <input type="hidden" name="inputImportant" value="0" />
-                <input id="inputImportant" name="inputImportant" type="checkbox" value="1"  />
+                <?php 
+                    if ($row['Surgos'] == 0) { ?>
+                        <input id="inputImportant" name="inputImportant" type="checkbox" value="0" />
+                <?php } ?>
+                <?php 
+                    if ($row['Surgos'] == 1) { ?>
+                        <input id="inputImportant" name="inputImportant" type="checkbox" value="1" checked />
+                <?php } ?>
             </div>
             <p>Állapot:</p>
             <div class="form-label-group">

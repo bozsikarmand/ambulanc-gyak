@@ -8,7 +8,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 session_start();
 
 $loginEmail = $_SESSION['email'];
-$expiryTime = 60;
+$expiryTime = 900;
 
 // $_SESSION['timestamp']
 
