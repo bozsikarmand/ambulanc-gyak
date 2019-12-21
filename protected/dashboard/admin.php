@@ -77,9 +77,7 @@ if ($currentRole == $USER) {
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="<?php foreach ($profileImg as $img) {
-                            echo $img;
-                        } ?>" class="avatar img-responsive" alt="Profilkép">
+                        <img src="<?php echo $profileImg; ?>" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"></span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

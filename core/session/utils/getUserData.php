@@ -146,7 +146,7 @@ function getUserImage($loginEmail, $databaseConnection) {
     $run = $databaseConnection -> prepare($queryImage);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetchAll();
+    $resultSet = $run -> fetchColumn(0);
     return $resultSet;
 }
 
