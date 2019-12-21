@@ -45,7 +45,7 @@ if (isset($getID)) {
                 header("Location: /protected/dashboard/admin.php");
             }
         } else if ($resultSet && $getConfirm == 'no') {
-            header("Location: /protected/dashboard/functions/admin/list/user.php");
+            header("Location: /protected/dashboard/functions/admin/list/users.php");
         }
     }
 }
