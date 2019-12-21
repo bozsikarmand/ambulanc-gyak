@@ -146,7 +146,7 @@ if ($currentRole == $USER) {
                     <tr>
                         <td>Veszélyes:</td>
                         <td>
-                            <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" />
+                            <input id="inputDangerous" name="inputDangerous" type="checkbox" value="<?php echo $row['Veszelyes']; ?>" <?php echo ($row['Veszelyes'] == 1) ? 'checked="checked"' : ''; ?> />
                         </td>
                     </tr>
                     <tr>
@@ -165,7 +165,7 @@ if ($currentRole == $USER) {
                 </tbody>
             </table>
             <div class="form-label-group">
-                <a href="/core/action/modify/animal.php?id=<?php echo $_GET['id']; ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
+                <a href="/core/action/modify/animal.php?id=<?php echo $_GET['id']; ?>" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
                     Módositás
                 </a>
             </div>
