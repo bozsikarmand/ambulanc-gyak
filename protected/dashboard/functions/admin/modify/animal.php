@@ -114,7 +114,7 @@ if ($currentRole == $USER) {
             <table class="table" data-toggle="table" id="datatable">
                 <thead class="thead-dark">
                     <tr>
-                        <th colspan="2">Felhasználó adatai</th>
+                        <th colspan="2">Állat adatai</th>
                     </tr>
                 </thead>
                 <tbody>
