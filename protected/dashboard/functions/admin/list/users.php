@@ -113,9 +113,6 @@ $users = listUser($databaseConnection);
                     <a href="/protected/dashboard/functions/admin/view/user.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">
                         <i class="fas fa-eye"></i> Megtekintés
                     </a>
-                    <a href="/protected/dashboard/functions/admin/modify/user.php?id=<? echo $row['id'] ?>" class="btn btn-warning">
-                        <i class="fas fa-edit"></i> Módositás
-                    </a>
                     <a href="/protected/dashboard/functions/admin/delete/user.php?id=<? echo $row['id'] ?>" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i> Törlés
                     </a>

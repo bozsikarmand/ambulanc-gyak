@@ -156,7 +156,7 @@ if ($currentRole == $USER) {
                             <?php 
                                 if ($row['Veszelyes'] == 1) { ?>
                                     <input type="hidden" name="inputDangerous" value="0" />
-                                    <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" />
+                                    <input id="inputDangerous" name="inputDangerous" type="checkbox" value="1" checked />
                             <?php } ?>
                         </td>
                     </tr>
@@ -171,7 +171,7 @@ if ($currentRole == $USER) {
                             <?php 
                                 if ($row['Sulyos'] == 1) { ?>
                                     <input type="hidden" name="inputSerious" value="0" />
-                                    <input id="inputSerious" name="inputSerious" type="checkbox" value="1" />
+                                    <input id="inputSerious" name="inputSerious" type="checkbox" value="1" checked />
                             <?php } ?>
                         </td>
                     </tr>
