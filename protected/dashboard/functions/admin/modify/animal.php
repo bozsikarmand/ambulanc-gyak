@@ -164,6 +164,11 @@ if ($currentRole == $USER) {
                     <?php } ?>
                 </tbody>
             </table>
+            <div class="form-label-group">
+                <a href="/core/action/modify/animal.php?id=<?php echo $_GET['id']; ?>&confirm=yes" class="btn btn-lg btn-primary btn-block" name="button-delete-animal" type="submit">
+                    Módositás
+                </a>
+            </div>
         </div>
     </div>
 
