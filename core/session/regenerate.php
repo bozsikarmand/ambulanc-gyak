@@ -9,8 +9,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/utils/getUserData.php")
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 function sessionRegenerateExistingMainKey($loginEmail, $databaseConnection) {
+    $userID = getUserID($loginEmail, $databaseConnection);
     $newSessionKey = bin2hex(openssl_random_pseudo_bytes(50));
-    $oldSessionKey = getSessionKey($loginEmail, $databaseConnection);
+    $oldSessionKey = getCurrentSessionKey($userID, $databaseConnection);
 
     $updateSessionData = "UPDATE munkamenet
                           SET MunkamenetKulcs = :newSessionKey 
