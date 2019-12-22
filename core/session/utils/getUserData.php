@@ -167,3 +167,17 @@ function getUserLoginTimeStamp($loginEmail, $databaseConnection)
     $resultSet = $run -> fetchColumn();
     return $resultSet;
 }
+
+function getUserEmail($token, $databaseConnection) {
+    $queryEmail = "SELECT szemely.ID
+                   FROM szemely 
+                   WHERE szemely.HitelesitoKod=:token";
+    
+    $run = $databaseConnection->prepare($queryID);
+        
+    $run->bindValue(':token', $token);
+    $run->execute();
+    $resultSet = $run -> fetchColumn(0);
+
+    return $resultSet;
+}

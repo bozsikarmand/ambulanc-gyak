@@ -47,7 +47,7 @@ if (isset($_POST['button-login'])) {
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
     $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
-
+    
     //echo "Email ellenorzes:";
     //print_r($resultSet);
     // A megfelelo ertek kerul be

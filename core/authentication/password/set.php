@@ -4,6 +4,7 @@ session_start();
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/getURL.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/utils/getUserData.php");
 
 if (isset($_POST['button-password-set'])) {
     if (empty($_POST['inputPassword'])) {
@@ -19,6 +20,8 @@ if (isset($_POST['button-password-set'])) {
     
     $token = $_SESSION['sessToken'];
     $newPassword = $_POST['inputPassword'];
+    $loginEmail = getUserEmail($token, $databaseConnection);
+    $getid = getUserID($loginEmail, $databaseConnection);
 
     if (isset($token)) {
         $password = password_hash($newPassword, PASSWORD_DEFAULT);
@@ -26,11 +29,14 @@ if (isset($_POST['button-password-set'])) {
         // Jelszo hash
         $updatePasswordHash = "UPDATE szemely sz, jelszo j
                                SET j.JelszoHash = :passwordhash
-                               WHERE sz.HitelesitoKod = :token";
+                               WHERE sz.HitelesitoKod = :token
+                               AND sz.ID = :getid";
         $run = $databaseConnection->prepare($updatePasswordHash);
 
         $run->bindValue(':passwordhash', $password);
         $run->bindValue(':token', $token);
+        $run->bindValue(':getid', $getid);
+
         $resultSet = $run->execute();
 
         if ($resultSet) {
