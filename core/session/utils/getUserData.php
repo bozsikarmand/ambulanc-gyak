@@ -68,7 +68,7 @@ function getName($loginEmail, $databaseConnection)
     $run = $databaseConnection -> prepare($queryName);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetch(PDO::FETCH_ASSOC);
+    $resultSet = $run -> fetchColumn(0);
 
     return $resultSet;
 }
