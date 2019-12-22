@@ -12,7 +12,7 @@ $profileName = sessionGetName($loginEmail, $databaseConnection);
 
 sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
 
-$sessionKey = $_SESSION["key"];
+$sessionKey = getSessionKey($loginEmail, $databaseConnection);
 
 $viewProfileDataForUser = viewProfileDataForUser($databaseConnection, $sessionKey);
 ?>
