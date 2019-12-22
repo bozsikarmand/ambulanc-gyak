@@ -35,9 +35,7 @@ $run->bindValue(':loginemail', $loginEmail);
 $run->execute();
 $currentSession = $run->fetchColumn(0);
 
-print_r($currentSession);
-
-/*$endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
+$endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
                SET munkamenet.MunkamenetVege=:endtime,
                    munkamenet.Aktiv=:inactive
                WHERE munkamenet.MunkamenetVege IS NULL 
@@ -45,13 +43,16 @@ print_r($currentSession);
                AND munkamenet.MunkamenetID = szemelymunkamenet.MunkamenetID 
                AND szemelymunkamenet.SzemelyID = szemely.ID
                AND szemely.ID = email.ID 
-               AND BelepesiEmail=:loginemail"; 
+               AND BelepesiEmail=:loginemail
+               AND munkamenet.MunkamenetID=:currentSession"; 
 
 $run = $databaseConnection -> prepare($endSession);
 $run->bindValue(':endtime', $endtime);
 $run->bindValue(':inactive', $inactive);
 $run->bindValue(':active', $active);
 $run->bindValue(':loginemail', $loginEmail);
+$run->bindValue(':currentSession', $currentSession);
+
 $run->execute();
 
 session_destroy();
