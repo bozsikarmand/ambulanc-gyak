@@ -10,7 +10,12 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/default/timezone.php");
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
+
 $loginEmail = $_SESSION['email'];
+
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
 
 $endtime = date('Y-m-d H:i:s');
 $active = 1;
