@@ -15,7 +15,7 @@ function sessionRegenerateExistingMainKey($loginEmail, $databaseConnection) {
 
     $updateSessionData = "UPDATE munkamenet
                           SET MunkamenetKulcs = :newSessionKey 
-                          WHERE MunkamenetKulcs = :oldSessionKey)";
+                          WHERE MunkamenetKulcs = :oldSessionKey";
     $run = $databaseConnection->prepare($updateSessionData);
     
     $run->bindValue(':newSessionKey', $newSessionKey);
