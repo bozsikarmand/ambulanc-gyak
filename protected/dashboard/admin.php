@@ -7,12 +7,11 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 
-//sessionRegenerateExistingMainKey($_SESSION["email"], $databaseConnection);
-
 $loginEmail = $_SESSION['email'];
 $profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
 $profileName = sessionGetName($loginEmail, $databaseConnection);
 
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
