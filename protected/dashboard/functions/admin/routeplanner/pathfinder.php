@@ -8,6 +8,9 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
+$loginEmail = $_SESSION['email'];
+$profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
 if ($currentRole == $USER) {
@@ -83,7 +86,7 @@ define('infinity', 99);
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
+                        <img src="<?php echo $profileImg; ?>" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

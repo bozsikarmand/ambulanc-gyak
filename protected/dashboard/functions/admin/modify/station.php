@@ -9,6 +9,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/userprofile/utils/populate-select.php");
 
 $loginEmail = $_SESSION['email'];
+$profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
 
 $getID = $_GET['id'];
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
@@ -87,7 +88,7 @@ if ($currentRole == $USER) {
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
+                        <img src="<?php echo $profileImg; ?>" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

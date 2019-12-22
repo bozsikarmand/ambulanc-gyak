@@ -14,6 +14,8 @@ $loginEmail = $_SESSION['email'];
 
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 
+$profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
 if ($currentRole == $USER) {
@@ -87,7 +89,7 @@ if ($currentRole == $USER) {
             <div class="navbar-nav ml-auto">
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
-                        <img src="https://via.placeholder.com/20" class="avatar img-responsive" alt="Profilkép">
+                        <img src="<?php echo $profileImg; ?>" class="avatar img-responsive" alt="Profilkép">
                         <span class="header-username"><?php echo $_SESSION["fullname"] ?> </span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
