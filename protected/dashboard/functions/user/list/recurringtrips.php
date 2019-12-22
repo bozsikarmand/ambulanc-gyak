@@ -10,6 +10,8 @@ $loginEmail = $_SESSION['email'];
 $profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
 $profileName = sessionGetName($loginEmail, $databaseConnection);
 
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
 if ($currentRole == $ADMIN) {

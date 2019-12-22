@@ -7,6 +7,8 @@ $loginEmail = $_SESSION['email'];
 $profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
 $profileName = sessionGetName($loginEmail, $databaseConnection);
 
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
+
 $sessionKey = $_SESSION["key"];
 
 $viewProfileDataForUser = viewProfileDataForUser($databaseConnection, $sessionKey);

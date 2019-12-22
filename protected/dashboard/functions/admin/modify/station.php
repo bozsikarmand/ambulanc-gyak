@@ -16,6 +16,8 @@ $getID = $_GET['id'];
 $listPublicPlaceTrait = populateSelect($databaseConnection); 
 $station = listSingleStation($databaseConnection, $getID);
 
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
 if ($currentRole == $USER) {

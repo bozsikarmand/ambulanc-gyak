@@ -12,6 +12,8 @@ $profileName = sessionGetName($loginEmail, $databaseConnection);
 
 $getID = $_GET['id'];
 
+sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
+
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 $publicplace = listSinglePublicPlace($databaseConnection, $getID);
 
