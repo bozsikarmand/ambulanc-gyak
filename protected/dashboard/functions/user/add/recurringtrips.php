@@ -10,6 +10,7 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
 
 $loginEmail = $_SESSION['email'];
 $profileImg = sessionGetUserImage($loginEmail, $databaseConnection);
+$profileName = sessionGetName($loginEmail, $databaseConnection);
 
 $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 
@@ -61,7 +62,7 @@ if ($currentRole == $ADMIN) {
                 <div class="btn-group">
                     <button type="button" class="btn btn-info">
                         <img src="<?php echo $profileImg; ?>" class="avatar img-responsive" alt="Profilkép">
-                        <span class="header-username"> </span>
+                        <span class="header-username"><?php echo $profileName; ?></span>
                     </button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only">Menu lenyitása</span>
