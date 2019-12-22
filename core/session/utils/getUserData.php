@@ -68,7 +68,7 @@ function getName($loginEmail, $databaseConnection)
     $run = $databaseConnection -> prepare($queryName);
     $run->bindValue(':loginemail', $loginEmail);
     $run->execute();
-    $resultSet = $run -> fetchColumn(0);
+    $resultSet = $run -> fetchColumn(1);
 
     return $resultSet;
 }
