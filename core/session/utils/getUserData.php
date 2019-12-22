@@ -173,7 +173,7 @@ function getUserEmail($token, $databaseConnection) {
                    FROM szemely 
                    WHERE szemely.HitelesitoKod=:token";
     
-    $run = $databaseConnection->prepare($queryID);
+    $run = $databaseConnection->prepare($queryEmail);
         
     $run->bindValue(':token', $token);
     $run->execute();
