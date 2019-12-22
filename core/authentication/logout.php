@@ -16,7 +16,8 @@ $endtime = date('Y-m-d H:i:s');
 $active = 1;
 $inactive = 0;
 
-$selectCurrentSession = "SELECT munkamenet, szemelymunkamenet, szemely, email
+$selectCurrentSession = "SELECT munkamenet.MunkamenetID
+                         FROM munkamenet, szemelymunkamenet, szemely, email
                          WHERE munkamenet.MunkamenetVege IS NULL 
                          AND munkamenet.Aktiv = :active
                          AND munkamenet.MunkamenetID = szemelymunkamenet.MunkamenetID 
