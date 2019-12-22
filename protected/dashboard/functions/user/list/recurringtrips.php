@@ -1,10 +1,13 @@
 <?php
 session_start();
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/user.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/list/recurringtrips.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/authentication/role/constant.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
 
 $loginEmail = $_SESSION['email'];
 $profileImg = sessionGetUserImage($loginEmail, $databaseConnection);

@@ -18,9 +18,6 @@ $currentRole = getRoleInfo($loginEmail, $databaseConnection);
 if ($currentRole == $ADMIN) {
     header("Location:" . getURL() . "/core/default/frontend/nopermission.php");
 } 
-
-$userName = sessionGetName($loginEmail, $databaseConnection);
-
 ?>
 
 <!DOCTYPE html>

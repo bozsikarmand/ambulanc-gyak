@@ -1,5 +1,8 @@
 <?php 
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/redirect.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/get.php");
+require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/session/regenerate.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/action/view/profiledata.php");
 
@@ -12,7 +15,6 @@ sessionRegenerateExistingMainKey($loginEmail, $databaseConnection);
 $sessionKey = $_SESSION["key"];
 
 $viewProfileDataForUser = viewProfileDataForUser($databaseConnection, $sessionKey);
-
 ?>
 
 <!DOCTYPE html>
