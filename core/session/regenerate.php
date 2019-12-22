@@ -19,7 +19,7 @@ function sessionRegenerateExistingMainKey($loginEmail, $databaseConnection) {
     $run = $databaseConnection->prepare($updateSessionData);
     
     $run->bindValue(':newSessionKey', $newSessionKey);
-    $run->bindValue(':sessionKey', $oldSessionKey);
+    $run->bindValue(':oldSessionKey', $oldSessionKey);
 
     $run->execute();
 }
