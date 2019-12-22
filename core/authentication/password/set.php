@@ -19,6 +19,7 @@ if (isset($_POST['button-password-set'])) {
     }
     
     $token = $_SESSION['sessToken'];
+    print_r($_SESSION);
     $newPassword = $_POST['inputPassword'];
     $loginEmail = getUserEmail($token, $databaseConnection);
     $getid = getUserID($loginEmail, $databaseConnection);
