@@ -32,9 +32,11 @@ $run = $databaseConnection -> prepare($selectCurrentSession);
 $run->bindValue(':active', $active);
 $run->bindValue(':loginemail', $loginEmail);
 
-$currentSession = $run->fetchColumn(0);
+$currentSession = $run->fetchColumn();
 
 print_r($currentSession);
+echo $currentSession;
+var_dump($currentSession);
 
 /*$endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
                SET munkamenet.MunkamenetVege=:endtime,
