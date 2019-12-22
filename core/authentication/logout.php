@@ -32,7 +32,7 @@ $run = $databaseConnection -> prepare($selectCurrentSession);
 $run->bindValue(':active', $active);
 $run->bindValue(':loginemail', $loginEmail);
 
-$currentSession = $run->fetchAll();
+$currentSession = $run->fetchColumn(0);
 
 print_r($currentSession);
 
