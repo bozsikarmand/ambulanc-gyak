@@ -23,7 +23,7 @@ if (isset($_POST['button-password-set'])) {
     $loginEmail = getUserEmail($token, $databaseConnection);
     $getid = getUserID($loginEmail, $databaseConnection);
 
-    if (isset($token)) {
+    /*if (isset($token)) {
         $password = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Jelszo hash
@@ -44,7 +44,10 @@ if (isset($_POST['button-password-set'])) {
         } else {
             echo "Ures!";
         }
-    }
+    }*/
+
+    echo $loginEmail;
+    echo $getid;
 }
 
     
