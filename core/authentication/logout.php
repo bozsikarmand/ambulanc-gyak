@@ -19,7 +19,9 @@ $endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
                AND munkamenet.MunkamenetID = szemelymunkamenet.MunkamenetID 
                AND szemelymunkamenet.SzemelyID = szemely.ID
                AND szemely.ID = email.ID 
-               AND BelepesiEmail=:loginemail"; 
+               AND BelepesiEmail=:loginemail
+               ORDER BY szemelymunkamaenet.MunkamenetID DESC
+               LIMIT 1"; 
 
 $run = $databaseConnection -> prepare($endSession);
 $run->bindValue(':endtime', $endtime);
