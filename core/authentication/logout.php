@@ -20,7 +20,7 @@ $endSession = "UPDATE munkamenet, szemelymunkamenet, szemely, email
                AND szemelymunkamenet.SzemelyID = szemely.ID
                AND szemely.ID = email.ID 
                AND BelepesiEmail=:loginemail
-               ORDER BY szemelymunkamaenet.MunkamenetID DESC
+               ORDER BY szemelymunkamenet.MunkamenetID DESC
                LIMIT 1"; 
 
 $run = $databaseConnection -> prepare($endSession);
