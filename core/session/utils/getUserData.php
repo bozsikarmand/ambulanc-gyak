@@ -169,9 +169,10 @@ function getUserLoginTimeStamp($loginEmail, $databaseConnection)
 }
 
 function getUserEmail($token, $databaseConnection) {
-    $queryEmail = "SELECT szemely.ID
-                   FROM szemely 
-                   WHERE szemely.HitelesitoKod=:token";
+    $queryEmail = "SELECT email.BelepesiEmail 
+                   FROM email, szemely 
+                   WHERE szemely.ID = email.ID 
+                   AND szemely.HitelesitoKod=:token";
     
     $run = $databaseConnection->prepare($queryEmail);
         
