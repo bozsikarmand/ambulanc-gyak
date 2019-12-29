@@ -19,19 +19,20 @@ if (isset($_POST['button-password-set'])) {
     }
     
     $token = $_SESSION['sessToken'];
-    print_r($_SESSION);
+    //print_r($_SESSION);
     $newPassword = $_POST['inputPassword'];
     $loginEmail = getUserEmail($token, $databaseConnection);
     $getid = getUserID($loginEmail, $databaseConnection);
 
-    /*if (isset($token)) {
+    if (isset($token)) {
         $password = password_hash($newPassword, PASSWORD_DEFAULT);
 
         // Jelszo hash
         $updatePasswordHash = "UPDATE szemely sz, jelszo j
                                SET j.JelszoHash = :passwordhash
                                WHERE sz.HitelesitoKod = :token
-                               AND sz.ID = :getid";
+                               AND sz.ID = :getid
+                               AND sz.ID = j.ID";
         $run = $databaseConnection->prepare($updatePasswordHash);
 
         $run->bindValue(':passwordhash', $password);
@@ -45,7 +46,7 @@ if (isset($_POST['button-password-set'])) {
         } else {
             echo "Ures!";
         }
-    }*/
+    }
 
     echo $loginEmail;
     echo $getid;
