@@ -48,8 +48,8 @@ if (isset($_POST['button-password-set'])) {
         }
     }
 
-    echo $loginEmail;
-    echo $getid;
+    //echo $loginEmail;
+    //echo $getid;
 }
 
     
