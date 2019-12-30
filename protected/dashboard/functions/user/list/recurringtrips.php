@@ -80,6 +80,7 @@ $recurringtrips = listRecurringTrips($databaseConnection);
     </nav>
 
     <div class="container-fullwidth" style="margin-top:100px">
+        <a class="btn btn-success" href="/protected/dashboard/functions/user/add/recurringtrips.php" role="button">Új rendszeres út hozzáadása</a>
         <div class="table-responsive">
             <table class="table" data-toggle="table" id="datatable">
                 <thead class="thead-dark">
