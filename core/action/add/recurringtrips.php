@@ -19,10 +19,11 @@ if (isset($_POST['button-add-recurring-trips'])) {
     $weeklyRecurrence = $_POST['inputWeeklyRecurrence'];
     $availableSpace = $_POST['inputAvailableSpace'];
 
-    $addRecurringTrips = "INSERT INTO rendszeresut(IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
+    $addRecurringTrips = "INSERT INTO rendszeresut (IndVaros, ErkVaros, IndDatum, ErkDatum, IndIdo, ErkIdo, HetiRendszeresseg, Hely)
                           VALUES (:startcity, :endcity, :startdate, :enddate, :starttime, :endtime, :weeklyrecurrence, :availablespace";
 
     $run = $databaseConnection -> prepare($addRecurringTrips);
+    
     $run->bindValue(':startcity', $startCity);
     $run->bindValue(':endcity', $endCity);
     $run->bindValue(':startdate', $startDate);
