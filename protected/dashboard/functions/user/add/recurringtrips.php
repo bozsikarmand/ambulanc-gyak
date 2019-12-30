@@ -111,7 +111,7 @@ if ($currentRole == $ADMIN) {
             <script>
                 $('#timepickerStartTime').timepicker({
                     uiLibrary: 'bootstrap4',
-                    format: 'HH.MM.SS'
+                    format: 'HH:MM:SS'
                 });
             </script>
             <p>Érkezési idő:</p>
@@ -119,7 +119,7 @@ if ($currentRole == $ADMIN) {
             <script>
                 $('#timepickerEndTime').timepicker({
                     uiLibrary: 'bootstrap4',
-                    format: 'HH.MM.SS'
+                    format: 'HH:MM:SS'
                 });
             </script>
             <p>Heti rendszeresség:</p>
