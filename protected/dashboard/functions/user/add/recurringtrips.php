@@ -94,28 +94,32 @@ if ($currentRole == $ADMIN) {
             <input id="datepickerStartDate" name="datepickerStartDate" width="276" />
             <script>
                 $('#datepickerStartDate').datepicker({
-                    uiLibrary: 'bootstrap4'
+                    uiLibrary: 'bootstrap4',
+                    format: 'yyyy-mm-dd'
                 });
             </script>
             <p>Érkező dátum:</p>
             <input id="datepickerEndDate" name="datepickerEndDate" width="276" />
             <script>
                 $('#datepickerEndDate').datepicker({
-                    uiLibrary: 'bootstrap4'
+                    uiLibrary: 'bootstrap4',
+                    format: 'yyyy-mm-dd'
                 });
             </script>
             <p>Indulási idő:</p>
             <input id="timepickerStartTime" name="timepickerStartTime" width="276" />
             <script>
                 $('#timepickerStartTime').timepicker({
-                    uiLibrary: 'bootstrap4'
+                    uiLibrary: 'bootstrap4',
+                    format: 'HH.MM.SS'
                 });
             </script>
             <p>Érkezési idő:</p>
             <input id="timepickerEndTime" name="timepickerEndTime" width="276" />
             <script>
                 $('#timepickerEndTime').timepicker({
-                    uiLibrary: 'bootstrap4'
+                    uiLibrary: 'bootstrap4',
+                    format: 'HH.MM.SS'
                 });
             </script>
             <p>Heti rendszeresség:</p>
