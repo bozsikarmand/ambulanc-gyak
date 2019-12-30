@@ -38,5 +38,5 @@ if (isset($_POST['button-add-recurring-trips'])) {
         header("Location: /protected/dashboard/user.php");
     }*/
 
-    print_r($_SESSION);
+    print_r($_POST);
 }
