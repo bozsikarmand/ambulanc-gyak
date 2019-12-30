@@ -105,14 +105,14 @@ if ($currentRole == $ADMIN) {
                 });
             </script>
             <p>Indulási idő:</p>
-            <input id="timepickerStartTime" name="datepickerStartTime" width="276" />
+            <input id="timepickerStartTime" name="timepickerStartTime" width="276" />
             <script>
                 $('#timepickerStartTime').timepicker({
                     uiLibrary: 'bootstrap4'
                 });
             </script>
             <p>Érkezési idő:</p>
-            <input id="timepickerEndTime" name="datepickerEndTime" width="276" />
+            <input id="timepickerEndTime" name="timepickerEndTime" width="276" />
             <script>
                 $('#timepickerEndTime').timepicker({
                     uiLibrary: 'bootstrap4'
