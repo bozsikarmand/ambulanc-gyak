@@ -30,29 +30,26 @@ if ($currentRole == $ADMIN) {
     <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/admin.css">
     <link rel="stylesheet" href="/assets/css/bootstrap-table.min.css">
-    <link rel="stylesheet" href="/assets/css/gijgo.min.css">
+    <link rel="stylesheet" href="/assets/css/tempusdominus-bootstrap-4.min.css">
     <script src="/assets/js/jquery-3.4.1.min.js"></script>
-    <script src="/assets/js/gijgo.min.js"></script>
+    <script src="/assets/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/assets/js/moment-with-locales.min.js"></script>
     <script src="/assets/js/bootstrap-input-spinner.js"></script>
     <script>
         $("input[type='number']").inputSpinner();
     </script>
     <script>
-        $('#datepickerStartDate').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
+        $('#datepickerStartDate').datetimepicker({
+            format: 'YYYY-MM-DD'
         });
-        $('#datepickerEndDate').datepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'yyyy-mm-dd'
+        $('#datepickerEndDate').datetimepicker({
+            format: 'YYYY-MM-DD'
         });
-        $('#timepickerStartTime').timepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'HH:MM:SS'
+        $('#timepickerStartTime').datetimepicker({
+            format: 'HH:mm:ss'
         });
-        $('#timepickerEndTime').timepicker({
-            uiLibrary: 'bootstrap4',
-            format: 'HH:MM:SS'
+        $('#timepickerEndTime').datetimepicker({
+            format: 'HH:mm:ss'
         });
     </script>
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
@@ -109,15 +106,48 @@ if ($currentRole == $ADMIN) {
                 <input id="inputEndCity" name="inputEndCity" type="text" />
             </div>
             <p>Induló dátum:</p>
-            <input id="datepickerStartDate" name="datepickerStartDate" width="276" />
+            <div class="form-group">
+                <div class="input-group date" id="datepickerStartDate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datepickerStartDate"/>
+                    <div class="input-group-append" data-target="#datepickerStartDate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
             <p>Érkező dátum:</p>
-            <input id="datepickerEndDate" name="datepickerEndDate" width="276" />
-            <p>Indulási idő:</p>
-            <input id="timepickerStartTime" name="timepickerStartTime" width="276" />
+            <div class="form-group">
+                <div class="input-group date" id="datepickerEndDate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datepickerEndDate"/>
+                    <div class="input-group-append" data-target="#datepickerEndDate" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Indulási idő:</p>            
+            <div class="form-group">
+                <div class="input-group date" id="timepickerStartTime" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#timepickerStartTime"/>
+                    <div class="input-group-append" data-target="#timepickerStartTime" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                    </div>
+                </div>
+            </div>
+
             <p>Érkezési idő:</p>
-            <input id="timepickerEndTime" name="timepickerEndTime" width="276" />
+            <div class="form-group">
+                <div class="input-group date" id="timepickerEndTime" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEndTime"/>
+                    <div class="input-group-append" data-target="#timepickerEndTime" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                    </div>
+                </div>
+            </div>
+            
             <p>Heti rendszeresség:</p>
             <input id="inputWeeklyRecurrence" name="inputWeeklyRecurrence" type="number" value="1" min="1" max="7" step="1"/>
+            
             <p>Helyek szama:</p>   
             <input id="inputAvailableSpace" name="inputAvailableSpace" type="number" value="1" min="1" max="10" step="1"/>
 
