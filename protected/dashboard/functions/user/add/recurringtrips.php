@@ -40,11 +40,20 @@ if ($currentRole == $ADMIN) {
     </script>
     <script>
         $('#datepickerStartDate').datetimepicker({
-            format: 'YYYY-MM-DD'
+            format: 'YYYY-MM-DD',
+            locale: 'hu',
+            useCurrent: false,
+            defaultDate: new Date()
         });
+        $('#datepickerStartDate').datetimepicker('defaultDate', new Date());
         $('#datepickerEndDate').datetimepicker({
-            format: 'YYYY-MM-DD'
+            format: 'YYYY-MM-DD',
+            locale: 'hu',
+            useCurrent: false,
+            defaultDate: new Date()
         });
+        $('#datepickerEndDate').datetimepicker('defaultDate', new Date());
+        
         $('#timepickerStartTime').datetimepicker({
             format: 'HH:mm:ss'
         });
