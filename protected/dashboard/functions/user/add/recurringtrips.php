@@ -130,7 +130,7 @@ if ($currentRole == $ADMIN) {
                 <div class="input-group date" id="timepickerStartTime" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#timepickerStartTime"/>
                     <div class="input-group-append" data-target="#timepickerStartTime" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ if ($currentRole == $ADMIN) {
                 <div class="input-group date" id="timepickerEndTime" data-target-input="nearest">
                     <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEndTime"/>
                     <div class="input-group-append" data-target="#timepickerEndTime" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-clock-o"></i></div>
+                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
                     </div>
                 </div>
             </div>
