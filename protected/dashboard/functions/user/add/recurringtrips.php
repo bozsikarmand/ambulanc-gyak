@@ -39,21 +39,20 @@ if ($currentRole == $ADMIN) {
         $("input[type='number']").inputSpinner();
     </script>
     <script>
+    $(function () {
         $('#datepickerStartDate').datetimepicker({
             format: 'L'
         });
-        $('#datepickerStartDate').datetimepicker('defaultDate', new Date());
         $('#datepickerEndDate').datetimepicker({
             format: 'L'
         });
-        $('#datepickerEndDate').datetimepicker('defaultDate', new Date());
-        
         $('#timepickerStartTime').datetimepicker({
             format: 'LT'
         });
         $('#timepickerEndTime').datetimepicker({
             format: 'LT'
         });
+    });
     </script>
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
 </head>
