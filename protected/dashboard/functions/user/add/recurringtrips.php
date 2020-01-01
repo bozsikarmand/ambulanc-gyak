@@ -47,10 +47,10 @@ if ($currentRole == $ADMIN) {
             format: 'Y-MM-DD'
         });
         $('#timepickerStartTime').datetimepicker({
-            format: 'HH:mm:ss'
+            format: 'HH:mm'
         });
         $('#timepickerEndTime').datetimepicker({
-            format: 'HH:mm:ss'
+            format: 'HH:mm'
         });
     });
     </script>
