@@ -10,7 +10,7 @@ ini_set("error_log", "/tmp/php-error.log");
 require_once ($_SERVER['DOCUMENT_ROOT'] . "/core/database/config.php");
 
 if (isset($_POST['button-add-recurring-trips'])) {
-    /*$startCity = $_POST['inputStartCity'];
+    $startCity = $_POST['inputStartCity'];
     $endCity = $_POST['inputEndCity'];
     $startDate = $_POST['datepickerStartDate'];
     $endDate = $_POST['datepickerEndDate'];
@@ -37,7 +37,5 @@ if (isset($_POST['button-add-recurring-trips'])) {
 
     if ($resultSet) {
         header("Location: /protected/dashboard/user.php");
-    }*/
-
-    print_r($_POST);
+    }
 }
