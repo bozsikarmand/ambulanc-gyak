@@ -41,10 +41,10 @@ if ($currentRole == $ADMIN) {
     <script>
     $(function () {
         $('#datepickerStartDate').datetimepicker({
-            format: 'L'
+            format: 'Y-MM-DD'
         });
         $('#datepickerEndDate').datetimepicker({
-            format: 'L'
+            format: 'Y-MM-DD'
         });
         $('#timepickerStartTime').datetimepicker({
             format: 'LT'
