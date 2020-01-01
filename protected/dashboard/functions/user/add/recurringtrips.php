@@ -40,21 +40,19 @@ if ($currentRole == $ADMIN) {
     </script>
     <script>
         $('#datepickerStartDate').datetimepicker({
-            format: 'YYYY-MM-DD',
-            date: moment()
+            format: 'L'
         });
         $('#datepickerStartDate').datetimepicker('defaultDate', new Date());
         $('#datepickerEndDate').datetimepicker({
-            format: 'YYYY-MM-DD',
-            date: moment()
+            format: 'L'
         });
         $('#datepickerEndDate').datetimepicker('defaultDate', new Date());
         
         $('#timepickerStartTime').datetimepicker({
-            format: 'HH:mm:ss'
+            format: 'LT'
         });
         $('#timepickerEndTime').datetimepicker({
-            format: 'HH:mm:ss'
+            format: 'LT'
         });
     </script>
     <link rel="stylesheet" href="/assets/css/mdb.min.css">
