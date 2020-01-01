@@ -110,8 +110,8 @@ if ($currentRole == $ADMIN) {
             </div>
             <p>Induló dátum:</p>
             <div class="form-group">
-                <div class="input-group date" id="datepickerStartDate" name="datepickerStartDate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datepickerStartDate"/>
+                <div class="input-group date" id="datepickerStartDate" data-target-input="nearest">
+                    <input type="text" name="datepickerStartDate" class="form-control datetimepicker-input" data-target="#datepickerStartDate"/>
                     <div class="input-group-append" data-target="#datepickerStartDate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
@@ -120,8 +120,8 @@ if ($currentRole == $ADMIN) {
 
             <p>Érkező dátum:</p>
             <div class="form-group">
-                <div class="input-group date" id="datepickerEndDate" name="datepickerEndDate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datepickerEndDate"/>
+                <div class="input-group date" id="datepickerEndDate" data-target-input="nearest">
+                    <input type="text" name="datepickerEndDate" class="form-control datetimepicker-input" data-target="#datepickerEndDate"/>
                     <div class="input-group-append" data-target="#datepickerEndDate" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
@@ -130,8 +130,8 @@ if ($currentRole == $ADMIN) {
 
             <p>Indulási idő:</p>            
             <div class="form-group">
-                <div class="input-group date" id="timepickerStartTime" name="timepickerStartTime" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#timepickerStartTime"/>
+                <div class="input-group date" id="timepickerStartTime" data-target-input="nearest">
+                    <input type="text" name="timepickerStartTime" class="form-control datetimepicker-input" data-target="#timepickerStartTime"/>
                     <div class="input-group-append" data-target="#timepickerStartTime" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-clock"></i></div>
                     </div>
@@ -140,8 +140,8 @@ if ($currentRole == $ADMIN) {
 
             <p>Érkezési idő:</p>
             <div class="form-group">
-                <div class="input-group date" id="timepickerEndTime" name="timepickerEndTime" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#timepickerEndTime"/>
+                <div class="input-group date" id="timepickerEndTime" data-target-input="nearest">
+                    <input type="text" name="timepickerEndTime" class="form-control datetimepicker-input" data-target="#timepickerEndTime"/>
                     <div class="input-group-append" data-target="#timepickerEndTime" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-clock"></i></div>
                     </div>
